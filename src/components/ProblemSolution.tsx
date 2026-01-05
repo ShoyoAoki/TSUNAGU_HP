@@ -64,7 +64,7 @@ export default function ProblemSolution() {
   });
 
   return (
-    <section ref={containerRef} className="py-40 bg-black text-white relative overflow-hidden font-mono">
+    <section ref={containerRef} className="py-24 md:py-40 bg-black text-white relative overflow-hidden font-mono">
        {/* Precise Grid Background */}
        <div className="absolute inset-0 z-0">
          <div className="absolute top-0 left-0 w-full h-full bg-black" />
@@ -94,7 +94,7 @@ export default function ProblemSolution() {
               <span className="w-3 h-3 bg-cyan-500 animate-pulse"></span>
               / System Imbalance
             </span>
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter leading-none">
+            <h2 className="text-4xl md:text-7xl font-bold tracking-tighter leading-none">
               Structural<br/>
               <span className="text-gray-500">Mismatch_</span>
             </h2>

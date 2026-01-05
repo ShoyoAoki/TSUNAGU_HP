@@ -23,8 +23,8 @@ export default function Footer() {
         <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center text-xs font-medium text-gray-400">
           <p>&copy; {new Date().getFullYear()} Bridg Inc. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-gray-600 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-gray-600 transition-colors">Terms of Service</a>
+            <a href="/privacy" className="hover:text-gray-600 transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-gray-600 transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>

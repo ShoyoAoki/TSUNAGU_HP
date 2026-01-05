@@ -4,6 +4,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
 
+import ContactModal from "@/components/ContactModal";
+import { useState } from "react";
+
 // Square Pixel Grid Component
 const PixelGrid = ({ className }: { className?: string }) => (
   <div className={`absolute inset-0 pointer-events-none opacity-[0.05] ${className}`}
@@ -26,6 +29,7 @@ const PixelCluster = ({ className }: { className?: string }) => (
 
 export default function Hero() {
   const ref = useRef(null);
+  const [isContactOpen, setIsContactOpen] = useState(false);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -35,7 +39,8 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={ref} className="relative w-full h-[120vh] flex items-center justify-center overflow-hidden bg-white selection:bg-cyan-200 selection:text-black">
+    <section ref={ref} className="relative w-full min-h-screen md:h-[120vh] flex items-center justify-center overflow-hidden bg-white selection:bg-cyan-200 selection:text-black">
+      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
       {/* Background Grid */}
       <motion.div style={{ y, opacity }} className="absolute inset-0 z-0 pointer-events-none">
         <PixelGrid />
@@ -54,7 +59,7 @@ export default function Hero() {
         <PixelCluster className="bottom-[20%] left-[10%] opacity-50 rotate-90" />
       </motion.div>
 
-      <div className="container mx-auto px-6 relative z-20 h-screen flex flex-col justify-center">
+      <div className="container mx-auto px-6 relative z-20 min-h-screen md:h-screen flex flex-col justify-center py-20 md:py-0">
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -70,17 +75,18 @@ export default function Hero() {
               <span className="text-sm font-bold text-gray-900 tracking-widest uppercase font-mono">Next Gen HR Platform</span>
             </div>
 
-            <h1 className="text-7xl md:text-9xl font-bold tracking-tighter text-gray-900 mb-10 leading-[0.9]">
-              Bridging Talent <br className="hidden md:block" />
+            <h1 className="text-4xl md:text-8xl font-bold tracking-tighter text-gray-900 mb-6 leading-[1.1]">
+              中国のハイクラス人材を、<br className="hidden md:block" />
               <span className="relative inline-block">
-                <span className="relative z-10">Across Asia.</span>
+                <span className="relative z-10">ダイレクト採用。</span>
                 <span className="absolute bottom-2 left-0 w-full h-4 bg-cyan-200/50 -z-0" />
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-500 mb-16 font-medium leading-relaxed max-w-3xl mx-auto">
-              中国の「就職難」と日本の「人手不足」をつなぐ、<br />
-              <span className="text-gray-900 font-bold bg-gray-100 px-2">クロスボーダー型採用プラットフォーム Bridg.</span>
+            <p className="text-lg md:text-xl text-gray-500 mb-12 font-medium leading-relaxed max-w-3xl mx-auto">
+              <span className="block text-gray-400 font-mono text-sm tracking-widest uppercase mb-4">Bridging Talent Across Asia</span>
+              日本企業と中国のハイクラス人材をつなぐ、<br />
+              完全成果報酬型・クロスボーダー採用プラットフォーム「Bridg」
             </p>
 
             <motion.div
@@ -89,7 +95,10 @@ export default function Hero() {
               transition={{ delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-0 justify-center items-center"
             >
-              <button className="group relative px-12 py-6 bg-black text-white font-bold text-lg overflow-hidden transition-all hover:bg-cyan-600">
+              <button 
+                onClick={() => setIsContactOpen(true)}
+                className="group relative px-12 py-6 bg-black text-white font-bold text-lg overflow-hidden transition-all hover:bg-cyan-600"
+              >
                 <span className="relative z-10 flex items-center gap-4">
                   お問い合わせ
                   <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
@@ -106,21 +115,6 @@ export default function Hero() {
         </div>
       </div>
       
-      {/* Scroll Indicator - Square Style */}
-      <motion.div 
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-      >
-        <span className="text-xs font-bold tracking-widest uppercase font-mono text-gray-400">Scroll</span>
-        <div className="w-0.5 h-12 bg-gray-200 relative">
-          <motion.div 
-            animate={{ height: ["0%", "100%"] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 left-0 w-full bg-black"
-          />
-        </div>
-      </motion.div>
     </section>
   );
 }

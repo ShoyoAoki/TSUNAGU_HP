@@ -35,7 +35,7 @@ export default function Platform() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
 
   return (
-    <section ref={ref} className="py-40 bg-gray-50 overflow-hidden border-t border-gray-200">
+    <section ref={ref} className="py-24 md:py-40 bg-gray-50 overflow-hidden border-t border-gray-200">
       <div className="container mx-auto px-6 max-w-7xl relative">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -50,7 +50,7 @@ export default function Platform() {
                  Core Technology
                </span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-gray-900 leading-tight">
+            <h2 className="text-3xl md:text-6xl font-bold tracking-tighter text-gray-900 leading-tight">
               Bridg<br/>Platform_
             </h2>
           </div>
