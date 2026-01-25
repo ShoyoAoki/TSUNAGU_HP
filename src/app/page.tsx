@@ -5,7 +5,6 @@ import ProblemSolution from "@/components/ProblemSolution";
 import Features from "@/components/Features";
 import Platform from "@/components/Platform";
 import CallToAction from "@/components/CallToAction";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
       <Features />
       <Platform />
       <CallToAction />
-      <Footer />
     </main>
   );
 }
