@@ -33,6 +33,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-noto-sans-jp)", "sans-serif"],
+        serif: ["var(--font-noto-serif-jp)", "serif"],
         // Pixel font could be added here later if needed
       },
       backgroundImage: {
