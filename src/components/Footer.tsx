@@ -1,11 +1,11 @@
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-100 py-20">
+    <footer id="company" className="bg-white border-t border-gray-100 py-20">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
           <div>
             <h3 className="text-2xl font-bold text-gray-900 mb-2 tracking-tight">
-              Bridg Inc.
+              TSUNAGU Inc.
             </h3>
             <p className="text-gray-500 font-medium text-sm">
               Empowering organizations through data transparency.
@@ -21,7 +21,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center text-xs font-medium text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Bridg Inc. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} TSUNAGU Inc. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="/privacy" className="hover:text-gray-600 transition-colors">Privacy Policy</a>
             <a href="/terms" className="hover:text-gray-600 transition-colors">Terms of Service</a>

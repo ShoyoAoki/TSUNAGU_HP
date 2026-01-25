@@ -1,120 +1,312 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useRef } from "react";
-
+import { useRef, useState, useEffect } from "react";
 import ContactModal from "@/components/ContactModal";
-import { useState } from "react";
+import dynamic from "next/dynamic";
 
-// Square Pixel Grid Component
-const PixelGrid = ({ className }: { className?: string }) => (
-  <div className={`absolute inset-0 pointer-events-none opacity-[0.05] ${className}`}
-       style={{ 
-         backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', 
-         backgroundSize: '40px 40px' 
-       }} 
-  />
-);
+// 砂時計アニメーションコンポーネントを動的インポート（SSR無効化）
+const SandGlassAnimation = dynamic(() => import("@/components/SandGlassAnimation"), {
+  ssr: false,
+  loading: () => <div className="w-full h-full min-h-screen flex items-center justify-center bg-white" />
+});
 
-// Tetris-like Block Cluster
-const PixelCluster = ({ className }: { className?: string }) => (
-  <div className={`absolute flex flex-wrap w-16 h-16 ${className}`}>
-    <div className="w-8 h-8 bg-cyan-500/20" />
-    <div className="w-8 h-8 bg-transparent" />
-    <div className="w-8 h-8 bg-cyan-500/40" />
-    <div className="w-8 h-8 bg-cyan-500/10" />
-  </div>
-);
+// シンプルなグリッドパターン背景
+const GridBackground = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
+
+  return (
+    <div 
+      className="absolute inset-0 pointer-events-none opacity-[0.08]"
+      style={{ 
+        backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)',
+        backgroundSize: '60px 60px',
+      }}
+    />
+  );
+};
+
+// タイピングアニメーションコンポーネント
+const TypingHeadline = ({ 
+  active, 
+  onComplete 
+}: { 
+  active: boolean;
+  onComplete: () => void;
+}) => {
+  const [displayText, setDisplayText] = useState<string[]>(["", ""]);
+  const [messageIndex, setMessageIndex] = useState(0);
+  const [phase, setPhase] = useState<'typing' | 'waiting' | 'deleting'>('typing');
+  const [activeLine, setActiveLine] = useState(0);
+  const [isFirstCycleComplete, setIsFirstCycleComplete] = useState(false);
+  const [showCursor, setShowCursor] = useState(true);
+
+  const messages = [
+    ["テクノロジーで世界中の", "『意志』を、つなぐ。"],
+    ["日本企業と中国の人材をつなぐ、", "採用支援サービス。"]
+  ];
+
+  const typingSpeed = 120;
+  const deletingSpeed = 40;
+  const waitDuration = 3000;
+
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor(prev => !prev);
+    }, 500);
+    return () => clearInterval(cursorInterval);
+  }, []);
+
+  useEffect(() => {
+    if (!active) return;
+
+    let timeout: NodeJS.Timeout;
+    const currentLines = messages[messageIndex];
+
+    if (phase === 'typing') {
+      const targetText = currentLines[activeLine];
+      const currentText = displayText[activeLine];
+
+      if (currentText.length < targetText.length) {
+        timeout = setTimeout(() => {
+          setDisplayText(prev => {
+            const next = [...prev];
+            next[activeLine] = targetText.slice(0, currentText.length + 1);
+            return next;
+          });
+        }, typingSpeed);
+      } else if (activeLine < currentLines.length - 1) {
+        // 次の行へ
+        timeout = setTimeout(() => {
+          setActiveLine(prev => prev + 1);
+        }, typingSpeed);
+      } else {
+        // 現在のメッセージのタイピング完了
+        setPhase('waiting');
+        if (!isFirstCycleComplete) {
+          onComplete();
+          setIsFirstCycleComplete(true);
+        }
+      }
+    } else if (phase === 'waiting') {
+      timeout = setTimeout(() => {
+        setPhase('deleting');
+      }, waitDuration);
+    } else if (phase === 'deleting') {
+      const currentText = displayText[activeLine];
+
+      if (currentText.length > 0) {
+        timeout = setTimeout(() => {
+          setDisplayText(prev => {
+            const next = [...prev];
+            next[activeLine] = currentText.slice(0, -1);
+            return next;
+          });
+        }, deletingSpeed);
+      } else if (activeLine > 0) {
+        // 前の行の消去へ
+        setActiveLine(prev => prev - 1);
+      } else {
+        // すべて消去完了
+        setPhase('typing');
+        setMessageIndex(prev => (prev + 1) % messages.length);
+        setActiveLine(0);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, phase, activeLine, messageIndex, active, isFirstCycleComplete, onComplete]);
+
+  return (
+    <div className="min-h-[140px] md:min-h-[180px] lg:min-h-[220px] flex flex-col justify-center mb-10 overflow-visible">
+      <h1 className="text-[22px] sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 leading-[1.5] font-sans">
+        <div className="relative whitespace-nowrap overflow-visible">
+          {displayText[0]}
+          {(phase === 'typing' || phase === 'deleting') && activeLine === 0 && (
+            <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100 ml-1 inline-block bg-gray-900 w-[3px] h-[0.9em] align-middle`}>|</span>
+          )}
+        </div>
+        <div className="relative mt-2 whitespace-nowrap overflow-visible">
+          {displayText[1]}
+          {((phase === 'typing' || phase === 'deleting') && activeLine === 1) || phase === 'waiting' ? (
+            <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100 ml-1 inline-block bg-gray-900 w-[3px] h-[0.9em] align-middle`}>|</span>
+          ) : null}
+        </div>
+      </h1>
+    </div>
+  );
+};
 
 export default function Hero() {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const [showContent, setShowContent] = useState(false);
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const handleTransitionStart = () => {
+    setShowContent(true);
+  };
+
+  const handleTypingComplete = () => {
+    setTimeout(() => {
+      setIsTypingComplete(true);
+    }, 1000); // 完了後少し待ってから他を表示
+  };
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+  // マウント前は何も表示しないか、不一致を避けるための最小限の構成にする
+  if (!isMounted) {
+    return <section className="relative w-full min-h-screen bg-white pt-16 md:pt-20" />;
+  }
+
+  const contentVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { 
+        staggerChildren: 0.1,
+        delayChildren: 0.5
+      } 
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
+
   return (
-    <section ref={ref} className="relative w-full min-h-screen md:h-[120vh] flex items-center justify-center overflow-hidden bg-white selection:bg-cyan-200 selection:text-black">
+    <section ref={ref} className="relative w-full min-h-screen flex items-center overflow-hidden bg-white selection:bg-gray-200 selection:text-black pt-16 md:pt-20">
+      {isMounted && <SandGlassAnimation onTransitionStart={handleTransitionStart} />}
+      
       <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
-      {/* Background Grid */}
-      <motion.div style={{ y, opacity }} className="absolute inset-0 z-0 pointer-events-none">
-        <PixelGrid />
-        
-        {/* Sharp Rectangular Accents - No Rounded Shapes */}
-        <div className="absolute top-[10%] left-[5%] w-[400px] h-[600px] border-r border-gray-100 bg-gray-50/30 transform" />
-        <div className="absolute bottom-0 right-[10%] w-[300px] h-[400px] bg-gray-50 border-l border-t border-gray-200" />
+      
+      {/* 背景グリッドパターン */}
+      <GridBackground />
 
-        {/* Square Accents (Replacing Dots) */}
-        <div className="absolute top-1/3 left-1/4 w-4 h-4 bg-cyan-500 opacity-60" />
-        <div className="absolute top-1/4 right-1/3 w-8 h-8 border border-gray-300 opacity-40" />
-        <div className="absolute bottom-1/4 left-1/3 w-4 h-4 bg-purple-500 opacity-60" />
-        
-        {/* Cluster Accents */}
-        <PixelCluster className="top-[15%] right-[15%]" />
-        <PixelCluster className="bottom-[20%] left-[10%] opacity-50 rotate-90" />
-      </motion.div>
-
-      <div className="container mx-auto px-6 relative z-20 min-h-screen md:h-screen flex flex-col justify-center py-20 md:py-0">
-        <div className="max-w-6xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center">
+          
+          {/* 左側コンテンツ - テキストとボタン */}
+          <motion.div 
+            className="max-w-none"
+            initial="hidden"
+            animate={showContent ? "visible" : "hidden"}
+            variants={contentVariants}
           >
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-white border border-gray-200 mb-10 hover:border-cyan-500 transition-colors cursor-default">
-               <div className="flex gap-1">
-                 <div className="w-2 h-2 bg-cyan-500" />
-                 <div className="w-2 h-2 bg-purple-500" />
-                 <div className="w-2 h-2 bg-yellow-500" />
-               </div>
-              <span className="text-sm font-bold text-gray-900 tracking-widest uppercase font-mono">Next Gen HR Platform</span>
+            <div className="mb-4">
+              <motion.span 
+                className="inline-block py-1 px-3 bg-gray-100 text-gray-800 text-xs font-bold tracking-widest uppercase rounded-sm mb-6"
+                variants={itemVariants}
+              >
+                Cross-Border Recruitment Platform
+              </motion.span>
             </div>
 
-            <h1 className="text-4xl md:text-8xl font-bold tracking-tighter text-gray-900 mb-6 leading-[1.1]">
-              中国のハイクラス人材を、<br className="hidden md:block" />
-              <span className="relative inline-block">
-                <span className="relative z-10">ダイレクト採用。</span>
-                <span className="absolute bottom-2 left-0 w-full h-4 bg-cyan-200/50 -z-0" />
-              </span>
-            </h1>
-            
-            <p className="text-lg md:text-xl text-gray-500 mb-12 font-medium leading-relaxed max-w-3xl mx-auto">
-              <span className="block text-gray-400 font-mono text-sm tracking-widest uppercase mb-4">Bridging Talent Across Asia</span>
-              日本企業と中国のハイクラス人材をつなぐ、<br />
-              完全成果報酬型・クロスボーダー採用プラットフォーム「Bridg」
-            </p>
+            {/* タイピングアニメーションヘッドライン */}
+            <TypingHeadline 
+              active={showContent} 
+              onComplete={handleTypingComplete} 
+            />
 
+            {/* サブテキストとボタン - タイピング完了後にフェードイン */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-0 justify-center items-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isTypingComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
             >
-              <button 
-                onClick={() => setIsContactOpen(true)}
-                className="group relative px-12 py-6 bg-black text-white font-bold text-lg overflow-hidden transition-all hover:bg-cyan-600"
-              >
-                <span className="relative z-10 flex items-center gap-4">
-                  お問い合わせ
-                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
-                </span>
-                {/* Pixel Hover Effect */}
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNCIgaGVpZ2h0PSI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-0 group-hover:opacity-100 transition-opacity" />
-              </button>
-              
-              <button className="px-12 py-6 bg-white text-black font-bold text-lg border-y border-r border-gray-900 hover:bg-gray-50 transition-all">
-                資料ダウンロード
-              </button>
+              {/* サブテキスト */}
+              <div className="mb-10">
+                <p className="text-base md:text-lg text-gray-600 mb-4 leading-[1.8] font-normal">
+                  日本企業と中国のポテンシャルを最短距離でつなぐ。<br className="hidden md:inline" />
+                  特定技能・高度人材の導入から定着までをトータル支援。
+                </p>
+                
+                <p className="text-xs font-mono text-gray-400 tracking-wide">
+                  // BRIDGE BORDER, BUILD FUTURE.
+                </p>
+              </div>
+
+              {/* CTAボタン */}
+              <div className="flex flex-col sm:flex-row gap-4 items-start">
+                {/* お問い合わせボタン - 黒背景 */}
+                <motion.button 
+                  onClick={() => setIsContactOpen(true)}
+                  className="group relative px-8 py-4 bg-black text-white font-semibold text-sm md:text-base overflow-hidden transition-all duration-200 rounded-sm"
+                  whileHover={{ 
+                    scale: 1.02,
+                    boxShadow: "0 10px 25px -5px rgba(0,0,0,0.2)"
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    お問い合わせ
+                    <motion.span
+                      animate={{ x: [0, 4, 0] }}
+                      transition={{ 
+                        duration: 1.5,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    >
+                      <ArrowRight className="w-5 h-5" />
+                    </motion.span>
+                  </span>
+                  
+                  {/* ホバー時の背景エフェクト */}
+                  <motion.div
+                    className="absolute inset-0 bg-gray-800"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.button>
+                
+                {/* 資料ダウンロードボタン - 白背景・枠線あり */}
+                <motion.button 
+                  className="px-8 py-4 bg-white text-black font-semibold text-sm md:text-base border-2 border-gray-900 relative transition-all duration-200 rounded-sm"
+                  whileHover={{ 
+                    scale: 1.02,
+                    backgroundColor: "#f9fafb",
+                    boxShadow: "0 10px 25px -5px rgba(0,0,0,0.1)"
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <span className="relative z-10">資料ダウンロード</span>
+                </motion.button>
+              </div>
             </motion.div>
           </motion.div>
+
+          {/* 右側コンテンツ - 空間確保用 */}
+          <div className="hidden lg:block min-h-[700px]" />
+
         </div>
       </div>
-      
+
+      {/* モバイル表示用の砂時計アニメーション（必要な場合は別途調整） */}
+      <div className="lg:hidden absolute inset-0 pointer-events-none opacity-10 overflow-hidden">
+      </div>
     </section>
   );
 }

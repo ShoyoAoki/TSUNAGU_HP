@@ -68,13 +68,13 @@ export default function ServiceSummary() {
               
               {/* Header */}
               <div className="flex items-baseline justify-between mb-6">
-                <span className="text-4xl font-bold font-mono tracking-tighter text-gray-900">
+                <span className="text-3xl font-semibold font-mono tracking-tight text-gray-900">
                   {feature.id}
                 </span>
                 <PixelDecor className="text-gray-400" />
               </div>
 
-              <h3 className="text-xl font-bold text-gray-900 mb-4 tracking-tight">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 tracking-tight">
                 {feature.title}
               </h3>
               

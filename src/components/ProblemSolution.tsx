@@ -94,7 +94,7 @@ export default function ProblemSolution() {
               <span className="w-3 h-3 bg-cyan-500 animate-pulse"></span>
               / System Imbalance
             </span>
-            <h2 className="text-4xl md:text-7xl font-bold tracking-tighter leading-none">
+            <h2 className="text-3xl md:text-6xl font-semibold tracking-tight leading-none">
               Structural<br/>
               <span className="text-gray-500">Mismatch_</span>
             </h2>

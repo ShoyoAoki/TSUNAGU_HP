@@ -3,15 +3,31 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { Menu, X, ArrowRight } from "lucide-react";
 import ContactModal from "@/components/ContactModal";
 
 const navItems = [
-  { name: "Mission", jp: "ミッション", href: "#" },
-  { name: "Features", jp: "特徴・機能", href: "#" },
-  { name: "Platform", jp: "仕組み", href: "#" },
-  { name: "Company", jp: "会社概要", href: "#" },
+  { 
+    name: "Philosophy", 
+    jp: "経営理念", 
+    href: "/philosophy",
+    dropdown: [
+      { name: "Philosophy", jp: "経営理念", href: "/philosophy" },
+      { name: "Mission", jp: "ミッション", href: "/mission" },
+      { name: "Vision", jp: "ビジョン", href: "/vision" },
+      { name: "Value", jp: "バリュー", href: "/value" },
+      { name: "Origin", jp: "会社名・ロゴ由来", href: "/origin" },
+    ]
+  },
+  { name: "Features", jp: "特徴・機能", href: "/features" },
+  { name: "Platform", jp: "仕組み", href: "/platform" },
+  { name: "Company", jp: "会社概要", href: "/company" },
 ];
+
+// ヘッダーを透過させるページのリスト
+const TRANSPARENT_HEADER_PAGES = ["/", "/mission", "/vision", "/value", "/philosophy", "/origin"];
 
 // Square Pixel Grid Component (Reused for consistency)
 const PixelGrid = ({ className }: { className?: string }) => (
@@ -24,14 +40,13 @@ const PixelGrid = ({ className }: { className?: string }) => (
 );
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const isTransparentPage = TRANSPARENT_HEADER_PAGES.includes(pathname);
   const [isPastHero, setIsPastHero] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const { scrollY } = useScroll();
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   
-  const headerOpacity = useTransform(scrollY, [0, 50], [0, 1]);
-
   // Lock body scroll when menu is open
   useEffect(() => {
     if (isMenuOpen) {
@@ -44,35 +59,43 @@ export default function Header() {
   useEffect(() => {
     const updateScroll = () => {
       const scrollY = window.scrollY;
-      setIsScrolled(scrollY > 50);
-      setIsPastHero(scrollY > window.innerHeight - 100);
+      setIsPastHero(isTransparentPage ? scrollY > window.innerHeight - 100 : false);
     };
+    updateScroll();
     window.addEventListener("scroll", updateScroll);
     return () => window.removeEventListener("scroll", updateScroll);
-  }, []);
+  }, [isTransparentPage]);
 
   return (
     <>
       <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
       
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "py-4" : "py-6"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 py-6"
+        onMouseLeave={() => setHoveredItem(null)}
       >
         {/* Backdrop Filter Background */}
         <motion.div 
-          className="absolute inset-0 bg-white/80 backdrop-blur-md border-b border-gray-200"
-          style={{ opacity: headerOpacity }}
+          className="absolute inset-0 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm"
+          initial={false}
+          animate={{ opacity: isTransparentPage ? 0 : 1 }}
+          transition={{ duration: 0.3 }}
+          style={{ pointerEvents: 'none' }}
         />
 
         <div className="container mx-auto px-6 relative flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-10 group" onClick={() => setIsMenuOpen(false)}>
-            <span className="text-2xl font-bold tracking-tighter text-gray-900 font-mono flex items-center gap-1">
-              <div className={`w-3 h-3 bg-cyan-500 transition-transform duration-300 ${isMenuOpen ? 'rotate-45' : 'group-hover:rotate-45'}`} />
-              Bridg.
-            </span>
+            <div className="flex items-center gap-2 transition-opacity duration-300 hover:opacity-80">
+              <Image 
+                src="/images/logo.png" 
+                alt="TSUNAGU" 
+                width={480} 
+                height={120}
+                className="h-24 w-auto"
+                priority
+              />
+            </div>
           </Link>
 
           {/* Right Side Content */}
@@ -82,16 +105,21 @@ export default function Header() {
               <div className="hidden md:flex items-center gap-8">
                 <nav className="flex items-center gap-8">
                   {navItems.map((item) => (
-                    <Link 
-                      key={item.name} 
-                      href={item.href}
-                      className="text-sm font-medium text-gray-600 hover:text-black transition-colors relative group font-mono flex flex-col items-center leading-none"
+                    <div 
+                      key={item.name}
+                      className="relative"
+                      onMouseEnter={() => setHoveredItem(item.name)}
                     >
-                      <span className="relative z-10 text-base">{item.name}</span>
-                      <span className="text-[10px] text-gray-400 group-hover:text-cyan-600 transition-colors font-sans font-bold mt-1">{item.jp}</span>
-                      <span className="absolute -left-3 top-0 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-500">[</span>
-                      <span className="absolute -right-3 top-0 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-500">]</span>
-                    </Link>
+                      <Link 
+                        href={item.href}
+                        className="text-sm font-medium text-gray-600 hover:text-black transition-colors relative group font-mono flex flex-col items-center leading-none py-2"
+                      >
+                        <span className="relative z-10 text-base">{item.name}</span>
+                        <span className="text-[10px] text-gray-400 group-hover:text-cyan-600 transition-colors font-sans font-bold mt-1">{item.jp}</span>
+                        <span className="absolute -left-3 top-2 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-500">[</span>
+                        <span className="absolute -right-3 top-2 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-500">]</span>
+                      </Link>
+                    </div>
                   ))}
                 </nav>
 
@@ -109,7 +137,7 @@ export default function Header() {
 
             {/* Hamburger Menu Toggle - Show on Mobile OR when past hero on Desktop */}
             <button 
-              className={`relative z-50 p-2 transition-colors ${isMenuOpen ? 'text-black' : 'text-gray-900'} ${!isPastHero ? 'md:hidden' : ''}`}
+              className={`relative z-50 p-2 transition-colors ${isMenuOpen ? 'text-black' : 'text-gray-900'} ${(!isTransparentPage || isPastHero) ? '' : 'md:hidden'}`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Menu"
             >
@@ -117,6 +145,53 @@ export default function Header() {
             </button>
           </div>
         </div>
+
+        {/* Mega Menu Dropdown */}
+        <AnimatePresence>
+          {hoveredItem && navItems.find(n => n.name === hoveredItem)?.dropdown && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute top-full left-0 w-full bg-black text-white py-12 border-t border-white/10 overflow-hidden"
+              onMouseEnter={() => setHoveredItem(hoveredItem)}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              <PixelGrid className="opacity-[0.03] !invert" />
+              <div className="container mx-auto px-6 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+                  <div className="md:col-span-1">
+                    <h3 className="text-2xl md:text-3xl font-bold tracking-tighter mb-4 flex items-center gap-4">
+                      {hoveredItem}
+                      <ArrowRight className="w-6 h-6 text-cyan-500" />
+                    </h3>
+                    <div className="w-12 h-1 bg-cyan-500" />
+                  </div>
+                  <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8">
+                    {navItems.find(n => n.name === hoveredItem)?.dropdown?.map((subItem) => (
+                      <Link 
+                        key={subItem.name} 
+                        href={subItem.href}
+                        className="group flex items-center justify-between border-b border-white/10 pb-4 hover:border-cyan-500 transition-colors"
+                      >
+                        <div className="flex flex-col">
+                          <span className="text-lg font-bold tracking-tight group-hover:text-cyan-400 transition-colors">
+                            {subItem.jp}
+                          </span>
+                          <span className="text-xs font-mono text-gray-500 uppercase tracking-widest mt-1">
+                            {subItem.name}
+                          </span>
+                        </div>
+                        <ArrowRight className="w-4 h-4 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-cyan-500" />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.header>
 
       {/* Full Screen Menu Overlay */}
@@ -146,6 +221,7 @@ export default function Header() {
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
+                    className="flex flex-col gap-2"
                   >
                     <Link
                       href={item.href}
@@ -167,6 +243,23 @@ export default function Header() {
                         <ArrowRight className="w-6 h-6 md:w-8 md:h-8 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-cyan-500" />
                       </div>
                     </Link>
+
+                    {/* Mobile Sub-items */}
+                    {item.dropdown && (
+                      <div className="flex flex-wrap gap-x-6 gap-y-2 ml-10 md:ml-20 mt-2 mb-4">
+                        {item.dropdown.map((subItem) => (
+                          <Link
+                            key={subItem.name}
+                            href={subItem.href}
+                            onClick={() => setIsMenuOpen(false)}
+                            className="text-sm font-bold text-gray-500 hover:text-cyan-600 transition-colors flex items-center gap-1"
+                          >
+                            <span>{subItem.jp}</span>
+                            <ArrowRight className="w-3 h-3" />
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </motion.div>
                 ))}
               </nav>
@@ -203,7 +296,7 @@ export default function Header() {
             {/* Bottom Status Bar */}
             <div className="absolute bottom-0 left-0 w-full h-12 border-t border-gray-100 flex items-center justify-between px-6 bg-white text-[10px] font-mono text-gray-400 uppercase tracking-widest">
               <span>System: Online</span>
-              <span>Bridg Inc. © {new Date().getFullYear()}</span>
+              <span>TSUNAGU Inc. © {new Date().getFullYear()}</span>
             </div>
           </motion.div>
         )}

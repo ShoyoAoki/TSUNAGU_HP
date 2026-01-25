@@ -62,7 +62,7 @@ export default function Features() {
   });
 
   return (
-    <section ref={containerRef} className="py-24 md:py-40 bg-white relative">
+    <section id="features" ref={containerRef} className="py-24 md:py-40 bg-white relative">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex flex-col md:flex-row justify-between items-end mb-24">
           <motion.div
@@ -77,7 +77,7 @@ export default function Features() {
                  Platform Features
                </span>
             </div>
-            <h2 className="text-4xl md:text-8xl font-bold tracking-tighter text-black leading-[0.9]">
+            <h2 className="text-3xl md:text-6xl font-semibold tracking-tight text-black leading-tight">
               Designed for <br/>
               <span className="text-gray-400">Gen-Z_</span>
             </h2>
