@@ -127,13 +127,13 @@ const TypingHeadline = ({
         <div className="relative whitespace-nowrap overflow-visible">
           {displayText[0]}
           {(phase === 'typing' || phase === 'deleting') && activeLine === 0 && (
-            <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100 ml-1 inline-block bg-gray-900 w-[3px] h-[0.9em] align-middle`}>|</span>
+            <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100 ml-1 inline-block bg-gray-900 w-[2px] h-[1em] align-middle`} />
           )}
         </div>
         <div className="relative mt-2 whitespace-nowrap overflow-visible">
           {displayText[1]}
           {((phase === 'typing' || phase === 'deleting') && activeLine === 1) || phase === 'waiting' ? (
-            <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100 ml-1 inline-block bg-gray-900 w-[3px] h-[0.9em] align-middle`}>|</span>
+            <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100 ml-1 inline-block bg-gray-900 w-[2px] h-[1em] align-middle`} />
           ) : null}
         </div>
       </h1>

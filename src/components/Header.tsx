@@ -21,13 +21,12 @@ const navItems = [
       { name: "Origin", jp: "会社名・ロゴ由来", href: "/origin" },
     ]
   },
-  { name: "Features", jp: "特徴・機能", href: "/features" },
-  { name: "Platform", jp: "仕組み", href: "/platform" },
+  { name: "Service", jp: "サービス", href: "/service" },
   { name: "Company", jp: "会社概要", href: "/company" },
 ];
 
 // ヘッダーを透過させるページのリスト
-const TRANSPARENT_HEADER_PAGES = ["/", "/mission", "/vision", "/value", "/philosophy", "/origin"];
+const TRANSPARENT_HEADER_PAGES = ["/", "/mission", "/vision", "/value", "/philosophy", "/origin", "/service", "/company"];
 
 // Square Pixel Grid Component (Reused for consistency)
 const PixelGrid = ({ className }: { className?: string }) => (
