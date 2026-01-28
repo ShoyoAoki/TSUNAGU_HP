@@ -93,8 +93,8 @@ export default function MissionClient() {
             transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
             className="text-center"
           >
-            <span className="block text-sm font-mono tracking-[0.3em] text-gray-400 mb-8">MISSION</span>
-            <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter leading-[1.1] mb-4">
+            <span className="block text-sm font-mono tracking-[0.4em] text-gray-400 mb-12">MISSION</span>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-[0.1em] leading-[1.6] text-gray-900">
               テクノロジーで<br />
               世界中の『意志』を、<br />
               つなぐ。

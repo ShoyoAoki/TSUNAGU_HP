@@ -46,7 +46,7 @@ export default function CallToAction() {
 
           <p className="text-lg md:text-xl text-gray-600 mb-16 max-w-2xl mx-auto leading-relaxed">
             採用の常識を、テクノロジーで書き換える。<br />
-            Bridgは、本気で組織を変えたい企業のためのプラットフォームです。
+            TSUNAGUは、本気で組織を変えたい企業のためのプラットフォームです。
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

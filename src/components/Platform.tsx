@@ -51,7 +51,7 @@ export default function Platform() {
                </span>
             </div>
             <h2 className="text-2xl md:text-5xl font-semibold tracking-tight text-gray-900 leading-tight">
-              Bridg<br/>Platform_
+              TSUNAGU<br/>Platform_
             </h2>
           </div>
           

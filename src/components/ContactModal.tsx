@@ -103,7 +103,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         type="text" 
                         required
                         className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-gray-900 font-medium focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
-                        placeholder="株式会社Bridg"
+                        placeholder="株式会社TSUNAGU"
                       />
                     </div>
 
@@ -126,9 +126,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         <input 
                           type="email" 
                           required
-                          className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-gray-900 font-medium focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
-                          placeholder="hello@bridg.co.jp"
-                        />
+                        className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-gray-900 font-medium focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
+                        placeholder="hello@tsunaguinc.co.jp"
+                      />
                       </div>
                     </div>
 

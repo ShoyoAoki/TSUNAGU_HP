@@ -4,7 +4,7 @@ import { ImageResponse } from 'next/og'
 export const runtime = 'edge'
  
 // Image metadata
-export const alt = 'Bridg - Next Gen HR Platform'
+export const alt = 'TSUNAGU - Next Gen HR Platform'
 export const size = {
   width: 1200,
   height: 630,
@@ -49,7 +49,7 @@ export default async function Image() {
         {/* Main Content */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 20 }}>
            <div style={{ width: 40, height: 40, background: '#06b6d4' }} />
-           <div style={{ fontSize: 60, fontWeight: 900, fontFamily: 'monospace' }}>Bridg.</div>
+           <div style={{ fontSize: 60, fontWeight: 900, fontFamily: 'monospace' }}>TSUNAGU.</div>
         </div>
 
         <div style={{ fontSize: 32, color: '#9ca3af', fontWeight: 500, maxWidth: 800, textAlign: 'center', lineHeight: 1.4 }}>

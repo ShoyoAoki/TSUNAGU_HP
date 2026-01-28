@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
 
         <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-cyan-600">
           <p>
-            株式会社Bridg（以下「当社」といいます。）は、本ウェブサイト上で提供するサービス（以下「本サービス」といいます。）における、ユーザーの個人情報の取扱いについて、以下のとおりプライバシーポリシー（以下「本ポリシー」といいます。）を定めます。
+            株式会社TSUNAGU（以下「当社」といいます。）は、本ウェブサイト上で提供するサービス（以下「本サービス」といいます。）における、ユーザーの個人情報の取扱いについて、以下のとおりプライバシーポリシー（以下「本ポリシー」といいます。）を定めます。
           </p>
 
           <h3>第1条（個人情報）</h3>
@@ -56,10 +56,9 @@ export default function PrivacyPolicy() {
             本ポリシーに関するお問い合わせは、下記の窓口までお願いいたします。
           </p>
           <div className="bg-gray-50 p-6 border border-gray-200 mt-4 not-prose">
-            <p className="font-bold mb-2">株式会社Bridg 個人情報取扱担当</p>
+            <p className="font-bold mb-2">株式会社TSUNAGU 個人情報取扱担当</p>
             <p className="text-sm text-gray-600">
-              Eメールアドレス: privacy@bridg.inc<br />
-              （現在このメールアドレスはダミーです）
+              Eメールアドレス: info@tsunaguinc.co.jp<br />
             </p>
           </div>
         </div>
