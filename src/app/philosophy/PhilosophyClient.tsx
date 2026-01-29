@@ -117,7 +117,7 @@ export default function PhilosophyClient() {
                 className="flex flex-col items-center"
               >
                 <span className="text-lg md:text-xl font-serif tracking-widest mb-4">代表取締役</span>
-                <span className="text-3xl md:text-4xl font-serif tracking-[0.2em] relative inline-block">
+                <span className="text-xl md:text-2xl font-serif tracking-[0.2em] relative inline-block">
                   青木 翔陽
                   <motion.div 
                     initial={{ scaleX: 0 }}
@@ -240,7 +240,7 @@ export default function PhilosophyClient() {
           >
             <div className="inline-flex flex-col items-end">
               <span className="text-sm font-serif text-gray-600 mb-2">株式会社TSUNAGU 代表取締役</span>
-              <span className="text-4xl md:text-6xl font-serif tracking-tighter italic">青木 翔陽</span>
+              <span className="text-xl md:text-2xl font-serif tracking-tighter italic">青木 翔陽</span>
             </div>
           </motion.div>
         </section>
