@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { Inter, Noto_Serif_JP } from "next/font/google";
@@ -76,13 +76,19 @@ export default function PhilosophyClient() {
       <GridBackground />
       <BackgroundText />
 
-      {/* 背景の砂時計ビデオ - 回転ラッパーに円形マスクで四角枠を隠す（モバイルで自然に） */}
+      {/* 背景の砂時計ビデオ - 回転は維持しつつ円形マスクで四角枠を隠す（モバイルでも丸く見える） */}
       <motion.div 
         style={{ 
           rotate: videoRotate, 
           opacity: videoOpacity,
-          maskImage: 'radial-gradient(ellipse 85vmin 85vmin at 50% 50%, black, transparent)',
-          WebkitMaskImage: 'radial-gradient(ellipse 85vmin 85vmin at 50% 50%, black, transparent)',
+          maskImage: 'radial-gradient(circle at center, black 49%, transparent 50%)',
+          WebkitMaskImage: 'radial-gradient(circle at center, black 49%, transparent 50%)',
+          maskSize: '72vmin 72vmin',
+          WebkitMaskSize: '72vmin 72vmin',
+          maskPosition: 'center',
+          WebkitMaskPosition: 'center',
+          maskRepeat: 'no-repeat',
+          WebkitMaskRepeat: 'no-repeat',
         }}
         className="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden"
       >

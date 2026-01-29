@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: '/opengraph-image',
+        url: 'https://tsunaguinc.co.jp/opengraph-image',
         width: 1200,
         height: 630,
         alt: 'TSUNAGU - Bridging Talent Across Asia',
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     title: "TSUNAGU | Bridging Talent Across Asia",
     description: "テクノロジーで世界中の『意志』を、つなぐ。株式会社TSUNAGUのオフィシャルサイト。",
     creator: "@tsunagu_inc", // TODO: 公式アカウントがあれば設定
-    images: ['/opengraph-image'],
+    images: ['https://tsunaguinc.co.jp/opengraph-image'],
   },
   robots: {
     index: true,
