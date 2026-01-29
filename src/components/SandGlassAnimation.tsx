@@ -75,21 +75,6 @@ export default function SandGlassAnimation({ onTransitionStart }: SandGlassAnima
               }}
             />
           </motion.div>
-
-          {/* TSUNAGU ロゴテキスト - 2行に分割してサイズを調整 */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
-            className="select-none pointer-events-none absolute left-[65%] md:left-[72%] lg:left-[82%] flex flex-col gap-2"
-          >
-            <span className="text-xl md:text-2xl lg:text-3xl font-bold tracking-[0.5em] text-black font-mono leading-none">
-              TSUNA
-            </span>
-            <span className="text-xl md:text-2xl lg:text-3xl font-bold tracking-[0.5em] text-black font-mono leading-none">
-              GU
-            </span>
-          </motion.div>
         </motion.div>
       </div>
 

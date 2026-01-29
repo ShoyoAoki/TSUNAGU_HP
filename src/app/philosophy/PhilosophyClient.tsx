@@ -76,10 +76,15 @@ export default function PhilosophyClient() {
       <GridBackground />
       <BackgroundText />
 
-      {/* 背景の砂時計ビデオ */}
+      {/* 背景の砂時計ビデオ - 回転ラッパーに円形マスクで四角枠を隠す（モバイルで自然に） */}
       <motion.div 
-        style={{ rotate: videoRotate, opacity: videoOpacity }}
-        className="fixed inset-0 flex items-center justify-center pointer-events-none z-0"
+        style={{ 
+          rotate: videoRotate, 
+          opacity: videoOpacity,
+          maskImage: 'radial-gradient(ellipse 85vmin 85vmin at 50% 50%, black, transparent)',
+          WebkitMaskImage: 'radial-gradient(ellipse 85vmin 85vmin at 50% 50%, black, transparent)',
+        }}
+        className="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden"
       >
         <video
           src="/videos/sandglass.mp4"
@@ -87,7 +92,7 @@ export default function PhilosophyClient() {
           loop
           muted
           playsInline
-          className="w-auto h-[120vh] object-contain mix-blend-multiply"
+          className="w-auto h-[140vh] md:h-[120vh] object-contain mix-blend-multiply"
           style={{
             maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)',
             WebkitMaskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)'
@@ -105,7 +110,7 @@ export default function PhilosophyClient() {
             className="text-center space-y-12"
           >
             <span className="block text-sm font-mono tracking-[0.4em] text-gray-400 uppercase">Message</span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif tracking-[0.1em] leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif tracking-[0.1em] leading-tight whitespace-nowrap">
               時を、命と捉える。
             </h1>
             
