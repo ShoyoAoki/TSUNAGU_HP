@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     default: "TSUNAGU | Bridging Talent Across Asia",
     template: "%s | TSUNAGU"
   },
-  description: "中国の「就職難」と日本の「人手不足」をつなぐ、クロスボーダー型採用プラットフォーム「Bridg」。AIとデータで組織のポテンシャルを最大化します。",
-  keywords: ["Bridg", "採用", "HR", "クロスボーダー", "グローバル採用", "エンジニア採用", "日中人材", "AIマッチング"],
+  description: "テクノロジーで世界中の『意志』を、つなぐ。日本企業と中国のポテンシャルを最短距離でつなぐ、株式会社TSUNAGUのオフィシャルサイト。",
+  keywords: ["TSUNAGU", "採用", "HR", "クロスボーダー", "グローバル採用", "エンジニア採用", "日中人材", "AIマッチング"],
   authors: [{ name: "TSUNAGU Inc." }],
   creator: "TSUNAGU Inc.",
   publisher: "TSUNAGU Inc.",
@@ -46,27 +46,27 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "Bridg | 次世代グローバル採用プラットフォーム",
-    description: "データとAIで、国境を越えた最適なマッチングを実現。日本の人手不足とアジアの才能をつなぐ、新しい採用インフラ「Bridg」。",
+    title: "TSUNAGU | Bridging Talent Across Asia",
+    description: "テクノロジーで世界中の『意志』を、つなぐ。日本企業と中国のポテンシャルを最短距離でつなぐ、株式会社TSUNAGUのオフィシャルサイト。",
     url: "https://tsunaguinc.co.jp",
     siteName: "TSUNAGU",
     locale: "ja_JP",
     type: "website",
     images: [
       {
-        url: '/og-image.png',
+        url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Bridg Platform',
+        alt: 'TSUNAGU - Bridging Talent Across Asia',
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bridg | 次世代グローバル採用プラットフォーム",
-    description: "国境を越えた才能のマッチングで、組織の未来を変える。",
+    title: "TSUNAGU | Bridging Talent Across Asia",
+    description: "テクノロジーで世界中の『意志』を、つなぐ。株式会社TSUNAGUのオフィシャルサイト。",
     creator: "@tsunagu_inc", // TODO: 公式アカウントがあれば設定
-    images: ['/og-image.png'],
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,

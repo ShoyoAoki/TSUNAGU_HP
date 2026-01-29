@@ -101,22 +101,6 @@ export default function ValueClient() {
               4つの行動指針を掲げています。
             </p>
           </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2.5, duration: 1.5 }}
-            className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center"
-          >
-            <span className="text-[10px] font-mono tracking-[0.4em] text-gray-400 mb-4 uppercase">Scroll</span>
-            <div className="w-px h-16 bg-gray-100 overflow-hidden">
-              <motion.div 
-                animate={{ y: [-64, 64] }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-full bg-gray-950"
-              />
-            </div>
-          </motion.div>
         </section>
 
         {/* 2. バリュー・グリッド */}

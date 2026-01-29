@@ -1,20 +1,21 @@
 import { ImageResponse } from 'next/og'
- 
+
 // Route segment config
 export const runtime = 'edge'
- 
+
 // Image metadata
-export const alt = 'Bridg - Next Gen HR Platform'
+export const alt = 'TSUNAGU - Bridging Talent Across Asia'
 export const size = {
   width: 1200,
   height: 630,
 }
 export const contentType = 'image/png'
- 
+
+const LOGO_URL = 'https://tsunaguinc.co.jp/images/logo.png'
+
 export default async function Image() {
   return new ImageResponse(
     (
-      // ImageResponse JSX element
       <div
         style={{
           background: '#000',
@@ -46,33 +47,36 @@ export default async function Image() {
         <div style={{ position: 'absolute', top: 60, left: 60, width: 20, height: 20, background: '#06b6d4' }} />
         <div style={{ position: 'absolute', bottom: 80, right: 80, width: 40, height: 40, border: '4px solid #a855f7', opacity: 0.6 }} />
 
-        {/* Main Content */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 20 }}>
-           <div style={{ width: 40, height: 40, background: '#06b6d4' }} />
-           <div style={{ fontSize: 60, fontWeight: 900, fontFamily: 'monospace' }}>Bridg.</div>
+        {/* TSUNAGU ロゴ */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 24 }}>
+          <img
+            src={LOGO_URL}
+            alt="TSUNAGU"
+            width={360}
+            height={90}
+            style={{ height: 90, width: 'auto', objectFit: 'contain' }}
+          />
         </div>
 
         <div style={{ fontSize: 32, color: '#9ca3af', fontWeight: 500, maxWidth: 800, textAlign: 'center', lineHeight: 1.4 }}>
           Bridging Talent Across Asia.
         </div>
 
-        <div style={{ 
-          marginTop: 40, 
-          padding: '12px 24px', 
-          border: '2px solid #333', 
-          fontSize: 20, 
+        <div style={{
+          marginTop: 40,
+          padding: '12px 24px',
+          border: '2px solid #333',
+          fontSize: 20,
           color: '#06b6d4',
           fontFamily: 'monospace',
           letterSpacing: 4
         }}>
-          NEXT GEN HR PLATFORM
+          TSUNAGU Inc.
         </div>
       </div>
     ),
-    // ImageResponse options
     {
       ...size,
     }
   )
 }
-
