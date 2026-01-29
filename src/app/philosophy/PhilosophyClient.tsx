@@ -47,8 +47,11 @@ const BackgroundText = () => {
   );
 };
 
+const MOBILE_BREAKPOINT = 768;
+
 export default function PhilosophyClient() {
   const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -69,27 +72,41 @@ export default function PhilosophyClient() {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    if (!mounted) return;
+    const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
+    setIsMobile(mq.matches);
+    const handler = () => setIsMobile(mq.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, [mounted]);
+
   if (!mounted) return null;
+
+  // PCはマスクなし（従来どおり）、モバイルのみ円形マスクで四角枠を隠す
+  const wrapperStyle = {
+    rotate: videoRotate,
+    opacity: videoOpacity,
+    ...(isMobile && {
+      maskImage: 'radial-gradient(circle at center, black 49%, transparent 50%)',
+      WebkitMaskImage: 'radial-gradient(circle at center, black 49%, transparent 50%)',
+      maskSize: '72vmin 72vmin',
+      WebkitMaskSize: '72vmin 72vmin',
+      maskPosition: 'center',
+      WebkitMaskPosition: 'center',
+      maskRepeat: 'no-repeat',
+      WebkitMaskRepeat: 'no-repeat',
+    }),
+  };
 
   return (
     <main ref={containerRef} className={`relative min-h-screen bg-white text-black selection:bg-gray-900 selection:text-white ${notoSerifJP.variable} ${inter.variable}`}>
       <GridBackground />
       <BackgroundText />
 
-      {/* 背景の砂時計ビデオ - 回転は維持しつつ円形マスクで四角枠を隠す（モバイルでも丸く見える） */}
+      {/* 背景の砂時計ビデオ - PCは変更なし、モバイルのみ円形マスク */}
       <motion.div 
-        style={{ 
-          rotate: videoRotate, 
-          opacity: videoOpacity,
-          maskImage: 'radial-gradient(circle at center, black 49%, transparent 50%)',
-          WebkitMaskImage: 'radial-gradient(circle at center, black 49%, transparent 50%)',
-          maskSize: '72vmin 72vmin',
-          WebkitMaskSize: '72vmin 72vmin',
-          maskPosition: 'center',
-          WebkitMaskPosition: 'center',
-          maskRepeat: 'no-repeat',
-          WebkitMaskRepeat: 'no-repeat',
-        }}
+        style={wrapperStyle}
         className="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden"
       >
         <video
@@ -98,10 +115,10 @@ export default function PhilosophyClient() {
           loop
           muted
           playsInline
-          className="w-auto h-[140vh] md:h-[120vh] object-contain mix-blend-multiply"
+          className="w-auto h-[140vh] md:h-[120vh] object-contain mix-blend-multiply opacity-95"
           style={{
-            maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)',
-            WebkitMaskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)'
+            maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 85%)',
+            WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 85%)'
           }}
         />
       </motion.div>
