@@ -124,6 +124,7 @@ export default function OriginClient() {
           >
             <p className="leading-relaxed">
               「株式会社TSUNAGU」という社名には、テクノロジーによって国境や時間の壁を溶かし、世界に散らばる高潔な意志を最短距離で結びつけたいという強い決意を込めています。
+              また、提供するプラットフォーム「Bridg」は、その意志を具体的に繋ぐ架け橋（Bridge）となることを意味しています。
             </p>
           </Section>
 

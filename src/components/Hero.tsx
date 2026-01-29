@@ -239,7 +239,7 @@ export default function Hero() {
               <div className="mb-10">
                 <p className="text-base md:text-lg text-gray-600 mb-4 leading-[1.8] font-normal">
                   日本企業と中国のポテンシャルを最短距離でつなぐ。<br className="hidden md:inline" />
-                  特定技能・高度人材の導入から定着までをトータル支援。
+                  特定技能・高度人材の導入から定着までをトータル支援するプラットフォーム「Bridg」。
                 </p>
                 
                 <p className="text-xs font-mono text-gray-400 tracking-wide">

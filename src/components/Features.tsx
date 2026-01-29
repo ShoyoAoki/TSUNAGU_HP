@@ -24,7 +24,7 @@ const features = [
     tag: "Community",
     title: "Mentoring",
     jpTitle: "コミュニティ & メンタリング",
-    desc: "「大学・学部別」「ビザの悩み」など、テーマごとのコミュニティ機能を提供。メンターとのQ&Aを通じて、就職前からプラットフォームへの帰属意識を高めます。",
+    desc: "「大学・学部別」「ビザの悩み」など、テーマごとのコミュニティ機能を提供。メンターとのQ&Aを通じて、就職前からBridgへの帰属意識を高めます。",
     col: "md:col-span-1",
     theme: "text-gray-900 border-gray-200"
   },

@@ -3,8 +3,8 @@ import ServiceSummary from "@/components/ServiceSummary";
 import CallToAction from "@/components/CallToAction";
 
 export const metadata = {
-  title: "Features | TSUNAGU",
-  description: "TSUNAGUの特徴と機能。中国ハイクラス人材、動画マッチング、成果報酬型採用。",
+  title: "Features | Bridg",
+  description: "Bridgの特徴と機能。中国ハイクラス人材、動画マッチング、成果報酬型採用。",
 };
 
 export default function FeaturesPage() {

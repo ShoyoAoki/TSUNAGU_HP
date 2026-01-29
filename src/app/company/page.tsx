@@ -24,7 +24,7 @@ export default function CompanyPage() {
       en: "Business", 
       value: (
         <ul className="space-y-2">
-          <li>・クロスボーダーHRプラットフォーム「TSUNAGU」の開発・運営</li>
+          <li>・クロスボーダーHRプラットフォーム「Bridg」の開発・運営</li>
           <li>・海外人材採用コンサルティング</li>
         </ul>
       ) 

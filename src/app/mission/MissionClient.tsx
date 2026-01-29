@@ -72,7 +72,7 @@ export default function MissionClient() {
       weight: 300
     },
     {
-      text: "TSUNAGUは、世界中のポテンシャルを解放し、\nあるべき未来を、今、この瞬間に実装します。",
+      text: "Bridgは、世界中のポテンシャルを解放し、\nあるべき未来を、今、この瞬間に実装します。",
       weight: 300
     }
   ];
