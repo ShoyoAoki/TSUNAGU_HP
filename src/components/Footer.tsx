@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 const footerNavItems = [
   { 
@@ -29,10 +28,9 @@ export default function Footer() {
               <img 
                 src="/images/logo.png" 
                 alt="TSUNAGU" 
-                width={360} 
-                height={90}
-                style={{ height: '90px', width: 'auto' }}
-                className="block transition-opacity duration-300 hover:opacity-80"
+                width={240}
+                height={60}
+                className="block h-7 md:h-8 w-auto transition-opacity duration-300 hover:opacity-80"
               />
             </Link>
             <p className="text-gray-500 font-medium text-sm leading-relaxed max-w-xs">
