@@ -87,9 +87,10 @@ export default function Header() {
             <img
               src="/images/logo.png"
               alt="TSUNAGU"
-              width={240}
-              height={60}
-              className="block h-7 md:h-8 w-auto transition-opacity duration-300 group-hover:opacity-80"
+              width={360}
+              height={90}
+              style={{ height: "90px", width: "auto" }}
+              className="block transition-opacity duration-300 group-hover:opacity-80"
             />
           </Link>
 
