@@ -1,7 +1,6 @@
 "use client";
 
 import CallToAction from "@/components/CallToAction";
-import { ArrowRight, Building2, Globe2, ShieldCheck, Users2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 // Square Pixel Grid Component
@@ -32,12 +31,7 @@ export default function CompanyPage() {
     { 
       label: "有料職業紹介許可番号", 
       en: "License Number", 
-      value: (
-        <div className="flex items-center gap-2 text-cyan-600 font-bold">
-          <ShieldCheck className="w-5 h-5" />
-          <span>46-ユ-300221</span>
-        </div>
-      ) 
+      value: "46-ユ-300221" 
     },
   ];
 
@@ -142,19 +136,15 @@ export default function CompanyPage() {
                 {globalNetwork.map((group, groupIndex) => (
                   <div key={groupIndex} className="bg-white p-8 border border-gray-200 relative group">
                     <div className="absolute top-0 left-0 w-1 h-full bg-gray-200 group-hover:bg-cyan-500 transition-colors" />
-                    <div className="flex items-center justify-between mb-8">
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-900">{group.category}</h3>
-                        <p className="text-[10px] font-mono text-cyan-600 uppercase tracking-widest mt-1">{group.en}</p>
-                      </div>
-                      {group.category === "子会社" ? <Building2 className="w-6 h-6 text-gray-300" /> : <Users2 className="w-6 h-6 text-gray-300" />}
+                    <div className="mb-8">
+                      <h3 className="text-xl font-bold text-gray-900">{group.category}</h3>
+                      <p className="text-[10px] font-mono text-cyan-600 uppercase tracking-widest mt-1">{group.en}</p>
                     </div>
 
                     <div className="space-y-6">
                       {group.items.map((item, itemIndex) => (
                         <div key={itemIndex} className="relative pl-4 border-l border-gray-100">
-                          <div className="flex items-center gap-2 mb-1">
-                            <Globe2 className="w-3 h-3 text-cyan-500" />
+                          <div className="mb-1">
                             <span className="text-[10px] font-bold text-cyan-600 uppercase tracking-wider">{item.location}</span>
                           </div>
                           <h4 className="text-lg font-bold text-gray-900 mb-2">{item.name}</h4>
@@ -166,17 +156,12 @@ export default function CompanyPage() {
                 ))}
               </div>
 
-              <div className="mt-12 p-6 bg-white border border-gray-200 flex items-start gap-4">
-                <div className="p-2 bg-cyan-50 text-cyan-600">
-                  <ShieldCheck className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-gray-900 mb-1">透明性の高い協力体制</p>
-                  <p className="text-xs text-gray-500 leading-relaxed">
-                    株式会社TSUNAGUは、子会社を通じた直接運営と、厳選された提携先との協力関係を明確に区分しています。
-                    これにより、各地域における法令遵守と、高品質なサービスの提供を両立させています。
-                  </p>
-                </div>
+              <div className="mt-12 p-6 bg-white border border-gray-200">
+                <p className="text-sm font-bold text-gray-900 mb-1">透明性の高い協力体制</p>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  株式会社TSUNAGUは、子会社を通じた直接運営と、厳選された提携先との協力関係を明確に区分しています。
+                  これにより、各地域における法令遵守と、高品質なサービスの提供を両立させています。
+                </p>
               </div>
             </motion.div>
           </div>

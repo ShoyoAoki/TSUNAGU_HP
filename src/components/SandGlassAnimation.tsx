@@ -93,20 +93,6 @@ export default function SandGlassAnimation({ onTransitionStart }: SandGlassAnima
         </motion.div>
       </div>
 
-      {/* Skip Button - 常に最前面 */}
-      <AnimatePresence>
-        {phase !== 'completed' && (
-          <motion.button
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={handleSkip}
-            className="absolute top-8 right-8 z-[110] px-6 py-2 border border-black/20 rounded-full text-xs font-mono hover:bg-black hover:text-white transition-colors bg-white/50 backdrop-blur-sm"
-          >
-            SKIP
-          </motion.button>
-        )}
-      </AnimatePresence>
     </div>
   );
 }

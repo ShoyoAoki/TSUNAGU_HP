@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 import { Menu, X, ArrowRight } from "lucide-react";
 import ContactModal from "@/components/ContactModal";
 
@@ -82,19 +81,17 @@ export default function Header() {
           style={{ pointerEvents: 'none' }}
         />
 
-        <div className="container mx-auto px-6 relative flex items-center justify-between">
+        <div className="w-full relative flex items-center justify-between px-4">
           {/* Logo */}
-          <Link href="/" className="relative z-10 group" onClick={() => setIsMenuOpen(false)}>
-            <div className="flex items-center gap-2 transition-opacity duration-300 hover:opacity-80">
-              <Image 
-                src="/images/logo.png" 
-                alt="TSUNAGU" 
-                width={480} 
-                height={120}
-                className="h-24 w-auto"
-                priority
-              />
-            </div>
+          <Link href="/" className="relative z-10 group flex-shrink-0" onClick={() => setIsMenuOpen(false)}>
+            <img
+              src="/images/logo.png"
+              alt="TSUNAGU"
+              width={360}
+              height={90}
+              style={{ height: "90px", width: "auto" }}
+              className="block transition-opacity duration-300 group-hover:opacity-80"
+            />
           </Link>
 
           {/* Right Side Content */}
@@ -158,7 +155,7 @@ export default function Header() {
               onMouseLeave={() => setHoveredItem(null)}
             >
               <PixelGrid className="opacity-[0.03] !invert" />
-              <div className="container mx-auto px-6 relative z-10">
+              <div className="w-full relative z-10 px-4">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
                   <div className="md:col-span-1">
                     <h3 className="text-2xl md:text-3xl font-bold tracking-tighter mb-4 flex items-center gap-4">
@@ -212,7 +209,7 @@ export default function Header() {
             <div className="absolute bottom-20 left-20 w-px h-32 bg-gray-300" />
             <div className="absolute top-1/2 right-20 w-32 h-32 border border-gray-200 rounded-full opacity-50 hidden md:block" />
 
-            <div className="container mx-auto px-6 h-full flex flex-col justify-center relative z-10 pt-24 md:pt-0">
+            <div className="w-full h-full flex flex-col justify-center relative z-10 pt-24 md:pt-0 px-4">
                <nav className="flex flex-col gap-4 md:gap-6">
                 {navItems.map((item, index) => (
                   <motion.div

@@ -26,12 +26,13 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="md:col-span-4">
             <Link href="/" className="inline-block mb-6">
-              <Image 
+              <img 
                 src="/images/logo.png" 
                 alt="TSUNAGU" 
-                width={200} 
-                height={50}
-                className="h-12 w-auto"
+                width={360} 
+                height={90}
+                style={{ height: '90px', width: 'auto' }}
+                className="block transition-opacity duration-300 hover:opacity-80"
               />
             </Link>
             <p className="text-gray-500 font-medium text-sm leading-relaxed max-w-xs">
