@@ -5,50 +5,50 @@ import { useRef } from "react";
 
 const features = [
   {
-    tag: "Discover",
-    title: "Video Feed",
-    jpTitle: "動画フィード",
-    desc: "TikTok風の縦型動画フィードを実装。5秒間の「ティーザー動画」で、企業のカルチャーやオフィスの雰囲気を直感的に伝達。AIアルゴリズムが「相性の良い企業」をレコメンドします。",
+    tag: "Core Model",
+    title: "Track A",
+    jpTitle: "リモートトライアル → 正社員採用",
+    desc: "中国在住のIT人材をまずリモートで3〜6ヶ月受け入れ。実績を見てから正社員として採用・来日。採用コストゼロで始められ、ミスマッチリスクを根本から排除する、TSUNAGUの中核モデルです。",
     col: "md:col-span-2",
     theme: "text-gray-900 border-gray-200"
   },
   {
-    tag: "Diagnosis",
-    title: "Gamification",
-    jpTitle: "ゲーミフィケーション診断",
-    desc: "堅苦しい適性検査を廃止し、RPG風診断を開発。楽しみながら価値観や働き方の志向性を入力させることで、深層心理に基づいた高精度なマッチングデータを取得。",
+    tag: "Scoring",
+    title: "Bridg Score",
+    jpTitle: "3層エンジニア評価システム",
+    desc: "自動メトリクス（GitHub・コーディングテスト）＋ 企業評価 ＋ ピアレビューの3層構造で、候補者のスキルと適性を透明・公平に数値化。バイアス検出機能も搭載。",
     col: "md:col-span-1",
     theme: "text-white bg-black border-black"
   },
   {
-    tag: "Community",
-    title: "Mentoring",
-    jpTitle: "コミュニティ & メンタリング",
-    desc: "「大学・学部別」「ビザの悩み」など、テーマごとのコミュニティ機能を提供。メンターとのQ&Aを通じて、就職前からBridgへの帰属意識を高めます。",
+    tag: "AI Screening",
+    title: "37 Agents",
+    jpTitle: "AI駆動の採用オペレーション",
+    desc: "履歴書解析・技術スクリーニング・日本語力評価・マッチングエンジンなど、37のAIエージェントが採用パイプライン全体を自動化。少人数チームで大量の採用を高品質に処理します。",
     col: "md:col-span-1",
     theme: "text-gray-900 border-gray-200"
   },
   {
-    tag: "Search",
-    title: "Multilingual",
-    jpTitle: "多言語対応 & CJK検索",
-    desc: "日本語・簡体字・英語をワンタップで切り替え可能。表記揺れを吸収する高度な検索エンジンにより、言語の壁を超えたスムーズな求人検索を実現。",
+    tag: "Trilingual",
+    title: "日中英",
+    jpTitle: "完全三言語対応プラットフォーム",
+    desc: "日本語・簡体字中国語・英語をワンタップで切り替え。CJK表記揺れを吸収する検索エンジンにより、言語の壁を完全に取り払ったマッチングを実現します。",
     col: "md:col-span-1",
     theme: "text-gray-900 border-gray-200"
   },
   {
-    tag: "Analytics",
-    title: "Dashboard",
-    jpTitle: "データドリブン・ダッシュボード",
-    desc: "応募数や面接進捗だけでなく、KPIをリアルタイムで可視化。「公平性監査」機能により、国籍や性別によるバイアスがかかっていないかをモニタリング可能。",
+    tag: "Relocation",
+    title: "来日支援",
+    jpTitle: "ビザ・住居・生活セットアップ",
+    desc: "ビザ申請代行から住居手配、銀行口座開設、生活オリエンテーションまで。入社後3ヶ月のフォローアップチェックインで、早期離職を防止し定着率を最大化します。",
     col: "md:col-span-1",
     theme: "text-cyan-900 bg-cyan-50 border-cyan-100"
   },
   {
-    tag: "Scout",
-    title: "Direct",
-    jpTitle: "ダイレクト・スカウト",
-    desc: "データベース上の候補者に対し、直接アプローチが可能。コミュニティでの活動状況や「価値観マッチ度」を参照しながら、「刺さるスカウト」を実現します。",
+    tag: "Community",
+    title: "Network",
+    jpTitle: "北京大学発のタレントネットワーク",
+    desc: "北京大・清華大・上海交通大など中国トップ大学のアルムナイネットワーク、WeChat・REDコミュニティを活用。ゼロからの母集団形成を排し、即座に高品質な候補者プールにアクセスできます。",
     col: "md:col-span-2",
     theme: "text-gray-900 border-gray-200"
   },
@@ -78,8 +78,8 @@ export default function Features() {
                </span>
             </div>
             <h2 className="text-3xl md:text-6xl font-semibold tracking-tight text-black leading-tight">
-              Designed for <br/>
-              <span className="text-gray-400">Gen-Z_</span>
+              How It <br/>
+              <span className="text-gray-400">Works_</span>
             </h2>
           </motion.div>
         </div>

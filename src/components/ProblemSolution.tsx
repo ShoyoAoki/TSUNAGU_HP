@@ -6,42 +6,42 @@ import { useRef } from "react";
 const problems = [
   {
     id: "01",
-    en: "Labor Shortage",
-    jp: "働き手の消失",
-    desc: "日本の生産年齢人口は減少の一途を辿り、2030年には644万人の不足が予測されています。",
-    stat: "644",
+    en: "IT Talent Gap",
+    jp: "IT人材の枯渇",
+    desc: "経済産業省の試算で、2030年までに最大79万人のIT人材が不足。AI人材に至ってはグローバルで400万人不足とMcKinseyが警告。",
+    stat: "79",
     unit: "万人",
-    statLabel: "2030年 予測不足数",
+    statLabel: "2030年 IT人材不足予測",
     theme: "from-gray-900 to-gray-800"
   },
   {
     id: "02",
-    en: "IT Talent Gap",
-    jp: "IT人材の枯渇",
-    desc: "国の成長を左右するIT分野において、2030年までに約79万人の人材不足が警鐘されています。",
-    stat: "79",
-    unit: "万人",
-    statLabel: "IT人材不足予測",
+    en: "China Youth Crisis",
+    jp: "中国・若年層の就職難",
+    desc: "中国の若年失業率は18.9%に達し、大卒者は年間1,222万人と過去最多。上海の初任給は2年で50%下落。BAT各社もリストラが加速。",
+    stat: "18.9",
+    unit: "%",
+    statLabel: "中国 若年失業率",
     theme: "from-cyan-900/40 to-blue-900/40"
   },
   {
     id: "03",
-    en: "High Cost",
-    jp: "採用コストの高騰",
-    desc: "既存エージェントの「年収35%」という手数料構造が、企業の成長と採用の流動性を阻害しています。",
-    stat: "35",
-    unit: "%",
-    statLabel: "平均紹介手数料",
+    en: "Hidden Talent",
+    jp: "眠れるSTEM人材",
+    desc: "中国のSTEM卒業生は年間500万人超。HackerRankコーディングスキルランキングでは中国が世界1位（米国は28位）。この才能が活用されていない。",
+    stat: "500",
+    unit: "万人+",
+    statLabel: "中国 年間STEM卒業生",
     theme: "from-blue-900/40 to-purple-900/40"
   },
   {
     id: "04",
-    en: "Talent Surplus",
-    jp: "才能の供給過多",
-    desc: "中国では年間1,000万人の大卒者が排出される一方、ポスト不足により優秀層が溢れています。",
-    stat: "1,000",
-    unit: "万人",
-    statLabel: "中国 年間大卒者数",
+    en: "Market Size",
+    jp: "巨大な市場機会",
+    desc: "日中クロスボーダー人材コリドーのTAMは約8,400億円。在日中国IT人材は4.3万人で10年間で3倍に成長。需給ギャップが最大のチャンス。",
+    stat: "8,400",
+    unit: "億円",
+    statLabel: "TAM（日中人材コリドー）",
     theme: "from-purple-900/40 to-pink-900/40"
   },
 ];
@@ -92,11 +92,11 @@ export default function ProblemSolution() {
           <div>
             <span className="text-cyan-500 text-xs tracking-widest uppercase mb-4 flex items-center gap-2">
               <span className="w-3 h-3 bg-cyan-500 animate-pulse"></span>
-              / System Imbalance
+              / Supply × Demand Imbalance
             </span>
             <h2 className="text-3xl md:text-6xl font-semibold tracking-tight leading-none">
               Structural<br/>
-              <span className="text-gray-500">Mismatch_</span>
+              <span className="text-gray-500">Arbitrage_</span>
             </h2>
           </div>
         </motion.div>

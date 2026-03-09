@@ -81,9 +81,8 @@ export default function Footer() {
             </div>
           </div>
           
-          <div className="flex gap-6">
-            <a href="#" className="text-xs font-bold text-gray-400 hover:text-black transition-colors">Twitter (X)</a>
-            <a href="#" className="text-xs font-bold text-gray-400 hover:text-black transition-colors">LinkedIn</a>
+          <div className="flex items-center gap-6">
+            <span className="text-[10px] font-mono text-gray-400">contact@tsunagu.co.jp</span>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import ServiceDetailClient from "./ServiceDetailClient";
 
 export const metadata = {
   title: "Service | TSUNAGU",
-  description: "Bridgの採用支援サービス。日本企業とアジアの才能を最短距離でつなぐ、特定技能・高度人材の採用に特化した最適化プラットフォーム。",
+  description: "採用前にリモートで試せる。中国トップ大学のIT人材を3〜6ヶ月のリモートトライアル後に正社員採用。リスクゼロで始められるTrack Aモデル。",
 };
 
 export default function ServicePage() {

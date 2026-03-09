@@ -5,28 +5,28 @@ import { useRef } from "react";
 
 const platformFeatures = [
   {
-    id: "001",
-    title: "Tri-Lingual",
-    jp: "完全三言語対応",
-    desc: "日本語・簡体字・英語に対応。オンライン完結で地理的制約を排除。",
+    id: "Track A",
+    title: "Remote Trial",
+    jp: "リモートトライアル → 正社員",
+    desc: "中国在住エンジニアを3〜6ヶ月リモートで受け入れ。成果を確認後、ビザ取得・来日・正社員転換。採用リスクゼロの中核モデル。",
   },
   {
-    id: "002",
-    title: "Tech Stack",
-    jp: "技術的優位性",
-    desc: "Next.js 13 + Supabaseによる、エンタープライズレベルの安全性と速度。",
+    id: "Track B",
+    title: "Dispatch",
+    jp: "派遣 → 正社員転換",
+    desc: "早期来日を希望する人材を、TSUNAGUがビザスポンサーとなり派遣契約で受け入れ。6ヶ月の試用期間後に正社員転換。",
   },
   {
-    id: "003",
-    title: "Mobile First",
-    jp: "モバイルファースト",
-    desc: "スマホネイティブな操作感で、アプリダウンロードの壁を取り払う。",
+    id: "Track C",
+    title: "Project",
+    jp: "プロジェクト参画型",
+    desc: "ビザ不要のリモートプロジェクトに中国エンジニアを直接アサイン。従来のSES多重下請け構造を破壊し、エンジニアに80%以上を還元。",
   },
   {
-    id: "004",
-    title: "Scoring",
-    jp: "価値観スコアリング",
-    desc: "「カルチャー」「働き方」「ビジョン」の一致度を数値化しミスマッチを防ぐ。",
+    id: "SaaS",
+    title: "Bridg",
+    jp: "AI採用プラットフォーム",
+    desc: "AIスクリーニング・Bridg Score・マッチングエンジン・ATS機能をワンストップで提供。クロスボーダー採用を完全自動化。",
   },
 ];
 
@@ -47,11 +47,11 @@ export default function Platform() {
             <div className="flex items-center gap-2 mb-6">
                <div className="w-2 h-2 bg-gray-900" />
                <span className="text-sm font-bold tracking-widest text-gray-900 uppercase">
-                 Core Technology
+                 Service Model
                </span>
             </div>
             <h2 className="text-2xl md:text-5xl font-semibold tracking-tight text-gray-900 leading-tight">
-              Bridg<br/>Platform_
+              3 Tracks<br/>to Japan_
             </h2>
           </div>
           

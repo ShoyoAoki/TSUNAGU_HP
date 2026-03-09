@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
@@ -28,11 +27,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://tsunaguinc.co.jp"),
   title: {
-    default: "TSUNAGU | Bridging Talent Across Asia",
+    default: "TSUNAGU | 中国IT人材 × リモートトライアル採用",
     template: "%s | TSUNAGU"
   },
-  description: "テクノロジーで世界中の『意志』を、つなぐ。日本企業と中国のポテンシャルを最短距離でつなぐ、株式会社TSUNAGUのオフィシャルサイト。",
-  keywords: ["TSUNAGU", "採用", "HR", "クロスボーダー", "グローバル採用", "エンジニア採用", "日中人材", "AIマッチング"],
+  description: "採用前にリモートで試せる。中国トップ大学のIT人材・バイリンガル人材を、リスクゼロで日本企業へ。AIプラットフォーム「Bridg」でクロスボーダー採用を自動化する株式会社TSUNAGU。",
+  keywords: ["TSUNAGU", "中国人採用", "IT人材不足", "クロスボーダーHR", "リモートトライアル", "エンジニア採用", "日中人材", "Bridg", "外国人IT人材", "中国エンジニア"],
   authors: [{ name: "TSUNAGU Inc." }],
   creator: "TSUNAGU Inc.",
   publisher: "TSUNAGU Inc.",
@@ -46,8 +45,8 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "TSUNAGU | Bridging Talent Across Asia",
-    description: "テクノロジーで世界中の『意志』を、つなぐ。日本企業と中国のポテンシャルを最短距離でつなぐ、株式会社TSUNAGUのオフィシャルサイト。",
+    title: "TSUNAGU | 中国IT人材 × リモートトライアル採用",
+    description: "採用前にリモートで試せる。中国トップ大学のIT人材を、リスクゼロで日本企業へ。クロスボーダーHRプラットフォーム「Bridg」の株式会社TSUNAGU。",
     url: "https://tsunaguinc.co.jp",
     siteName: "TSUNAGU",
     locale: "ja_JP",
@@ -57,15 +56,15 @@ export const metadata: Metadata = {
         url: 'https://tsunaguinc.co.jp/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'TSUNAGU - Bridging Talent Across Asia',
+        alt: 'TSUNAGU - 中国IT人材 × リモートトライアル採用',
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "TSUNAGU | Bridging Talent Across Asia",
-    description: "テクノロジーで世界中の『意志』を、つなぐ。株式会社TSUNAGUのオフィシャルサイト。",
-    creator: "@tsunagu_inc", // TODO: 公式アカウントがあれば設定
+    title: "TSUNAGU | 中国IT人材 × リモートトライアル採用",
+    description: "採用前にリモートで試せる。中国トップ大学のIT人材を、リスクゼロで日本企業へ。株式会社TSUNAGUのオフィシャルサイト。",
+    creator: "@tsunagu_inc",
     images: ['https://tsunaguinc.co.jp/opengraph-image'],
   },
   robots: {
@@ -90,11 +89,9 @@ export default function RootLayout({
     <html lang="ja">
       <body className={`${notoSansJP.variable} ${notoSerifJP.variable} font-sans antialiased bg-white text-gray-900`}>
         <GoogleAnalytics />
-        <SmoothScroll>
-          <Header />
-          {children}
-          <Footer />
-        </SmoothScroll>
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );

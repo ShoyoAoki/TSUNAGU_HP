@@ -1,3 +1,5 @@
+"use client";
+
 import Hero from "@/components/Hero";
 import ServiceSummary from "@/components/ServiceSummary";
 import Introduction from "@/components/Introduction";
@@ -6,9 +8,9 @@ import Features from "@/components/Features";
 import Platform from "@/components/Platform";
 import CallToAction from "@/components/CallToAction";
 
-export default function Home() {
+export default function HomeClient() {
   return (
-    <main className="min-h-screen bg-white selection:bg-cyan-100 selection:text-cyan-900">
+    <>
       <Hero />
       <ServiceSummary />
       <Introduction />
@@ -16,6 +18,6 @@ export default function Home() {
       <Features />
       <Platform />
       <CallToAction />
-    </main>
+    </>
   );
 }

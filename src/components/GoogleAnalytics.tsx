@@ -4,11 +4,11 @@ import Script from "next/script";
 
 // Google Analytics Measurement ID
 // 本番環境では環境変数 (process.env.NEXT_PUBLIC_GA_ID) などから取得することを推奨
-const GA_MEASUREMENT_ID = "G-XXXXXXXXXX"; // TODO: ここに実際のIDを入れてください
+const GA_MEASUREMENT_ID = "G-V3YMZX7J0P";
 
 export default function GoogleAnalytics() {
   // IDが設定されていない、またはダミーのままの場合は読み込まない
-  if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID === "G-XXXXXXXXXX") {
+  if (!GA_MEASUREMENT_ID) {
     return null;
   }
 

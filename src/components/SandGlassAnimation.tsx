@@ -10,22 +10,26 @@ interface SandGlassAnimationProps {
 }
 
 export default function SandGlassAnimation({ onTransitionStart }: SandGlassAnimationProps) {
-  // 最初から transition フェーズで開始（イントロアニメを削除）
+  const [mounted, setMounted] = useState(false);
   const [phase, setPhase] = useState<Phase>('transition');
 
+  useEffect(() => setMounted(true), []);
+
   useEffect(() => {
-    // 即座にコンテンツ表示をトリガー
+    if (!mounted) return;
     onTransitionStart?.();
-    
-    // 一定時間後に完了状態（クリックイベント無効化など）へ
     const timer = setTimeout(() => setPhase('completed'), 2000);
     return () => clearTimeout(timer);
-  }, [onTransitionStart]);
+  }, [mounted, onTransitionStart]);
 
   const handleSkip = () => {
     setPhase('completed');
     onTransitionStart?.();
   };
+
+  if (!mounted) {
+    return <div className="absolute inset-0 z-0 bg-white" />;
+  }
 
   return (
     <div className={`absolute inset-0 transition-colors duration-1000 ${phase === 'completed' ? 'pointer-events-none' : ''} z-0`}>

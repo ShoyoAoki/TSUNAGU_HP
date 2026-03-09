@@ -50,9 +50,10 @@ export default function Introduction() {
           </motion.h3>
           <motion.div variants={fadeInUp} className="space-y-6">
             <p className="text-lg md:text-xl text-black leading-loose tracking-widest">
-              世界中には膨大な数の「意志」が存在しています。<br className="hidden md:block" />
-              また同時に国境という壁に阻まれ、輝きを放てない意志が多くあります。<br className="hidden md:block" />
-              私たちは、最新のテクノロジーを駆使し、世界に散らばる意志を最短距離でつなぎます。
+              日本では深刻な人材不足が進む一方、<br className="hidden md:block" />
+              中国では年間1,200万人の大卒者が就職難に直面しています。<br className="hidden md:block" />
+              私たちはAIとプラットフォームの力で、この構造的ミスマッチを解消し、<br className="hidden md:block" />
+              国境を超えて「意志ある才能」を最短距離でつなぎます。
             </p>
           </motion.div>
         </motion.div>
@@ -73,8 +74,10 @@ export default function Introduction() {
           </motion.h3>
           <motion.div variants={fadeInUp} className="space-y-6">
             <p className="text-lg md:text-xl text-black leading-loose tracking-widest">
-              ビジョンの実現に向けて、時代に必要とされる最先端のテクノロジーにより、<br className="hidden md:block" />
-              「誰もが意志のままに挑戦できる」ボーダレスな未来を推進していきます。
+              「採用前にまず試す」リモートトライアルモデルと、<br className="hidden md:block" />
+              37のAIエージェントによる採用パイプラインの自動化。<br className="hidden md:block" />
+              日本のIT人材不足79万人と、中国のSTEM人材500万人をつなぐ<br className="hidden md:block" />
+              クロスボーダーHRプラットフォーム「Bridg」で、ボーダレスな未来を推進します。
             </p>
           </motion.div>
         </motion.div>

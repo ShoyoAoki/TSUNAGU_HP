@@ -4,13 +4,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { ArrowRight } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import ContactModal from "@/components/ContactModal";
-import dynamic from "next/dynamic";
-
-// 砂時計アニメーションコンポーネントを動的インポート（SSR無効化）
-const SandGlassAnimation = dynamic(() => import("@/components/SandGlassAnimation"), {
-  ssr: false,
-  loading: () => <div className="w-full h-full min-h-screen flex items-center justify-center bg-white" />
-});
+import SandGlassAnimation from "@/components/SandGlassAnimation";
 
 // シンプルなグリッドパターン背景
 const GridBackground = () => {
@@ -47,7 +41,8 @@ const TypingHeadline = ({
 
   const messages = [
     ["テクノロジーで世界中の", "『意志』を、つなぐ。"],
-    ["日本企業と中国の人材をつなぐ、", "採用支援サービス。"]
+    ["採用前に、リモートで", "試してみませんか？"],
+    ["中国×日本の才能を", "最短距離でつなぐ。"]
   ];
 
   const typingSpeed = 120;
@@ -170,9 +165,13 @@ export default function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-  // マウント前は何も表示しないか、不一致を避けるための最小限の構成にする
+  // マウント前は最低限の表示（真っ白を防ぐ）
   if (!isMounted) {
-    return <section className="relative w-full min-h-screen bg-white pt-16 md:pt-20" />;
+    return (
+      <section className="relative w-full min-h-screen bg-white pt-16 md:pt-20 flex items-center justify-center">
+        <h1 className="text-2xl font-bold text-gray-900">TSUNAGU</h1>
+      </section>
+    );
   }
 
   const contentVariants = {
@@ -219,7 +218,7 @@ export default function Hero() {
                 className="inline-block py-1 px-3 bg-gray-100 text-gray-800 text-xs font-bold tracking-widest uppercase rounded-sm mb-6"
                 variants={itemVariants}
               >
-                Cross-Border Recruitment Platform
+                Cross-Border HR Platform — Bridg
               </motion.span>
             </div>
 
@@ -238,12 +237,12 @@ export default function Hero() {
               {/* サブテキスト */}
               <div className="mb-10">
                 <p className="text-base md:text-lg text-gray-600 mb-4 leading-[1.8] font-normal">
-                  日本企業と中国のポテンシャルを最短距離でつなぐ。<br className="hidden md:inline" />
-                  特定技能・高度人材の採用をトータル支援するプラットフォーム
+                  中国トップ大学の即戦力IT人材を、まずリモートで3ヶ月。<br className="hidden md:inline" />
+                  成果を見てから正社員採用 — リスクゼロの新しい採用モデル。
                 </p>
-                
+
                 <p className="text-xs font-mono text-gray-400 tracking-wide">
-                  // BRIDGE BORDER, BUILD FUTURE.
+                  // ZERO RISK. PROVEN TALENT. BRIDG TO JAPAN.
                 </p>
               </div>
 

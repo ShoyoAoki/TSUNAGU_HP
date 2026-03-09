@@ -40,13 +40,13 @@ export default function CallToAction() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <h2 className="text-4xl md:text-7xl font-bold tracking-tight mb-10 leading-[1.2] text-gray-900">
-            採用の未来を、<br />
-            共に創りませんか？
+            まずはリモートで、<br />
+            試してみませんか？
           </h2>
 
           <p className="text-lg md:text-xl text-gray-600 mb-16 max-w-2xl mx-auto leading-relaxed">
-            採用の常識を、テクノロジーで書き換える。<br />
-            Bridgは、本気で組織を変えたい企業のためのプラットフォームです。
+            採用コストゼロ、リスクゼロでスタート。<br />
+            中国トップ大学のIT人材を、最短2週間でご提案します。
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

@@ -16,22 +16,26 @@ const PixelGrid = ({ className }: { className?: string }) => (
 export default function CompanyPage() {
   const companyInfo = [
     { label: "会社名", en: "Company Name", value: "株式会社TSUNAGU" },
-    { label: "代表取締役", en: "Representative", value: "青木 翔陽" },
+    { label: "設立", en: "Founded", value: "2026年1月" },
+    { label: "資本金", en: "Capital", value: "500万円" },
+    { label: "代表取締役", en: "CEO", value: "青木 翔陽（北京大学卒）" },
     { label: "所在地", en: "Address", value: "〒899-5211 鹿児島県姶良市加治木町反土4番15番地249" },
-    { 
-      label: "事業内容", 
-      en: "Business", 
+    {
+      label: "事業内容",
+      en: "Business",
       value: (
         <ul className="space-y-2">
           <li>・クロスボーダーHRプラットフォーム「Bridg」の開発・運営</li>
-          <li>・海外人材採用コンサルティング</li>
+          <li>・海外IT人材のリモートトライアル採用支援（BRJ事業）</li>
+          <li>・日中バイリンガル人材の採用コンサルティング</li>
+          <li>・来日支援（ビザ・住居・生活セットアップ）</li>
         </ul>
-      ) 
+      )
     },
-    { 
-      label: "有料職業紹介許可番号", 
-      en: "License Number", 
-      value: "46-ユ-300221" 
+    {
+      label: "有料職業紹介許可番号",
+      en: "License Number",
+      value: "46-ユ-300221"
     },
   ];
 

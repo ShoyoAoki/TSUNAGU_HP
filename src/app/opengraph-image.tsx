@@ -4,32 +4,30 @@ import { ImageResponse } from 'next/og'
 export const runtime = 'edge'
 
 // Image metadata
-export const alt = 'TSUNAGU - Bridging Talent Across Asia'
+export const alt = 'TSUNAGU - 中国IT人材 × リモートトライアル採用'
 export const size = {
   width: 1200,
   height: 630,
 }
 export const contentType = 'image/png'
 
-const LOGO_URL = 'https://tsunaguinc.co.jp/images/logo.png'
-
 export default async function Image() {
   return new ImageResponse(
     (
       <div
         style={{
-          background: '#000',
+          background: '#ffffff',
           width: '100%',
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          color: 'white',
+          color: '#171717',
           position: 'relative',
         }}
       >
-        {/* Grid Pattern Background */}
+        {/* ヒーローセクション風：白＋薄いグリッド */}
         <div
           style={{
             position: 'absolute',
@@ -37,41 +35,31 @@ export default async function Image() {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundImage: 'linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)',
-            backgroundSize: '40px 40px',
-            opacity: 0.3,
+            backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+            opacity: 0.08,
           }}
         />
 
-        {/* Decorative Elements */}
-        <div style={{ position: 'absolute', top: 60, left: 60, width: 20, height: 20, background: '#06b6d4' }} />
-        <div style={{ position: 'absolute', bottom: 80, right: 80, width: 40, height: 40, border: '4px solid #a855f7', opacity: 0.6 }} />
-
-        {/* TSUNAGU ロゴ */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 24 }}>
-          <img
-            src={LOGO_URL}
-            alt="TSUNAGU"
-            width={360}
-            height={90}
-            style={{ height: 90, width: 'auto', objectFit: 'contain' }}
-          />
-        </div>
-
-        <div style={{ fontSize: 32, color: '#9ca3af', fontWeight: 500, maxWidth: 800, textAlign: 'center', lineHeight: 1.4 }}>
-          Bridging Talent Across Asia.
-        </div>
-
-        <div style={{
-          marginTop: 40,
-          padding: '12px 24px',
-          border: '2px solid #333',
-          fontSize: 20,
-          color: '#06b6d4',
-          fontFamily: 'monospace',
-          letterSpacing: 4
-        }}>
-          TSUNAGU Inc.
+        {/* 中央：ロゴは白・グレーなので黒テキストでTSUNAGUを表示（ヒーロー風） */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 1 }}>
+          <div style={{ fontSize: 72, fontWeight: 700, letterSpacing: '0.2em', color: '#171717', marginBottom: 16 }}>
+            TSUNAGU
+          </div>
+          <div style={{ fontSize: 28, color: '#525252', fontWeight: 500, maxWidth: 700, textAlign: 'center', lineHeight: 1.5 }}>
+            中国IT人材 × リモートトライアル採用
+          </div>
+          <div style={{
+            marginTop: 32,
+            padding: '10px 20px',
+            border: '2px solid #171717',
+            fontSize: 18,
+            color: '#171717',
+            fontFamily: 'monospace',
+            letterSpacing: 3
+          }}>
+            ZERO RISK. PROVEN TALENT.
+          </div>
         </div>
       </div>
     ),
