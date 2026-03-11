@@ -33,22 +33,14 @@ const features = [
     title: "日中英",
     jpTitle: "完全三言語対応プラットフォーム",
     desc: "日本語・簡体字中国語・英語をワンタップで切り替え。CJK表記揺れを吸収する検索エンジンにより、言語の壁を完全に取り払ったマッチングを実現します。",
-    col: "md:col-span-1",
+    col: "md:col-span-2",
     theme: "text-gray-900 border-gray-200"
-  },
-  {
-    tag: "Relocation",
-    title: "来日支援",
-    jpTitle: "ビザ・住居・生活セットアップ",
-    desc: "ビザ申請代行から住居手配、銀行口座開設、生活オリエンテーションまで。入社後3ヶ月のフォローアップチェックインで、早期離職を防止し定着率を最大化します。",
-    col: "md:col-span-1",
-    theme: "text-cyan-900 bg-cyan-50 border-cyan-100"
   },
   {
     tag: "Community",
     title: "Network",
-    jpTitle: "北京大学発のタレントネットワーク",
-    desc: "北京大・清華大・上海交通大など中国トップ大学のアルムナイネットワーク、WeChat・REDコミュニティを活用。ゼロからの母集団形成を排し、即座に高品質な候補者プールにアクセスできます。",
+    jpTitle: "中国トップ大学のタレントネットワーク",
+    desc: "中国トップ大学のアルムナイネットワークやWeChat・REDコミュニティを活用。ゼロからの母集団形成を排し、即座に高品質な候補者プールにアクセスできます。",
     col: "md:col-span-2",
     theme: "text-gray-900 border-gray-200"
   },
