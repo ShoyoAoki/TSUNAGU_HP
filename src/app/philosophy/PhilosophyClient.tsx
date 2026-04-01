@@ -1,16 +1,7 @@
 "use client";
 
-import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import Image from "next/image";
-import { Inter, Noto_Serif_JP } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const notoSerifJP = Noto_Serif_JP({ 
-  subsets: ["latin"], 
-  weight: ["400", "700"],
-  variable: "--font-noto-serif-jp" 
-});
 
 // グリッド背景
 const GridBackground = () => (
@@ -100,7 +91,7 @@ export default function PhilosophyClient() {
   };
 
   return (
-    <main ref={containerRef} className={`relative min-h-screen bg-white text-black selection:bg-gray-900 selection:text-white ${notoSerifJP.variable} ${inter.variable}`}>
+    <main ref={containerRef} className={`relative min-h-screen bg-white text-black selection:bg-gray-900 selection:text-white font-serif`}>
       <GridBackground />
       <BackgroundText />
 
@@ -174,7 +165,7 @@ export default function PhilosophyClient() {
                 「我々は短い寿命を授かったのではない。<br className="hidden md:block" />
                 我々がそれを短くしているのだ」
               </p>
-              <p className="text-sm text-gray-500 text-center font-serif">— セネカ『生の短さについて』</p>
+              <p className="text-sm text-gray-500 text-center font-serif">— セネカ『人生の短さについて』</p>
             </div>
 
             <div className="space-y-8 text-lg md:text-xl leading-[2.2] text-gray-700 font-light tracking-wide">

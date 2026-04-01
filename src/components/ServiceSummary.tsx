@@ -5,25 +5,20 @@ import { motion } from "framer-motion";
 const features = [
   {
     id: "01",
-    title: "リモートで試して、納得してから採用",
-    desc: "中国のIT人材をまず3〜6ヶ月リモートで受け入れ、実際のパフォーマンスを確認してから正社員採用へ。採用コストゼロで始められる「Track A」モデルが、従来の人材紹介のリスクを根本から解消します。",
+    label: "BRJ",
+    title: "IT系人材事業部",
+    desc: "中国トップ大学のITエンジニア・AI人材を、まずリモートで3〜6ヶ月トライアル。成果を見てから正社員採用へ。採用コストゼロで始められる「まず試す」モデルが、従来の人材紹介のリスクを根本から解消します。",
     color: "bg-cyan-500",
     shadow: "shadow-[4px_4px_0px_0px_#06b6d4]",
   },
   {
     id: "02",
-    title: "中国トップ大学の優秀な人材に直結",
-    desc: "中国トップ大学のアルムナイネットワークを活用し、STEM年間500万人超の卒業生から厳選された即戦力エンジニア・バイリンガル人材を直接ご提案します。",
+    label: "Language",
+    title: "言語系人材事業部",
+    desc: "日本語能力試験N2以上の中国語・日本語バイリンガル人材を、商社・メーカー・サービス業を中心にご紹介。愛知・東海エリアを軸に、中国ビジネスに不可欠な「語学力×実務力」を持つ人材を厳選してマッチングします。",
     color: "bg-purple-500",
     shadow: "shadow-[4px_4px_0px_0px_#a855f7]",
   },
-  {
-    id: "03",
-    title: "採用から定着まで、ワンストップ支援",
-    desc: "リモートワーク開始から正社員採用まで一気通貫でサポート。採用後3ヶ月のフォローアップで定着率を最大化。競合にはない「採用後の定着支援」がTSUNAGUの強みです。",
-    color: "bg-yellow-500",
-    shadow: "shadow-[4px_4px_0px_0px_#eab308]",
-  }
 ];
 
 // Pixel Pattern Component
@@ -53,7 +48,7 @@ export default function ServiceSummary() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
         >
           {features.map((feature, index) => (
             <div 
@@ -74,7 +69,10 @@ export default function ServiceSummary() {
                 <PixelDecor className="text-gray-400" />
               </div>
 
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 tracking-tight">
+              <span className="font-mono text-[10px] tracking-widest uppercase text-gray-500">
+                {feature.label}
+              </span>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 tracking-tight mt-1">
                 {feature.title}
               </h3>
               

@@ -1,14 +1,14 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef } from "react";
 
 const problems = [
   {
     id: "01",
-    en: "IT Talent Gap",
-    jp: "IT人材の枯渇",
-    desc: "経済産業省の試算で、2030年までに最大79万人のIT人材が不足。AI人材に至ってはグローバルで400万人不足とMcKinseyが警告。",
+    en: "Japan Labor Crisis",
+    jp: "深刻化する人材不足",
+    desc: "2030年までにIT人材は最大79万人が不足。同時に、製造業・商社では中国語対応可能なバイリンガル人材の確保が急務。日本全体で外国人材の活用が成長の鍵を握る。",
     stat: "79",
     unit: "万人",
     statLabel: "2030年 IT人材不足予測",
@@ -18,27 +18,27 @@ const problems = [
     id: "02",
     en: "China Youth Crisis",
     jp: "中国・若年層の就職難",
-    desc: "中国の若年失業率は18.9%に達し、大卒者は年間1,222万人と過去最多。上海の初任給は2年で50%下落。BAT各社もリストラが加速。",
-    stat: "18.9",
-    unit: "%",
-    statLabel: "中国 若年失業率",
+    desc: "中国の若年失業率は18.9%に達し、大卒者は年間1,222万人と過去最多。ITエンジニアからビジネス系バイリンガル人材まで、優秀な若者が活躍の場を求めている。",
+    stat: "1,222",
+    unit: "万人",
+    statLabel: "中国 年間大卒者数",
     theme: "from-cyan-900/40 to-blue-900/40"
   },
   {
     id: "03",
-    en: "Hidden Talent",
-    jp: "眠れるSTEM人材",
-    desc: "中国のSTEM卒業生は年間500万人超。HackerRankコーディングスキルランキングでは中国が世界1位（米国は28位）。この才能が活用されていない。",
-    stat: "500",
-    unit: "万人+",
-    statLabel: "中国 年間STEM卒業生",
+    en: "Bilingual Demand",
+    jp: "高まるバイリンガル需要",
+    desc: "日中貿易額は年間40兆円超。中国語×日本語のビジネス人材需要は愛知を中心に拡大し続けているが、N2以上の実務レベル人材は慢性的に不足している。",
+    stat: "40",
+    unit: "兆円+",
+    statLabel: "日中貿易額（年間）",
     theme: "from-blue-900/40 to-purple-900/40"
   },
   {
     id: "04",
     en: "Market Size",
     jp: "巨大な市場機会",
-    desc: "日中クロスボーダー人材コリドーのTAMは約8,400億円。在日中国IT人材は4.3万人で10年間で3倍に成長。需給ギャップが最大のチャンス。",
+    desc: "日中クロスボーダー人材市場のTAMは約8,400億円。IT人材・バイリンガル人材の双方で需給ギャップが拡大しており、TSUNAGUはこの構造的チャンスに2事業で挑む。",
     stat: "8,400",
     unit: "億円",
     statLabel: "TAM（日中人材コリドー）",
@@ -58,10 +58,6 @@ const SquareGrid = ({ className }: { className?: string }) => (
 
 export default function ProblemSolution() {
   const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
 
   return (
     <section ref={containerRef} className="py-24 md:py-40 bg-black text-white relative overflow-hidden font-mono">
@@ -92,7 +88,7 @@ export default function ProblemSolution() {
           <div>
             <span className="text-cyan-500 text-xs tracking-widest uppercase mb-4 flex items-center gap-2">
               <span className="w-3 h-3 bg-cyan-500 animate-pulse"></span>
-              / Supply × Demand Imbalance
+              / Cross-Border Talent Gap
             </span>
             <h2 className="text-3xl md:text-6xl font-semibold tracking-tight leading-none">
               Structural<br/>
@@ -109,7 +105,7 @@ export default function ProblemSolution() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="group relative h-[420px] p-8 flex flex-col justify-between bg-black border-r border-gray-800 last:border-r-0 hover:bg-gray-900 transition-colors duration-300"
+              className="group relative h-auto md:h-[420px] p-8 flex flex-col justify-between bg-black border-r border-gray-800 last:border-r-0 hover:bg-gray-900 transition-colors duration-300"
             >
                {/* Hover Grid Effect */}
                <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0id2hpdGUiLz48L3N2Zz4=')]" />

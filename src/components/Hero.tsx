@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
-import ContactModal from "@/components/ContactModal";
+import { useContact } from "@/context/ContactContext";
 import SandGlassAnimation from "@/components/SandGlassAnimation";
 
 // シンプルなグリッドパターン背景
@@ -138,7 +138,7 @@ const TypingHeadline = ({
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
-  const [isContactOpen, setIsContactOpen] = useState(false);
+  const { openContact } = useContact();
   const [isMounted, setIsMounted] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
@@ -198,8 +198,6 @@ export default function Hero() {
     <section ref={ref} className="relative w-full min-h-screen flex items-center overflow-hidden bg-white selection:bg-gray-200 selection:text-black pt-16 md:pt-20">
       {isMounted && <SandGlassAnimation onTransitionStart={handleTransitionStart} />}
       
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
-      
       {/* 背景グリッドパターン */}
       <GridBackground />
 
@@ -250,7 +248,7 @@ export default function Hero() {
               <div className="flex flex-col sm:flex-row gap-4 items-start">
                 {/* お問い合わせボタン - 黒背景 */}
                 <motion.button 
-                  onClick={() => setIsContactOpen(true)}
+                  onClick={openContact}
                   className="group relative px-8 py-4 bg-black text-white font-semibold text-sm md:text-base overflow-hidden transition-all duration-200 rounded-sm"
                   whileHover={{ 
                     scale: 1.02,

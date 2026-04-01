@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { company, name, email, message } = body;
+    const { company, name, email, phone, message } = body;
 
     // Validate required fields
     if (!name || !email || !message) {
@@ -20,6 +20,7 @@ export async function POST(request: Request) {
 会社名: ${company || "未記入"}
 お名前: ${name}
 メールアドレス: ${email}
+電話番号: ${phone || "未記入"}
 
 メッセージ:
 ${message}
@@ -41,7 +42,7 @@ ${message}
         },
         body: JSON.stringify({
           from: "TSUNAGU HP <noreply@tsunaguinc.co.jp>",
-          to: ["contact@tsunagu.co.jp"],
+          to: ["contact@tsunaguinc.co.jp"],
           reply_to: email,
           subject: `【HP問い合わせ】${company || name}様より`,
           text: mailBody,

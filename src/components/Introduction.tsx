@@ -52,6 +52,7 @@ export default function Introduction() {
             <p className="text-lg md:text-xl text-black leading-loose tracking-widest">
               日本では深刻な人材不足が進む一方、<br className="hidden md:block" />
               中国では年間1,200万人の大卒者が就職難に直面しています。<br className="hidden md:block" />
+              ITエンジニアも、ビジネスバイリンガル人材も——<br className="hidden md:block" />
               私たちはAIとプラットフォームの力で、この構造的ミスマッチを解消し、<br className="hidden md:block" />
               国境を超えて「意志ある才能」を最短距離でつなぎます。
             </p>
@@ -74,9 +75,9 @@ export default function Introduction() {
           </motion.h3>
           <motion.div variants={fadeInUp} className="space-y-6">
             <p className="text-lg md:text-xl text-black leading-loose tracking-widest">
-              「採用前にまず試す」リモートトライアルモデルと、<br className="hidden md:block" />
-              37のAIエージェントによる採用パイプラインの自動化。<br className="hidden md:block" />
-              日本のIT人材不足79万人と、中国のSTEM人材500万人をつなぐ<br className="hidden md:block" />
+              ITエンジニアの「まず試す」リモートトライアルモデル。<br className="hidden md:block" />
+              バイリンガル人材の成功報酬型マッチング。<br className="hidden md:block" />
+              80以上のAIエージェントが、両事業の採用パイプラインを自動化。<br className="hidden md:block" />
               クロスボーダーHRプラットフォーム「Bridg」で、ボーダレスな未来を推進します。
             </p>
           </motion.div>

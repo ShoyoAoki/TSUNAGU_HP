@@ -3,9 +3,10 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight } from "lucide-react";
-import ContactModal from "@/components/ContactModal";
+import { useContact } from "@/context/ContactContext";
 
 const navItems = [
   { 
@@ -42,7 +43,7 @@ export default function Header() {
   const isTransparentPage = TRANSPARENT_HEADER_PAGES.includes(pathname);
   const [isPastHero, setIsPastHero] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isContactOpen, setIsContactOpen] = useState(false);
+  const { openContact } = useContact();
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   
   // Lock body scroll when menu is open
@@ -66,8 +67,6 @@ export default function Header() {
 
   return (
     <>
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
-      
       <motion.header
         className="fixed top-0 left-0 right-0 z-50 py-6"
         onMouseLeave={() => setHoveredItem(null)}
@@ -84,11 +83,12 @@ export default function Header() {
         <div className="w-full relative flex items-center justify-between px-4">
           {/* Logo */}
           <Link href="/" className="relative z-10 group flex-shrink-0" onClick={() => setIsMenuOpen(false)}>
-            <img
+            <Image
               src="/images/logo.png"
               alt="TSUNAGU"
               width={360}
               height={90}
+              priority
               style={{ height: "90px", width: "auto" }}
               className="block transition-opacity duration-300 group-hover:opacity-80"
             />
@@ -121,7 +121,7 @@ export default function Header() {
 
                 {/* CTA Button */}
                 <button 
-                  onClick={() => setIsContactOpen(true)}
+                  onClick={openContact}
                   className="px-5 py-2.5 bg-black text-white text-sm font-bold hover:bg-cyan-600 transition-colors flex items-center gap-2 group"
                 >
                   <span className="font-mono">Contact</span>
@@ -269,7 +269,7 @@ export default function Header() {
                 <button 
                   onClick={() => {
                     setIsMenuOpen(false);
-                    setIsContactOpen(true);
+                    openContact();
                   }}
                   className="group relative px-8 py-4 bg-black text-white text-lg font-bold overflow-hidden hover:bg-cyan-600 transition-colors"
                 >
@@ -282,9 +282,8 @@ export default function Header() {
                 </button>
 
                 <div className="flex gap-6 text-sm font-bold text-gray-400">
-                  <a href="#" className="hover:text-black transition-colors">Twitter (X)</a>
-                  <a href="#" className="hover:text-black transition-colors">LinkedIn</a>
-                  <a href="#" className="hover:text-black transition-colors">Privacy Policy</a>
+                  <Link href="/privacy" className="hover:text-black transition-colors" onClick={() => setIsMenuOpen(false)}>Privacy Policy</Link>
+                  <Link href="/terms" className="hover:text-black transition-colors" onClick={() => setIsMenuOpen(false)}>Terms of Service</Link>
                 </div>
               </motion.div>
             </div>

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Download, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
-import ContactModal from "@/components/ContactModal";
+import { useContact } from "@/context/ContactContext";
 
 const GridBackground = () => {
   const [mounted, setMounted] = useState(false);
@@ -23,12 +23,10 @@ const GridBackground = () => {
 };
 
 export default function CallToAction() {
-  const [isContactOpen, setIsContactOpen] = useState(false);
+  const { openContact } = useContact();
 
   return (
     <section className="relative py-32 md:py-48 bg-white overflow-hidden text-gray-900 border-t border-gray-100">
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
-      
       {/* Background Elements */}
       <GridBackground />
       
@@ -46,13 +44,13 @@ export default function CallToAction() {
 
           <p className="text-lg md:text-xl text-gray-600 mb-16 max-w-2xl mx-auto leading-relaxed">
             採用コストゼロ、リスクゼロでスタート。<br />
-            中国トップ大学のIT人材を、最短2週間でご提案します。
+            中国のIT人材からバイリンガル人材まで、最適な候補者をご提案します。
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             {/* お問い合わせボタン - 黒背景 */}
             <motion.button 
-              onClick={() => setIsContactOpen(true)}
+              onClick={openContact}
               className="group relative w-full sm:w-auto px-10 py-5 bg-black text-white font-semibold text-base md:text-lg overflow-hidden transition-all duration-200 rounded-sm"
               whileHover={{ 
                 scale: 1.02,

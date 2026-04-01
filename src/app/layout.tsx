@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import Providers from "@/components/Providers";
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
@@ -21,17 +22,16 @@ export const viewport: Viewport = {
   themeColor: "#06b6d4", // Cyan-500
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tsunaguinc.co.jp"),
   title: {
-    default: "TSUNAGU | 中国IT人材 × リモートトライアル採用",
+    default: "TSUNAGU | クロスボーダーHRプラットフォーム",
     template: "%s | TSUNAGU"
   },
-  description: "採用前にリモートで試せる。中国トップ大学のIT人材・バイリンガル人材を、リスクゼロで日本企業へ。AIプラットフォーム「Bridg」でクロスボーダー採用を自動化する株式会社TSUNAGU。",
-  keywords: ["TSUNAGU", "中国人採用", "IT人材不足", "クロスボーダーHR", "リモートトライアル", "エンジニア採用", "日中人材", "Bridg", "外国人IT人材", "中国エンジニア"],
+  description: "中国IT人材のリモートトライアル採用と、日中バイリンガル人材の紹介。AIプラットフォーム「Bridg」でクロスボーダー採用を支援する株式会社TSUNAGU。",
+  keywords: ["TSUNAGU", "中国人採用", "IT人材不足", "クロスボーダーHR", "リモートトライアル", "エンジニア採用", "日中人材", "Bridg", "外国人IT人材", "中国エンジニア", "バイリンガル人材", "言語系人材", "日中バイリンガル"],
   authors: [{ name: "TSUNAGU Inc." }],
   creator: "TSUNAGU Inc.",
   publisher: "TSUNAGU Inc.",
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "TSUNAGU | 中国IT人材 × リモートトライアル採用",
-    description: "採用前にリモートで試せる。中国トップ大学のIT人材を、リスクゼロで日本企業へ。クロスボーダーHRプラットフォーム「Bridg」の株式会社TSUNAGU。",
+    title: "TSUNAGU | クロスボーダーHRプラットフォーム",
+    description: "中国IT人材のリモートトライアル採用と、日中バイリンガル人材の紹介。クロスボーダーHRプラットフォーム「Bridg」の株式会社TSUNAGU。",
     url: "https://tsunaguinc.co.jp",
     siteName: "TSUNAGU",
     locale: "ja_JP",
@@ -56,14 +56,14 @@ export const metadata: Metadata = {
         url: 'https://tsunaguinc.co.jp/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'TSUNAGU - 中国IT人材 × リモートトライアル採用',
+        alt: 'TSUNAGU - クロスボーダーHRプラットフォーム',
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "TSUNAGU | 中国IT人材 × リモートトライアル採用",
-    description: "採用前にリモートで試せる。中国トップ大学のIT人材を、リスクゼロで日本企業へ。株式会社TSUNAGUのオフィシャルサイト。",
+    title: "TSUNAGU | クロスボーダーHRプラットフォーム",
+    description: "中国IT人材のリモートトライアル採用と、日中バイリンガル人材の紹介。クロスボーダーHRプラットフォーム「Bridg」の株式会社TSUNAGU。",
     creator: "@tsunagu_inc",
     images: ['https://tsunaguinc.co.jp/opengraph-image'],
   },
@@ -88,10 +88,12 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${notoSansJP.variable} ${notoSerifJP.variable} font-sans antialiased bg-white text-gray-900`}>
-        <GoogleAnalytics />
-        <Header />
-        {children}
-        <Footer />
+        <Providers>
+          <GoogleAnalytics />
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

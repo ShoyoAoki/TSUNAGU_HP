@@ -2,7 +2,7 @@ import ServiceDetailClient from "./ServiceDetailClient";
 
 export const metadata = {
   title: "Service | TSUNAGU",
-  description: "採用前にリモートで試せる。中国トップ大学のIT人材を3〜6ヶ月のリモートトライアル後に正社員採用。リスクゼロで始められるTrack Aモデル。",
+  description: "IT人材のリモートトライアル採用（BRJ事業）と、日中バイリンガル人材の紹介（言語系事業）。TSUNAGUの2つの事業で、クロスボーダー採用を支援します。",
 };
 
 export default function ServicePage() {

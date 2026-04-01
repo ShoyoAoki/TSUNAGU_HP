@@ -10,7 +10,6 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: [],
   },
-  transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
 };
 
 export default nextConfig;

@@ -1,30 +1,30 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef } from "react";
 
 const features = [
   {
-    tag: "Core Model",
-    title: "Track A",
-    jpTitle: "リモートトライアル → 正社員採用",
-    desc: "中国在住のIT人材をまずリモートで3〜6ヶ月受け入れ。実績を見てから正社員として採用・来日。採用コストゼロで始められ、ミスマッチリスクを根本から排除する、TSUNAGUの中核モデルです。",
+    tag: "Two Divisions",
+    title: "2事業部体制",
+    jpTitle: "IT人材 × バイリンガル人材の最適マッチング",
+    desc: "ITエンジニアのリモートトライアル採用（BRJ事業）と、N2以上バイリンガル人材の紹介（言語系事業）。2つの専門チームが、企業のニーズに最適な人材をご提案します。",
     col: "md:col-span-2",
     theme: "text-gray-900 border-gray-200"
   },
   {
-    tag: "Scoring",
-    title: "Bridg Score",
-    jpTitle: "3層エンジニア評価システム",
-    desc: "自動メトリクス（GitHub・コーディングテスト）＋ 企業評価 ＋ ピアレビューの3層構造で、候補者のスキルと適性を透明・公平に数値化。バイアス検出機能も搭載。",
+    tag: "AI Platform",
+    title: "Bridg",
+    jpTitle: "80以上のAIエージェントが採用を自動化",
+    desc: "履歴書解析・スキル評価・日本語力判定・マッチングまで、AIが採用パイプライン全体を駆動。IT人材のコーディングテストも、バイリンガル人材の語学力評価も、高精度に自動処理します。",
     col: "md:col-span-1",
     theme: "text-white bg-black border-black"
   },
   {
-    tag: "AI Screening",
-    title: "37 Agents",
-    jpTitle: "AI駆動の採用オペレーション",
-    desc: "履歴書解析・技術スクリーニング・日本語力評価・マッチングエンジンなど、37のAIエージェントが採用パイプライン全体を自動化。少人数チームで大量の採用を高品質に処理します。",
+    tag: "Zero Risk",
+    title: "まず試す",
+    jpTitle: "採用前に実力を確認できるモデル",
+    desc: "IT人材はリモートトライアルで3〜6ヶ月の実績を確認。言語系人材は成功報酬型でリスクゼロ。どちらの事業も「納得してから採用」を実現します。",
     col: "md:col-span-1",
     theme: "text-gray-900 border-gray-200"
   },
@@ -37,10 +37,10 @@ const features = [
     theme: "text-gray-900 border-gray-200"
   },
   {
-    tag: "Community",
-    title: "Network",
-    jpTitle: "中国トップ大学のタレントネットワーク",
-    desc: "中国トップ大学のアルムナイネットワークやWeChat・REDコミュニティを活用。ゼロからの母集団形成を排し、即座に高品質な候補者プールにアクセスできます。",
+    tag: "Network",
+    title: "直結",
+    jpTitle: "中国全土からの人材アクセス",
+    desc: "トップ大学のアルムナイネットワーク、WeChat・REDコミュニティ、現地子会社を通じて、ITエンジニアからビジネス系バイリンガル人材まで、幅広い候補者プールに即座にアクセスできます。",
     col: "md:col-span-2",
     theme: "text-gray-900 border-gray-200"
   },
@@ -48,10 +48,6 @@ const features = [
 
 export default function Features() {
   const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
 
   return (
     <section id="features" ref={containerRef} className="py-24 md:py-40 bg-white relative">
@@ -66,12 +62,12 @@ export default function Features() {
             <div className="flex items-center gap-2 mb-6">
                <div className="w-3 h-3 bg-cyan-500" />
                <span className="text-sm font-bold tracking-widest text-black uppercase">
-                 Platform Features
+                 Why TSUNAGU
                </span>
             </div>
             <h2 className="text-3xl md:text-6xl font-semibold tracking-tight text-black leading-tight">
-              How It <br/>
-              <span className="text-gray-400">Works_</span>
+              Why <br/>
+              <span className="text-gray-400">TSUNAGU_</span>
             </h2>
           </motion.div>
         </div>
@@ -84,7 +80,7 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05, duration: 0.5 }}
-              className={`group relative p-10 flex flex-col justify-between h-[420px] bg-white border border-transparent hover:z-10 hover:shadow-2xl transition-all duration-300 ${feature.col} ${feature.theme === 'text-white bg-black border-black' ? 'bg-black text-white' : ''}`}
+              className={`group relative p-10 flex flex-col justify-between h-auto md:h-[420px] bg-white border border-transparent hover:z-10 hover:shadow-2xl transition-all duration-300 ${feature.col} ${feature.theme === 'text-white bg-black border-black' ? 'bg-black text-white' : ''}`}
             >
               {/* Corner Accents */}
               <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-current opacity-0 group-hover:opacity-100 transition-opacity" />

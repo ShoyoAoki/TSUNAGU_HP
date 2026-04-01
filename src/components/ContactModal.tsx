@@ -16,6 +16,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     company: "",
     name: "",
     email: "",
+    phone: "",
     message: "",
   });
 
@@ -37,7 +38,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       setTimeout(() => {
         setFormState("idle");
         setErrorMessage("");
-        setFormData({ company: "", name: "", email: "", message: "" });
+        setFormData({ company: "", name: "", email: "", phone: "", message: "" });
       }, 300);
     }
   }, [isOpen]);
@@ -174,6 +175,19 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                           placeholder="example@company.co.jp"
                         />
                       </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-xs font-bold text-gray-500 uppercase tracking-wider block">
+                        電話番号
+                      </label>
+                      <input
+                        type="tel"
+                        value={formData.phone}
+                        onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+                        className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-gray-900 font-medium focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
+                        placeholder="03-1234-5678"
+                      />
                     </div>
 
                     <div className="space-y-2">

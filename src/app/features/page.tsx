@@ -4,7 +4,7 @@ import CallToAction from "@/components/CallToAction";
 
 export const metadata = {
   title: "Features | TSUNAGU",
-  description: "Bridgの特徴と機能。中国ハイクラス人材、動画マッチング、成果報酬型採用。",
+  description: "Bridgの特徴と機能。IT人材のリモートトライアル採用からバイリンガル人材の紹介まで、AIプラットフォームで採用を自動化。",
 };
 
 export default function FeaturesPage() {

@@ -1,4 +1,9 @@
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
+import { useContact } from "@/context/ContactContext";
+import { ArrowRight } from "lucide-react";
 
 const footerNavItems = [
   { 
@@ -18,6 +23,8 @@ const footerNavItems = [
 ];
 
 export default function Footer() {
+  const { openContact } = useContact();
+
   return (
     <footer id="company" className="bg-white border-t border-gray-100 pt-20 pb-10">
       <div className="container mx-auto px-6">
@@ -25,11 +32,12 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="md:col-span-4">
             <Link href="/" className="inline-block mb-6">
-              <img 
-                src="/images/logo.png" 
-                alt="TSUNAGU" 
+              <Image
+                src="/images/logo.png"
+                alt="TSUNAGU"
                 width={360}
                 height={90}
+                priority
                 style={{ height: "90px", width: "auto" }}
                 className="block transition-opacity duration-300 hover:opacity-80"
               />
@@ -81,9 +89,13 @@ export default function Footer() {
             </div>
           </div>
           
-          <div className="flex items-center gap-6">
-            <span className="text-[10px] font-mono text-gray-400">contact@tsunagu.co.jp</span>
-          </div>
+          <button
+            onClick={openContact}
+            className="flex items-center gap-2 text-[10px] font-bold text-gray-400 hover:text-gray-900 transition-colors uppercase tracking-wider group"
+          >
+            お問い合わせ
+            <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+          </button>
         </div>
       </div>
     </footer>

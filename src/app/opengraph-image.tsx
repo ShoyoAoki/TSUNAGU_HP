@@ -4,7 +4,7 @@ import { ImageResponse } from 'next/og'
 export const runtime = 'edge'
 
 // Image metadata
-export const alt = 'TSUNAGU - 中国IT人材 × リモートトライアル採用'
+export const alt = 'TSUNAGU - クロスボーダーHRプラットフォーム'
 export const size = {
   width: 1200,
   height: 630,
@@ -47,7 +47,7 @@ export default async function Image() {
             TSUNAGU
           </div>
           <div style={{ fontSize: 28, color: '#525252', fontWeight: 500, maxWidth: 700, textAlign: 'center', lineHeight: 1.5 }}>
-            中国IT人材 × リモートトライアル採用
+            クロスボーダーHR プラットフォーム
           </div>
           <div style={{
             marginTop: 32,
