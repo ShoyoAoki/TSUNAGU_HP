@@ -19,7 +19,16 @@ export default function CompanyPage() {
     { label: "設立", en: "Founded", value: "2025年3月3日" },
     { label: "資本金", en: "Capital", value: "500万円" },
     { label: "代表取締役", en: "CEO", value: "青木 翔陽" },
-    { label: "所在地", en: "Address", value: "〒899-5211 鹿児島県姶良市加治木町反土4番15番地249" },
+    {
+      label: "本社所在地",
+      en: "Head Office",
+      value: "〒899-5211 鹿児島県姶良市加治木町反土4番15番地249"
+    },
+    {
+      label: "東京オフィス",
+      en: "Tokyo Office",
+      value: "〒153-0063 東京都目黒区目黒１丁目２４−１２ オリックス目黒ビル 7F"
+    },
     {
       label: "事業内容",
       en: "Business",
