@@ -186,23 +186,32 @@ export default function PhilosophyClient() {
           </motion.div>
         </section>
 
-        {/* 代表ポートレート（プレースホルダー） */}
-        <section className="max-w-6xl mx-auto px-6 py-20">
+        {/* 代表ポートレート */}
+        <section className="max-w-4xl mx-auto px-6 py-20">
           <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 2 }}
-            className="relative aspect-[21/9] bg-gray-50 overflow-hidden group"
+            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col items-center"
           >
-            {/* モノクロームのポートレートを想定したグレー背景 */}
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-gray-200 grayscale" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-sm font-mono tracking-[0.4em] text-gray-400 uppercase">Representative Portrait</span>
+            <div className="relative w-full max-w-md aspect-square overflow-hidden bg-gray-50">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/ceo-portrait.jpg"
+                alt="株式会社TSUNAGU 代表取締役 青木翔陽"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              {/* 薄い枠線 */}
+              <div className="absolute inset-0 ring-1 ring-black/5 pointer-events-none" />
             </div>
-            {/* 装飾的なグリッド */}
-            <div className="absolute inset-0 opacity-[0.1] pointer-events-none"
-                 style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
+
+            <div className="mt-10 flex flex-col items-center space-y-2">
+              <span className="text-xs font-mono tracking-[0.4em] text-gray-400 uppercase">Representative</span>
+              <span className="text-sm md:text-base font-serif text-gray-600">株式会社TSUNAGU 代表取締役</span>
+              <span className="text-xl md:text-2xl font-serif tracking-[0.2em]">青木 翔陽</span>
+            </div>
           </motion.div>
         </section>
 
