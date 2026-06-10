@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useState } from "react";
 import { useContact } from "@/context/ContactContext";
 
@@ -143,9 +144,17 @@ export default function ServiceDetailClient() {
                 </span>
               </div>
 
-              {/* メインロゴ：owl.match */}
-              <h1 className="font-mono font-bold tracking-tighter text-gray-900 mb-6 leading-[0.95] text-[64px] sm:text-7xl md:text-8xl lg:text-[9rem]">
-                owl<span className="text-[#70C1D1]">.</span>match
+              {/* メインロゴ：OwlMatch wordmark */}
+              <h1 className="mb-6">
+                <span className="sr-only">OwlMatch</span>
+                <Image
+                  src="/images/owlmatch-logo.png"
+                  alt="OwlMatch"
+                  width={1536}
+                  height={1024}
+                  priority
+                  className="w-[280px] sm:w-[400px] md:w-[560px] lg:w-[680px] h-auto"
+                />
               </h1>
 
               {/* サブブランド：智枭 + タグライン */}
