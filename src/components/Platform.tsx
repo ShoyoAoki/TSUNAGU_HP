@@ -25,8 +25,8 @@ export default function Platform() {
               3 Services<br/>Across Borders_
             </h2>
             <p className="text-gray-600 leading-relaxed text-lg">
-              IT人材のリモートトライアル採用（OwlMatch Remote）、日中バイリンガル人材の紹介、現地スポット案件（OwlMatch Spot）まで。
-              TSUNAGUは3つの事業部体制で、最適な採用と実務モデルをご提案します。
+              IT人材のリモートトライアル採用（OwlMatch Remote）、日中バイリンガル人材の紹介（OwlMatch Language）、現地スポット案件（OwlMatch Spot）まで。
+              OwlMatchは3つのラインで、最適な採用と実務モデルをご提案します。
             </p>
           </div>
 

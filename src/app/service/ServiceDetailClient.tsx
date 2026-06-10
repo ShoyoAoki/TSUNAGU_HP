@@ -79,7 +79,7 @@ const spotFeatures = [
   {
     id: "02",
     title: "案件で実証 → 採用へつなぐファネル",
-    desc: "スポットの稼働実績は第三者検証された「実績バッジ」になり、本線採用（言語系・OwlMatch Remote）への自然な昇格ファネルに。実力が見えにくいクロスボーダー人材の最大ボトルネックを解消します。",
+    desc: "スポットの稼働実績は第三者検証された「実績バッジ」になり、本線採用（OwlMatch Language・OwlMatch Remote）への自然な昇格ファネルに。実力が見えにくいクロスボーダー人材の最大ボトルネックを解消します。",
   },
   {
     id: "03",
@@ -107,7 +107,7 @@ const spotProcesses = [
   {
     id: "04",
     title: "実績データ化 / 本線へ昇格",
-    desc: "稼働後の評価データを蓄積し、ご希望に応じて言語系本線採用・OwlMatch Remoteの候補者プールへ接続します。",
+    desc: "稼働後の評価データを蓄積し、ご希望に応じてOwlMatch Language・OwlMatch Remoteの候補者プールへ接続します。",
   },
 ];
 
@@ -128,26 +128,58 @@ export default function ServiceDetailClient() {
 
       <main className="relative z-10">
         {/* ヒーローセクション */}
-        <section className="pt-32 pb-20 md:pt-48 md:pb-32 px-6">
+        <section className="pt-32 pb-20 md:pt-48 md:pb-24 px-6">
           <div className="container mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
+              {/* Eyebrow */}
               <div className="flex items-center gap-2 mb-6">
                 <div className="w-2 h-2 bg-[#70C1D1]" />
                 <span className="text-sm font-bold tracking-[0.2em] text-gray-900 uppercase">
                   Cross-Border HR Platform
                 </span>
               </div>
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-gray-900 mb-8 leading-tight font-mono">
-                SERVICE_
+
+              {/* メインロゴ：owl.match */}
+              <h1 className="font-mono font-bold tracking-tighter text-gray-900 mb-6 leading-[0.95] text-[64px] sm:text-7xl md:text-8xl lg:text-[9rem]">
+                owl<span className="text-[#70C1D1]">.</span>match
               </h1>
-              <p className="max-w-2xl text-lg md:text-xl text-gray-600 leading-relaxed">
-                IT人材のリモートトライアル採用、日中バイリンガル人材の紹介、そして現地スポット案件まで。<br className="hidden md:block" />
-                TSUNAGUは3つの事業で、日中をつなぐ採用と実務を支援します。
+
+              {/* サブブランド：智枭 + タグライン */}
+              <div className="flex items-center gap-4 mb-10 flex-wrap">
+                <span className="text-2xl md:text-3xl font-bold text-gray-900 tracking-wide">智枭</span>
+                <span className="text-xs md:text-sm font-mono text-gray-400 tracking-wider">zhì xiāo</span>
+                <span className="hidden md:block w-px h-6 bg-gray-300" />
+                <span className="text-sm md:text-base font-bold text-gray-700 tracking-wide">賢く、全方位に、つなぐ。</span>
+              </div>
+
+              {/* リードコピー */}
+              <p className="max-w-3xl text-base md:text-xl text-gray-600 leading-relaxed mb-10">
+                OwlMatchは、株式会社TSUNAGUが運営する<strong className="text-gray-900 font-bold">クロスボーダーHRプラットフォーム</strong>。<br className="hidden md:block" />
+                IT人材のリモートトライアル採用、日中バイリンガル人材の紹介、現地スポット案件まで——3つのラインで日中をつなぐ採用と実務を支援します。
               </p>
+
+              {/* 3ラインバッジ */}
+              <div className="flex flex-wrap gap-3 mb-2">
+                <div className="flex items-center gap-2.5 px-3.5 py-2 bg-white border border-gray-200">
+                  <div className="w-1.5 h-1.5 bg-[#70C1D1]" />
+                  <span className="font-mono text-xs font-bold tracking-wide text-gray-900">OwlMatch Remote</span>
+                  <span className="text-xs text-gray-500">IT系</span>
+                </div>
+                <div className="flex items-center gap-2.5 px-3.5 py-2 bg-white border border-gray-200">
+                  <div className="w-1.5 h-1.5 bg-purple-500" />
+                  <span className="font-mono text-xs font-bold tracking-wide text-gray-900">OwlMatch Language</span>
+                  <span className="text-xs text-gray-500">言語系</span>
+                </div>
+                <div className="flex items-center gap-2.5 px-3.5 py-2 bg-white border border-gray-200">
+                  <div className="w-1.5 h-1.5 bg-teal-500" />
+                  <span className="font-mono text-xs font-bold tracking-wide text-gray-900">OwlMatch Spot</span>
+                  <span className="text-xs text-gray-500">スポット</span>
+                </div>
+              </div>
             </motion.div>
 
             {/* 事業部タブ切り替え */}
@@ -170,7 +202,7 @@ export default function ServiceDetailClient() {
                   }`}
                 >
                   <span className="font-mono text-xs block mb-1">OwlMatch Remote</span>
-                  IT系人材事業部
+                  IT系人材
                 </button>
                 <button
                   id="tab-lang"
@@ -184,8 +216,8 @@ export default function ServiceDetailClient() {
                       : "border-transparent text-gray-400 hover:text-gray-600"
                   }`}
                 >
-                  <span className="font-mono text-xs block mb-1">Language</span>
-                  言語系人材事業部
+                  <span className="font-mono text-xs block mb-1">OwlMatch Language</span>
+                  日中バイリンガル人材
                 </button>
                 <button
                   id="tab-spot"
@@ -200,7 +232,7 @@ export default function ServiceDetailClient() {
                   }`}
                 >
                   <span className="font-mono text-xs block mb-1">OwlMatch Spot</span>
-                  スポット案件事業部
+                  スポット案件
                 </button>
               </div>
               {/* モバイル: 右端のフェードで「もっと右にタブがある」ことを示す */}
@@ -403,7 +435,7 @@ export default function ServiceDetailClient() {
                   <div className="flex items-center gap-2 mb-4">
                     <div className="w-2 h-2 bg-purple-500" />
                     <span className="text-sm font-bold tracking-[0.2em] text-gray-900 uppercase">
-                      Language Division
+                      OwlMatch Language
                     </span>
                   </div>
                   <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-4">
@@ -545,7 +577,7 @@ export default function ServiceDetailClient() {
                     </p>
                     <p className="text-base text-gray-500 leading-relaxed mb-6">
                       実績が見えにくい中国人材の最大のボトルネックは「実力の不可視性」。
-                      OwlMatch Spotで積み上げた稼働実績は、そのまま言語系本線採用・OwlMatch Remoteへの自然な昇格ファネルになります。
+                      OwlMatch Spotで積み上げた稼働実績は、そのままOwlMatch Language・OwlMatch Remoteへの自然な昇格ファネルになります。
                     </p>
                     <div className="flex flex-wrap gap-3">
                       {["現地アテンド", "視察代行", "商材リサーチ", "通訳", "AI・データ"].map((tag) => (

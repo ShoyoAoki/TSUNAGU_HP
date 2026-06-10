@@ -8,7 +8,7 @@ const features = [
     tag: "Three Divisions",
     title: "3事業部体制",
     jpTitle: "IT人材 × バイリンガル人材 × スポット案件",
-    desc: "ITエンジニアのリモートトライアル採用（OwlMatch Remote）、N2以上バイリンガル人材の紹介（言語系事業）、現地スポット案件（OwlMatch Spot）。3つの専門チームが、企業のニーズに最適な人材と実務をご提案します。",
+    desc: "ITエンジニアのリモートトライアル採用（OwlMatch Remote）、N2以上バイリンガル人材の紹介（OwlMatch Language）、現地スポット案件（OwlMatch Spot）。3つの専門ラインが、企業のニーズに最適な人材と実務をご提案します。",
     col: "md:col-span-2",
     theme: "text-gray-900 border-gray-200"
   },
