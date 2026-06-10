@@ -1,19 +1,10 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
-
-// グリッド背景コンポーネント（Hero.tsxのものを踏襲しつつ調整）
-const GridBackground = () => (
-  <div 
-    className="fixed inset-0 pointer-events-none opacity-[0.05] z-0"
-    style={{ 
-      backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)',
-      backgroundSize: '60px 60px',
-    }}
-  />
-);
+import GridBackground from "@/components/concept/GridBackground";
+import SandglassVideo from "@/components/concept/SandglassVideo";
 
 // 背景に流れるセネカの言葉（装飾的要素）
 const BackgroundText = () => {
@@ -23,7 +14,7 @@ const BackgroundText = () => {
   const y3 = useTransform(scrollYProgress, [0, 1], [0, -150]);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
+    <div aria-hidden="true" className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
       <motion.div 
         style={{ y: y1 }}
         className="absolute top-[5%] left-[-2%] text-[10vw] font-serif italic text-black/[0.015] whitespace-nowrap leading-none uppercase tracking-tighter"
@@ -47,14 +38,7 @@ const BackgroundText = () => {
 };
 
 export default function OriginClient() {
-  const [mounted, setMounted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
 
   return (
     <main ref={containerRef} className="relative min-h-screen bg-white text-black selection:bg-gray-100 selection:text-black">
@@ -72,12 +56,7 @@ export default function OriginClient() {
           >
             {/* 砂時計/無限ロゴのビジュアル（既存の動画を応用） */}
             <div className="relative w-full flex flex-col items-center justify-center">
-              <video
-                src="/videos/sandglass.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
+              <SandglassVideo
                 className="w-auto h-[45vh] max-h-[500px] object-contain mix-blend-multiply opacity-90"
                 style={{
                   maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
@@ -104,7 +83,7 @@ export default function OriginClient() {
                 />
               </div>
 
-              <span className="block text-sm font-mono tracking-[0.4em] text-gray-400 mb-4 uppercase">
+              <span className="block text-sm font-mono tracking-[0.4em] text-gray-500 mb-4 uppercase">
                 Origins of Name and Logo
               </span>
               <h1 className="text-2xl md:text-3xl font-serif tracking-widest text-gray-900">
@@ -184,7 +163,7 @@ function Section({ title, label, children }: { title: string; label: string; chi
       className="space-y-12"
     >
       <div className="space-y-4">
-        <span className="block text-xs font-mono tracking-[0.3em] text-gray-400 uppercase">
+        <span className="block text-xs font-mono tracking-[0.3em] text-gray-500 uppercase">
           {label}
         </span>
         <h2 className="text-3xl md:text-4xl font-serif tracking-tight leading-tight">

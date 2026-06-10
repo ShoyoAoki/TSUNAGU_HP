@@ -43,8 +43,28 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     }
   }, [isOpen]);
 
+  const validateForm = (): string | null => {
+    if (!formData.name.trim()) return "お名前を入力してください。";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      return "有効なメールアドレスを入力してください。";
+    }
+    if (!formData.message.trim()) return "お問い合わせ内容を入力してください。";
+    if (formData.message.length > 5000) {
+      return "お問い合わせ内容は5000文字以内でご入力ください。";
+    }
+    return null;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const validationError = validateForm();
+    if (validationError) {
+      setFormState("error");
+      setErrorMessage(validationError);
+      return;
+    }
+
     setFormState("submitting");
     setErrorMessage("");
 
@@ -86,6 +106,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              role="dialog"
+              aria-modal="true"
+              aria-label="お問い合わせフォーム"
               className="w-full max-w-lg bg-white overflow-hidden shadow-2xl pointer-events-auto relative max-h-[90vh] overflow-y-auto"
             >
               {/* Tech Header */}
@@ -98,6 +121,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 </div>
                 <button
                   onClick={onClose}
+                  aria-label="閉じる"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   <X className="w-5 h-5" />

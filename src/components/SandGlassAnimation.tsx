@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import SandglassVideo from "@/components/concept/SandglassVideo";
 
 type Phase = 'spark' | 'convergence' | 'formation' | 'transition' | 'completed';
 
@@ -66,12 +67,7 @@ export default function SandGlassAnimation({ onTransitionStart }: SandGlassAnima
             className="relative flex items-center justify-center"
           >
             {/* 動画要素 - サイズをさらに拡大し、上下の切れを隠す */}
-            <video
-              src="/videos/sandglass.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
+            <SandglassVideo
               className="w-auto h-[75vh] md:h-[90vh] lg:h-[115vh] max-w-none object-contain mix-blend-multiply opacity-95"
               style={{
                 maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 85%)',

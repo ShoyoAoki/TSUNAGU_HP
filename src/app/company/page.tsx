@@ -100,7 +100,7 @@ export default function CompanyPage() {
             >
               <div className="flex items-end gap-4 mb-12">
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900">企業情報</h2>
-                <span className="text-sm font-mono text-gray-400 mb-1">/ Corporate Information</span>
+                <span className="text-sm font-mono text-gray-500 mb-1">/ Corporate Information</span>
               </div>
 
               <div className="grid grid-cols-1 border-t border-gray-900">
@@ -112,7 +112,7 @@ export default function CompanyPage() {
                     <div className="md:col-span-4 py-8 md:pr-8">
                       <div className="flex flex-col">
                         <span className="text-lg font-bold text-gray-900">{info.label}</span>
-                        <span className="text-[10px] font-mono text-gray-400 uppercase tracking-widest mt-1">{info.en}</span>
+                        <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mt-1">{info.en}</span>
                       </div>
                     </div>
                     <div className="md:col-span-8 py-8 flex items-center">
@@ -141,7 +141,7 @@ export default function CompanyPage() {
             >
               <div className="flex items-end gap-4 mb-12">
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900">グローバルネットワーク</h2>
-                <span className="text-sm font-mono text-gray-400 mb-1">/ Global Network</span>
+                <span className="text-sm font-mono text-gray-500 mb-1">/ Global Network</span>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

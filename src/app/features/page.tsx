@@ -3,7 +3,7 @@ import ServiceSummary from "@/components/ServiceSummary";
 import CallToAction from "@/components/CallToAction";
 
 export const metadata = {
-  title: "Features | TSUNAGU",
+  title: "Features",
   description: "Bridgの特徴と機能。IT人材のリモートトライアル採用からバイリンガル人材の紹介まで、AIプラットフォームで採用を自動化。",
 };
 

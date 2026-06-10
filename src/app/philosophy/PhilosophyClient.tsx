@@ -2,17 +2,9 @@
 
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-
-// グリッド背景
-const GridBackground = () => (
-  <div 
-    className="fixed inset-0 pointer-events-none opacity-[0.03] z-0"
-    style={{ 
-      backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)',
-      backgroundSize: '40px 40px',
-    }}
-  />
-);
+import Image from "next/image";
+import GridBackground from "@/components/concept/GridBackground";
+import SandglassVideo from "@/components/concept/SandglassVideo";
 
 // 背景に流れるセネカの言葉（装飾的要素）
 const BackgroundText = () => {
@@ -21,14 +13,14 @@ const BackgroundText = () => {
   const y2 = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
-      <motion.div 
+    <div aria-hidden="true" className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
+      <motion.div
         style={{ y: y1 }}
         className="absolute top-[10%] left-[-2%] text-[12vw] font-serif italic text-black/[0.01] whitespace-nowrap leading-none uppercase tracking-tighter"
       >
         Non exiguum temporis habemus, sed multum perdidimus.
       </motion.div>
-      <motion.div 
+      <motion.div
         style={{ y: y2 }}
         className="absolute bottom-[10%] right-[-5%] text-[12vw] font-serif italic text-black/[0.01] whitespace-nowrap leading-none uppercase tracking-tighter"
       >
@@ -41,7 +33,6 @@ const BackgroundText = () => {
 const MOBILE_BREAKPOINT = 768;
 
 export default function PhilosophyClient() {
-  const [mounted, setMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -60,19 +51,12 @@ export default function PhilosophyClient() {
   const videoOpacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1], [0.8, 0.1, 0.1, 0.8]);
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
     const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
     setIsMobile(mq.matches);
     const handler = () => setIsMobile(mq.matches);
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
-  }, [mounted]);
-
-  if (!mounted) return null;
+  }, []);
 
   // PCはマスクなし（従来どおり）、モバイルのみ円形マスクで四角枠を隠す
   const wrapperStyle = {
@@ -92,20 +76,15 @@ export default function PhilosophyClient() {
 
   return (
     <main ref={containerRef} className={`relative min-h-screen bg-white text-black selection:bg-gray-900 selection:text-white font-serif`}>
-      <GridBackground />
+      <GridBackground size={40} opacity={0.03} />
       <BackgroundText />
 
       {/* 背景の砂時計ビデオ - PCは変更なし、モバイルのみ円形マスク */}
-      <motion.div 
+      <motion.div
         style={wrapperStyle}
         className="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden"
       >
-        <video
-          src="/videos/sandglass.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
+        <SandglassVideo
           className="w-auto h-[140vh] md:h-[120vh] object-contain mix-blend-multiply opacity-95"
           style={{
             maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 85%)',
@@ -123,11 +102,11 @@ export default function PhilosophyClient() {
             transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
             className="text-center space-y-12"
           >
-            <span className="block text-sm font-mono tracking-[0.4em] text-gray-400 uppercase">Message</span>
+            <span className="block text-sm font-mono tracking-[0.4em] text-gray-500 uppercase">Message</span>
             <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif tracking-[0.1em] leading-tight whitespace-nowrap">
               時を、命と捉える。
             </h1>
-            
+
             <div className="pt-12">
               <motion.div
                 initial={{ opacity: 0 }}
@@ -138,7 +117,7 @@ export default function PhilosophyClient() {
                 <span className="text-lg md:text-xl font-serif tracking-widest mb-4">代表取締役</span>
                 <span className="text-xl md:text-2xl font-serif tracking-[0.2em] relative inline-block">
                   青木 翔陽
-                  <motion.div 
+                  <motion.div
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ delay: 1.8, duration: 1.2, ease: "easeInOut" }}
@@ -196,19 +175,19 @@ export default function PhilosophyClient() {
             className="flex flex-col items-center"
           >
             <div className="relative w-full max-w-md aspect-square overflow-hidden bg-gray-50">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/images/ceo-portrait.jpg"
                 alt="株式会社TSUNAGU 代表取締役 青木翔陽"
-                className="w-full h-full object-cover"
-                loading="lazy"
+                fill
+                sizes="(max-width: 768px) 100vw, 448px"
+                className="object-cover"
               />
               {/* 薄い枠線 */}
               <div className="absolute inset-0 ring-1 ring-black/5 pointer-events-none" />
             </div>
 
             <div className="mt-10 flex flex-col items-center space-y-2">
-              <span className="text-xs font-mono tracking-[0.4em] text-gray-400 uppercase">Representative</span>
+              <span className="text-xs font-mono tracking-[0.4em] text-gray-500 uppercase">Representative</span>
               <span className="text-sm md:text-base font-serif text-gray-600">株式会社TSUNAGU 代表取締役</span>
               <span className="text-xl md:text-2xl font-serif tracking-[0.2em]">青木 翔陽</span>
             </div>
@@ -226,12 +205,12 @@ export default function PhilosophyClient() {
               className="space-y-12"
             >
               <div className="space-y-4">
-                <span className="block text-xs font-mono tracking-[0.3em] text-gray-400 uppercase">Our Story</span>
+                <span className="block text-xs font-mono tracking-[0.3em] text-gray-500 uppercase">Our Story</span>
                 <h2 className="text-3xl md:text-5xl font-serif tracking-tight leading-tight">
                   意志を繋ぎ、<br className="md:hidden" />国境を溶かす。
                 </h2>
               </div>
-              
+
               <div className="space-y-8 text-lg md:text-xl text-gray-700 font-light tracking-wide leading-[2.2]">
                 <p>
                   私たちのミッションである「意志をつなぐ」こと。それは、単なるマッチングではありません。世界に散らばる情熱的な意志が、国境という旧来の壁に阻まれることなく、あるべき場所へと瞬時に届く。そのような「労働機会の国境をなくす」未来（ビジョン）を、私たちは本気で信じています。
@@ -249,7 +228,7 @@ export default function PhilosophyClient() {
 
               <div className="pt-20 text-center">
                 <div className="inline-block space-y-4">
-                  <p className="text-sm font-mono tracking-[0.4em] text-gray-400 uppercase italic">Bridge border, Build future.</p>
+                  <p className="text-sm font-mono tracking-[0.4em] text-gray-500 uppercase italic">Bridge border, Build future.</p>
                   <div className="h-[1px] w-full bg-gray-100" />
                 </div>
               </div>

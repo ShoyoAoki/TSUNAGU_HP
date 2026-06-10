@@ -80,18 +80,18 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-            <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">
+            <p className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">
               &copy; {new Date().getFullYear()} TSUNAGU Inc.
             </p>
             <div className="flex gap-6">
-              <Link href="/privacy" className="text-[10px] font-bold text-gray-400 hover:text-gray-900 transition-colors uppercase tracking-wider">Privacy Policy</Link>
-              <Link href="/terms" className="text-[10px] font-bold text-gray-400 hover:text-gray-900 transition-colors uppercase tracking-wider">Terms of Service</Link>
+              <Link href="/privacy" className="text-[10px] font-bold text-gray-500 hover:text-gray-900 transition-colors uppercase tracking-wider">Privacy Policy</Link>
+              <Link href="/terms" className="text-[10px] font-bold text-gray-500 hover:text-gray-900 transition-colors uppercase tracking-wider">Terms of Service</Link>
             </div>
           </div>
           
           <button
             onClick={openContact}
-            className="flex items-center gap-2 text-[10px] font-bold text-gray-400 hover:text-gray-900 transition-colors uppercase tracking-wider group"
+            className="flex items-center gap-2 text-[10px] font-bold text-gray-500 hover:text-gray-900 transition-colors uppercase tracking-wider group"
           >
             お問い合わせ
             <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />

@@ -1,28 +1,11 @@
 "use client";
 
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import { useContact } from "@/context/ContactContext";
 import SandGlassAnimation from "@/components/SandGlassAnimation";
-
-// シンプルなグリッドパターン背景
-const GridBackground = () => {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
-  if (!mounted) return null;
-
-  return (
-    <div 
-      className="absolute inset-0 pointer-events-none opacity-[0.08]"
-      style={{ 
-        backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)',
-        backgroundSize: '60px 60px',
-      }}
-    />
-  );
-};
+import GridBackground from "@/components/concept/GridBackground";
 
 // タイピングアニメーションコンポーネント
 const TypingHeadline = ({ 
@@ -32,6 +15,7 @@ const TypingHeadline = ({
   active: boolean;
   onComplete: () => void;
 }) => {
+  const prefersReducedMotion = useReducedMotion();
   const [displayText, setDisplayText] = useState<string[]>(["", ""]);
   const [messageIndex, setMessageIndex] = useState(0);
   const [phase, setPhase] = useState<'typing' | 'waiting' | 'deleting'>('typing');
@@ -56,8 +40,19 @@ const TypingHeadline = ({
     return () => clearInterval(cursorInterval);
   }, []);
 
+  // OSの「視差効果を減らす」設定時はタイピング演出を省略して即時表示
   useEffect(() => {
-    if (!active) return;
+    if (!prefersReducedMotion || !active || isFirstCycleComplete) return;
+    setDisplayText([...messages[0]]);
+    setActiveLine(messages[0].length - 1);
+    setPhase('waiting');
+    setIsFirstCycleComplete(true);
+    onComplete();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [prefersReducedMotion, active, isFirstCycleComplete, onComplete]);
+
+  useEffect(() => {
+    if (!active || prefersReducedMotion) return;
 
     let timeout: NodeJS.Timeout;
     const currentLines = messages[messageIndex];
@@ -199,7 +194,7 @@ export default function Hero() {
       {isMounted && <SandGlassAnimation onTransitionStart={handleTransitionStart} />}
       
       {/* 背景グリッドパターン */}
-      <GridBackground />
+      <GridBackground position="absolute" opacity={0.08} />
 
       <div className="container mx-auto px-6 md:px-8 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center">
@@ -239,7 +234,7 @@ export default function Hero() {
                   成果を見てから正社員採用 — リスクゼロの新しい採用モデル。
                 </p>
 
-                <p className="text-xs font-mono text-gray-400 tracking-wide">
+                <p className="text-xs font-mono text-gray-500 tracking-wide">
                   // ZERO RISK. PROVEN TALENT. BRIDG TO JAPAN.
                 </p>
               </div>

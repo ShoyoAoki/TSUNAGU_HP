@@ -70,6 +70,9 @@ export default function Header() {
       <motion.header
         className="fixed top-0 left-0 right-0 z-50 py-6"
         onMouseLeave={() => setHoveredItem(null)}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") setHoveredItem(null);
+        }}
       >
         {/* Backdrop Filter Background */}
         <motion.div 
@@ -101,17 +104,20 @@ export default function Header() {
               <div className="hidden md:flex items-center gap-8">
                 <nav className="flex items-center gap-8">
                   {navItems.map((item) => (
-                    <div 
+                    <div
                       key={item.name}
                       className="relative"
                       onMouseEnter={() => setHoveredItem(item.name)}
+                      onFocus={() => setHoveredItem(item.name)}
                     >
-                      <Link 
+                      <Link
                         href={item.href}
+                        aria-haspopup={item.dropdown ? "true" : undefined}
+                        aria-expanded={item.dropdown ? hoveredItem === item.name : undefined}
                         className="text-sm font-medium text-gray-600 hover:text-black transition-colors relative group font-mono flex flex-col items-center leading-none py-2"
                       >
                         <span className="relative z-10 text-base">{item.name}</span>
-                        <span className="text-[10px] text-gray-400 group-hover:text-cyan-600 transition-colors font-sans font-bold mt-1">{item.jp}</span>
+                        <span className="text-[10px] text-gray-500 group-hover:text-cyan-600 transition-colors font-sans font-bold mt-1">{item.jp}</span>
                         <span className="absolute -left-3 top-2 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-500">[</span>
                         <span className="absolute -right-3 top-2 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-500">]</span>
                       </Link>
@@ -135,7 +141,8 @@ export default function Header() {
             <button 
               className={`relative z-50 p-2 transition-colors ${isMenuOpen ? 'text-black' : 'text-gray-900'} ${(!isTransparentPage || isPastHero) ? '' : 'md:hidden'}`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Menu"
+              aria-label={isMenuOpen ? "メニューを閉じる" : "メニューを開く"}
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
             </button>
@@ -231,7 +238,7 @@ export default function Header() {
                          <span className="text-4xl md:text-7xl font-black tracking-tighter text-transparent bg-clip-text bg-gray-200 group-hover:text-black group-hover:bg-none transition-all duration-300 leading-none">
                           {item.name}
                         </span>
-                        <span className="text-sm md:text-lg font-bold text-gray-400 group-hover:text-cyan-600 transition-colors pl-1">
+                        <span className="text-sm md:text-lg font-bold text-gray-500 group-hover:text-cyan-600 transition-colors pl-1">
                           {item.jp}
                         </span>
                       </div>
@@ -281,7 +288,7 @@ export default function Header() {
                   </span>
                 </button>
 
-                <div className="flex gap-6 text-sm font-bold text-gray-400">
+                <div className="flex gap-6 text-sm font-bold text-gray-500">
                   <Link href="/privacy" className="hover:text-black transition-colors" onClick={() => setIsMenuOpen(false)}>Privacy Policy</Link>
                   <Link href="/terms" className="hover:text-black transition-colors" onClick={() => setIsMenuOpen(false)}>Terms of Service</Link>
                 </div>
@@ -289,7 +296,7 @@ export default function Header() {
             </div>
 
             {/* Bottom Status Bar */}
-            <div className="absolute bottom-0 left-0 w-full h-12 border-t border-gray-100 flex items-center justify-between px-6 bg-white text-[10px] font-mono text-gray-400 uppercase tracking-widest">
+            <div className="absolute bottom-0 left-0 w-full h-12 border-t border-gray-100 flex items-center justify-between px-6 bg-white text-[10px] font-mono text-gray-500 uppercase tracking-widest">
               <span>System: Online</span>
               <span>TSUNAGU Inc. © {new Date().getFullYear()}</span>
             </div>

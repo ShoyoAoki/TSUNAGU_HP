@@ -1,36 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { Inter, Noto_Sans_JP } from "next/font/google";
 import Image from "next/image";
-
-const inter = Inter({ 
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  variable: "--font-inter"
-});
-
-const notoSansJP = Noto_Sans_JP({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  variable: "--font-noto-sans-jp"
-});
-
-// グリッド背景コンポーネント（TSUNAGUのアイデンティティ）
-const GridBackground = () => (
-  <div 
-    className="fixed inset-0 pointer-events-none opacity-[0.05] z-0"
-    style={{ 
-      backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)',
-      backgroundSize: '80px 80px', // 少し大きめのグリッドでゆとりを持たせる
-    }}
-  />
-);
+import GridBackground from "@/components/concept/GridBackground";
 
 // 背景の巨大ロゴ（砂時計）
 const BackgroundLogo = () => (
-  <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
+  <div aria-hidden="true" className="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
     <div className="relative w-[100%] h-[100%] opacity-[0.04] flex items-center justify-center">
       <Image
         src="/images/logo.png"
@@ -68,17 +44,9 @@ const values = [
 ];
 
 export default function ValueClient() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
   return (
-    <main className={`relative min-h-screen bg-white text-black overflow-x-hidden ${inter.variable} ${notoSansJP.variable} font-sans selection:bg-gray-900 selection:text-white`}>
-      <GridBackground />
+    <main className="relative min-h-screen bg-white text-black overflow-x-hidden font-sans selection:bg-gray-900 selection:text-white">
+      <GridBackground size={80} />
       <BackgroundLogo />
 
       <div className="relative z-10">
@@ -91,7 +59,7 @@ export default function ValueClient() {
             transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
             className="text-center max-w-5xl"
           >
-            <span className="block text-sm font-mono tracking-[0.6em] text-gray-400 mb-16 uppercase">Value</span>
+            <span className="block text-sm font-mono tracking-[0.6em] text-gray-500 mb-16 uppercase">Value</span>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-[0.2em] leading-[1.4] text-gray-950 mb-16">
               時を、命と捉える
             </h1>
@@ -122,7 +90,7 @@ export default function ValueClient() {
                       <span className="text-8xl md:text-9xl font-light text-gray-950 tracking-tighter block mb-2">
                         {value.symbol}
                       </span>
-                      <motion.div 
+                      <motion.div
                         initial={{ scaleX: 0 }}
                         whileInView={{ scaleX: 1 }}
                         viewport={{ once: true }}
@@ -158,7 +126,7 @@ export default function ValueClient() {
             transition={{ duration: 2.5, ease: [0.22, 1, 0.36, 1] }}
             className="text-center"
           >
-            <div className="mb-12 opacity-20">
+            <div className="mb-12 opacity-20" aria-hidden="true">
               <Image
                 src="/images/logo.png"
                 alt=""
@@ -167,7 +135,7 @@ export default function ValueClient() {
                 className="mx-auto grayscale"
               />
             </div>
-            <p className="text-xs font-mono tracking-[0.5em] text-gray-400 uppercase">
+            <p className="text-xs font-mono tracking-[0.5em] text-gray-500 uppercase">
               // BRIDGE BORDER, BUILD FUTURE.
             </p>
           </motion.div>
