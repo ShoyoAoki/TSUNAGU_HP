@@ -4,7 +4,7 @@ import CallToAction from "@/components/CallToAction";
 
 export const metadata = {
   title: "Features | TSUNAGU",
-  description: "Bridgの特徴と機能。IT人材のリモートトライアル採用からバイリンガル人材の紹介まで、AIプラットフォームで採用を自動化。",
+  description: "OwlMatchの特徴と機能。IT人材のリモートトライアル採用、バイリンガル人材の紹介、クロスボーダー・スポット案件まで、AIプラットフォームで採用を自動化。",
 };
 
 export default function FeaturesPage() {

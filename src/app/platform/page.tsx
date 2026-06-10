@@ -3,7 +3,7 @@ import CallToAction from "@/components/CallToAction";
 
 export const metadata = {
   title: "Platform | TSUNAGU",
-  description: "Bridgのプラットフォーム。多言語対応、価値観スコアリング、データドリブンな採用。",
+  description: "OwlMatchのプラットフォーム。多言語対応、価値観スコアリング、データドリブンな採用。",
 };
 
 export default function PlatformPage() {

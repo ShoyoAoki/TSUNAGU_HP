@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const features = [
   {
     id: "01",
-    label: "BRJ",
+    label: "OwlMatch Remote",
     title: "IT系人材事業部",
     desc: "中国トップ大学のITエンジニア・AI人材を、まずリモートで3〜6ヶ月トライアル。成果を見てから正社員採用へ。採用コストゼロで始められる「まず試す」モデルが、従来の人材紹介のリスクを根本から解消します。",
     color: "bg-cyan-500",
@@ -15,9 +15,17 @@ const features = [
     id: "02",
     label: "Language",
     title: "言語系人材事業部",
-    desc: "日本語能力試験N2以上の中国語・日本語バイリンガル人材を、商社・メーカー・サービス業を中心にご紹介。愛知・東海エリアを軸に、中国ビジネスに不可欠な「語学力×実務力」を持つ人材を厳選してマッチングします。",
+    desc: "日本語能力試験N2以上の中国語・日本語バイリンガル人材を、商社・メーカー・サービス業を中心にご紹介。東京・大阪・名古屋・愛知をはじめ全国の企業様に対応し、中国ビジネスに不可欠な「語学力×実務力」を持つ人材を厳選してマッチングします。",
     color: "bg-purple-500",
     shadow: "shadow-[4px_4px_0px_0px_#a855f7]",
+  },
+  {
+    id: "03",
+    label: "OwlMatch Spot",
+    title: "スポット案件事業部",
+    desc: "中国・アジア現地でのアテンド、視察、商材リサーチ、AI・データ系の単発タスクまで、日単位で稼働する現地人材を提供。スポット稼働の実績が本線採用（言語系・OwlMatch Remote）への昇格ファネルになります。",
+    color: "bg-teal-500",
+    shadow: "shadow-[4px_4px_0px_0px_#14b8a6]",
   },
 ];
 
@@ -48,7 +56,7 @@ export default function ServiceSummary() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
         >
           {features.map((feature, index) => (
             <div 

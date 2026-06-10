@@ -5,16 +5,16 @@ import { useRef } from "react";
 
 const features = [
   {
-    tag: "Two Divisions",
-    title: "2事業部体制",
-    jpTitle: "IT人材 × バイリンガル人材の最適マッチング",
-    desc: "ITエンジニアのリモートトライアル採用（BRJ事業）と、N2以上バイリンガル人材の紹介（言語系事業）。2つの専門チームが、企業のニーズに最適な人材をご提案します。",
+    tag: "Three Divisions",
+    title: "3事業部体制",
+    jpTitle: "IT人材 × バイリンガル人材 × スポット案件",
+    desc: "ITエンジニアのリモートトライアル採用（OwlMatch Remote）、N2以上バイリンガル人材の紹介（言語系事業）、現地スポット案件（OwlMatch Spot）。3つの専門チームが、企業のニーズに最適な人材と実務をご提案します。",
     col: "md:col-span-2",
     theme: "text-gray-900 border-gray-200"
   },
   {
     tag: "AI Platform",
-    title: "Bridg",
+    title: "OwlMatch",
     jpTitle: "80以上のAIエージェントが採用を自動化",
     desc: "履歴書解析・スキル評価・日本語力判定・マッチングまで、AIが採用パイプライン全体を駆動。IT人材のコーディングテストも、バイリンガル人材の語学力評価も、高精度に自動処理します。",
     col: "md:col-span-1",

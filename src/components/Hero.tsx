@@ -216,7 +216,7 @@ export default function Hero() {
                 className="inline-block py-1 px-3 bg-gray-100 text-gray-800 text-xs font-bold tracking-widest uppercase rounded-sm mb-6"
                 variants={itemVariants}
               >
-                Cross-Border HR Platform — Bridg
+                Cross-Border HR Platform — OwlMatch
               </motion.span>
             </div>
 
@@ -240,7 +240,7 @@ export default function Hero() {
                 </p>
 
                 <p className="text-xs font-mono text-gray-400 tracking-wide">
-                  // ZERO RISK. PROVEN TALENT. BRIDG TO JAPAN.
+                  // ZERO RISK. PROVEN TALENT. OWLMATCH ACROSS BORDERS.
                 </p>
               </div>
 

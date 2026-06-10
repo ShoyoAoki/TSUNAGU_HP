@@ -78,7 +78,7 @@ export default function Introduction() {
               ITエンジニアの「まず試す」リモートトライアルモデル。<br className="hidden md:block" />
               バイリンガル人材の成功報酬型マッチング。<br className="hidden md:block" />
               80以上のAIエージェントが、両事業の採用パイプラインを自動化。<br className="hidden md:block" />
-              クロスボーダーHRプラットフォーム「Bridg」で、ボーダレスな未来を推進します。
+              クロスボーダーHRプラットフォーム「OwlMatch」で、ボーダレスな未来を推進します。
             </p>
           </motion.div>
         </motion.div>

@@ -118,13 +118,13 @@ export default function OriginClient() {
         <div className="max-w-4xl mx-auto px-6 pb-40 space-y-40">
           
           {/* 1. 社名の由来 */}
-          <Section 
+          <Section
             title="世界中の「意志」を、つなぐ。"
             label="COMPANY NAME"
           >
             <p className="leading-relaxed">
               「株式会社TSUNAGU」という社名には、テクノロジーによって国境や時間の壁を溶かし、世界に散らばる高潔な意志を最短距離で結びつけたいという強い決意を込めています。
-              また、提供するプラットフォーム「Bridg」は、その意志を具体的に繋ぐ架け橋（Bridge）となることを意味しています。
+              提供するプラットフォーム「OwlMatch（智枭）」は、フクロウのように暗闇でも最適な人材を見抜き、国・業界・言語を超えて全方位にマッチングする——「Owl Match＝All Match」の二重の意味を込めた、私たちの哲学そのものです。
             </p>
           </Section>
 

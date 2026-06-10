@@ -34,9 +34,11 @@ export default function CompanyPage() {
       en: "Business",
       value: (
         <ul className="space-y-2">
-          <li>・クロスボーダーHRプラットフォーム「Bridg」の開発・運営</li>
-          <li>・海外IT人材のリモートトライアル採用支援（BRJ事業）</li>
-          <li>・日中バイリンガル人材の採用コンサルティング</li>
+          <li>・クロスボーダーHRプラットフォーム「OwlMatch」の開発・運営</li>
+          <li>・海外IT人材のリモートトライアル採用支援（OwlMatch Remote事業）</li>
+          <li>・日中バイリンガル人材の採用コンサルティング（言語系事業）</li>
+          <li>・クロスボーダー・スポット案件の運営（OwlMatch Spot事業）</li>
+          <li>・有料職業紹介事業（許可番号 46-ユ-300221）</li>
         </ul>
       )
     },

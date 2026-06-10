@@ -30,8 +30,8 @@ export const metadata: Metadata = {
     default: "TSUNAGU | クロスボーダーHRプラットフォーム",
     template: "%s | TSUNAGU"
   },
-  description: "中国IT人材のリモートトライアル採用と、日中バイリンガル人材の紹介。AIプラットフォーム「Bridg」でクロスボーダー採用を支援する株式会社TSUNAGU。",
-  keywords: ["TSUNAGU", "中国人採用", "IT人材不足", "クロスボーダーHR", "リモートトライアル", "エンジニア採用", "日中人材", "Bridg", "外国人IT人材", "中国エンジニア", "バイリンガル人材", "言語系人材", "日中バイリンガル"],
+  description: "中国IT人材のリモートトライアル採用、日中バイリンガル人材の紹介、クロスボーダー・スポット案件。AIプラットフォーム「OwlMatch」で日中をつなぐ採用と実務を支援する株式会社TSUNAGU。",
+  keywords: ["TSUNAGU", "OwlMatch", "中国人採用", "IT人材不足", "クロスボーダーHR", "リモートトライアル", "エンジニア採用", "日中人材", "外国人IT人材", "中国エンジニア", "バイリンガル人材", "言語系人材", "日中バイリンガル", "スポット案件", "中国アテンド"],
   authors: [{ name: "TSUNAGU Inc." }],
   creator: "TSUNAGU Inc.",
   publisher: "TSUNAGU Inc.",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "TSUNAGU | クロスボーダーHRプラットフォーム",
-    description: "中国IT人材のリモートトライアル採用と、日中バイリンガル人材の紹介。クロスボーダーHRプラットフォーム「Bridg」の株式会社TSUNAGU。",
+    description: "中国IT人材のリモートトライアル採用、日中バイリンガル人材の紹介、クロスボーダー・スポット案件。クロスボーダーHRプラットフォーム「OwlMatch」の株式会社TSUNAGU。",
     url: "https://tsunaguinc.co.jp",
     siteName: "TSUNAGU",
     locale: "ja_JP",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "TSUNAGU | クロスボーダーHRプラットフォーム",
-    description: "中国IT人材のリモートトライアル採用と、日中バイリンガル人材の紹介。クロスボーダーHRプラットフォーム「Bridg」の株式会社TSUNAGU。",
+    description: "中国IT人材のリモートトライアル採用、日中バイリンガル人材の紹介、クロスボーダー・スポット案件。クロスボーダーHRプラットフォーム「OwlMatch」の株式会社TSUNAGU。",
     creator: "@tsunagu_inc",
     images: ['https://tsunaguinc.co.jp/opengraph-image'],
   },

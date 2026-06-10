@@ -22,11 +22,11 @@ export default function Platform() {
               </span>
             </div>
             <h2 className="text-2xl md:text-5xl font-semibold tracking-tight text-gray-900 leading-tight mb-6">
-              3 Tracks<br/>to Japan_
+              3 Services<br/>Across Borders_
             </h2>
             <p className="text-gray-600 leading-relaxed text-lg">
-              IT人材のリモートトライアル採用（BRJ）から、日中バイリンガル人材の紹介まで。
-              TSUNAGUは2つの事業部体制で、最適な採用モデルをご提案します。
+              IT人材のリモートトライアル採用（OwlMatch Remote）、日中バイリンガル人材の紹介、現地スポット案件（OwlMatch Spot）まで。
+              TSUNAGUは3つの事業部体制で、最適な採用と実務モデルをご提案します。
             </p>
           </div>
 
