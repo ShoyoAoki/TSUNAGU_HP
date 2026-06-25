@@ -26,7 +26,7 @@ export default function Footer() {
   const { openContact } = useContact();
 
   return (
-    <footer id="company" className="bg-white border-t border-gray-100 pt-20 pb-10">
+    <footer id="company" className="relative z-10 bg-white border-t border-gray-100 pt-20 pb-10">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           {/* Brand Section */}
