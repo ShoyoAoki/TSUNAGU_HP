@@ -202,7 +202,7 @@ export default function OwlHero() {
       vertexShader: "varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}",
       fragmentShader: "uniform sampler2D tDiffuse;uniform float uTime,uAb,uVig,uGrain;varying vec2 vUv;float rnd(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}void main(){vec2 d=vUv-0.5;float r=length(d);vec2 ab=d*uAb*(0.4+r);vec4 c;c.r=texture2D(tDiffuse,vUv+ab).r;c.g=texture2D(tDiffuse,vUv).g;c.b=texture2D(tDiffuse,vUv-ab).b;c.a=1.0;float l=dot(c.rgb,vec3(0.299,0.587,0.114));c.rgb=mix(vec3(l),c.rgb,1.16);c.rgb=(c.rgb-0.5)*1.045+0.5;float vig=smoothstep(0.95,0.30,r*uVig);c.rgb*=mix(0.5,1.0,vig);float g=(rnd(vUv+fract(uTime*0.6))-0.5)*uGrain;c.rgb+=g;gl_FragColor=c;}" };
     const grade = new ShaderPass(GradeShader); composer.addPass(grade);
-    composer.addPass(new SMAAPass(innerWidth, innerHeight));
+    composer.addPass(new SMAAPass());
 
     const ob = (x: number) => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
     let sVel = 0, prevP = 0, lastTT = 0, circAcc = 0;
