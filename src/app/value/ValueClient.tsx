@@ -92,7 +92,7 @@ export default function ValueClient() {
             className="text-center max-w-5xl"
           >
             <span className="block text-sm font-mono tracking-[0.6em] text-gray-400 mb-16 uppercase">Value</span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-[0.2em] leading-[1.4] text-gray-950 mb-16">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light tracking-[0.1em] sm:tracking-[0.2em] leading-[1.4] text-gray-950 mb-16">
               時を、命と捉える
             </h1>
             <div className="h-px w-24 bg-gray-200 mx-auto mb-16" />

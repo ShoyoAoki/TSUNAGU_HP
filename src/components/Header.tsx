@@ -228,7 +228,7 @@ export default function Header() {
                         0{index + 1}
                       </span>
                       <div className="flex flex-col relative z-20">
-                         <span className="text-4xl md:text-7xl font-black tracking-tighter text-transparent bg-clip-text bg-gray-200 group-hover:text-black group-hover:bg-none transition-all duration-300 leading-none">
+                         <span className="text-4xl md:text-7xl font-black tracking-tighter text-gray-900 md:text-transparent md:bg-clip-text md:bg-gray-200 group-hover:text-black group-hover:bg-none transition-all duration-300 leading-none">
                           {item.name}
                         </span>
                         <span className="text-sm md:text-lg font-bold text-gray-400 group-hover:text-cyan-600 transition-colors pl-1">

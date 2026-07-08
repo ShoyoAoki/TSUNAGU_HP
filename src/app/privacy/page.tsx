@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
           <span className="text-cyan-600 font-bold tracking-widest text-xs uppercase font-mono mb-4 block">
             Legal Document
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
             プライバシーポリシー
           </h1>
           <p className="text-gray-500">
