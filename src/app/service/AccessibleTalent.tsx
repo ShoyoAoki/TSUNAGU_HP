@@ -49,7 +49,7 @@ export default function AccessibleTalent() {
   const rotate = (d: number) => setActive((a) => (a + d + n) % n);
 
   return (
-    <section className="relative overflow-hidden bg-[#FAFAF7] py-28 md:py-36 px-6" aria-labelledby="talent-heading">
+    <section className="relative overflow-hidden bg-[#FAFAF7] pt-40 pb-28 md:pt-36 md:pb-36 px-6" aria-labelledby="talent-heading">
       <style>{`@keyframes tspin{to{transform:rotate(360deg)}} .t-spin{animation:tspin 18s linear infinite;transform-origin:50% 50%}
         .t-card{transition:transform .9s ${EASE},opacity .9s ${EASE},box-shadow .4s ${EASE}}
         .t-front:hover{transform:translateX(-50%) translateY(-6px)!important;box-shadow:0 36px 64px -20px rgba(15,23,42,.20)!important}`}</style>

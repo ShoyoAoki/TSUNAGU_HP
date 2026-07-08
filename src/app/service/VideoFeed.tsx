@@ -39,7 +39,7 @@ const VIDEOS: Video[] = [
   { id: 20, title: "面談から、内定まで。", poster: P(9), videoSrc: "/videos/owlmatch-feed/vf20_offer.mp4", likes: "5,720", dur: "0:04", aspect: "4/5" },
 ];
 
-// 5列に振り分け（縦マソンリー）
+// 5列に振り分け（縦マソンリー・md以上）
 const COLS = 5;
 const columns = Array.from({ length: COLS }, (_, c) => VIDEOS.filter((_, i) => i % COLS === c));
 // 列ごとの方向・速度・位相（段々・交互）
@@ -50,11 +50,13 @@ const COL = [
   { dir: "down", dur: 50, delay: -6, off: -380 },
   { dir: "up", dur: 46, delay: -16, off: -190 },
 ];
-// レスポンシブ可視性（mobile2 / sm3 / md5）※列枠はblock（flexにすると幅が縮む）
-const VIS = ["", "", "hidden sm:block", "hidden md:block", "hidden md:block"];
+
+// モバイル（<768px）用：横2段マーキー。row1=偶数index(id 1,3,5…19)/row2=奇数index(id 2,4,6…20)。全20本を欠落なくカバー
+const ROW1 = VIDEOS.filter((_, i) => i % 2 === 0);
+const ROW2 = VIDEOS.filter((_, i) => i % 2 === 1);
 
 /** フィードのタイル。動画は画面内に入った時だけ自動再生（無音ループ）して負荷を抑える */
-function Tile({ v, onOpen }: { v: Video; onOpen: (v: Video) => void }) {
+function Tile({ v, onOpen, widthClass = "w-full" }: { v: Video; onOpen: (v: Video) => void; widthClass?: string }) {
   const ref = useRef<HTMLVideoElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -71,7 +73,7 @@ function Tile({ v, onOpen }: { v: Video; onOpen: (v: Video) => void }) {
   }, []);
   return (
     <button type="button" onClick={() => onOpen(v)}
-      className="group block w-full text-left rounded-2xl overflow-hidden bg-white border border-slate-200/70 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-shadow duration-200 hover:shadow-[0_14px_30px_-14px_rgba(15,23,42,0.18)]">
+      className={`group block ${widthClass} shrink-0 text-left rounded-2xl overflow-hidden bg-white border border-slate-200/70 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-shadow duration-200 hover:shadow-[0_14px_30px_-14px_rgba(15,23,42,0.18)]`}>
       <div className="relative w-full" style={{ aspectRatio: "9 / 16" }}>
         {v.videoSrc ? (
           <video ref={ref} src={`${v.videoSrc}?v=2`} poster={v.poster} muted loop playsInline preload="metadata"
@@ -102,14 +104,18 @@ function Tile({ v, onOpen }: { v: Video; onOpen: (v: Video) => void }) {
 
 export default function VideoFeed() {
   const [active, setActive] = useState<Video | null>(null);
+  const [paused1, setPaused1] = useState(false);
+  const [paused2, setPaused2] = useState(false);
 
   return (
-    <section className="relative overflow-hidden bg-[#FAFAF7] py-28 md:py-36 px-6" aria-labelledby="feed-heading">
+    <section className="relative overflow-hidden bg-[#FAFAF7] pt-40 pb-28 md:pt-36 md:pb-36 px-6" aria-labelledby="feed-heading">
       <style>{`
         @keyframes vfUp{from{transform:translateY(0)}to{transform:translateY(-50%)}}
         @keyframes vfDown{from{transform:translateY(-50%)}to{transform:translateY(0)}}
+        @keyframes vfLeft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+        @keyframes vfRight{from{transform:translateX(-50%)}to{transform:translateX(0)}}
         .vf-col:hover .vf-track{animation-play-state:paused}
-        @media (prefers-reduced-motion: reduce){.vf-track{animation:none!important}}
+        @media (prefers-reduced-motion: reduce){.vf-track,.vf-track-h{animation:none!important}}
       `}</style>
 
       <div className="container mx-auto max-w-7xl">
@@ -125,14 +131,41 @@ export default function VideoFeed() {
         </p>
       </div>
 
-      {/* 5列マソンリー・フィード */}
-      <div className="relative mx-auto mt-14 md:mt-16 max-w-7xl">
+      {/* モバイル（<768px）：横2段オートマーキー。全20本を欠落なく2段に配分 */}
+      <div className="relative mx-auto mt-14 max-w-7xl md:hidden">
+        <div className="flex flex-col gap-3 overflow-hidden">
+          <div className="relative w-full overflow-hidden"
+            onTouchStart={() => setPaused1(true)} onTouchEnd={() => setPaused1(false)}>
+            <div className="vf-track-h flex gap-3 will-change-transform"
+              style={{ animation: "vfLeft 34s linear infinite", animationPlayState: paused1 ? "paused" : "running" }}>
+              {[...ROW1, ...ROW1].map((v, k) => (
+                <Tile key={`r1-${v.id}-${k}`} v={v} onOpen={setActive} widthClass="w-[140px] sm:w-[160px]" />
+              ))}
+            </div>
+          </div>
+          <div className="relative w-full overflow-hidden"
+            onTouchStart={() => setPaused2(true)} onTouchEnd={() => setPaused2(false)}>
+            <div className="vf-track-h flex gap-3 will-change-transform"
+              style={{ animation: "vfRight 38s linear infinite", animationPlayState: paused2 ? "paused" : "running" }}>
+              {[...ROW2, ...ROW2].map((v, k) => (
+                <Tile key={`r2-${v.id}-${k}`} v={v} onOpen={setActive} widthClass="w-[140px] sm:w-[160px]" />
+              ))}
+            </div>
+          </div>
+        </div>
+        {/* 左右フェード（端で自然に消える） */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-[#FAFAF7] to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[#FAFAF7] to-transparent" />
+      </div>
+
+      {/* 5列マソンリー・フィード（md以上） */}
+      <div className="relative mx-auto mt-14 md:mt-16 max-w-7xl hidden md:block">
         <div className="flex gap-3 md:gap-4 h-[620px] sm:h-[700px] md:h-[780px] overflow-hidden">
           {columns.map((col, ci) => {
             const cfg = COL[ci];
             const loop = [...col, ...col];
             return (
-              <div key={ci} className={`vf-col relative flex-1 overflow-hidden ${VIS[ci]}`}>
+              <div key={ci} className="vf-col relative flex-1 overflow-hidden">
                 <div className="vf-track flex flex-col gap-3 md:gap-4 will-change-transform"
                   style={{ marginTop: cfg.off, animation: `${cfg.dir === "up" ? "vfUp" : "vfDown"} ${cfg.dur}s linear infinite`, animationDelay: `${cfg.delay}s` }}>
                   {loop.map((v, k) => (

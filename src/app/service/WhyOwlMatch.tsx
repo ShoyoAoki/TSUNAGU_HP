@@ -41,7 +41,7 @@ export default function WhyOwlMatch() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[#FAFAF7] py-28 md:py-36 px-6" aria-labelledby="why-heading">
+    <section className="relative overflow-hidden bg-[#FAFAF7] pt-40 pb-28 md:pt-36 md:pb-36 px-6" aria-labelledby="why-heading">
       <style>{`
         @keyframes wdDraw{to{stroke-dashoffset:0}}
         @keyframes wdPulse{0%{transform:translate(-50%,-50%) scale(.92);opacity:.4}80%{opacity:0}100%{transform:translate(-50%,-50%) scale(1.72);opacity:0}}
@@ -93,24 +93,24 @@ export default function WhyOwlMatch() {
             </svg>
 
             {/* 中心のパルスリング（呼吸する） */}
-            <span className="wd-pulse absolute left-1/2 top-1/2 z-10 h-[170px] w-[170px] md:h-[200px] md:w-[200px] rounded-full border border-cyan-300" aria-hidden="true" />
-            <span className="wd-pulse absolute left-1/2 top-1/2 z-10 h-[170px] w-[170px] md:h-[200px] md:w-[200px] rounded-full border border-cyan-300" style={{ animationDelay: "1.6s" }} aria-hidden="true" />
+            <span className="wd-pulse absolute left-1/2 top-1/2 z-10 h-[170px] w-[170px] max-[420px]:h-[148px] max-[420px]:w-[148px] md:h-[200px] md:w-[200px] rounded-full border border-cyan-300" aria-hidden="true" />
+            <span className="wd-pulse absolute left-1/2 top-1/2 z-10 h-[170px] w-[170px] max-[420px]:h-[148px] max-[420px]:w-[148px] md:h-[200px] md:w-[200px] rounded-full border border-cyan-300" style={{ animationDelay: "1.6s" }} aria-hidden="true" />
 
             {/* 中心ノード：智枭の∞マーク */}
-            <div className="wd-core absolute left-1/2 top-1/2 z-20 grid h-[170px] w-[170px] md:h-[200px] md:w-[200px] place-items-center rounded-full border border-cyan-200 bg-white text-center shadow-[0_18px_40px_-18px_rgba(6,182,212,0.45)]">
+            <div className="wd-core absolute left-1/2 top-1/2 z-20 grid h-[170px] w-[170px] max-[420px]:h-[148px] max-[420px]:w-[148px] md:h-[200px] md:w-[200px] place-items-center rounded-full border border-cyan-200 bg-white text-center shadow-[0_18px_40px_-18px_rgba(6,182,212,0.45)]">
               <div>
-                <img src="/images/owlmatch-mark.png" alt="OwlMatch" className="mx-auto w-[100px] md:w-[120px]" />
+                <img src="/images/owlmatch-mark.png" alt="OwlMatch" className="mx-auto w-[100px] max-[420px]:w-[88px] md:w-[120px]" />
                 <span className="mt-1 block font-mono text-[10px] md:text-[11px] uppercase tracking-[0.18em] text-cyan-700">Break through</span>
               </div>
             </div>
 
             {/* 3つの壁ノード（円） */}
             {WALLS.map((w, i) => (
-              <div key={w.name} className="wd-node absolute z-20 grid h-[152px] w-[152px] md:h-[186px] md:w-[186px] place-items-center rounded-full border border-slate-200 bg-white px-4 text-center shadow-[0_12px_30px_-14px_rgba(15,23,42,0.22)]"
+              <div key={w.name} className="wd-node absolute z-20 grid h-[152px] w-[152px] max-[420px]:h-[130px] max-[420px]:w-[130px] md:h-[186px] md:w-[186px] place-items-center rounded-full border border-slate-200 bg-white px-4 text-center shadow-[0_12px_30px_-14px_rgba(15,23,42,0.22)]"
                 style={{ left: w.x, top: w.y, transitionDelay: `${0.3 + i * 0.12}s` }}>
                 <div>
-                  <p className="text-[21px] md:text-[25px] font-semibold text-slate-900">{w.name}</p>
-                  <p className="mt-2 text-[13px] md:text-[15px] text-slate-400 leading-[1.55]">{w.problem}</p>
+                  <p className="text-[21px] max-[420px]:text-[18px] md:text-[25px] font-semibold text-slate-900">{w.name}</p>
+                  <p className="mt-2 text-[13px] max-[420px]:text-[12px] md:text-[15px] text-slate-400 leading-[1.55]">{w.problem}</p>
                 </div>
               </div>
             ))}
@@ -137,7 +137,7 @@ export default function WhyOwlMatch() {
 
             {ROWS.map((r, i) => (
               <div key={r.axis} className={`grid grid-cols-[1fr_1fr] md:grid-cols-[180px_1fr_1fr] ${i < ROWS.length - 1 ? "border-b border-slate-100" : ""}`}>
-                <div className="col-span-2 md:col-span-1 border-b border-slate-100 md:border-b-0 md:border-r px-5 md:px-6 py-3 md:py-5">
+                <div className="col-span-2 md:col-span-1 border-b border-slate-100 md:border-b-0 md:border-r bg-slate-50/70 md:bg-transparent px-5 md:px-6 py-2.5 md:py-5">
                   <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">{r.axis}</span>
                 </div>
                 <div className="flex items-start gap-2.5 border-r border-slate-100 px-5 md:px-6 py-4 md:py-5">

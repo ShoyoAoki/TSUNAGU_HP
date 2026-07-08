@@ -37,7 +37,8 @@ export default function OwlHero() {
     const logoDEl = logoDRef.current!;
     if (!host || !wrap) return;
 
-    const MOB = innerWidth < 768;
+    // MOB はリサイズで再評価するため let（F-4）。768px 境界をまたいだ場合のみ軽量パラメータを再評価する
+    let MOB = innerWidth < 768;
     wrap.style.height = MOB ? "1000vh" : "1500vh";
     // create the canvas per-mount (survives React StrictMode double-invoke without WebGL context conflicts)
     const canvas = document.createElement("canvas");
@@ -101,7 +102,7 @@ export default function OwlHero() {
       dust = new THREE.Points(g, dustMat); scene.add(dust); }
 
     let warp: THREE.LineSegments, warpMat: THREE.LineBasicMaterial, warpData: any;
-    { const N = MOB ? 380 : 850, P = new Float32Array(N * 6), C = new Float32Array(N * 6), data: any[] = [];
+    { const N = MOB ? 550 : 850, P = new Float32Array(N * 6), C = new Float32Array(N * 6), data: any[] = [];
       const core = new THREE.Color(0x9fe0ff), tail = new THREE.Color(0x2f8fe0);
       for (let i = 0; i < N; i++) { data.push({ x: (Math.random() - 0.5) * 34, z: (Math.random() - 0.5) * 34, y: -25 + Math.random() * 80, len: 2 + Math.random() * 4, sp: 0.55 + Math.random() * 0.95 });
         const b = 0.6 + Math.random() * 0.6; C[i * 6] = tail.r * b; C[i * 6 + 1] = tail.g * b; C[i * 6 + 2] = tail.b * b; C[i * 6 + 3] = core.r * b; C[i * 6 + 4] = core.g * b; C[i * 6 + 5] = core.b * b; }
@@ -139,7 +140,7 @@ export default function OwlHero() {
     function buildAsiaPlane() { const BN = MOB ? 600 : 1100, bp = new Float32Array(BN * 3); for (let i = 0; i < BN; i++) { bp[i * 3] = (Math.random() - 0.5) * 46; bp[i * 3 + 1] = 0; bp[i * 3 + 2] = (Math.random() - 0.5) * 30 - 4; }
       const bg = new THREE.BufferGeometry(); bg.setAttribute("position", new THREE.BufferAttribute(bp, 3));
       aBmat = new THREE.PointsMaterial({ map: dt, size: 0.12, color: 0x2f6088, transparent: true, opacity: 0, depthWrite: false }); aplane.add(new THREE.Points(bg, aBmat));
-      const T = MOB ? 120 : 240, dp = new Float32Array(T * 3); for (let i = 0; i < T; i++) { const x = (Math.random() - 0.5) * 24, z = (Math.random() - 0.5) * 22 - 2; dp[i * 3] = x; dp[i * 3 + 1] = 0.02; dp[i * 3 + 2] = z;
+      const T = MOB ? 170 : 240, dp = new Float32Array(T * 3); for (let i = 0; i < T; i++) { const x = (Math.random() - 0.5) * 24, z = (Math.random() - 0.5) * 22 - 2; dp[i * 3] = x; dp[i * 3 + 1] = 0.02; dp[i * 3 + 2] = z;
         const h = 22 + Math.random() * 26; const bm = makeBeam(x, z, h, 0x37b6ff, 0); aplane.add(bm.line); aBeams.push({ bm, h, delay: Math.random() }); }
       const dg = new THREE.BufferGeometry(); dg.setAttribute("position", new THREE.BufferAttribute(dp, 3)); aDmat = new THREE.PointsMaterial({ map: dt, size: 0, color: 0x6fd0ff, transparent: true, opacity: 0, depthWrite: false }); aplane.add(new THREE.Points(dg, aDmat)); }
 
@@ -162,7 +163,7 @@ export default function OwlHero() {
 
     function makeLemniscate(a: number, num = 280) { const pts: THREE.Vector3[] = []; for (let i = 0; i <= num; i++) { const t = (i / num) * Math.PI * 2, d = 1 + Math.sin(t) * Math.sin(t); pts.push(new THREE.Vector3(a * Math.cos(t) / d, a * Math.sin(t) * Math.cos(t) / d * 1.7, 0)); } return new THREE.CatmullRomCurve3(pts, true); }
     function buildFinale() { const curve = makeLemniscate(7.6); const M = 720; const PTS = curve.getPoints(M);
-      const Rn = MOB ? 12 : 20, LPn = MOB ? 12 : 18, N = Rn * LPn, K = 24, SEG = K - 1, L = 0.1;
+      const Rn = MOB ? 16 : 20, LPn = MOB ? 15 : 18, N = Rn * LPn, K = 24, SEG = K - 1, L = 0.1;
       const RF: THREE.Vector3[] = [], RC: THREE.Vector3[] = [], RE: THREE.Vector3[] = [], RET = new Float32Array(Rn);
       for (let r = 0; r < Rn; r++) { const aa = Math.random() * 6.28, ee = (Math.random() - 0.5) * Math.PI, rad = 26 + Math.random() * 14;
         const Fp = new THREE.Vector3(Math.cos(aa) * Math.cos(ee) * rad, Math.sin(ee) * rad, Math.sin(aa) * Math.cos(ee) * rad);
@@ -197,7 +198,7 @@ export default function OwlHero() {
       F.g.attributes.position.needsUpdate = true; F.m.opacity = fAlpha; }
 
     const composer = new EffectComposer(renderer); composer.addPass(new RenderPass(scene, camera));
-    const bloom = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight).multiplyScalar(MOB ? 0.5 : 1), 0.95, 0.55, 0.2); composer.addPass(bloom);
+    const bloom = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight).multiplyScalar(MOB ? 0.75 : 1), 0.95, 0.55, 0.2); composer.addPass(bloom);
     const GradeShader = { uniforms: { tDiffuse: { value: null }, uTime: { value: 0 }, uAb: { value: 0.0022 }, uVig: { value: 1.12 }, uGrain: { value: 0.045 } },
       vertexShader: "varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}",
       fragmentShader: "uniform sampler2D tDiffuse;uniform float uTime,uAb,uVig,uGrain;varying vec2 vUv;float rnd(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}void main(){vec2 d=vUv-0.5;float r=length(d);vec2 ab=d*uAb*(0.4+r);vec4 c;c.r=texture2D(tDiffuse,vUv+ab).r;c.g=texture2D(tDiffuse,vUv).g;c.b=texture2D(tDiffuse,vUv-ab).b;c.a=1.0;float l=dot(c.rgb,vec3(0.299,0.587,0.114));c.rgb=mix(vec3(l),c.rgb,1.16);c.rgb=(c.rgb-0.5)*1.045+0.5;float vig=smoothstep(0.95,0.30,r*uVig);c.rgb*=mix(0.5,1.0,vig);float g=(rnd(vUv+fract(uTime*0.6))-0.5)*uGrain;c.rgb+=g;gl_FragColor=c;}" };
@@ -243,9 +244,14 @@ export default function OwlHero() {
         } else if (p < 0.72) {
           if (p < 0.4) { const a = eo(cl(0.33, 0.4, p)); camera.position.set(0, JFIT, lp(0.1, JFIT * 0.16, a)); camera.lookAt(0, 0, 0); }
           else if (p < 0.48) { const a = eo(cl(0.4, 0.48, p)); camera.position.set(lp(0, -18, a), lp(JFIT, 3.5, a), lp(JFIT * 0.16, 18, a)); camera.lookAt(lp(0, -12, a), lp(0, 2.6, a), lp(0, 12, a)); }
-          else if (p < 0.58) { const a = eo(cl(0.48, 0.58, p)); const cx = lp(-18, 2, a) + Math.sin(a * Math.PI * 3) * 3, cy = lp(3.5, 2.6, a), cz = lp(16, -4, a); camera.position.set(cx, cy, cz); camera.lookAt(cx + 5, 2.6, cz - 6); }
+          else if (p < 0.58) { const a = eo(cl(0.48, 0.58, p)); const cx = lp(-18, 2, a) + Math.sin(a * Math.PI * 3) * 3, cy = lp(3.5, 2.6, a), cz = lp(16, -4, a); camera.position.set(cx, cy, cz); camera.lookAt(cx + 5, 2.6, cz - 6);
+            if (MOB) _fov = lp(64, 56, a); /* F-3: 建物接近区間のみモバイルでFOVを緩和、他区間・デスクトップは変更なし */ }
           else { const a = eo(cl(0.58, 0.66, p)); camera.position.set(lp(2, 0, a), lp(2.6, 5, a), lp(-4, 24, a)); camera.lookAt(0, lp(2.6, 6, a), lp(-6, -2, a)); }
-        } else { const a = eo(cl(0.72, 0.84, p)); camera.position.set(lp(camera.position.x, 0, 0.1), lp(camera.position.y, 0, 0.1), lp(18, 17, a)); camera.lookAt(0, 0, 0); }
+        } else { const a = eo(cl(0.72, 0.84, p));
+          // F-1: モバイル縦長アスペクトでは∞の両ループが見切れるため、フィナーレのカメラ距離を水平FOVから動的算出して引き上げる
+          let zFinaleTarget = 17;
+          if (MOB) { const halfA = 7.6, margin = 1.20, halfHFovRad = Math.atan(Math.tan((_fov * Math.PI / 180) / 2) * (innerWidth / innerHeight)), zFit = (halfA * margin) / Math.tan(halfHFovRad); zFinaleTarget = Math.max(17, zFit); }
+          camera.position.set(lp(camera.position.x, 0, 0.1), lp(camera.position.y, 0, 0.1), lp(18, zFinaleTarget, a)); camera.lookAt(0, 0, 0); }
         if (Math.abs(camera.fov - _fov) > 0.01) { camera.fov = _fov; camera.updateProjectionMatrix(); }
         const warpI = eo(cl(0.205, 0.27, p)) * (1 - eo(cl(0.33, 0.37, p))); warpMat.opacity = warpI * 0.95;
         if (warpI > 0.002) { updateWarp(0.35 + warpI * 0.9, d, camera.position.y); warp.visible = true; } else warp.visible = false;
@@ -265,12 +271,24 @@ export default function OwlHero() {
     }
     tick();
 
-    const onResize = () => { renderer.setSize(innerWidth, innerHeight); composer.setSize(innerWidth, innerHeight); bloom.resolution.set(innerWidth * (MOB ? 0.5 : 1), innerHeight * (MOB ? 0.5 : 1)); camera.aspect = innerWidth / innerHeight; camera.fov = innerWidth < innerHeight ? 64 : 50; camera.updateProjectionMatrix(); };
+    // F-4: リサイズは300msデバウンス。768px境界をまたいだ場合のみMOBを再評価し、軽量パラメータ（bloom解像度・pixelRatio・FOV）を再設定する。
+    // パーティクル数（dust/warp/beam/ring）はコスト高のため再生成しない＝境界またぎ直後は旧MOB基準の粒子数のまま
+    let resizeTimer: ReturnType<typeof setTimeout> | undefined;
+    const applyResize = () => {
+      renderer.setSize(innerWidth, innerHeight); composer.setSize(innerWidth, innerHeight);
+      const newMOB = innerWidth < 768;
+      if (newMOB !== MOB) MOB = newMOB;
+      bloom.resolution.set(innerWidth * (MOB ? 0.75 : 1), innerHeight * (MOB ? 0.75 : 1));
+      renderer.setPixelRatio(Math.min(devicePixelRatio, MOB ? 1.5 : 2));
+      camera.aspect = innerWidth / innerHeight; camera.fov = innerWidth < innerHeight ? 64 : 50; camera.updateProjectionMatrix();
+    };
+    const onResize = () => { if (resizeTimer) clearTimeout(resizeTimer); resizeTimer = setTimeout(applyResize, 300); };
     addEventListener("resize", onResize);
     ScrollTrigger.refresh();
 
     return () => {
       cancelAnimationFrame(raf);
+      if (resizeTimer) clearTimeout(resizeTimer);
       removeEventListener("pointermove", onMove);
       removeEventListener("resize", onResize);
       st.scrollTrigger?.kill(); st.kill();

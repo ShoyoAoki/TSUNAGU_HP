@@ -52,6 +52,9 @@ export default function ServiceDetailClient() {
                     <span className="text-slate-400 transition-colors group-hover:text-slate-900">↗</span>
                   </a>
                 </div>
+                <div className="mt-10 flex md:hidden items-center justify-center" aria-hidden="true">
+                  <img src="/images/owlmatch-mark.png" alt="" className="w-[120px]" />
+                </div>
               </motion.div>
               <div className="relative hidden md:flex items-center justify-center" aria-hidden="true">
                 <img src="/images/owlmatch-mark.png" alt="" className="w-[430px] max-w-none" />

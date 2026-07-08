@@ -107,7 +107,7 @@ export default function AiMatching() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[#FAFAF7] py-28 md:py-36 px-6" aria-labelledby="match-heading">
+    <section className="relative overflow-hidden bg-[#FAFAF7] pt-40 pb-28 md:pt-36 md:pb-36 px-6" aria-labelledby="match-heading">
       <style>{`
         @keyframes amScan{0%{transform:translateY(0);opacity:0}8%{opacity:1}92%{opacity:1}100%{transform:translateY(var(--amh,600px));opacity:0}}
         .am-scan{animation:amScan 2.6s cubic-bezier(.4,0,.2,1) forwards}
@@ -173,7 +173,7 @@ export default function AiMatching() {
                 <div
                   key={p.id}
                   ref={(el) => { cardRefs.current[p.id] = el; }}
-                  className="relative rounded-xl border bg-white p-3 transition-all duration-500"
+                  className={`relative rounded-xl border bg-white p-3 transition-all duration-500 ${p.score ? "order-first md:order-none" : ""}`}
                   style={{
                     borderColor: matched ? "#67e8f9" : "#e7e9ee",
                     boxShadow: matched ? "0 14px 30px -14px rgba(6,182,212,0.4), 0 0 0 1px #06b6d4" : "0 1px 2px rgba(15,23,42,0.04)",
