@@ -122,6 +122,11 @@ export default function AiMatching() {
         .am-scan{animation:amScan 2.6s cubic-bezier(.4,0,.2,1) forwards}
         .am-line{transition:stroke-dashoffset 1.1s cubic-bezier(.22,1,.36,1) .2s}
         @media (prefers-reduced-motion: reduce){.am-scan{display:none}.am-line{transition:none}}
+        /* モバイル（md未満）はカードが小さく相対的にハイライトが弱く見えるため、
+           マッチ済みカードの枠・地色をこの幅でのみ強化する（デスクトップは不変）。 */
+        @media (max-width: 767px){
+          .am-matched{background-color:#ecfeff !important;border-color:#22d3ee !important;border-width:2px !important;box-shadow:0 14px 30px -14px rgba(6,182,212,0.45), 0 0 0 2px rgba(6,182,212,0.35) !important;}
+        }
       `}</style>
 
       {/* 智枭の目＝正規ロゴマーク（owl.match ∞）を背景モチーフに */}
@@ -182,7 +187,7 @@ export default function AiMatching() {
                 <div
                   key={p.id}
                   ref={(el) => { cardRefs.current[p.id] = el; }}
-                  className={`relative rounded-xl border bg-white p-3 transition-all duration-500 ${p.score ? "order-first md:order-none" : ""}`}
+                  className={`relative rounded-xl border bg-white p-3 transition-all duration-500 ${matched ? "am-matched" : ""}`}
                   style={{
                     borderColor: matched ? "#67e8f9" : "#e7e9ee",
                     boxShadow: matched ? "0 14px 30px -14px rgba(6,182,212,0.4), 0 0 0 1px #06b6d4" : "0 1px 2px rgba(15,23,42,0.04)",
@@ -192,12 +197,12 @@ export default function AiMatching() {
                   }}
                 >
                   {matched && (
-                    <span className="absolute -right-1.5 -top-1.5 z-10 inline-flex items-center gap-0.5 rounded-full bg-cyan-500 px-1.5 py-0.5 text-[10px] font-bold tabular-nums text-white shadow-sm">
+                    <span className="absolute -right-2 -top-2 z-10 inline-flex items-center gap-0.5 rounded-full bg-cyan-600 px-2 py-1 text-[10.5px] font-extrabold tabular-nums text-white shadow-md ring-2 ring-white md:-right-1.5 md:-top-1.5 md:bg-cyan-500 md:px-1.5 md:py-0.5 md:text-[10px] md:font-bold md:shadow-sm md:ring-0">
                       <Check size={9} strokeWidth={3} />{p.score}%
                     </span>
                   )}
                   <div className="flex items-center gap-2">
-                    <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-full text-[10px] font-bold ${matched ? "bg-cyan-50 text-cyan-700" : "bg-slate-100 text-slate-500"}`}>{p.initials}</span>
+                    <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-full text-[10px] font-bold ${matched ? "bg-white text-cyan-700 ring-1 ring-cyan-200 md:bg-cyan-50 md:ring-0" : "bg-slate-100 text-slate-500"}`}>{p.initials}</span>
                     <div className="min-w-0">
                       <p className="truncate text-[12px] font-semibold text-slate-800">{p.name}</p>
                       <p className="truncate text-[10.5px] text-slate-400">{p.role}</p>
