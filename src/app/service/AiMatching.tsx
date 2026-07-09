@@ -79,11 +79,20 @@ export default function AiMatching() {
       }).filter(Boolean) as { d: string; len: number }[];
       setLines(ls);
     };
+    // ブレークポイント跨ぎのリサイズ（例: md→モバイル幅）では、ResizeObserver発火時点で
+    // board自体のcontent-boxサイズは確定していても、matched カードの order-first/md:order-none
+    // によるグリッド再配置（CSSメディアクエリ由来）が同フレーム内で未確定なことがある。
+    // かつ並べ替え自体はboardの総サイズを変えないため再発火もされず、古い座標のまま固定されてしまう。
+    // rAFを2回挟み、その回避策として並べ替え後のレイアウトが確定してから再計測する。
+    const measureSettled = () => {
+      requestAnimationFrame(() => requestAnimationFrame(measure));
+    };
     measure();
-    const ro = new ResizeObserver(measure);
+    measureSettled();
+    const ro = new ResizeObserver(measureSettled);
     if (boardRef.current) ro.observe(boardRef.current);
-    window.addEventListener("resize", measure);
-    return () => { ro.disconnect(); window.removeEventListener("resize", measure); };
+    window.addEventListener("resize", measureSettled);
+    return () => { ro.disconnect(); window.removeEventListener("resize", measureSettled); };
   }, []);
 
   // スクロールインで一巡 → ゆるくループ（reduced-motion は静止最終状態）
