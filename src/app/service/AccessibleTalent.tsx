@@ -88,7 +88,7 @@ export default function AccessibleTalent() {
                   key={t.name}
                   onClick={() => !front && setActive(i)}
                   aria-hidden={!front}
-                  className={`t-card absolute left-1/2 top-0 w-[88vw] max-w-[420px] rounded-2xl bg-white border border-slate-200/70 ${front ? "t-front" : ""}`}
+                  className={`t-card absolute left-1/2 top-0 w-[88vw] max-w-[420px] rounded-2xl border border-slate-200/70 ${front ? "bg-white/75 backdrop-blur-md t-front" : "bg-white"}`}
                   style={{
                     transform: `translateX(-50%) translateX(${slot.x}) translateZ(${slot.z}px) rotateY(${slot.ry}deg) scale(${slot.scale})`,
                     opacity: slot.op, zIndex: slot.zi,
