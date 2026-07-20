@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 
 // グリッド背景コンポーネント（Hero.tsxのものを踏襲しつつ調整）
@@ -47,14 +47,7 @@ const BackgroundText = () => {
 };
 
 export default function OriginClient() {
-  const [mounted, setMounted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
 
   return (
     <main ref={containerRef} className="relative min-h-screen bg-white text-black selection:bg-gray-100 selection:text-black">

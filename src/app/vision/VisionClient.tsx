@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { Inter } from "next/font/google";
 
 const inter = Inter({
@@ -60,12 +60,6 @@ function ScrollSection({ text, isTitle }: { text: string; isTitle: boolean }) {
 }
 
 export default function VisionClient() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const sections = [
     {
       text: "「労働機会の国境をなくす」を目指して",
@@ -84,8 +78,6 @@ export default function VisionClient() {
       isTitle: false
     }
   ];
-
-  if (!mounted) return null;
 
   return (
     <main className={`relative min-h-screen bg-white text-black overflow-x-hidden ${inter.className}`}>

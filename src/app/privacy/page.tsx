@@ -1,6 +1,9 @@
 export const metadata = {
   title: "プライバシーポリシー",
   description: "株式会社TSUNAGUのプライバシーポリシー。個人情報の取り扱いについてご案内します。",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyPolicy() {

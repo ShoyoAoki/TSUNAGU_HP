@@ -17,18 +17,23 @@ const GridBackground = () => (
   />
 );
 
-// 背景の追従ロゴ（背骨）
+// 背景の追従ロゴ（背骨）※装飾専用の演出のためマウント後にのみ描画する
 const BackgroundLogo = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const { scrollYProgress } = useScroll();
   const smoothProgress = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
   });
-  
+
   // スクロールに合わせて不透明度と位置を微調整
   const opacity = useTransform(smoothProgress, [0, 0.1, 0.9, 1], [0, 0.07, 0.07, 0]);
   const scale = useTransform(smoothProgress, [0, 1], [0.8, 0.9]);
+
+  if (!mounted) return null;
 
   return (
     <motion.div
@@ -52,12 +57,6 @@ const BackgroundLogo = () => {
 };
 
 export default function MissionClient() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const paragraphs = [
     {
       text: "世界中には膨大な数の『意志』が存在しています。\nまた同時に国境という壁に阻まれ、輝きを放てない意志が多くあります。",
@@ -76,8 +75,6 @@ export default function MissionClient() {
       weight: 300
     }
   ];
-
-  if (!mounted) return null;
 
   return (
     <main className={`relative min-h-screen bg-white text-black overflow-x-hidden ${inter.className}`}>

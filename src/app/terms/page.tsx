@@ -1,6 +1,9 @@
 export const metadata = {
   title: "利用規約",
   description: "株式会社TSUNAGUのサービス利用規約。ご利用前にご確認ください。",
+  alternates: {
+    canonical: "/terms",
+  },
 };
 
 export default function TermsOfService() {

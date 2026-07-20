@@ -165,11 +165,40 @@ export default function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-  // マウント前は最低限の表示（真っ白を防ぐ）
+  // マウント前（SSR・AIクローラー含む）はタイピングアニメーション抜きの静的コピーを表示する
+  // マウント後は下記の動的レンダリングに置き換わるため、見た目は変わらない
   if (!isMounted) {
     return (
-      <section className="relative w-full min-h-screen bg-white pt-16 md:pt-20 flex items-center justify-center">
-        <h1 className="text-2xl font-bold text-gray-900">TSUNAGU</h1>
+      <section className="relative w-full min-h-screen bg-white pt-16 md:pt-20 flex items-center overflow-hidden">
+        <div className="container mx-auto px-6 md:px-8 lg:px-12 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center">
+            <div className="max-w-none">
+              <div className="mb-4">
+                <span className="inline-block py-1 px-3 bg-gray-100 text-gray-800 text-xs font-bold tracking-widest uppercase rounded-sm mb-6">
+                  Cross-Border HR Platform — OwlMatch
+                </span>
+              </div>
+
+              <div className="min-h-[140px] md:min-h-[180px] lg:min-h-[220px] flex flex-col justify-center mb-10 overflow-visible">
+                <h1 className="text-[22px] sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 leading-[1.5] font-sans">
+                  テクノロジーで世界中の<br />
+                  『意志』を、つなぐ。
+                </h1>
+              </div>
+
+              <div className="mb-10">
+                <p className="text-base md:text-lg text-gray-600 mb-4 leading-[1.8] font-normal">
+                  中国トップ大学の即戦力IT人材を、まずリモートで3ヶ月。<br className="hidden md:inline" />
+                  成果を見てから正社員採用 — リスクゼロの新しい採用モデル。
+                </p>
+                <p className="text-xs font-mono text-gray-400 tracking-wide">
+                  // ZERO RISK. PROVEN TALENT. OWLMATCH ACROSS BORDERS.
+                </p>
+              </div>
+            </div>
+            <div className="hidden lg:block min-h-[700px]" />
+          </div>
+        </div>
       </section>
     );
   }

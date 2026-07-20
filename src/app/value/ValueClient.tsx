@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import { Inter, Noto_Sans_JP } from "next/font/google";
 import Image from "next/image";
 
@@ -68,14 +67,6 @@ const values = [
 ];
 
 export default function ValueClient() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
   return (
     <main className={`relative min-h-screen bg-white text-black overflow-x-hidden ${inter.variable} ${notoSansJP.variable} font-sans selection:bg-gray-900 selection:text-white`}>
       <GridBackground />

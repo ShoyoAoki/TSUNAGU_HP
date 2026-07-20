@@ -88,7 +88,7 @@ export default function Footer() {
               <Link href="/terms" className="text-[10px] font-bold text-gray-400 hover:text-gray-900 transition-colors uppercase tracking-wider">Terms of Service</Link>
             </div>
           </div>
-          
+
           <button
             onClick={openContact}
             className="flex items-center gap-2 text-[10px] font-bold text-gray-400 hover:text-gray-900 transition-colors uppercase tracking-wider group"
@@ -97,6 +97,11 @@ export default function Footer() {
             <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
           </button>
         </div>
+
+        {/* 法定表示・NAP（社名・許可番号・所在地） */}
+        <p className="mt-6 pt-6 border-t border-gray-100 text-[10px] text-gray-400 text-center leading-relaxed">
+          株式会社TSUNAGU｜有料職業紹介事業許可番号 46-ユ-300221｜東京オフィス：東京都目黒区目黒1-24-12 オリックス目黒ビル7F
+        </p>
       </div>
     </footer>
   );

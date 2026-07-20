@@ -1,188 +1,77 @@
-"use client";
+import type { Metadata } from "next";
+import CompanyClient from "./CompanyClient";
 
-import CallToAction from "@/components/CallToAction";
-import { motion } from "framer-motion";
+export const metadata: Metadata = {
+  title: "会社概要",
+  description: "株式会社TSUNAGU（クロスボーダーHRプラットフォームOwlMatch運営）の会社概要。設立2025年3月3日・資本金500万円・代表取締役 青木翔陽。本社：鹿児島県姶良市、東京オフィス：東京都目黒区。有料職業紹介事業許可番号 46-ユ-300221。",
+  alternates: {
+    canonical: "/company",
+  },
+};
 
-// Square Pixel Grid Component
-const PixelGrid = ({ className }: { className?: string }) => (
-  <div className={`absolute inset-0 pointer-events-none opacity-[0.03] ${className}`}
-       style={{ 
-         backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', 
-         backgroundSize: '40px 40px' 
-       }} 
-  />
-);
+// AboutPage構造化データ。画面表示の企業情報（本文）と内容を一致させています
+const aboutPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "会社概要 | 株式会社TSUNAGU",
+  url: "https://tsunaguinc.co.jp/company",
+  mainEntity: {
+    "@type": "Organization",
+    name: "株式会社TSUNAGU",
+    legalName: "株式会社TSUNAGU",
+    foundingDate: "2025-03-03",
+    founder: {
+      "@type": "Person",
+      name: "青木翔陽",
+    },
+    identifier: [
+      {
+        "@type": "PropertyValue",
+        name: "法人番号",
+        value: "9340001027157",
+      },
+      {
+        "@type": "PropertyValue",
+        name: "有料職業紹介事業許可番号",
+        value: "46-ユ-300221",
+      },
+    ],
+    additionalProperty: {
+      "@type": "PropertyValue",
+      name: "資本金",
+      value: "5000000",
+      unitText: "JPY",
+    },
+    address: [
+      {
+        "@type": "PostalAddress",
+        addressCountry: "JP",
+        postalCode: "899-5211",
+        addressRegion: "鹿児島県",
+        addressLocality: "姶良市",
+        streetAddress: "加治木町反土4番15番地249",
+      },
+      {
+        "@type": "PostalAddress",
+        addressCountry: "JP",
+        postalCode: "153-0063",
+        addressRegion: "東京都",
+        addressLocality: "目黒区",
+        streetAddress: "目黒1丁目24-12 オリックス目黒ビル7F",
+      },
+    ],
+    sameAs: ["https://owlmatch.ai"],
+  },
+};
 
 export default function CompanyPage() {
-  const companyInfo = [
-    { label: "会社名", en: "Company Name", value: "株式会社TSUNAGU" },
-    { label: "設立", en: "Founded", value: "2025年3月3日" },
-    { label: "資本金", en: "Capital", value: "500万円" },
-    { label: "代表取締役", en: "CEO", value: "青木 翔陽" },
-    {
-      label: "本社所在地",
-      en: "Head Office",
-      value: "〒899-5211 鹿児島県姶良市加治木町反土4番15番地249"
-    },
-    {
-      label: "東京オフィス",
-      en: "Tokyo Office",
-      value: "〒153-0063 東京都目黒区目黒１丁目２４−１２ オリックス目黒ビル 7F"
-    },
-    {
-      label: "事業内容",
-      en: "Business",
-      value: (
-        <ul className="space-y-2">
-          <li>・クロスボーダーHRプラットフォーム「OwlMatch」の開発・運営</li>
-          <li>・海外IT人材のリモートトライアル採用支援（OwlMatch Remote事業）</li>
-          <li>・日中バイリンガル人材の採用コンサルティング（OwlMatch Language事業）</li>
-          <li>・クロスボーダー・スポット案件の運営（OwlMatch Spot事業）</li>
-          <li>・有料職業紹介事業（許可番号 46-ユ-300221）</li>
-        </ul>
-      )
-    },
-    {
-      label: "有料職業紹介許可番号",
-      en: "License Number",
-      value: "46-ユ-300221"
-    },
-  ];
-
-  const globalNetwork = [
-    {
-      category: "子会社",
-      en: "Subsidiary",
-      items: [
-        { name: "北京福城人材資源有限会社", location: "中国・北京", description: "資本関係に基づく直営拠点" }
-      ]
-    },
-    {
-      category: "提携先",
-      en: "Partner",
-      items: [
-        { name: "山东国信国际経済技術合作有限公司", location: "中国・山東省", description: "戦略的業務提携パートナー" }
-      ]
-    }
-  ];
-
   return (
-    <main className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative pt-48 pb-24 overflow-hidden border-b border-gray-100">
-        <PixelGrid />
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-px bg-cyan-500" />
-                <span className="text-sm font-mono font-bold text-cyan-500 uppercase tracking-[0.2em]">Company Profile</span>
-              </div>
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-gray-900 mb-8 leading-tight">
-                会社概要
-              </h1>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Profile Table Section */}
-      <section className="py-24 relative">
-        <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="flex items-end gap-4 mb-12">
-                <h2 className="text-3xl font-bold tracking-tight text-gray-900">企業情報</h2>
-                <span className="text-sm font-mono text-gray-400 mb-1">/ Corporate Information</span>
-              </div>
-
-              <div className="grid grid-cols-1 border-t border-gray-900">
-                {companyInfo.map((info, index) => (
-                  <div 
-                    key={index} 
-                    className="grid grid-cols-1 md:grid-cols-12 border-b border-gray-100 group hover:bg-gray-50 transition-colors"
-                  >
-                    <div className="md:col-span-4 py-8 md:pr-8">
-                      <div className="flex flex-col">
-                        <span className="text-lg font-bold text-gray-900">{info.label}</span>
-                        <span className="text-[10px] font-mono text-gray-400 uppercase tracking-widest mt-1">{info.en}</span>
-                      </div>
-                    </div>
-                    <div className="md:col-span-8 py-8 flex items-center">
-                      <div className="text-gray-700 font-medium leading-relaxed">
-                        {info.value}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Global Network Section */}
-      <section className="py-24 bg-gray-50 relative overflow-hidden">
-        <PixelGrid className="opacity-[0.02]" />
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="flex items-end gap-4 mb-12">
-                <h2 className="text-3xl font-bold tracking-tight text-gray-900">グローバルネットワーク</h2>
-                <span className="text-sm font-mono text-gray-400 mb-1">/ Global Network</span>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {globalNetwork.map((group, groupIndex) => (
-                  <div key={groupIndex} className="bg-white p-8 border border-gray-200 relative group">
-                    <div className="absolute top-0 left-0 w-1 h-full bg-gray-200 group-hover:bg-cyan-500 transition-colors" />
-                    <div className="mb-8">
-                      <h3 className="text-xl font-bold text-gray-900">{group.category}</h3>
-                      <p className="text-[10px] font-mono text-cyan-600 uppercase tracking-widest mt-1">{group.en}</p>
-                    </div>
-
-                    <div className="space-y-6">
-                      {group.items.map((item, itemIndex) => (
-                        <div key={itemIndex} className="relative pl-4 border-l border-gray-100">
-                          <div className="mb-1">
-                            <span className="text-[10px] font-bold text-cyan-600 uppercase tracking-wider">{item.location}</span>
-                          </div>
-                          <h4 className="text-lg font-bold text-gray-900 mb-2">{item.name}</h4>
-                          <p className="text-sm text-gray-500 font-medium">{item.description}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-12 p-6 bg-white border border-gray-200">
-                <p className="text-sm font-bold text-gray-900 mb-1">透明性の高い協力体制</p>
-                <p className="text-xs text-gray-500 leading-relaxed">
-                  株式会社TSUNAGUは、子会社を通じた直接運営と、厳選された提携先との協力関係を明確に区分しています。
-                  これにより、各地域における法令遵守と、高品質なサービスの提供を両立させています。
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <CallToAction />
-    </main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageJsonLd) }}
+      />
+      <CompanyClient />
+    </>
   );
 }

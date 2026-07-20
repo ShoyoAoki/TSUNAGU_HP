@@ -72,8 +72,6 @@ export default function PhilosophyClient() {
     return () => mq.removeEventListener('change', handler);
   }, [mounted]);
 
-  if (!mounted) return null;
-
   // PCはマスクなし（従来どおり）、モバイルのみ円形マスクで四角枠を隠す
   const wrapperStyle = {
     rotate: videoRotate,
