@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import Providers from "@/components/Providers";
+import { SITE_URL } from "@/lib/site";
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
@@ -25,7 +26,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tsunaguinc.co.jp"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "TSUNAGU | クロスボーダーHRプラットフォーム",
     template: "%s | TSUNAGU"
@@ -47,13 +48,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TSUNAGU | クロスボーダーHRプラットフォーム",
     description: "中国IT人材のリモートトライアル採用、日中バイリンガル人材の紹介、クロスボーダー・スポット案件。クロスボーダーHRプラットフォーム「OwlMatch」の株式会社TSUNAGU。",
-    url: "https://tsunaguinc.co.jp",
+    url: SITE_URL,
     siteName: "TSUNAGU",
     locale: "ja_JP",
     type: "website",
     images: [
       {
-        url: 'https://tsunaguinc.co.jp/opengraph-image',
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: 'TSUNAGU - クロスボーダーHRプラットフォーム',
@@ -65,7 +66,7 @@ export const metadata: Metadata = {
     title: "TSUNAGU | クロスボーダーHRプラットフォーム",
     description: "中国IT人材のリモートトライアル採用、日中バイリンガル人材の紹介、クロスボーダー・スポット案件。クロスボーダーHRプラットフォーム「OwlMatch」の株式会社TSUNAGU。",
     creator: "@tsunagu_inc",
-    images: ['https://tsunaguinc.co.jp/opengraph-image'],
+    images: [`${SITE_URL}/opengraph-image`],
   },
   robots: {
     index: true,
@@ -88,8 +89,8 @@ const organizationJsonLd = {
   name: "株式会社TSUNAGU",
   legalName: "株式会社TSUNAGU",
   alternateName: "TSUNAGU Inc.",
-  url: "https://tsunaguinc.co.jp",
-  logo: "https://tsunaguinc.co.jp/images/logo.png",
+  url: SITE_URL,
+  logo: `${SITE_URL}/images/logo.png`,
   foundingDate: "2025-03-03",
   founder: {
     "@type": "Person",
@@ -138,7 +139,7 @@ const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "TSUNAGU | クロスボーダーHRプラットフォーム",
-  url: "https://tsunaguinc.co.jp",
+  url: SITE_URL,
   publisher: {
     "@type": "Organization",
     name: "株式会社TSUNAGU",

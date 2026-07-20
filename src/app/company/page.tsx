@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 import CompanyClient from "./CompanyClient";
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ const aboutPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   name: "会社概要 | 株式会社TSUNAGU",
-  url: "https://tsunaguinc.co.jp/company",
+  url: `${SITE_URL}/company`,
   mainEntity: {
     "@type": "Organization",
     name: "株式会社TSUNAGU",

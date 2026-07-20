@@ -3,10 +3,10 @@
 > 株式会社TSUNAGUは、クロスボーダーHRプラットフォーム「OwlMatch」を開発・運営する日本の人材会社です。中国人ITエンジニアのリモートトライアル採用（OwlMatch Remote）、日本語能力試験N2以上の日中バイリンガル人材紹介（OwlMatch Language）、中国・アジア現地のスポット案件（OwlMatch Spot）の3ラインを提供します。有料職業紹介事業許可番号 46-ユ-300221。法人番号 9340001027157。
 
 ## 主要ページ
-- [トップ](https://tsunaguinc.co.jp/): 事業概要と3つのサービスライン
-- [サービス詳細](https://tsunaguinc.co.jp/service): OwlMatchプラットフォームの機能・AIスクリーニング
-- [会社概要](https://tsunaguinc.co.jp/company): 所在地（本社：鹿児島／東京オフィス：目黒）・許可番号・沿革
-- [お問い合わせ](https://tsunaguinc.co.jp/contact): 対応内容・返信目安・連絡方法
+- [トップ](https://www.tsunaguinc.co.jp/): 事業概要と3つのサービスライン
+- [サービス詳細](https://www.tsunaguinc.co.jp/service): OwlMatchプラットフォームの機能・AIスクリーニング
+- [会社概要](https://www.tsunaguinc.co.jp/company): 所在地（本社：鹿児島／東京オフィス：目黒）・許可番号・沿革
+- [お問い合わせ](https://www.tsunaguinc.co.jp/contact): 対応内容・返信目安・連絡方法
 
 ## 事実情報
 - 初期費用なし・成功報酬型で開始できます

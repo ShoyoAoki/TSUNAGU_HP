@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { SITE_URL } from '@/lib/site'
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -27,7 +28,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://tsunaguinc.co.jp/sitemap.xml',
+    sitemap: `${SITE_URL}/sitemap.xml`,
   }
 }
 
