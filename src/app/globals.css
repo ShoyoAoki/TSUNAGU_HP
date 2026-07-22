@@ -44,3 +44,12 @@
   }
 }
 
+/* /zh 配下：Tailwind の font-sans / font-serif が参照する CSS変数を
+   簡体字用フォント（Noto Sans/Serif SC）に差し替える。
+   src/app/zh/layout.tsx がマウント後に <html lang="zh-Hans"> を補正することで、
+   個々のコンポーネントの className を一切変更せずに正しい簡体字の字形（骨格）を描画する。 */
+html[lang="zh-Hans"] {
+  --font-noto-sans-jp: var(--font-noto-sans-sc);
+  --font-noto-serif-jp: var(--font-noto-serif-sc);
+}
+
