@@ -2,13 +2,15 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useContact } from "@/context/ContactContext";
 import { ArrowRight } from "lucide-react";
+import { getStrings } from "@/lib/i18n/strings";
 
-const footerNavItems = [
-  { 
-    name: "Philosophy", 
-    jp: "経営理念", 
+const footerNavItemsJa = [
+  {
+    name: "Philosophy",
+    jp: "経営理念",
     href: "/philosophy",
     subItems: [
       { name: "Philosophy", jp: "経営理念", href: "/philosophy" },
@@ -22,8 +24,29 @@ const footerNavItems = [
   { name: "Company", jp: "会社概要", href: "/company" },
 ];
 
+const footerNavItemsZh = [
+  {
+    name: "Philosophy",
+    jp: "经营理念",
+    href: "/zh/philosophy",
+    subItems: [
+      { name: "Philosophy", jp: "经营理念", href: "/zh/philosophy" },
+      { name: "Mission", jp: "使命", href: "/zh/mission" },
+      { name: "Vision", jp: "愿景", href: "/zh/vision" },
+      { name: "Value", jp: "价值观", href: "/zh/value" },
+      { name: "Origin", jp: "公司名与LOGO由来", href: "/zh/origin" },
+    ]
+  },
+  { name: "Service", jp: "服务", href: "/zh/service" },
+  { name: "Company", jp: "公司概况", href: "/zh/company" },
+];
+
 export default function Footer() {
   const { openContact } = useContact();
+  const pathname = usePathname();
+  const isZh = pathname.startsWith("/zh");
+  const footerNavItems = isZh ? footerNavItemsZh : footerNavItemsJa;
+  const t = getStrings(isZh ? "zh" : "ja");
 
   return (
     <footer id="company" className="relative z-10 bg-white border-t border-gray-100 pt-20 pb-10">
@@ -31,7 +54,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           {/* Brand Section */}
           <div className="md:col-span-4">
-            <Link href="/" className="inline-block mb-6">
+            <Link href={isZh ? "/zh" : "/"} className="inline-block mb-6">
               <Image
                 src="/images/logo.png"
                 alt="TSUNAGU"
@@ -43,7 +66,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-gray-500 font-medium text-sm leading-relaxed max-w-xs">
-              テクノロジーで世界中の『意志』をつなぐ
+              {t.footer.tagline}
             </p>
           </div>
           
@@ -84,8 +107,9 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} TSUNAGU Inc.
             </p>
             <div className="flex gap-6">
-              <Link href="/privacy" className="text-[10px] font-bold text-gray-400 hover:text-gray-900 transition-colors uppercase tracking-wider">Privacy Policy</Link>
-              <Link href="/terms" className="text-[10px] font-bold text-gray-400 hover:text-gray-900 transition-colors uppercase tracking-wider">Terms of Service</Link>
+              <Link href={isZh ? "/zh/privacy" : "/privacy"} className="text-[10px] font-bold text-gray-400 hover:text-gray-900 transition-colors uppercase tracking-wider">{t.footer.privacy}</Link>
+              <Link href={isZh ? "/zh/terms" : "/terms"} className="text-[10px] font-bold text-gray-400 hover:text-gray-900 transition-colors uppercase tracking-wider">{t.footer.terms}</Link>
+              <Link href={isZh ? pathname.slice(3) || "/" : `/zh${pathname === "/" ? "" : pathname}`} className="text-[10px] font-bold text-gray-400 hover:text-cyan-600 transition-colors uppercase tracking-wider">{isZh ? t.langSwitch.ja : t.langSwitch.zh}</Link>
             </div>
           </div>
 
@@ -93,14 +117,14 @@ export default function Footer() {
             onClick={openContact}
             className="flex items-center gap-2 text-[10px] font-bold text-gray-400 hover:text-gray-900 transition-colors uppercase tracking-wider group"
           >
-            お問い合わせ
+            {t.cta.contact}
             <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
           </button>
         </div>
 
         {/* 法定表示・NAP（社名・許可番号・所在地） */}
         <p className="mt-6 pt-6 border-t border-gray-100 text-[10px] text-gray-400 text-center leading-relaxed">
-          株式会社TSUNAGU｜有料職業紹介事業許可番号 46-ユ-300221｜東京オフィス：東京都目黒区目黒1-24-12 オリックス目黒ビル7F
+          {t.footer.legalLine}
         </p>
       </div>
     </footer>

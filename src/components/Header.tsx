@@ -5,13 +5,14 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Languages } from "lucide-react";
 import { useContact } from "@/context/ContactContext";
+import { getStrings } from "@/lib/i18n/strings";
 
-const navItems = [
-  { 
-    name: "Philosophy", 
-    jp: "経営理念", 
+const navItemsJa = [
+  {
+    name: "Philosophy",
+    jp: "経営理念",
     href: "/philosophy",
     dropdown: [
       { name: "Philosophy", jp: "経営理念", href: "/philosophy" },
@@ -25,7 +26,24 @@ const navItems = [
   { name: "Company", jp: "会社概要", href: "/company" },
 ];
 
-// ヘッダーを透過させるページのリスト
+const navItemsZh = [
+  {
+    name: "Philosophy",
+    jp: "经营理念",
+    href: "/zh/philosophy",
+    dropdown: [
+      { name: "Philosophy", jp: "经营理念", href: "/zh/philosophy" },
+      { name: "Mission", jp: "使命", href: "/zh/mission" },
+      { name: "Vision", jp: "愿景", href: "/zh/vision" },
+      { name: "Value", jp: "价值观", href: "/zh/value" },
+      { name: "Origin", jp: "公司名与LOGO由来", href: "/zh/origin" },
+    ]
+  },
+  { name: "Service", jp: "服务", href: "/zh/service" },
+  { name: "Company", jp: "公司概况", href: "/zh/company" },
+];
+
+// ヘッダーを透過させるページのリスト（/zh プレフィックスを除いた素のパスで判定する）
 const TRANSPARENT_HEADER_PAGES = ["/", "/mission", "/vision", "/value", "/philosophy", "/origin", "/service", "/company"];
 
 // Square Pixel Grid Component (Reused for consistency)
@@ -40,12 +58,17 @@ const PixelGrid = ({ className }: { className?: string }) => (
 
 export default function Header() {
   const pathname = usePathname();
-  const isTransparentPage = TRANSPARENT_HEADER_PAGES.includes(pathname);
+  const isZh = pathname.startsWith("/zh");
+  const basePath = isZh ? pathname.slice(3) || "/" : pathname;
+  const isTransparentPage = TRANSPARENT_HEADER_PAGES.includes(basePath);
+  const navItems = isZh ? navItemsZh : navItemsJa;
+  const t = getStrings(isZh ? "zh" : "ja");
+  const langSwitchHref = isZh ? (basePath === "/" ? "/" : basePath) : (basePath === "/" ? "/zh" : `/zh${basePath}`);
   const [isPastHero, setIsPastHero] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { openContact } = useContact();
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-  
+
   // Lock body scroll when menu is open
   useEffect(() => {
     if (isMenuOpen) {
@@ -82,7 +105,7 @@ export default function Header() {
 
         <div className="w-full relative flex items-center justify-between px-4">
           {/* Logo */}
-          <Link href="/" className="relative z-10 group flex-shrink-0" onClick={() => setIsMenuOpen(false)}>
+          <Link href={isZh ? "/zh" : "/"} className="relative z-10 group flex-shrink-0" onClick={() => setIsMenuOpen(false)}>
             <Image
               src="/images/logo.png"
               alt="TSUNAGU"
@@ -119,13 +142,23 @@ export default function Header() {
                   ))}
                 </nav>
 
+                {/* 言語切替 */}
+                <Link
+                  href={langSwitchHref}
+                  className="flex items-center gap-1.5 text-xs font-bold text-gray-500 hover:text-cyan-600 transition-colors font-mono"
+                  aria-label={t.langSwitch.label}
+                >
+                  <Languages className="w-3.5 h-3.5" strokeWidth={2} />
+                  <span>{isZh ? t.langSwitch.ja : t.langSwitch.zh}</span>
+                </Link>
+
                 {/* CTA Button */}
-                <button 
+                <button
                   onClick={openContact}
                   className="px-5 py-2.5 bg-black text-white text-sm font-bold hover:bg-cyan-600 transition-colors flex items-center gap-2 group"
                 >
-                  <span className="font-mono">Contact</span>
-                  <span className="text-xs opacity-70 border-l border-gray-600 pl-2 ml-1">お問い合わせ</span>
+                  <span className="font-mono">{t.cta.contactEn}</span>
+                  <span className="text-xs opacity-70 border-l border-gray-600 pl-2 ml-1">{t.cta.contact}</span>
                   <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
@@ -266,7 +299,7 @@ export default function Header() {
                 transition={{ delay: 0.6, duration: 0.5 }}
                 className="mt-12 md:mt-16 flex flex-col md:flex-row gap-8 items-start md:items-center"
               >
-                <button 
+                <button
                   onClick={() => {
                     setIsMenuOpen(false);
                     openContact();
@@ -274,16 +307,25 @@ export default function Header() {
                   className="group relative px-8 py-4 bg-black text-white text-lg font-bold overflow-hidden hover:bg-cyan-600 transition-colors"
                 >
                   <span className="relative z-10 flex items-center gap-3">
-                    <span className="font-mono">Contact Us</span>
+                    <span className="font-mono">{t.cta.contactUs}</span>
                     <span className="w-px h-4 bg-gray-600 mx-1" />
-                    <span>お問い合わせ</span>
+                    <span>{t.cta.contact}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </button>
 
+                <Link
+                  href={langSwitchHref}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center gap-1.5 text-sm font-bold text-gray-500 hover:text-cyan-600 transition-colors font-mono"
+                >
+                  <Languages className="w-4 h-4" strokeWidth={2} />
+                  <span>{isZh ? t.langSwitch.ja : t.langSwitch.zh}</span>
+                </Link>
+
                 <div className="flex gap-6 text-sm font-bold text-gray-400">
-                  <Link href="/privacy" className="hover:text-black transition-colors" onClick={() => setIsMenuOpen(false)}>Privacy Policy</Link>
-                  <Link href="/terms" className="hover:text-black transition-colors" onClick={() => setIsMenuOpen(false)}>Terms of Service</Link>
+                  <Link href={isZh ? "/zh/privacy" : "/privacy"} className="hover:text-black transition-colors" onClick={() => setIsMenuOpen(false)}>{t.footer.privacy}</Link>
+                  <Link href={isZh ? "/zh/terms" : "/terms"} className="hover:text-black transition-colors" onClick={() => setIsMenuOpen(false)}>{t.footer.terms}</Link>
                 </div>
               </motion.div>
             </div>
