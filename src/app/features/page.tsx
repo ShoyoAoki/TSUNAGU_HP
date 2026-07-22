@@ -7,6 +7,11 @@ export const metadata = {
   description: "OwlMatchの特徴と機能。IT人材のリモートトライアル採用、バイリンガル人材の紹介、クロスボーダー・スポット案件まで、AIプラットフォームで採用を自動化。",
   alternates: {
     canonical: "/features",
+    languages: {
+      ja: "/features",
+      "zh-Hans": "/zh/features",
+      "x-default": "/features",
+    },
   },
 };
 

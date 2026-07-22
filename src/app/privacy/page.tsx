@@ -3,6 +3,11 @@ export const metadata = {
   description: "株式会社TSUNAGUのプライバシーポリシー。個人情報の取り扱いについてご案内します。",
   alternates: {
     canonical: "/privacy",
+    languages: {
+      ja: "/privacy",
+      "zh-Hans": "/zh/privacy",
+      "x-default": "/privacy",
+    },
   },
 };
 

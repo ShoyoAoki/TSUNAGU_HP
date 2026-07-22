@@ -5,6 +5,11 @@ export const metadata = {
   description: "労働機会の国境をなくす。株式会社TSUNAGUのビジョン。",
   alternates: {
     canonical: "/vision",
+    languages: {
+      ja: "/vision",
+      "zh-Hans": "/zh/vision",
+      "x-default": "/vision",
+    },
   },
 };
 

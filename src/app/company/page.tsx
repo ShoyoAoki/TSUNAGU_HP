@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   description: "株式会社TSUNAGU（クロスボーダーHRプラットフォームOwlMatch運営）の会社概要。設立2025年3月3日・資本金500万円・代表取締役 青木翔陽。本社：鹿児島県姶良市、東京オフィス：東京都目黒区。有料職業紹介事業許可番号 46-ユ-300221。",
   alternates: {
     canonical: "/company",
+    languages: {
+      ja: "/company",
+      "zh-Hans": "/zh/company",
+      "x-default": "/company",
+    },
   },
 };
 

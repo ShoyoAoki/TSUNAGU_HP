@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   description: "時を、命と捉える。TSUNAGUの4つの行動指針をご紹介します。",
   alternates: {
     canonical: "/value",
+    languages: {
+      ja: "/value",
+      "zh-Hans": "/zh/value",
+      "x-default": "/value",
+    },
   },
 };
 

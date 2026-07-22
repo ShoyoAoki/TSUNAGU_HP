@@ -3,6 +3,11 @@ export const metadata = {
   description: "株式会社TSUNAGUのサービス利用規約。ご利用前にご確認ください。",
   alternates: {
     canonical: "/terms",
+    languages: {
+      ja: "/terms",
+      "zh-Hans": "/zh/terms",
+      "x-default": "/terms",
+    },
   },
 };
 

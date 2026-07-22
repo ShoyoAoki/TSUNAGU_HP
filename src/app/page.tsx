@@ -11,6 +11,11 @@ import CallToAction from "@/components/CallToAction";
 export const metadata: Metadata = {
   alternates: {
     canonical: "/",
+    languages: {
+      ja: "/",
+      "zh-Hans": "/zh",
+      "x-default": "/",
+    },
   },
 };
 
