@@ -15,7 +15,7 @@ type Video = {
 const P = (n: number) => `/images/video-feed/vf_${String(n).padStart(2, "0")}.jpg`;
 
 const VIDEOS: Video[] = [
-  { id: 1, title: "对话CEO青木翔陽：OwlMatch的未来。", poster: P(8), videoSrc: "/videos/owlmatch-feed/vf01_interview.mp4", likes: "3.7万", dur: "0:04", aspect: "3/4" },
+  { id: 1, title: "对话CEO青木翔阳：OwlMatch的未来。", poster: P(8), videoSrc: "/videos/owlmatch-feed/vf01_interview.mp4", likes: "3.7万", dur: "0:04", aspect: "3/4" },
   { id: 2, title: "办公室探访｜TSUNAGU 东京。", poster: P(1), videoSrc: "/videos/owlmatch-feed/vf02_office_v1.mp4", likes: "8,540", dur: "0:04", aspect: "4/5" },
   { id: 3, title: "30秒读懂 OwlMatch。", poster: P(3), videoSrc: "/videos/owlmatch-feed/vf03_product.mp4", likes: "10万+", dur: "0:04", aspect: "9/16" },
   { id: 4, title: "远程对接，触达中国AI人才。", poster: P(13), videoSrc: "/videos/owlmatch-feed/vf04_airemote.mp4", likes: "2.4万", dur: "0:04", aspect: "4/5" },

@@ -99,7 +99,7 @@ export const strings = {
     contactModal: {
       title: "联系我们",
       companyLabel: "公司名称",
-      companyPlaceholder: "示例：株式会社◯◯",
+      companyPlaceholder: "示例：◯◯株式会社 / ◯◯有限公司",
       nameLabel: "姓名",
       namePlaceholder: "张 三",
       emailLabel: "邮箱",

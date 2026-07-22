@@ -5,7 +5,7 @@ import CompanyClient from "./CompanyClient";
 export const metadata: Metadata = {
   title: "公司概况 | TSUNAGU",
   description:
-    "株式会社TSUNAGU（跨境人力资源平台OwlMatch运营方）公司概况。成立于2025年3月3日・注册资本500万日元・代表取締役 青木翔陽。总部：鹿儿岛县姶良市，东京办公室：东京都目黑区。有偿职业介绍事业许可编号 46-ユ-300221。",
+    "株式会社TSUNAGU（跨境人力资源平台OwlMatch运营方）公司概况。成立于2025年3月3日・注册资本500万日元・代表取缔役CEO 青木翔阳。总部：鹿儿岛县姶良市，东京办公室：东京都目黑区。有偿职业介绍事业许可编号 46-ユ-300221。",
   alternates: {
     canonical: "/zh/company",
     languages: {

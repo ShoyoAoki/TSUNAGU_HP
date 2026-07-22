@@ -18,7 +18,7 @@ export default function CompanyClient() {
     { label: "公司名称", en: "Company Name", value: "株式会社TSUNAGU" },
     { label: "成立日期", en: "Founded", value: "2025年3月3日" },
     { label: "注册资本", en: "Capital", value: "500万日元" },
-    { label: "代表取締役", en: "CEO", value: "青木 翔陽" },
+    { label: "代表取缔役CEO", en: "CEO", value: "青木 翔阳" },
     {
       label: "总部地址",
       en: "Head Office",
@@ -54,14 +54,14 @@ export default function CompanyClient() {
       category: "子公司",
       en: "Subsidiary",
       items: [
-        { name: "北京福城人材資源有限会社", location: "中国・北京", description: "基于资本关系的直营据点" }
+        { name: "北京福城人才资源有限公司", location: "中国北京", description: "基于资本关系的直营据点" }
       ]
     },
     {
       category: "合作伙伴",
       en: "Partner",
       items: [
-        { name: "山东国信国际経済技術合作有限公司", location: "中国・山东省", description: "战略业务合作伙伴" }
+        { name: "山东国信国际经济技术合作有限公司", location: "中国山东省", description: "战略业务合作伙伴" }
       ]
     }
   ];
