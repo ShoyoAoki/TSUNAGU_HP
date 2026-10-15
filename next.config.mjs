@@ -14,6 +14,9 @@ const nextConfig = {
     return [
       // OwlMatch系ページを /service に一本化（SEO資産を集約）
       { source: "/owlmatch", destination: "/service", permanent: true },
+      // Three service pillars: technical talent, bilingual talent, and internships.
+      { source: "/service/it-ai", destination: "/service/physical-ai", permanent: true },
+      { source: "/service/new-graduates", destination: "/service/bilingual", permanent: true },
     ];
   },
 };

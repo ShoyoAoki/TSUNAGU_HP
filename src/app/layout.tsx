@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Noto_Sans_JP, Noto_Serif_JP, Noto_Sans_SC, Noto_Serif_SC } from "next/font/google";
 import "./globals.css";
+import "./integration.css";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import SiteShell from "@/components/site/SiteShell";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import Providers from "@/components/Providers";
 import { SITE_URL } from "@/lib/site";
@@ -35,7 +36,7 @@ const notoSerifSC = Noto_Serif_SC({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#06b6d4", // Cyan-500
+  themeColor: "#175bc7",
   width: "device-width",
   initialScale: 1,
 };
@@ -43,11 +44,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "TSUNAGU | クロスボーダーHRプラットフォーム",
+    default: "TSUNAGU・OwlMatch | 中国人材の採用・就職支援",
     template: "%s | TSUNAGU"
   },
-  description: "中国IT人材のリモートトライアル採用、日中バイリンガル人材の紹介、クロスボーダー・スポット案件。AIプラットフォーム「OwlMatch」で日中をつなぐ採用と実務を支援する株式会社TSUNAGU。",
-  keywords: ["TSUNAGU", "OwlMatch", "中国人採用", "IT人材不足", "クロスボーダーHR", "リモートトライアル", "エンジニア採用", "日中人材", "外国人IT人材", "中国エンジニア", "バイリンガル人材", "言語系人材", "日中バイリンガル", "スポット案件", "中国アテンド"],
+  description: "株式会社TSUNAGUが運営するOwlMatch。中国人の方の日本での就職・転職と、企業の中国人材採用を支援します。フィジカルAI・ロボティクス、日中バイリンガル、IT・AI、新卒人材の採用をご相談いただけます。",
+  keywords: ["TSUNAGU", "OwlMatch", "中国人採用", "IT人材不足", "クロスボーダーHR", "エンジニア採用", "日中人材", "外国人IT人材", "中国エンジニア", "バイリンガル人材", "言語系人材", "日中バイリンガル", "フィジカルAI人材", "ロボティクス人材"],
   authors: [{ name: "TSUNAGU Inc." }],
   creator: "TSUNAGU Inc.",
   publisher: "TSUNAGU Inc.",
@@ -61,8 +62,8 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "TSUNAGU | クロスボーダーHRプラットフォーム",
-    description: "中国IT人材のリモートトライアル採用、日中バイリンガル人材の紹介、クロスボーダー・スポット案件。クロスボーダーHRプラットフォーム「OwlMatch」の株式会社TSUNAGU。",
+    title: "TSUNAGU・OwlMatch | 中国人材の採用・就職支援",
+    description: "中国人材の採用と、日本での就職・転職を支援するOwlMatch。フィジカルAI・ロボティクス、日中バイリンガル、IT・AI、新卒人材の採用をご相談いただけます。",
     url: SITE_URL,
     siteName: "TSUNAGU",
     locale: "ja_JP",
@@ -78,8 +79,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TSUNAGU | クロスボーダーHRプラットフォーム",
-    description: "中国IT人材のリモートトライアル採用、日中バイリンガル人材の紹介、クロスボーダー・スポット案件。クロスボーダーHRプラットフォーム「OwlMatch」の株式会社TSUNAGU。",
+    title: "TSUNAGU・OwlMatch | 中国人材の採用・就職支援",
+    description: "中国人材の採用と、日本での就職・転職を支援するOwlMatch。フィジカルAI・ロボティクス、日中バイリンガル、IT・AI、新卒人材の採用をご相談いただけます。",
     creator: "@tsunagu_inc",
     images: [`${SITE_URL}/opengraph-image`],
   },
@@ -153,7 +154,7 @@ const organizationJsonLd = {
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "TSUNAGU | クロスボーダーHRプラットフォーム",
+  name: "TSUNAGU・OwlMatch | 中国人材の採用・就職支援",
   url: SITE_URL,
   publisher: {
     "@type": "Organization",
@@ -180,8 +181,7 @@ export default function RootLayout({
         <Providers>
           <GoogleAnalytics />
           <Header />
-          {children}
-          <Footer />
+          <SiteShell>{children}</SiteShell>
         </Providers>
       </body>
     </html>
