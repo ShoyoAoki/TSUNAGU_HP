@@ -12,7 +12,7 @@ export function PhotoHero({ employer = false }: { employer?: boolean }) {
   return <section className={`om-wrap om-hero${employer ? " om-employer-hero" : ""}`}>
     <div className="om-hero-copy">
       <Eyebrow>{employer ? "中国人材の採用をお考えの企業様へ" : "中国人の方専用"}</Eyebrow>
-      <h1>{employer ? <><span data-motion="hero-line">中国人材の採用を、</span><span data-motion="hero-line"><em>ご相談ください。</em></span></> : <><span data-motion="hero-line">中国人のための、</span><span data-motion="hero-line">日本での</span><span data-motion="hero-line"><em>就職・転職支援。</em></span></>}</h1>
+      <h1>{employer ? <><span data-motion="hero-line">中国人材の</span><span data-motion="hero-line"><em>採用支援</em></span></> : <><span data-motion="hero-line">中国人のための</span><span data-motion="hero-line">日本での</span><span data-motion="hero-line"><em>就職・転職支援</em></span></>}</h1>
       <p className="om-hero-lead">{employer ? <>フィジカルAI・ロボティクス・AI人材、<br />バイリンガル人材・新卒バイリンガル人材、インターン採用。<br />3つの領域で、中国人材の採用を支援します。</> : <>求人紹介から、応募書類・面接の準備まで。<br />日本語・中国語で、仕事探しをサポートします。</>}</p>
       <Action href={employer ? employerContact : candidateSignup}>{employer ? "採用について相談する" : "無料面談に申し込む"}</Action>
       <p className="om-hero-meta">{employer ? "初回相談無料・アカウント登録不要" : "新卒・既卒・転職の方へ"}<span>{employer ? "採用条件が決まる前から、ご相談いただけます。" : "日本語・中国語 ／ オンライン"}</span></p>
@@ -23,20 +23,20 @@ export function PhotoHero({ employer = false }: { employer?: boolean }) {
 }
 type Concern = { label: string; question: ReactNode; title: ReactNode; description: string };
 const employerConcerns: Concern[] = [
-  { label: "人材探し", question: <>中国語を使える人材が、<br />なかなか見つからない。</>, title: <>日中バイリンガル<br />人材をご紹介</>, description: "仕事内容と必要な語学力を伺い、条件に合う候補者をお探しします。" },
-  { label: "スキルの見極め", question: <>技術や経験が、<br />仕事に合うか不安。</>, title: <>必要なスキルから<br />人材を探す</>, description: "開発内容や必要な経験を整理し、フィジカルAI・ロボティクス・AI分野の候補者を探します。" },
-  { label: "新卒採用", question: <>新卒採用では、<br />何を見ればいいか迷う。</>, title: <>学びと希望から<br />人材像を整理</>, description: "専攻や取り組んできたこと、希望職種を踏まえ、入社後の役割を考えます。" },
-  { label: "初めての中国人材採用", question: <>費用も進め方も、<br />まだよく分からない。</>, title: <>費用と採用の流れを<br />ご案内</>, description: "料金・契約条件と、候補者のご紹介から選考・入社までの流れをご説明します。" },
+  { label: "人材探し", question: <>中国語を使える人材が、<br />なかなか見つからない。</>, title: <>日中バイリンガル<br />人材のご紹介</>, description: "仕事内容と必要な語学力を伺い、条件に合う候補者をお探しします。" },
+  { label: "スキルの見極め", question: <>技術や経験が、<br />仕事に合うか不安。</>, title: <>専門スキルに合う<br />人材の探索</>, description: "開発内容や必要な経験を整理し、フィジカルAI・ロボティクス・AI分野の候補者を探します。" },
+  { label: "新卒採用", question: <>新卒採用では、<br />何を見ればいいか迷う。</>, title: <>学び・希望と<br />人材像の整理</>, description: "専攻や取り組んできたこと、希望職種を踏まえ、入社後の役割を考えます。" },
+  { label: "初めての中国人材採用", question: <>費用も進め方も、<br />まだよく分からない。</>, title: <>採用費用・<br />選考の流れ</>, description: "料金・契約条件と、候補者のご紹介から選考・入社までの流れをご説明します。" },
 ];
 const candidateConcerns: Concern[] = [
-  { label: "仕事選び", question: <>自分に合う仕事が<br />見つからない。</>, title: <>希望に合う求人を<br />ご紹介</>, description: "経験・得意なこと・働き方の希望を伺い、条件に合う求人をご案内します。" },
+  { label: "仕事選び", question: <>自分に合う仕事が<br />見つからない。</>, title: <>希望に合う<br />求人のご紹介</>, description: "経験・得意なこと・働き方の希望を伺い、条件に合う求人をご案内します。" },
   { label: "書類・面接", question: <>書類や面接で、<br />うまく伝えられない。</>, title: <>応募書類の作成・<br />面接対策</>, description: "これまでの経験を整理し、応募書類の作成や面接の準備をサポートします。" },
-  { label: "初めての就職", question: <>職歴がなく、<br />何を伝えればいいか迷う。</>, title: <>学生時代の経験から<br />強みを整理</>, description: "学んだことや取り組んだことを振り返り、応募先に伝える内容を一緒に考えます。" },
+  { label: "初めての就職", question: <>職歴がなく、<br />何を伝えればいいか迷う。</>, title: <>学生時代の経験・<br />強みの整理</>, description: "学んだことや取り組んだことを振り返り、応募先に伝える内容を一緒に考えます。" },
   { label: "入社前・入社後", question: <>条件や入社後のこと、<br />誰に聞けばいい？</>, title: <>条件の確認・<br />入社後の相談</>, description: "労働条件の確認・入社日調整をお手伝いし、入社後のご相談にも対応します。" },
 ];
 export function Concerns({ employer = false }: { employer?: boolean }) {
   return <section className="om-section om-concerns"><div className="om-wrap">
-    <div className="om-heading om-heading-split"><div><Eyebrow>{employer ? "採用担当者の皆様へ" : "ひとりで抱えていませんか。"}</Eyebrow><h2>{employer ? "こんな採用のお悩み、" : "こんなお悩み、"}<wbr /><span className="om-heading-ending">ありませんか？</span></h2></div><p>{employer ? <>まだ採用条件が決まっていなくても大丈夫。<br />いまのお困りごとから、お話しください。</> : "仕事選びや応募の進め方を、一緒に考えます。"}</p></div>
+    <div className="om-heading om-heading-split"><div><Eyebrow>{employer ? "採用担当者の皆様へ" : "仕事選びから応募まで"}</Eyebrow><h2>{employer ? "中国人材採用のお悩み" : "就職・転職のお悩み"}</h2></div><p>{employer ? <>まだ採用条件が決まっていなくても大丈夫。<br />いまのお困りごとから、お話しください。</> : "仕事選びや応募の進め方を、一緒に考えます。"}</p></div>
     <div className="om-concern-grid">{(employer ? employerConcerns : candidateConcerns).map((item) => <article className="om-concern-card" key={item.label}><div className="om-concern-top"><p className="om-concern-label">{item.label}</p><p className="om-concern-question">{item.question}</p></div><div className="om-concern-support"><span>OwlMatchでできること</span><h3>{item.title}</h3><p>{item.description}</p></div></article>)}</div>
     <p className="om-fine-print">{employer ? "ご紹介できる人材は、ご希望条件と候補者の状況により個別に確認します。" : "ご紹介できる求人は、ご希望の条件や募集状況によって異なります。"}</p>
   </div></section>;
@@ -70,7 +70,7 @@ export function EmployerCta() {
   return <section className="om-section om-end-cta"><div className="om-wrap om-end-inner"><div><Eyebrow>OwlMatch 法人向け無料相談</Eyebrow><h2>中国人材の<br />採用相談</h2><p>仕事内容や必要なスキルが決まる前から、ご相談いただけます。</p></div><div className="om-application"><span className="om-application-badge">初回相談無料・アカウント登録不要</span><h3>無料相談のお申し込み</h3><p>フォームに会社名・連絡先と、ご相談内容をご記入ください。担当者から相談日時の調整についてご連絡します。</p><Action white>無料相談の申込フォームへ</Action></div></div></section>;
 }
 export function CandidateCta() {
-  return <section className="om-section om-candidate-cta"><div className="om-wrap"><div className="om-heading om-centered"><Eyebrow>中国人の方専用・無料オンライン面談</Eyebrow><h2>日本での仕事探しを、<br />無料面談で相談しませんか。</h2><p>現在の状況に合う入口から、お申し込みください。</p></div><div className="om-application-grid"><article><span>これから、初めての就職へ</span><h3>新卒・既卒の方</h3><p>学生の方・就業経験のない方はこちら。</p><Action white href="https://owlmatch.ai/signup?track=newgrad">新卒・既卒の方の無料面談</Action></article><article><span>経験を、次の仕事へ</span><h3>転職をお考えの方</h3><p>就業経験のある方はこちら。</p><Action white href="https://owlmatch.ai/career">転職の方の無料面談</Action></article></div><p className="om-application-note">OwlMatchへの登録後、メールアドレスを確認し、担当者と面談日時を調整します。<br />日本語・中国語対応 ／ オンライン面談</p></div></section>;
+  return <section className="om-section om-candidate-cta"><div className="om-wrap"><div className="om-heading om-centered"><Eyebrow>中国人の方専用・無料オンライン面談</Eyebrow><h2>日本での就職・転職<br />無料オンライン面談</h2><p>現在の状況に合う入口から、お申し込みください。</p></div><div className="om-application-grid"><article><span>これから、初めての就職へ</span><h3>新卒・既卒の方</h3><p>学生の方・就業経験のない方はこちら。</p><Action white href="https://owlmatch.ai/signup?track=newgrad">新卒・既卒の方の無料面談</Action></article><article><span>経験を、次の仕事へ</span><h3>転職をお考えの方</h3><p>就業経験のある方はこちら。</p><Action white href="https://owlmatch.ai/career">転職の方の無料面談</Action></article></div><p className="om-application-note">OwlMatchへの登録後、メールアドレスを確認し、担当者と面談日時を調整します。<br />日本語・中国語対応 ／ オンライン面談</p></div></section>;
 }
 export const employerFaq = [
   ["採用条件が決まっていなくても相談できますか？", "はい。仕事内容や採用でお困りのことを伺い、必要な経験・スキル・語学力を一緒に整理します。"],
