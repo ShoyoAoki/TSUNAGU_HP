@@ -3,3 +3,10 @@ node_modules/
 .DS_Store
 .env*.local
 .npm-cache/
+
+# Local dependency symlink used by the isolated integration worktree
+/node_modules
+
+# Local design iterations, browser captures, and validation outputs
+/_archive/
+/qa/

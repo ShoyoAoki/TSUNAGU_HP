@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Loader2, CheckCircle } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useId, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { getStrings } from "@/lib/i18n/strings";
 
@@ -11,12 +11,13 @@ interface ContactModalProps {
   onClose: () => void;
 }
 
-export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
+// The contact page and legacy dialogs share the same fields and submission flow.
+export function ContactForm({ onClose }: { onClose?: () => void }) {
   const pathname = usePathname();
-  const isZh = pathname.startsWith("/zh");
-  const t = getStrings(isZh ? "zh" : "ja").contactModal;
+  const t = getStrings(pathname.startsWith("/zh") ? "zh" : "ja").contactModal;
+  const formId = useId();
+  const statusRef = useRef<HTMLDivElement>(null);
   const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     company: "",
     name: "",
@@ -24,34 +25,16 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     phone: "",
     message: "",
   });
+  const submitting = formState === "submitting";
 
-  // Prevent background scrolling when modal is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isOpen]);
-
-  // Reset form when modal closes
-  useEffect(() => {
-    if (!isOpen) {
-      setTimeout(() => {
-        setFormState("idle");
-        setErrorMessage("");
-        setFormData({ company: "", name: "", email: "", phone: "", message: "" });
-      }, 300);
-    }
-  }, [isOpen]);
+    if (formState === "success") statusRef.current?.focus();
+  }, [formState]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (submitting) return;
     setFormState("submitting");
-    setErrorMessage("");
 
     try {
       const res = await fetch("/api/contact", {
@@ -59,184 +42,134 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
-      if (!res.ok) {
-        // API（/api/contact）は日本語固定のエラー文言を返すため、そのまま画面表示すると
-        // zh画面に日本語エラーが漏れる（PR #72系のi18nアンチパターンと同種の事故）。
-        // ここでは API のメッセージ本文は使わず、必ずロケール別辞書の文言を表示する。
-        throw new Error(t.errorGeneric);
-      }
-
+      // Keep errors localized; the API itself returns Japanese messages.
+      if (!res.ok) throw new Error(t.errorGeneric);
       setFormState("success");
     } catch {
       setFormState("error");
-      setErrorMessage(t.errorGeneric);
     }
   };
+
+  if (formState === "success") {
+    return (
+      <div ref={statusRef} role="status" tabIndex={-1} className="text-center py-10 outline-none">
+        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <CheckCircle className="w-8 h-8 text-green-700" aria-hidden="true" />
+        </div>
+        <h3 className="text-2xl font-bold text-slate-900 mb-3">{t.successTitle}</h3>
+        <p className="text-sm leading-loose text-slate-600 whitespace-pre-line">{t.successBody}</p>
+        {onClose && (
+          <button type="button" onClick={onClose} className="mt-8 w-full px-8 py-3 bg-slate-900 text-white font-bold hover:bg-slate-800 transition-colors">
+            {t.close}
+          </button>
+        )}
+      </div>
+    );
+  }
+
+  const fields = [
+    { key: "company", label: t.companyLabel, placeholder: t.companyPlaceholder, type: "text", autoComplete: "organization", required: false },
+    { key: "name", label: t.nameLabel, placeholder: t.namePlaceholder, type: "text", autoComplete: "name", required: true },
+    { key: "email", label: t.emailLabel, placeholder: t.emailPlaceholder, type: "email", autoComplete: "email", required: true },
+    { key: "phone", label: t.phoneLabel, placeholder: t.phonePlaceholder, type: "tel", autoComplete: "tel", required: false },
+  ] as const;
+  const inputClass = "w-full min-w-0 rounded-sm bg-white border border-slate-300 px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-700 focus:ring-1 focus:ring-blue-700 transition-colors disabled:bg-slate-50";
+
+  return (
+    <form onSubmit={handleSubmit} aria-busy={submitting}>
+      {formState === "error" && (
+        <div role="alert" className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 text-sm leading-relaxed">
+          {t.errorGeneric}
+        </div>
+      )}
+      <fieldset disabled={submitting} className="min-w-0 space-y-7">
+        {fields.map((field) => (
+          <div key={field.key} className="space-y-2">
+            <label htmlFor={`${formId}-${field.key}`} className="text-sm font-bold text-slate-700 flex items-center gap-3">
+              {field.label}
+              {field.required && <span className="text-xs font-medium text-red-700">{t.required}</span>}
+            </label>
+            <input
+              id={`${formId}-${field.key}`}
+              name={field.key}
+              type={field.type}
+              autoComplete={field.autoComplete}
+              required={field.required}
+              value={formData[field.key]}
+              onChange={(e) => setFormData((prev) => ({ ...prev, [field.key]: e.target.value }))}
+              className={inputClass}
+              placeholder={field.placeholder}
+            />
+          </div>
+        ))}
+        <div className="space-y-2">
+          <label htmlFor={`${formId}-message`} className="text-sm font-bold text-slate-700 flex items-center gap-3">
+            {t.messageLabel}
+            <span className="text-xs font-medium text-red-700">{t.required}</span>
+          </label>
+          <textarea
+            id={`${formId}-message`}
+            name="message"
+            required
+            rows={6}
+            value={formData.message}
+            onChange={(e) => setFormData((prev) => ({ ...prev, message: e.target.value }))}
+            className={`${inputClass} resize-y`}
+            placeholder={t.messagePlaceholder}
+          />
+        </div>
+        <button
+          type="submit"
+          disabled={submitting}
+          className="w-full rounded-sm bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-4 transition-colors flex items-center justify-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-700 disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+          {submitting ? (
+            <><Loader2 className="w-5 h-5 animate-spin motion-reduce:animate-none" aria-hidden="true" /><span>{t.submitting}</span></>
+          ) : (
+            <><span>{t.submit}</span><Send className="w-4 h-4" aria-hidden="true" /></>
+          )}
+        </button>
+      </fieldset>
+    </form>
+  );
+}
+
+export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
+  const pathname = usePathname();
+  const t = getStrings(pathname.startsWith("/zh") ? "zh" : "ja").contactModal;
+  const titleId = useId();
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = previousOverflow; };
+  }, [isOpen]);
 
   return (
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             onClick={onClose}
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
           />
-
-          {/* Modal Container */}
           <div className="fixed inset-0 flex items-center justify-center z-[70] p-4 pointer-events-none">
             <motion.div
+              role="dialog" aria-modal="true" aria-labelledby={titleId}
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="w-full max-w-lg bg-white overflow-hidden shadow-2xl pointer-events-auto relative max-h-[90vh] overflow-y-auto"
+              className="w-full max-w-lg bg-white shadow-2xl pointer-events-auto relative max-h-[90vh] overflow-y-auto"
             >
-              {/* Tech Header */}
               <div className="bg-gray-900 px-6 py-4 flex justify-between items-center border-b border-gray-800">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-cyan-500 animate-pulse" />
-                  <span className="text-white font-mono font-bold tracking-wider text-sm">
-                    {t.title}
-                  </span>
-                </div>
-                <button
-                  onClick={onClose}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  <X className="w-5 h-5" />
+                <span id={titleId} className="text-white font-mono font-bold tracking-wider text-sm">{t.title}</span>
+                <button type="button" onClick={onClose} aria-label={t.close} className="text-gray-400 hover:text-white transition-colors">
+                  <X className="w-5 h-5" aria-hidden="true" />
                 </button>
               </div>
-
-              {/* Content */}
-              <div className="p-8">
-                {formState === "success" ? (
-                  <div className="text-center py-10">
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
-                    >
-                      <CheckCircle className="w-8 h-8 text-green-600" />
-                    </motion.div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{t.successTitle}</h3>
-                    <p className="text-gray-500 mb-8 whitespace-pre-line">
-                      {t.successBody}
-                    </p>
-                    <button
-                      onClick={onClose}
-                      className="px-8 py-3 bg-gray-900 text-white font-bold hover:bg-gray-800 transition-colors w-full"
-                    >
-                      {t.close}
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    {formState === "error" && (
-                      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 text-sm">
-                        {errorMessage}
-                      </div>
-                    )}
-
-                    <div className="space-y-2">
-                      <label className="text-xs font-bold text-gray-500 uppercase tracking-wider block">
-                        {t.companyLabel}
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.company}
-                        onChange={(e) => setFormData(prev => ({ ...prev, company: e.target.value }))}
-                        className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-gray-900 font-medium focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
-                        placeholder={t.companyPlaceholder}
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <label className="text-xs font-bold text-gray-500 uppercase tracking-wider block">
-                          {t.nameLabel} <span className="text-red-400">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          value={formData.name}
-                          onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                          className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-gray-900 font-medium focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
-                          placeholder={t.namePlaceholder}
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <label className="text-xs font-bold text-gray-500 uppercase tracking-wider block">
-                          {t.emailLabel} <span className="text-red-400">*</span>
-                        </label>
-                        <input
-                          type="email"
-                          required
-                          value={formData.email}
-                          onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                          className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-gray-900 font-medium focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
-                          placeholder={t.emailPlaceholder}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-xs font-bold text-gray-500 uppercase tracking-wider block">
-                        {t.phoneLabel}
-                      </label>
-                      <input
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                        className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-gray-900 font-medium focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
-                        placeholder={t.phonePlaceholder}
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-xs font-bold text-gray-500 uppercase tracking-wider block">
-                        {t.messageLabel} <span className="text-red-400">*</span>
-                      </label>
-                      <textarea
-                        required
-                        rows={4}
-                        value={formData.message}
-                        onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                        className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-gray-900 font-medium focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all resize-none"
-                        placeholder={t.messagePlaceholder}
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      disabled={formState === "submitting"}
-                      className="w-full bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-4 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group relative overflow-hidden"
-                    >
-                      {formState === "submitting" ? (
-                        <>
-                          <Loader2 className="w-5 h-5 animate-spin" />
-                          <span>{t.submitting}</span>
-                        </>
-                      ) : (
-                        <>
-                          <span className="relative z-10 flex items-center gap-2">
-                            {t.submit}
-                            <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                          </span>
-                          <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                        </>
-                      )}
-                    </button>
-                  </form>
-                )}
-              </div>
-
-              {/* Decorative Corner Accents */}
-              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-gray-200" />
-              <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-gray-200" />
+              <div className="p-6 sm:p-8"><ContactForm onClose={onClose} /></div>
             </motion.div>
           </div>
         </>

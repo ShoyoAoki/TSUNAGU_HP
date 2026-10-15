@@ -48,5 +48,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   }
 
+  // New Japanese service detail pages have no translated counterparts yet.
+  for (const path of ['/service/physical-ai', '/service/bilingual', '/service/internship', '/service/process']) {
+    entries.push({ url: `${baseUrl}${path}`, lastModified: new Date(), changeFrequency: 'monthly', priority: path === '/service/physical-ai' ? 0.9 : 0.7 })
+  }
+
+  // The retained Chinese home/service pages are not translations of the new LPs.
+  // Keep both indexable without advertising an exact translation relationship.
+  for (const entry of entries) {
+    if ([baseUrl, `${baseUrl}/zh`, `${baseUrl}/service`, `${baseUrl}/zh/service`].includes(entry.url)) {
+      delete entry.alternates
+    }
+  }
+
   return entries
 }

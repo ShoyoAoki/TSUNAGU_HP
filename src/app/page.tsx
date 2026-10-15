@@ -1,78 +1,31 @@
 import type { Metadata } from "next";
-import { SITE_URL } from "@/lib/site";
-import Hero from "@/components/Hero";
-import ServiceSummary from "@/components/ServiceSummary";
-import Introduction from "@/components/Introduction";
-import ProblemSolution from "@/components/ProblemSolution";
-import Features from "@/components/Features";
-import Platform from "@/components/Platform";
-import CallToAction from "@/components/CallToAction";
+import Link from "next/link";
+import { Arrow, CandidateCta, Concerns, Eyebrow, Faq, PhotoHero, candidateFaq } from "@/components/recruitment/Recruitment";
+import ServiceJsonLd from "@/components/recruitment/ServiceJsonLd";
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "/",
-    languages: {
-      ja: "/",
-      "zh-Hans": "/zh",
-      "x-default": "/",
-    },
-  },
+  title: "中国人の方専用｜日本での就職・転職支援 OwlMatch",
+  description: "中国人の方専用の就職・転職支援。OwlMatchでは求人紹介、応募書類・面接の準備から入社後の相談まで支援します。新卒・既卒・転職の方へ、日本語・中国語で無料オンライン面談を行います。",
+  alternates: { canonical: "/" },
+  openGraph: { title: "中国人の方専用｜日本での就職・転職支援 OwlMatch", description: "求人紹介から応募書類・面接の準備まで。中国人の方の日本での仕事探しを、日本語・中国語でサポートします。", url: "/" },
 };
-
-// Service構造化データ×3。文言はホームページの表示テキスト（components/ServiceSummary.tsx）と一致させています
-const servicesJsonLd = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    serviceType: "OwlMatch Remote",
-    name: "OwlMatch Remote（IT系人材事業部）",
-    description:
-      "中国トップ大学のITエンジニア・AI人材を、まずリモートで3〜6ヶ月トライアル。成果を見てから正社員採用へ。採用コストゼロで始められる「まず試す」モデルが、従来の人材紹介のリスクを根本から解消します。",
-    provider: { "@type": "Organization", name: "株式会社TSUNAGU" },
-    areaServed: "JP",
-    url: SITE_URL,
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    serviceType: "OwlMatch Language",
-    name: "OwlMatch Language（言語系人材事業部）",
-    description:
-      "日本語能力試験N2以上の中国語・日本語バイリンガル人材を、商社・メーカー・サービス業を中心にご紹介。東京・大阪・名古屋・愛知をはじめ全国の企業様に対応し、中国ビジネスに不可欠な「語学力×実務力」を持つ人材を厳選してマッチングします。",
-    provider: { "@type": "Organization", name: "株式会社TSUNAGU" },
-    areaServed: "JP",
-    url: SITE_URL,
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    serviceType: "OwlMatch Spot",
-    name: "OwlMatch Spot（スポット案件事業部）",
-    description:
-      "中国・アジア現地でのアテンド、視察、商材リサーチ、AI・データ系の単発タスクまで、日単位で稼働する現地人材を提供。スポット稼働の実績が本線採用（言語系・OwlMatch Remote）への昇格ファネルになります。",
-    provider: { "@type": "Organization", name: "株式会社TSUNAGU" },
-    areaServed: "JP",
-    url: SITE_URL,
-  },
-];
-
 export default function Home() {
-  return (
-    <main className="min-h-screen bg-white selection:bg-cyan-100 selection:text-cyan-900">
-      {servicesJsonLd.map((service) => (
-        <script
-          key={service.serviceType}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(service) }}
-        />
-      ))}
-      <Hero />
-      <ServiceSummary />
-      <Introduction />
-      <ProblemSolution />
-      <Features />
-      <Platform />
-      <CallToAction />
-    </main>
-  );
+  return <main id="main" className="om-page">
+    <ServiceJsonLd name="OwlMatch 中国人の方の就職・転職支援" description="中国人の方を対象に、求人紹介、応募書類・面接の準備から入社後の相談まで支援します。日本語・中国語で無料オンライン面談を行います。" path="/" />
+    <PhotoHero />
+    <Concerns />
+    <section className="om-section om-wrap om-support-grid"><div className="om-heading"><Eyebrow>中国人の就職・転職を支えるOwlMatch</Eyebrow><h2>希望や経験を伺い、<br />仕事選びから支援します。</h2><p>まだ応募したい仕事が決まっていなくても、<br />いま考えていることからお話しください。</p></div><div className="om-support-points">{[
+      ["話す", "日本語でも、中国語でも。", "話しやすい言語で、経験や希望を伺います。オンラインで面談します。"],
+      ["整理する", "仕事選びから、応募の準備まで。", "希望する仕事や働き方を伺い、応募に向けて必要な準備を一緒に整理します。"],
+      ["相談する", "相談は無料です。", "ご相談にあたり、ご本人から費用はいただきません。当社の手数料は、採用企業からいただきます。"],
+    ].map(([label, title, copy]) => <article key={label}><span>{label}</span><div><h3>{title}</h3><p>{copy}</p></div></article>)}</div></section>
+    <section className="om-section om-pale"><div className="om-wrap"><div className="om-heading"><Eyebrow>無料面談までの流れ</Eyebrow><h2>登録から面談まで、3ステップ。</h2></div><ol className="om-steps">{[
+      ["登録・希望日時の入力", "新卒・既卒、または転職の入口から登録し、面談の希望日時を入力します。"],
+      ["メール確認・日程調整", "登録後に届くメールから、メールアドレスを確認します。その後、担当者と面談日時を調整します。"],
+      ["オンラインで無料面談", "ご経験や希望、いまの悩みをお聞きします。仕事選びや応募の進め方を一緒に考えます。"],
+    ].map(([title, copy], i) => <li key={title}><span>0{i + 1}</span><h3>{title}</h3><p>{copy}</p></li>)}</ol><p className="om-fine-print">希望日時の入力だけでは、面談の予約は確定しません。</p></div></section>
+    <Faq questions={candidateFaq} />
+    <CandidateCta />
+    <section className="om-wrap om-employer-entry"><div><Eyebrow>採用担当者の皆様へ</Eyebrow><h2>中国人材の採用をお考えですか。</h2><p>フィジカルAI・ロボティクス・AI人材、バイリンガル人材・新卒バイリンガル人材、インターンの採用をご相談いただけます。</p></div><Link className="site-button site-button-orange" href="/service">企業向けの採用支援を見る<Arrow /></Link></section>
+  </main>;
 }
