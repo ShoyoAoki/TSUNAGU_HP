@@ -1,6 +1,5 @@
 "use client";
 
-import CallToAction from "@/components/CallToAction";
 import { motion } from "framer-motion";
 
 // Square Pixel Grid Component
@@ -181,8 +180,6 @@ export default function CompanyClient() {
           </div>
         </div>
       </section>
-
-      <CallToAction />
     </main>
   );
 }
