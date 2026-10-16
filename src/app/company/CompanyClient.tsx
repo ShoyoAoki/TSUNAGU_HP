@@ -1,6 +1,5 @@
 "use client";
 
-import CallToAction from "@/components/CallToAction";
 import { motion } from "framer-motion";
 
 // Square Pixel Grid Component
@@ -35,9 +34,9 @@ export default function CompanyClient() {
       value: (
         <ul className="space-y-2">
           <li>・クロスボーダーHRプラットフォーム「OwlMatch」の開発・運営</li>
-          <li>・海外IT人材のリモートトライアル採用支援（OwlMatch Remote事業）</li>
-          <li>・日中バイリンガル人材の採用コンサルティング（OwlMatch Language事業）</li>
-          <li>・クロスボーダー・スポット案件の運営（OwlMatch Spot事業）</li>
+          <li>・フィジカルAI・ロボティクス・AI人材の採用支援</li>
+          <li>・バイリンガル人材・新卒バイリンガル人材の採用支援</li>
+          <li>・インターン採用支援</li>
           <li>・有料職業紹介事業（許可番号 46-ユ-300221）</li>
         </ul>
       )
@@ -181,8 +180,6 @@ export default function CompanyClient() {
           </div>
         </div>
       </section>
-
-      <CallToAction />
     </main>
   );
 }
