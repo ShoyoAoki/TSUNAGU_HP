@@ -11,8 +11,8 @@ export function Eyebrow({ children }: { children: ReactNode }) { return <p class
 export function PhotoHero({ employer = false }: { employer?: boolean }) {
   return <section className={`om-wrap om-hero${employer ? " om-employer-hero" : ""}`}>
     <div className="om-hero-copy">
-      <Eyebrow>{employer ? "中国人材の採用をお考えの企業様へ" : "中国人の方専用"}</Eyebrow>
-      <h1>{employer ? <><span data-motion="hero-line">中国人材の</span><span data-motion="hero-line"><em>採用支援</em></span></> : <><span data-motion="hero-line">中国人のための</span><span data-motion="hero-line">日本での</span><span data-motion="hero-line"><em>就職・転職支援</em></span></>}</h1>
+      {employer && <Eyebrow>中国人材の採用をお考えの企業様へ</Eyebrow>}
+      <h1>{employer ? <><span data-motion="hero-line">中国人材の</span><span data-motion="hero-line"><em>採用支援</em></span></> : <><span data-motion="hero-line">中国人のための</span><span data-motion="hero-line"><em>就職・転職支援</em></span></>}</h1>
       <p className="om-hero-lead">{employer ? <>フィジカルAI・ロボティクス・AI人材、<br />バイリンガル人材・新卒バイリンガル人材、インターン採用。<br />3つの領域で、中国人材の採用を支援します。</> : <>求人紹介から、応募書類・面接の準備まで。<br />日本語・中国語で、仕事探しをサポートします。</>}</p>
       <Action href={employer ? employerContact : candidateSignup}>{employer ? "採用について相談する" : "無料面談に申し込む"}</Action>
       <p className="om-hero-meta">{employer ? "初回相談無料・アカウント登録不要" : "新卒・既卒・転職の方へ"}<span>{employer ? "採用条件が決まる前から、ご相談いただけます。" : "日本語・中国語 ／ オンライン"}</span></p>
