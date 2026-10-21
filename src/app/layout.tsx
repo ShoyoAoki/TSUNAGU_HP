@@ -5,6 +5,7 @@ import "./integration.css";
 import Header from "@/components/Header";
 import SiteShell from "@/components/site/SiteShell";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { Analytics } from "@vercel/analytics/next";
 import Providers from "@/components/Providers";
 import { SITE_URL } from "@/lib/site";
 
@@ -183,6 +184,7 @@ export default function RootLayout({
           <Header />
           <SiteShell>{children}</SiteShell>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
