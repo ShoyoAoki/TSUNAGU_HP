@@ -3,5 +3,5 @@
 /* Keep the pickup directly below the hero; article-page spacing does not apply here. */
 .pickup{padding-top:40px;padding-bottom:40px}.pickup .cards{padding:0;margin:0}
 @media(max-width:700px){.pickup{padding-top:24px;padding-bottom:24px}}
-.pickup .heading{font-size:15px;font-weight:700;letter-spacing:.08em;color:#142b3a;margin:0 0 20px}
-@media(max-width:700px){.pickup .heading{font-size:14px;margin-bottom:14px}}
+.pickup .heading{font-size:13px;font-weight:700;letter-spacing:.14em;color:#142b3a;margin:0 0 20px}
+@media(max-width:700px){.pickup .heading{font-size:12px;margin-bottom:14px}}
