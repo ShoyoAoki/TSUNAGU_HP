@@ -8,3 +8,7 @@
 .header{height:72px;padding:8px 24px 8px 16px}.brand{height:56px}
 @media(max-width:900px){.header{height:72px;padding:8px 16px}}
 @media(max-width:500px){.header{height:64px;padding:3px 12px 3px 8px}.brand{height:58px}}
+
+/* Language switch (JA / 中文) */
+.lang{display:inline-flex;align-items:center;gap:2px;padding:2px;border:1px solid #e5e7eb;border-radius:999px;font:500 11px/1 monospace;letter-spacing:.06em;white-space:nowrap}.lang a,.lang span{display:inline-flex;align-items:center;justify-content:center;min-width:40px;height:26px;padding:0 10px;border-radius:999px;color:#9ca3af;transition:color .2s,background-color .2s}.lang a:hover{color:#000}.lang [aria-current]{background:#111;color:#fff}.menuLang{margin-top:48px}.menuLang .lang{font-size:13px}.menuLang .lang a,.menuLang .lang span{height:34px;min-width:56px}
+@media(max-width:900px){.right>.lang{display:none}}

@@ -1,24 +1,12 @@
 import type { Metadata } from "next";
-import ServiceDetailClient from "./ServiceDetailClient";
-
-export const metadata: Metadata = {
-  title: "OwlMatch | 跨境人力资源平台 | TSUNAGU",
-  description:
-    "OwlMatch（智枭）是株式会社TSUNAGU运营的跨境人力资源平台。通过 OwlMatch Remote（IT人才远程试用录用）／ OwlMatch Language（中日双语人才推荐）／ OwlMatch Spot（跨境短期项目）三条业务线，为连接中日两国的招聘与实务提供支持。",
-  alternates: {
-    canonical: "/zh/service",
-    languages: {
-      ja: "/service",
-      "zh-Hans": "/zh/service",
-      "x-default": "/service",
-    },
-  },
-};
-
-export default function ServicePage() {
-  return (
-    <>
-      <ServiceDetailClient />
-    </>
-  );
-}
+import { ServiceShell, ServiceHero, SectionHeading, ServiceCards, ServiceProcess, ServiceEnd, s } from "@/components/CorporateService";
+import { zh } from "@/lib/i18n/zh";
+// Same structure as src/app/service/page.tsx (ServiceShell layout on main).
+const t = zh.servicePages.index;
+export const metadata:Metadata={title:{absolute:t.title},description:t.description,alternates:{canonical:"/zh/service",languages:{ja:"/service","zh-Hans":"/zh/service","x-default":"/service"}},openGraph:{title:t.title,description:t.description,url:"/zh/service",locale:"zh_CN"}};
+export default function Page(){return <ServiceShell locale="zh" title={t.shell} description={t.description} path="/zh/service">
+ <ServiceHero locale="zh" index label={t.label} title={<>{t.heading[0]}<br/>{t.heading[1]}</>} lead={t.lead} image="/images/corporate-hero/bilingual.png"/>
+ <section className={s.blue}><div className={s.wrap}><SectionHeading en="OUR SERVICES">{t.cardsHeading}</SectionHeading><ServiceCards locale="zh"/></div></section>
+ <ServiceProcess locale="zh" steps={t.steps}/>
+ <ServiceEnd locale="zh"/>
+ </ServiceShell>}

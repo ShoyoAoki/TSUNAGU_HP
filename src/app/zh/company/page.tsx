@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
 import CompanyClient from "./CompanyClient";
+import { zh } from "@/lib/i18n/zh";
 
 export const metadata: Metadata = {
-  title: "公司概况 | TSUNAGU",
-  description:
-    "株式会社TSUNAGU（跨境人力资源平台OwlMatch运营方）公司概况。成立于2025年3月3日・注册资本500万日元・代表取缔役CEO 青木翔阳。总部：鹿儿岛县姶良市，东京办公室：东京都目黑区。有偿职业介绍事业许可编号 46-ユ-300221。",
+  title: zh.company.title,
+  description: zh.company.description,
   alternates: {
     canonical: "/zh/company",
     languages: {
@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "x-default": "/company",
     },
   },
+  openGraph: { title: zh.company.title, description: zh.company.description, url: "/zh/company", locale: "zh_CN" },
 };
 
 // AboutPage構造化データ。zh画面表示の企業情報（本文）と内容を一致させています

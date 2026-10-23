@@ -1,7 +1,10 @@
 "use client";
 
-import CallToAction from "../_components/CallToAction";
 import { motion } from "framer-motion";
+import { LICENSE_NO, zh } from "@/lib/i18n/zh";
+
+// Same layout as src/app/company/CompanyClient.tsx. Copy lives in src/lib/i18n/zh.ts.
+const t = zh.company;
 
 // Square Pixel Grid Component
 const PixelGrid = ({ className }: { className?: string }) => (
@@ -15,59 +18,27 @@ const PixelGrid = ({ className }: { className?: string }) => (
 
 export default function CompanyClient() {
   const companyInfo = [
-    { label: "公司名称", en: "Company Name", value: "株式会社TSUNAGU" },
-    { label: "成立日期", en: "Founded", value: "2025年3月3日" },
-    { label: "注册资本", en: "Capital", value: "500万日元" },
-    { label: "代表取缔役CEO", en: "CEO", value: "青木 翔阳" },
+    ...t.info,
     {
-      label: "总部地址",
-      en: "Head Office",
-      value: "〒899-5211 日本鹿儿岛县姶良市加治木町反土4番15番地249"
-    },
-    {
-      label: "东京办公室",
-      en: "Tokyo Office",
-      value: "〒153-0063 日本东京都目黑区目黑１丁目２４−１２ Orix目黑大厦 7F"
-    },
-    {
-      label: "业务内容",
+      label: t.businessLabel,
       en: "Business",
       value: (
         <ul className="space-y-2">
-          <li>・跨境人力资源平台「OwlMatch」的开发与运营</li>
-          <li>・海外IT人才的远程试用录用支持（OwlMatch Remote事业）</li>
-          <li>・中日双语人才的招聘咨询服务（OwlMatch Language事业）</li>
-          <li>・跨境短期项目的运营（OwlMatch Spot事业）</li>
-          <li>・有偿职业介绍事业（许可编号 46-ユ-300221）</li>
+          {t.business.map((line) => <li key={line}>・{line}</li>)}
         </ul>
       )
     },
     {
-      label: "有偿职业介绍许可编号",
+      label: t.licenseLabel,
       en: "License Number",
-      value: "46-ユ-300221"
+      value: LICENSE_NO
     },
   ];
 
-  const globalNetwork = [
-    {
-      category: "子公司",
-      en: "Subsidiary",
-      items: [
-        { name: "北京福城人才资源有限公司", location: "中国北京", description: "基于资本关系的直营据点" }
-      ]
-    },
-    {
-      category: "合作伙伴",
-      en: "Partner",
-      items: [
-        { name: "山东国信国际经济技术合作有限公司", location: "中国山东省", description: "战略业务合作伙伴" }
-      ]
-    }
-  ];
+  const globalNetwork = t.network;
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white" lang="zh-Hans">
       {/* Hero Section */}
       <section className="relative pt-48 pb-24 overflow-hidden border-b border-gray-100">
         <PixelGrid />
@@ -83,7 +54,7 @@ export default function CompanyClient() {
                 <span className="text-sm font-mono font-bold text-cyan-500 uppercase tracking-[0.2em]">Company Profile</span>
               </div>
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-gray-900 mb-8 leading-tight">
-                公司概况
+                {t.heading}
               </h1>
             </motion.div>
           </div>
@@ -101,7 +72,7 @@ export default function CompanyClient() {
               transition={{ duration: 0.6 }}
             >
               <div className="flex items-end gap-4 mb-12">
-                <h2 className="text-3xl font-bold tracking-tight text-gray-900">企业信息</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-gray-900">{t.infoHeading}</h2>
                 <span className="text-sm font-mono text-gray-400 mb-1">/ Corporate Information</span>
               </div>
 
@@ -142,7 +113,7 @@ export default function CompanyClient() {
               transition={{ duration: 0.6 }}
             >
               <div className="flex items-end gap-4 mb-12">
-                <h2 className="text-3xl font-bold tracking-tight text-gray-900">全球网络</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-gray-900">{t.networkHeading}</h2>
                 <span className="text-sm font-mono text-gray-400 mb-1">/ Global Network</span>
               </div>
 
@@ -171,18 +142,15 @@ export default function CompanyClient() {
               </div>
 
               <div className="mt-12 p-6 bg-white border border-gray-200">
-                <p className="text-sm font-bold text-gray-900 mb-1">高度透明的合作体系</p>
+                <p className="text-sm font-bold text-gray-900 mb-1">{t.trustTitle}</p>
                 <p className="text-xs text-gray-500 leading-relaxed">
-                  株式会社TSUNAGU明确区分了通过子公司进行的直接运营，与经过严格筛选的合作伙伴之间的协作关系。
-                  以此在各地区实现合规经营与高品质服务的兼顾。
+                  {t.trust}
                 </p>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
-
-      <CallToAction />
     </main>
   );
 }

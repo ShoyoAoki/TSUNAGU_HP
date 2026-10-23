@@ -53,3 +53,16 @@ html[lang="zh-Hans"] {
   --font-noto-serif-jp: var(--font-noto-serif-sc);
 }
 
+/* /zh 配下の本文書体：簡体字フォントを先頭に置く（.om-page などは Hiragino Kaku Gothic ProN を
+   先頭に指定しているため、変数の差し替えだけでは日本語の字形で描画される）。
+   main[lang="zh-Hans"] は LangCorrector の実行前（SSR直後）にも効かせるための指定。 */
+html[lang="zh-Hans"] body,
+html[lang="zh-Hans"] .om-page,
+html[lang="zh-Hans"] .site-topbar,
+html[lang="zh-Hans"] .site-drawer,
+html[lang="zh-Hans"] .site-footer,
+main[lang="zh-Hans"],
+main[lang="zh-Hans"].om-page {
+  font-family: "PingFang SC", "Hiragino Sans GB", var(--font-noto-sans-sc), "Microsoft YaHei", sans-serif;
+}
+

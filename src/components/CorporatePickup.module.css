@@ -5,3 +5,6 @@
 @media(max-width:700px){.pickup{padding-top:24px;padding-bottom:72px}}
 .pickup .heading{font-size:13px;font-weight:700;letter-spacing:.14em;color:#142b3a;margin:0 0 36px}
 @media(max-width:700px){.pickup .heading{font-size:12px;margin-bottom:24px}}
+
+/* zh: Japanese-only articles carry a small language tag on the thumbnail. */
+.zhCards :global(.article-card){position:relative;display:block}.langTag{position:absolute;top:8px;right:8px;z-index:1;padding:3px 8px;border:1px solid #dce5ec;border-radius:2px;background:#fff;color:#142b3a;font-size:11px;font-weight:700;line-height:1.4;letter-spacing:.08em}
