@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import SiteShell from "@/components/site/SiteShell";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Providers from "@/components/Providers";
 import { SITE_URL } from "@/lib/site";
 
@@ -185,6 +186,7 @@ export default function RootLayout({
           <SiteShell>{children}</SiteShell>
         </Providers>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
