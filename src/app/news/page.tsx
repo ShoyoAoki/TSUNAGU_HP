@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import s from "./news.module.css";
+import a from "./article.module.css";
+import { listing } from "./listing";
 
 const description = "株式会社TSUNAGUからのお知らせを掲載するニュースページです。";
 export const metadata: Metadata = {
@@ -15,8 +17,6 @@ export default function NewsPage() {
       <h1>NEWS</h1>
       <p>ニュース</p>
     </header>
-    <section className={s.empty} aria-label="ニュース掲載状況">
-      <p>Coming soon</p>
-    </section>
+    <section className={`${a.article} ${s.listing}`} aria-label="ニュース一覧" dangerouslySetInnerHTML={{__html:listing}} />
   </main>;
 }
