@@ -15,7 +15,7 @@ export default function Footer() {
       <nav aria-label={zh ? "页脚导航" : "フッターナビゲーション"}>
         <Link href={`${prefix}/service`}>{zh ? "服务介绍" : corporateService ? "採用支援サービス" : "中国人材の採用支援"}</Link>
         {!zh && serviceLinks.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}
-        <Link href={`${prefix}/company`}>{zh ? "公司概况" : "会社概要"}</Link><Link href={`${prefix}/philosophy`}>{zh ? "经营理念" : "経営理念"}</Link>
+        <Link href={`${prefix}/company`}>{zh ? "公司概况" : "会社概要"}</Link><Link href={`${prefix}/philosophy`}>{zh ? "经营理念·代表介绍" : "経営理念・代表紹介"}</Link>
         <Link href={`${prefix}/contact`}>{zh ? "联系我们" : "お問い合わせ"}</Link>
       </nav>
     </div>

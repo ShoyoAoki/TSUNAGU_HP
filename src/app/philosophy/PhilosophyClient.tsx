@@ -210,6 +210,33 @@ export default function PhilosophyClient() {
               <span className="text-sm md:text-base font-serif text-gray-600">株式会社TSUNAGU 代表取締役</span>
               <span className="text-xl md:text-2xl font-serif tracking-[0.2em]">青木 翔陽</span>
             </div>
+
+            {/* 代表経歴 */}
+            <div className="mt-16 w-full max-w-md">
+              <span className="block text-center text-xs font-mono tracking-[0.4em] text-gray-400 uppercase mb-6">Career</span>
+              <ul className="border-t border-gray-100">
+                <li className="grid grid-cols-[4.5rem_1fr] gap-3 py-4 border-b border-gray-100">
+                  <span className="font-mono text-xs tracking-[0.2em] text-gray-400 pt-1">2019</span>
+                  <span className="text-sm md:text-base text-gray-700 font-light leading-relaxed">日本で生まれ育ち、日本の高校を卒業後、北京外国語大学に入学</span>
+                </li>
+                <li className="grid grid-cols-[4.5rem_1fr] gap-3 py-4 border-b border-gray-100">
+                  <span className="font-mono text-xs tracking-[0.2em] text-gray-400 pt-1">2020</span>
+                  <span className="text-sm md:text-base text-gray-700 font-light leading-relaxed">北京大学へ編入</span>
+                </li>
+                <li className="grid grid-cols-[4.5rem_1fr] gap-3 py-4 border-b border-gray-100">
+                  <span className="font-mono text-xs tracking-[0.2em] text-gray-400 pt-1">在学中</span>
+                  <span className="text-sm md:text-base text-gray-700 font-light leading-relaxed">東京の人材紹介会社で日中間の人材紹介に従事</span>
+                </li>
+                <li className="grid grid-cols-[4.5rem_1fr] gap-3 py-4 border-b border-gray-100">
+                  <span className="font-mono text-xs tracking-[0.2em] text-gray-400 pt-1">2024</span>
+                  <span className="text-sm md:text-base text-gray-700 font-light leading-relaxed">北京福城人材資源有限会社を設立（中国・北京）</span>
+                </li>
+                <li className="grid grid-cols-[4.5rem_1fr] gap-3 py-4 border-b border-gray-100">
+                  <span className="font-mono text-xs tracking-[0.2em] text-gray-400 pt-1">2025</span>
+                  <span className="text-sm md:text-base text-gray-700 font-light leading-relaxed">株式会社TSUNAGUを設立</span>
+                </li>
+              </ul>
+            </div>
           </motion.div>
         </section>
 
