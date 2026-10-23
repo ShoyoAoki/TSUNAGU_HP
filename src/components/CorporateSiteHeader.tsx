@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {ArrowRight,Menu,X} from "lucide-react";
 import s from "./CorporateHeader.module.css";
-const links=[["Philosophy","経営理念・代表紹介","/philosophy"],["Service","サービス","/service"],["Company","会社概要","/company"],["News","ニュース","/news"]];
+const links=[["Philosophy","経営理念","/philosophy"],["Service","サービス","/service"],["Company","会社概要","/company"],["News","ニュース","/news"]];
 const philosophy=[["Philosophy","経営理念・代表紹介","/philosophy"],["Mission","ミッション","/mission"],["Vision","ビジョン","/vision"],["Value","バリュー","/value"],["Origin","会社名・ロゴ由来","/origin"]];
 const services=[["All Services","サービス一覧","/service"],["Physical AI","フィジカルAI人材","/service/physical-ai"],["Bilingual","日中バイリンガル人材","/service/bilingual"],["Internship","インターン採用","/service/internship"]];
 export default function CorporateSiteHeader({alwaysVisible=false}:{alwaysVisible?:boolean}){
