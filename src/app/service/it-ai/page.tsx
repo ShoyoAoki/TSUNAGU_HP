@@ -3,7 +3,7 @@ import SpecialtyPage, { type SpecialtyContent } from "@/components/recruitment/S
 const description = "ソフトウェア開発、AI開発、データ分析などを担う中国人材の採用支援。開発内容と必要な経験から、新卒・中途の採用要件を整理します。";
 export const metadata: Metadata = { title: "IT・AI人材の採用支援｜OwlMatch", description, alternates: { canonical: "/service/it-ai" }, openGraph: { title: "IT・AI人材の採用支援｜OwlMatch", description, url: "/service/it-ai" } };
 const content: SpecialtyContent = {
-  slug: "it-ai", title: "IT・AI人材", eyebrow: "ソフトウェア・AI開発を担う人材へ", headline: "開発するものから、人材を考える。", lead: description, icon: "code",
+  slug: "it-ai", title: "IT・AI人材", eyebrow: "ソフトウェア・AI開発を担う人材へ", headline: "開発するものから人材を考える", lead: description, icon: "code",
   roles: [
     { title: "ソフトウェア開発", copy: "Webサービスや業務システムの設計・実装・保守を担う仕事。", tags: ["フロントエンド", "バックエンド", "業務システム"] },
     { title: "AI開発", copy: "機械学習モデルやAI機能を、サービス・業務に組み込む仕事。", tags: ["機械学習", "AI機能の実装", "モデルの検証"] },

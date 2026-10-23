@@ -36,7 +36,7 @@ export default function ServiceDetailClient() {
             <div className="grid items-center gap-10 md:grid-cols-[1.05fr_0.95fr] md:gap-16">
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                 <h2 className="text-[34px] md:text-[56px] font-medium tracking-[-0.03em] text-slate-900 leading-[1.12]">
-                  见面之前，先看清本质。
+                  见面之前先看清本质
                 </h2>
                 <p className="mt-6 max-w-md text-slate-500 text-[15px] leading-[1.75]">
                   通过AI与认证筛选，为您呈现最合适的候选人。

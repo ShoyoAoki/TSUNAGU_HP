@@ -46,22 +46,22 @@ const BackgroundLogo = () => (
 const values = [
   {
     symbol: "時",
-    title: "時間を「命」と捉え、最短で最大の成果を出す",
+    title: "時間を「命」と捉え最短で最大の成果を出す",
     description: "時間は取り戻すことのできない最大のコストです。全ての業務において時間を命と同等の重さと捉え、密度濃く行動することで、限られた時間の中で最大の成果を生み出します。"
   },
   {
     symbol: "今",
-    title: "過去や未来を憂わず、目の前の瞬間に没頭する",
+    title: "過去や未来を憂わず目の前の瞬間に没頭する",
     description: "未来を創るのは、今の積み重ねでしかありません。砂時計の砂が落ちるその一瞬、目の前の仕事に全力を注ぎ続けることで、確実な成長と未来への道が拓かれます。"
   },
   {
     symbol: "創造",
-    title: "熱狂の先に、あるべき未来を実装する",
+    title: "熱狂の先にあるべき未来を実装する",
     description: "未来は待つものではなく、自らの手で創り出すものです。熱狂した「今」をつなぎ合わせ、その延長線上にある「あるべき世界」を具体的に形にすることで、社会に新たな可能性を提供します。"
   },
   {
     symbol: "無限",
-    title: "有限な時間で、無限の価値を残す",
+    title: "有限な時間で無限の価値を残す",
     description: "私たちの時間は有限ですが、生み出す価値に限界はありません。世代や国境を超えて語り継がれ、つながり続ける仕事を成し遂げることで、社会に永続的な「生きた証」を刻みます。"
   }
 ];
@@ -84,7 +84,7 @@ export default function ValueClient() {
           >
             <span className="block text-sm font-mono tracking-[0.6em] text-gray-400 mb-16 uppercase">Value</span>
             <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light tracking-[0.1em] sm:tracking-[0.2em] leading-[1.4] text-gray-950 mb-16">
-              時を、命と捉える
+              時を命と捉える
             </h1>
             <div className="h-px w-24 bg-gray-200 mx-auto mb-16" />
             <p className="text-lg md:text-2xl text-gray-600 leading-[2.8] tracking-[0.1em] font-light max-w-3xl mx-auto">

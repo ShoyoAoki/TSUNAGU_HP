@@ -29,7 +29,7 @@ export default function Platform() {
               </span>
             </div>
             <h2 className="text-2xl md:text-5xl font-semibold tracking-tight text-gray-900 leading-tight mb-6">
-              OwlMatch_<br />履歴書より、その人がわかる。
+              OwlMatch_<br />履歴書よりその人がわかる
             </h2>
             <p className="text-gray-600 leading-relaxed text-lg">
               自己紹介動画×AIスクリーニングで、海外人材の「人柄・日本語・実力」を会う前に確かめられるクロスボーダー採用プラットフォーム。

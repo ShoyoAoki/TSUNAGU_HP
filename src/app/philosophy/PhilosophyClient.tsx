@@ -123,7 +123,7 @@ export default function PhilosophyClient() {
           >
             <span className="block text-sm font-mono tracking-[0.4em] text-gray-400 uppercase">Message</span>
             <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif tracking-[0.1em] leading-tight whitespace-nowrap">
-              時を、命と捉える。
+              時を命と捉える
             </h1>
             
             <div className="pt-12">
@@ -226,7 +226,7 @@ export default function PhilosophyClient() {
               <div className="space-y-4">
                 <span className="block text-xs font-mono tracking-[0.3em] text-gray-400 uppercase">Our Story</span>
                 <h2 className="text-3xl md:text-5xl font-serif tracking-tight leading-tight">
-                  意志を繋ぎ、<br className="md:hidden" />国境を溶かす。
+                  意志を繋ぎ<br className="md:hidden" />国境を溶かす
                 </h2>
               </div>
               

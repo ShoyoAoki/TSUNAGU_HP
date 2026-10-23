@@ -38,7 +38,7 @@ export default function CallToAction() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <h2 className="text-4xl md:text-7xl font-bold tracking-tight mb-10 leading-[1.2] text-gray-900">
-            まずはリモートで、<br />
+            まずはリモートで<br />
             試してみませんか？
           </h2>
 
