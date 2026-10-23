@@ -15,7 +15,6 @@ export default function CorporateHero({ locale = "ja" }: { locale?: "ja" | "zh" 
   const t = locale === "zh" ? zh.hero : ja;
   const items = locale === "zh" ? slides.map((slide, i) => ({ ...slide, ...zh.hero.slides[i] })) : slides;
   const [active, setActive] = useState(0);
-  const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [reduced, setReduced] = useState(true);
@@ -28,11 +27,11 @@ export default function CorporateHero({ locale = "ja" }: { locale?: "ja" | "zh" 
     update(); visibility(); media.addEventListener('change', update); document.addEventListener('visibilitychange', visibility);
     return () => {media.removeEventListener('change', update);document.removeEventListener('visibilitychange', visibility);};
   }, []);
-  const running = !hovered && !focused && !hidden && !reduced;
+  const running = !focused && !hidden && !reduced;
   useEffect(() => {if (!running) return; const timer = setInterval(() => setActive(i => (i + 1) % items.length), 3000); return () => clearInterval(timer);}, [running, active]);
   useEffect(() => { const el=video.current;if(!el)return;if(active===0&&!hidden&&!reduced){void el.play().catch(()=>{});}else{el.pause();}},[active,hidden,reduced]);
   const move = (n:number) => setActive(i => (i+n+items.length)%items.length);
-  return <section className={styles.hero} aria-label={t.section} aria-roledescription={t.carousel} onMouseEnter={()=>setHovered(true)} onMouseLeave={()=>setHovered(false)} onFocusCapture={()=>setFocused(true)} onBlurCapture={e=>{if(!e.currentTarget.contains(e.relatedTarget as Node))setFocused(false);}}>
+  return <section className={styles.hero} aria-label={t.section} aria-roledescription={t.carousel} onFocusCapture={e=>{if((e.target as HTMLElement).matches?.(':focus-visible'))setFocused(true);}} onBlurCapture={e=>{if(!e.currentTarget.contains(e.relatedTarget as Node))setFocused(false);}}>
     <div className={styles.viewport} onTouchStart={e=>{touch.current={x:e.touches[0].clientX,y:e.touches[0].clientY};}} onTouchEnd={e=>{if(!touch.current)return;const dx=e.changedTouches[0].clientX-touch.current.x;const dy=e.changedTouches[0].clientY-touch.current.y;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy))move(dx<0?1:-1);touch.current=null;}}>
       <div className={styles.track} style={{transform:`translateX(-${active*100}%)`}}>
         {items.map((slide,i)=><article key={slide.image} className={`${styles.slide} ${i===0?styles.sandglassSlide:""}`} aria-hidden={i!==active} aria-label={`${i+1} / 4`} aria-roledescription={t.slide}>
