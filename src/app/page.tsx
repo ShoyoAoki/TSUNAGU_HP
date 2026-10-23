@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "株式会社TSUNAGU｜クロスボーダーHR・人材紹介",
   description: "株式会社TSUNAGUは、クロスボーダーHRプラットフォームOwlMatchの開発・運営、人材紹介・定着支援を行っています。",
   twitter: { title: "株式会社TSUNAGU｜クロスボーダーHR・人材紹介", description: "OwlMatchの開発・運営、人材紹介・定着支援を行う株式会社TSUNAGU。" },
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/", languages: { ja: "/", "zh-Hans": "/zh", "x-default": "/" } },
   openGraph: { title: "株式会社TSUNAGU｜クロスボーダーHR・人材紹介", description: "テクノロジーで世界中の『意志』をつなぐ。OwlMatchの開発・運営、人材紹介・定着支援を行う株式会社TSUNAGU。", url: "/" },
 };
 function Hiker({variant,position}:{variant:string;position:string}) {

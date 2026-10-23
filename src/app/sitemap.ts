@@ -4,10 +4,14 @@ import { SITE_URL } from '@/lib/site'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_URL
 
-  // ja/zh の両方が存在するページ（12ページ）。alternates.languages で相互リンクさせる
+  // ja/zh の両方が存在するページ（16ページ）。alternates.languages で相互リンクさせる
   const bilingualPages: { path: string; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']; priority: number }[] = [
     { path: '', changeFrequency: 'weekly', priority: 1 },
     { path: '/service', changeFrequency: 'monthly', priority: 0.9 },
+    { path: '/service/physical-ai', changeFrequency: 'monthly', priority: 0.9 },
+    { path: '/service/bilingual', changeFrequency: 'monthly', priority: 0.7 },
+    { path: '/service/internship', changeFrequency: 'monthly', priority: 0.7 },
+    { path: '/service/process', changeFrequency: 'monthly', priority: 0.7 },
     { path: '/company', changeFrequency: 'monthly', priority: 0.8 },
     { path: '/contact', changeFrequency: 'yearly', priority: 0.5 },
     { path: '/philosophy', changeFrequency: 'monthly', priority: 0.7 },
@@ -46,19 +50,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: Math.max(page.priority - 0.1, 0.1),
       alternates: { languages },
     })
-  }
-
-  // New Japanese service detail pages have no translated counterparts yet.
-  for (const path of ['/service/physical-ai', '/service/bilingual', '/service/internship', '/service/process']) {
-    entries.push({ url: `${baseUrl}${path}`, lastModified: new Date(), changeFrequency: 'monthly', priority: path === '/service/physical-ai' ? 0.9 : 0.7 })
-  }
-
-  // The retained Chinese home/service pages are not translations of the new LPs.
-  // Keep both indexable without advertising an exact translation relationship.
-  for (const entry of entries) {
-    if ([baseUrl, `${baseUrl}/zh`, `${baseUrl}/service`, `${baseUrl}/zh/service`].includes(entry.url)) {
-      delete entry.alternates
-    }
   }
 
   return entries

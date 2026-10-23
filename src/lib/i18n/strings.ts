@@ -64,6 +64,9 @@ export const strings = {
       successBody: "お問い合わせありがとうございます。\n担当者より順次ご連絡させていただきます。",
       close: "閉じる",
       errorGeneric: "送信に失敗しました。時間をおいて再度お試しください。",
+      // Used only on /zh; Japanese pages keep the browser's native validation messages.
+      requiredError: "この項目を入力してください。",
+      emailError: "メールアドレスを正しく入力してください。",
     },
   },
   zh: {
@@ -99,7 +102,7 @@ export const strings = {
     contactModal: {
       title: "联系我们",
       companyLabel: "公司名称",
-      companyPlaceholder: "示例：◯◯株式会社 / ◯◯有限公司",
+      companyPlaceholder: "示例：◯◯株式会社",
       nameLabel: "姓名",
       namePlaceholder: "张 三",
       emailLabel: "邮箱",
@@ -115,6 +118,8 @@ export const strings = {
       successBody: "感谢您的咨询。\n我们的负责人将尽快与您联系。",
       close: "关闭",
       errorGeneric: "提交失败，请稍后重试。",
+      requiredError: "请填写此项。",
+      emailError: "请输入有效的邮箱地址。",
     },
   },
 } as const;

@@ -14,8 +14,17 @@ interface ContactModalProps {
 // The contact page and legacy dialogs share the same fields and submission flow.
 export function ContactForm({ onClose }: { onClose?: () => void }) {
   const pathname = usePathname();
-  const t = getStrings(pathname.startsWith("/zh") ? "zh" : "ja").contactModal;
+  const zhLocale = pathname.startsWith("/zh");
+  const t = getStrings(zhLocale ? "zh" : "ja").contactModal;
   const formId = useId();
+  // Browser validation bubbles follow the browser language; /zh sets Simplified Chinese messages explicitly.
+  const validation = zhLocale ? {
+    onInvalid: (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const el = e.currentTarget;
+      el.setCustomValidity(el.validity.valueMissing ? t.requiredError : el.validity.typeMismatch ? t.emailError : "");
+    },
+    onInput: (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => e.currentTarget.setCustomValidity(""),
+  } : {};
   const statusRef = useRef<HTMLDivElement>(null);
   const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [formData, setFormData] = useState({
@@ -99,6 +108,7 @@ export function ContactForm({ onClose }: { onClose?: () => void }) {
               onChange={(e) => setFormData((prev) => ({ ...prev, [field.key]: e.target.value }))}
               className={inputClass}
               placeholder={field.placeholder}
+              {...validation}
             />
           </div>
         ))}
@@ -116,6 +126,7 @@ export function ContactForm({ onClose }: { onClose?: () => void }) {
             onChange={(e) => setFormData((prev) => ({ ...prev, message: e.target.value }))}
             className={`${inputClass} resize-y`}
             placeholder={t.messagePlaceholder}
+            {...validation}
           />
         </div>
         <button

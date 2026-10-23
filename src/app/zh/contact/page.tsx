@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import ContactClient from "./ContactClient";
+import { zh } from "@/lib/i18n/zh";
 
 export const metadata: Metadata = {
-  title: "联系我们",
-  description:
-    "株式会社TSUNAGU联系页面。诚邀您咨询中国IT工程师的远程试用录用、中日双语人才推荐、跨境短期项目等相关事宜。我们通常会在2个工作日内回复。",
+  title: zh.contact.title,
+  description: zh.contact.description,
   alternates: {
     canonical: "/zh/contact",
     languages: {
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
       "x-default": "/contact",
     },
   },
+  openGraph: { title: zh.contact.title, description: zh.contact.description, url: "/zh/contact", locale: "zh_CN" },
 };
 
 export default function ContactPage() {
