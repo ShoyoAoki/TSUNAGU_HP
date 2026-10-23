@@ -17,7 +17,7 @@ export type Locale = (typeof locales)[number];
 export const strings = {
   ja: {
     nav: {
-      philosophy: { name: "Philosophy", jp: "経営理念" },
+      philosophy: { name: "Philosophy", jp: "経営理念・代表紹介" },
       mission: { name: "Mission", jp: "ミッション" },
       vision: { name: "Vision", jp: "ビジョン" },
       value: { name: "Value", jp: "バリュー" },
@@ -68,7 +68,7 @@ export const strings = {
   },
   zh: {
     nav: {
-      philosophy: { name: "Philosophy", jp: "经营理念" },
+      philosophy: { name: "Philosophy", jp: "经营理念·代表介绍" },
       mission: { name: "Mission", jp: "使命" },
       vision: { name: "Vision", jp: "愿景" },
       value: { name: "Value", jp: "价值观" },
