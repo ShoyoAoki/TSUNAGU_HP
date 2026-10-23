@@ -112,7 +112,7 @@ export default function OriginClient() {
 
           {/* 1. 社名の由来 */}
           <Section
-            title="连接世界各地的『意志』。"
+            title="连接世界各地的『意志』"
             label="COMPANY NAME"
           >
             <p className="leading-relaxed">
@@ -123,7 +123,7 @@ export default function OriginClient() {
 
           {/* 2. ロゴの由来 */}
           <Section
-            title="在有限的时间里，创造无限的价值。"
+            title="在有限的时间里创造无限的价值"
             label="LOGO DESIGN"
           >
             <div className="space-y-8">

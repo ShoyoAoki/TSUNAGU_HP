@@ -17,26 +17,26 @@ type Video = {
 const P = (n: number) => `/images/video-feed/vf_${String(n).padStart(2, "0")}.jpg`;
 
 const VIDEOS: Video[] = [
-  { id: 1, title: "青木翔陽 CEO に聞く、OwlMatch のこれから。", poster: P(8), videoSrc: "/videos/owlmatch-feed/vf01_interview.mp4", likes: "3.7万", dur: "0:04", aspect: "3/4" },
-  { id: 2, title: "オフィスツアー｜TSUNAGU 東京。", poster: P(1), videoSrc: "/videos/owlmatch-feed/vf02_office_v1.mp4", likes: "8,540", dur: "0:04", aspect: "4/5" },
-  { id: 3, title: "30秒でわかる、OwlMatch。", poster: P(3), videoSrc: "/videos/owlmatch-feed/vf03_product.mp4", likes: "10万+", dur: "0:04", aspect: "9/16" },
-  { id: 4, title: "中国の AI 人材を、リモートで。", poster: P(13), videoSrc: "/videos/owlmatch-feed/vf04_airemote.mp4", likes: "2.4万", dur: "0:04", aspect: "4/5" },
-  { id: 5, title: "言語人材マッチングの、舞台裏。", poster: P(4), videoSrc: "/videos/owlmatch-feed/vf05_lang.mp4", likes: "1.2万", dur: "0:04", aspect: "3/4" },
-  { id: 6, title: "なぜ、いま越境採用なのか。", poster: P(11), videoSrc: "/videos/owlmatch-feed/vf06_why.mp4", likes: "6,210", dur: "0:04", aspect: "4/5" },
-  { id: 7, title: "面談はこう進む｜OwlMatch 体験。", poster: P(9), videoSrc: "/videos/owlmatch-feed/vf07_interviewflow.mp4", likes: "9,830", dur: "0:04", aspect: "9/16" },
-  { id: 8, title: "スポット人材という、新しい選択。", poster: P(6), videoSrc: "/videos/owlmatch-feed/vf08_spot.mp4", likes: "4,402", dur: "0:04", aspect: "3/4" },
-  { id: 9, title: "メンバーが語る、TSUNAGU のカルチャー。", poster: P(5), videoSrc: "/videos/owlmatch-feed/vf09_culture.mp4", likes: "1.8万", dur: "0:04", aspect: "4/5" },
-  { id: 10, title: "数字で見る、OwlMatch。", poster: P(15), videoSrc: "/videos/owlmatch-feed/vf10_numbers.mp4", likes: "2,103", dur: "0:04", aspect: "3/4" },
-  { id: 11, title: "日中をつなぐ、一日。", poster: P(2), videoSrc: "/videos/owlmatch-feed/vf11_day.mp4", likes: "5.1万", dur: "0:04", aspect: "9/16" },
-  { id: 12, title: "採用担当者の、リアルな声。", poster: P(12), videoSrc: "/videos/owlmatch-feed/vf12_recruiter.mp4", likes: "7,640", dur: "0:04", aspect: "4/5" },
-  { id: 13, title: "エンジニアの、リモート就業。", poster: P(14), videoSrc: "/videos/owlmatch-feed/vf13_engineer.mp4", likes: "1.1万", dur: "0:04", aspect: "3/4" },
-  { id: 14, title: "認定スクリーニングの、仕組み。", poster: P(16), videoSrc: "/videos/owlmatch-feed/vf14_screening.mp4", likes: "3,275", dur: "0:04", aspect: "4/5" },
-  { id: 15, title: "はじめての、OwlMatch。", poster: P(7), videoSrc: "/videos/owlmatch-feed/vf15_start.mp4", likes: "10万+", dur: "0:04", aspect: "9/16" },
-  { id: 16, title: "現場で活きる、バイリンガル人材。", poster: P(10), videoSrc: "/videos/owlmatch-feed/vf16_bilingual.mp4", likes: "8,910", dur: "0:04", aspect: "3/4" },
-  { id: 17, title: "OwlMatch が選ばれる理由。", poster: P(3), videoSrc: "/videos/owlmatch-feed/vf17_chosen.mp4", likes: "2.9万", dur: "0:04", aspect: "4/5" },
-  { id: 18, title: "チームで挑む、越境採用。", poster: P(1), videoSrc: "/videos/owlmatch-feed/vf18_team.mp4", likes: "6,058", dur: "0:04", aspect: "3/4" },
-  { id: 19, title: "AI が、最適なマッチを。", poster: P(13), videoSrc: "/videos/owlmatch-feed/vf19_aimatch.mp4", likes: "4.3万", dur: "0:04", aspect: "9/16" },
-  { id: 20, title: "面談から、内定まで。", poster: P(9), videoSrc: "/videos/owlmatch-feed/vf20_offer.mp4", likes: "5,720", dur: "0:04", aspect: "4/5" },
+  { id: 1, title: "青木翔陽 CEO に聞くOwlMatch のこれから", poster: P(8), videoSrc: "/videos/owlmatch-feed/vf01_interview.mp4", likes: "3.7万", dur: "0:04", aspect: "3/4" },
+  { id: 2, title: "オフィスツアー｜TSUNAGU 東京", poster: P(1), videoSrc: "/videos/owlmatch-feed/vf02_office_v1.mp4", likes: "8,540", dur: "0:04", aspect: "4/5" },
+  { id: 3, title: "30秒でわかるOwlMatch", poster: P(3), videoSrc: "/videos/owlmatch-feed/vf03_product.mp4", likes: "10万+", dur: "0:04", aspect: "9/16" },
+  { id: 4, title: "中国の AI 人材をリモートで", poster: P(13), videoSrc: "/videos/owlmatch-feed/vf04_airemote.mp4", likes: "2.4万", dur: "0:04", aspect: "4/5" },
+  { id: 5, title: "言語人材マッチングの舞台裏", poster: P(4), videoSrc: "/videos/owlmatch-feed/vf05_lang.mp4", likes: "1.2万", dur: "0:04", aspect: "3/4" },
+  { id: 6, title: "なぜいま越境採用なのか", poster: P(11), videoSrc: "/videos/owlmatch-feed/vf06_why.mp4", likes: "6,210", dur: "0:04", aspect: "4/5" },
+  { id: 7, title: "面談はこう進む｜OwlMatch 体験", poster: P(9), videoSrc: "/videos/owlmatch-feed/vf07_interviewflow.mp4", likes: "9,830", dur: "0:04", aspect: "9/16" },
+  { id: 8, title: "スポット人材という新しい選択", poster: P(6), videoSrc: "/videos/owlmatch-feed/vf08_spot.mp4", likes: "4,402", dur: "0:04", aspect: "3/4" },
+  { id: 9, title: "メンバーが語るTSUNAGU のカルチャー", poster: P(5), videoSrc: "/videos/owlmatch-feed/vf09_culture.mp4", likes: "1.8万", dur: "0:04", aspect: "4/5" },
+  { id: 10, title: "数字で見るOwlMatch", poster: P(15), videoSrc: "/videos/owlmatch-feed/vf10_numbers.mp4", likes: "2,103", dur: "0:04", aspect: "3/4" },
+  { id: 11, title: "日中をつなぐ一日", poster: P(2), videoSrc: "/videos/owlmatch-feed/vf11_day.mp4", likes: "5.1万", dur: "0:04", aspect: "9/16" },
+  { id: 12, title: "採用担当者のリアルな声", poster: P(12), videoSrc: "/videos/owlmatch-feed/vf12_recruiter.mp4", likes: "7,640", dur: "0:04", aspect: "4/5" },
+  { id: 13, title: "エンジニアのリモート就業", poster: P(14), videoSrc: "/videos/owlmatch-feed/vf13_engineer.mp4", likes: "1.1万", dur: "0:04", aspect: "3/4" },
+  { id: 14, title: "認定スクリーニングの仕組み", poster: P(16), videoSrc: "/videos/owlmatch-feed/vf14_screening.mp4", likes: "3,275", dur: "0:04", aspect: "4/5" },
+  { id: 15, title: "はじめてのOwlMatch", poster: P(7), videoSrc: "/videos/owlmatch-feed/vf15_start.mp4", likes: "10万+", dur: "0:04", aspect: "9/16" },
+  { id: 16, title: "現場で活きるバイリンガル人材", poster: P(10), videoSrc: "/videos/owlmatch-feed/vf16_bilingual.mp4", likes: "8,910", dur: "0:04", aspect: "3/4" },
+  { id: 17, title: "OwlMatch が選ばれる理由", poster: P(3), videoSrc: "/videos/owlmatch-feed/vf17_chosen.mp4", likes: "2.9万", dur: "0:04", aspect: "4/5" },
+  { id: 18, title: "チームで挑む越境採用", poster: P(1), videoSrc: "/videos/owlmatch-feed/vf18_team.mp4", likes: "6,058", dur: "0:04", aspect: "3/4" },
+  { id: 19, title: "AI が最適なマッチを", poster: P(13), videoSrc: "/videos/owlmatch-feed/vf19_aimatch.mp4", likes: "4.3万", dur: "0:04", aspect: "9/16" },
+  { id: 20, title: "面談から内定まで", poster: P(9), videoSrc: "/videos/owlmatch-feed/vf20_offer.mp4", likes: "5,720", dur: "0:04", aspect: "4/5" },
 ];
 
 // 5列に振り分け（縦マソンリー・md以上）
@@ -124,7 +124,7 @@ export default function VideoFeed() {
           <span className="h-px flex-1 bg-slate-200/80" />
         </div>
         <h2 id="feed-heading" className="text-[38px] md:text-[58px] font-medium tracking-[-0.03em] text-slate-900 leading-[1.08]">
-          動画でわかる、越境採用。
+          動画でわかる越境採用
         </h2>
         <p className="mt-5 max-w-2xl text-slate-500 text-[15px] leading-[1.75] tracking-[0.01em]">
           OwlMatch は、中国の人材と日本の企業を動画でつなぐ、クロスボーダー HR プラットフォーム。

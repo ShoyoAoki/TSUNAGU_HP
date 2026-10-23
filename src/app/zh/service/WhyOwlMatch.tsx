@@ -58,7 +58,7 @@ export default function WhyOwlMatch() {
           <span className="h-px flex-1 bg-slate-200/80" />
         </div>
         <h2 id="why-heading" className="text-[38px] md:text-[58px] font-medium tracking-[-0.03em] text-slate-900 leading-[1.08]">
-          跨境招聘的壁垒，<span className="inline-block">靠机制打破。</span>
+          跨境招聘的壁垒<span className="inline-block">靠机制打破</span>
         </h2>
 
         {/* 放射状ダイアグラム（ブループリント風の背景で空間を埋める／視覚優位の主役） */}
@@ -118,7 +118,7 @@ export default function WhyOwlMatch() {
         {/* 比較表：従来の人材紹介 vs OwlMatch */}
         <div className="mt-20 md:mt-28">
           <h3 className="text-[20px] md:text-[24px] font-semibold tracking-[-0.01em] text-slate-900">
-            与传统人才中介，有何不同？
+            与传统人才中介有何不同？
           </h3>
 
           <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white">

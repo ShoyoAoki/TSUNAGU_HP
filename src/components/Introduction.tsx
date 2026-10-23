@@ -46,7 +46,7 @@ export default function Introduction() {
             <span className="text-sm font-bold tracking-[0.4em] text-black/40 uppercase">MISSION</span>
           </motion.div>
           <motion.h3 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-black mb-10 leading-tight tracking-wider">
-            テクノロジーで世界中の「意志」を、つなぐ。
+            テクノロジーで世界中の「意志」をつなぐ
           </motion.h3>
           <motion.div variants={fadeInUp} className="space-y-6">
             <p className="text-lg md:text-xl text-black leading-loose tracking-widest">
@@ -71,7 +71,7 @@ export default function Introduction() {
             <span className="text-sm font-bold tracking-[0.4em] text-black/40 uppercase">VISION</span>
           </motion.div>
           <motion.h3 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-black mb-10 leading-tight tracking-wider">
-            労働機会の国境をなくす。
+            労働機会の国境をなくす
           </motion.h3>
           <motion.div variants={fadeInUp} className="space-y-6">
             <p className="text-lg md:text-xl text-black leading-loose tracking-widest">

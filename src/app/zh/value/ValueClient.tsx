@@ -40,22 +40,22 @@ const BackgroundLogo = () => (
 const values = [
   {
     symbol: "时",
-    title: "把时间当作「生命」，以最短时间创造最大成果",
+    title: "把时间当作「生命」以最短时间创造最大成果",
     description: "时间是无法挽回的最大成本。在一切工作中，我们都将时间视为与生命同等的分量，以高密度的行动，在有限的时间里创造最大的成果。"
   },
   {
     symbol: "今",
-    title: "不为过去与未来所忧，全情投入眼前的这一刻",
+    title: "不为过去与未来所忧全情投入眼前的这一刻",
     description: "创造未来的，唯有当下的不断积累。在沙漏中沙粒落下的每一个瞬间，全力投入眼前的工作，才能开拓出通往确定成长与未来的道路。"
   },
   {
     symbol: "创造",
-    title: "在热忱的尽头，实现本应到来的未来",
+    title: "在热忱的尽头实现本应到来的未来",
     description: "未来不是等待而来，而是靠自己的双手创造出来的。将充满热忱的「当下」不断连接，把延伸出的「本应存在的世界」具体地实现出来，为社会提供新的可能性。"
   },
   {
     symbol: "无限",
-    title: "以有限的时间，留下无限的价值",
+    title: "以有限的时间留下无限的价值",
     description: "我们的时间有限，但创造的价值没有极限。通过完成跨越世代与国界、被不断传颂与延续的事业，为社会镌刻下永恒的「生存证明」。"
   }
 ];
@@ -78,7 +78,7 @@ export default function ValueClient() {
           >
             <span className="block text-sm font-mono tracking-[0.6em] text-gray-400 mb-16 uppercase">Value</span>
             <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light tracking-[0.1em] sm:tracking-[0.2em] leading-[1.4] text-gray-950 mb-16">
-              把时间，当作生命
+              把时间当作生命
             </h1>
             <div className="h-px w-24 bg-gray-200 mx-auto mb-16" />
             <p className="text-lg md:text-2xl text-gray-600 leading-[2.8] tracking-[0.1em] font-light max-w-3xl mx-auto">

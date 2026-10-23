@@ -94,7 +94,7 @@ export default function VisionClient() {
           >
             <span className="block text-sm font-mono tracking-[0.4em] text-gray-400 mb-12">VISION</span>
             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-light tracking-[0.05em] sm:tracking-[0.1em] leading-[1.6] text-gray-900">
-              労働機会の国境をなくす。
+              労働機会の国境をなくす
             </h1>
           </motion.div>
         </section>

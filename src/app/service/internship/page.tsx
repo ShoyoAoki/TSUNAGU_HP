@@ -1,28 +1,11 @@
 import type { Metadata } from "next";
-import SpecialtyPage, { type SpecialtyContent } from "@/components/recruitment/SpecialtyPage";
-
-const description = "中国語を活かす業務を中心に、学生インターンの採用を支援します。担当業務・勤務日数・期間などを整理し、学業と両立できる条件から候補者をお探しします。";
-export const metadata: Metadata = {
-  title: "インターン採用支援｜OwlMatch",
-  description,
-  alternates: { canonical: "/service/internship" },
-  openGraph: { title: "インターン採用支援｜OwlMatch", description, url: "/service/internship" },
-};
-
-const content: SpecialtyContent = {
-  slug: "internship", title: "インターン採用", eyebrow: "中国語を活かす、学生インターン", headline: "インターン採用",
-  heroTitle: <span data-motion="hero-line"><em>インターン採用</em></span>,
-  ctaLabel: "インターン採用を相談する", lead: description, icon: "graduate",
-  roles: [
-    { title: "SNS・コンテンツ", copy: "中国語の投稿づくりや情報発信など、SNS運用を支える業務。", tags: ["投稿企画", "コンテンツ制作", "運用補助"] },
-    { title: "リサーチ", copy: "中国語の情報収集や整理など、事業の検討材料をまとめる業務。", tags: ["市場調査", "情報整理", "資料作成"] },
-    { title: "営業・事業サポート", copy: "資料作成や連絡の補助など、チームの日々の活動を支える業務。", tags: ["営業補助", "資料作成", "連絡・調整"] },
-  ],
-  points: [
-    { title: "担当業務・受入体制", copy: "任せる仕事と、社内で指導・相談を担当する方を確認します。" },
-    { title: "勤務条件・学業との両立", copy: "勤務日数・時間・期間・勤務地を整理し、授業や試験との両立を確認します。" },
-    { title: "語学力・経験", copy: "業務に必要な日本語・中国語の水準と、学生時代の活動や制作経験を確認します。" },
-  ],
-};
-
-export default function Page() { return <SpecialtyPage content={content} />; }
+import { ServiceShell, ServiceHero, SectionHeading, ServiceProcess, ServiceEnd, s } from "@/components/CorporateService";
+const description="学生インターンの採用支援。担当業務、語学・経験、勤務期間・時間、社内の指導体制を整理し、学業と両立する受入条件から採用を考えます。";
+export const metadata:Metadata={title:{absolute:"インターン採用支援｜株式会社TSUNAGU"},description,alternates:{canonical:"/service/internship"},openGraph:{title:"インターン採用支援｜株式会社TSUNAGU",description,url:"/service/internship"}};
+export default function Page(){return <ServiceShell title="インターン採用支援" description={description} path="/service/internship">
+ <ServiceHero label="INTERNSHIP" title={<>学生の意欲を<br/>現場の経験へ</>} lead="中国語を活かす業務を中心に、学生インターンの採用を支援。任せる仕事と受入体制を整理し、学業と両立できる条件を考えます。" image="/images/corporate-hero/campus.png"/>
+ <section className={`${s.wrap} ${s.section} ${s.split}`}><SectionHeading en="WORK DESIGN" copy="『何でも手伝ってもらう』ではなく、取り組む業務と期待する成果物を具体化します。">最初に決めるのは<br/>任せる仕事</SectionHeading><div className={s.rows}>{[["情報発信","中国語の投稿企画、コンテンツ制作、SNS運用補助。確認・公開の担当者を明確にします。"],["リサーチ","中国語の情報収集、整理、資料作成。調査テーマ、参照先、まとめ方を共有します。"],["営業・事業支援","資料作成や連絡の補助、日々の業務支援。学生が判断する範囲と相談先を整理します。"]].map(([title,copy])=><article className={s.row} key={title}><h3>{title}</h3><p>{copy}</p></article>)}</div></section>
+ <section className={`${s.wrap} ${s.section}`}><SectionHeading en="ACCEPTANCE PLAN" copy="業務内容と勤務条件に加えて、学生が相談し、学べる体制まで確認します。">受入れの条件を<br/>一つずつ</SectionHeading><div className={s.intake}>{[["期間","開始時期と継続期間、授業・試験・帰省などの予定を確認します。"],["時間・場所","勤務日数・時間帯、勤務地、学業との両立を整理します。"],["指導体制","業務を説明する方、成果物を確認する方、日々の相談先を決めます。"],["経験・語学","担当業務に必要な日本語・中国語、学生時代の活動や制作経験を確認します。"]].map(([title,copy])=><article key={title}><h3>{title}</h3><p>{copy}</p></article>)}</div><div className={s.panel}><h3>入社時の力と育てる力</h3><div className={s.comparison}><article><h3>必須の条件</h3><p>勤務できる日数、業務に必要な語学力、使用するツールなど、業務開始時に必要な条件を整理します。</p></article><article><h3>受入れ後の支援</h3><p>業務の説明、初期のタスク、フィードバックの方法を決め、現場で経験を積める進め方を確認します。</p></article></div></div></section>
+ <ServiceProcess steps={[["任せる業務の整理","仕事内容、成果物、必要な経験・語学力を伺います。"],["勤務・受入条件の確認","期間、日数・時間、勤務地、指導担当者を整理します。"],["候補者の紹介・面談","学業との両立や活動経験を確認し、候補者をご紹介。面談の連絡・日程調整を支援します。"],["開始前・開始後の相談","勤務条件と担当業務を確認し、受入れ後の相談に対応します。"]]}/>
+ <ServiceEnd exclude="internship"/>
+ </ServiceShell>}

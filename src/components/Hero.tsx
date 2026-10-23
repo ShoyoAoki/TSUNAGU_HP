@@ -40,9 +40,9 @@ const TypingHeadline = ({
   const [showCursor, setShowCursor] = useState(true);
 
   const messages = [
-    ["テクノロジーで世界中の", "『意志』を、つなぐ。"],
-    ["採用前に、リモートで", "試してみませんか？"],
-    ["中国×日本の才能を", "最短距離でつなぐ。"]
+    ["テクノロジーで世界中の", "『意志』をつなぐ"],
+    ["採用前にリモートで", "試してみませんか？"],
+    ["中国×日本の才能を", "最短距離でつなぐ"]
   ];
 
   const typingSpeed = 120;
@@ -182,7 +182,7 @@ export default function Hero() {
               <div className="min-h-[140px] md:min-h-[180px] lg:min-h-[220px] flex flex-col justify-center mb-10 overflow-visible">
                 <h1 className="text-[22px] sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 leading-[1.5] font-sans">
                   テクノロジーで世界中の<br />
-                  『意志』を、つなぐ。
+                  『意志』をつなぐ
                 </h1>
               </div>
 

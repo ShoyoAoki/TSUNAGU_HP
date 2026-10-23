@@ -92,9 +92,9 @@ export default function MissionClient() {
           >
             <span className="block text-sm font-mono tracking-[0.4em] text-gray-400 mb-12">MISSION</span>
             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-light tracking-[0.05em] sm:tracking-[0.1em] leading-[1.6] text-gray-900">
-              以科技，<br />
+              以科技<br />
               连接世界各地的<br />
-              『意志』。
+              『意志』
             </h1>
           </motion.div>
         </section>

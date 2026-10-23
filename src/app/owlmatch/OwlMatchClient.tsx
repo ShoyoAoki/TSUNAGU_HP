@@ -629,7 +629,7 @@ const services = [
   {
     tag: "Remote",
     sub: "IT系人材",
-    title: "リモートトライアル採用——まず試す、それから採用する。",
+    title: "リモートトライアル採用——まず試すそれから採用する",
     desc: "中国トップ大学のITエンジニア・AI人材を、3〜6ヶ月のリモートトライアルで検証してから正社員採用。採用コストゼロでミスマッチリスクを根本から排除します。",
     points: ["リモートトライアル 3〜6ヶ月", "納得してから正社員化", "来日・定着サポート"],
     barColor: "group-hover:bg-cyan-600",
@@ -655,7 +655,7 @@ const services = [
   {
     tag: "Language",
     sub: "日中バイリンガル人材",
-    title: "N2以上のバイリンガル人材を、成功報酬で紹介する。",
+    title: "N2以上のバイリンガル人材を成功報酬で紹介する",
     desc: "日本語能力試験N2以上・中国語ネイティブのバイリンガル人材を、商社・メーカー・サービス業へ紹介。初期費用ゼロの成功報酬型で、採用リスクを最小化します。",
     points: ["N2以上のバイリンガル", "初期費用ゼロ・成功報酬型", "全国の主要都市圏に対応"],
     barColor: "group-hover:bg-cyan-400",
@@ -681,7 +681,7 @@ const services = [
   {
     tag: "Spot",
     sub: "スポット案件",
-    title: "現地人材を日単位で稼働させる、スポット対応。",
+    title: "現地人材を日単位で稼働させるスポット対応",
     desc: "中国・アジアでの視察、アテンド、リサーチ、AI・データ系タスクまで。現地在住の登録人材を日単位でアサインし、実績データは本採用への昇格ファネルに接続します。",
     points: ["日本から飛ばずに現地稼働", "日単位のスポット依頼", "実績データを本採用に接続"],
     barColor: "group-hover:bg-amber-400",
@@ -952,9 +952,9 @@ export default function OwlMatchClient() {
                     letterSpacing: "-0.03em",
                   }}
                 >
-                  <span className="whitespace-nowrap">会う前に、</span>
+                  <span className="whitespace-nowrap">会う前に</span>
                   <br />
-                  <span className="whitespace-nowrap">ここまで見える。</span>
+                  <span className="whitespace-nowrap">ここまで見える</span>
                 </h1>
 
                 {/* 本文 */}
@@ -1155,9 +1155,9 @@ export default function OwlMatchClient() {
                 className="font-black text-white leading-[1.15]"
                 style={{ fontSize: "clamp(28px, 4vw, 52px)", letterSpacing: "-0.025em" }}
               >
-                動画で出会い、AIが見抜き、
+                動画で出会いAIが見抜き
                 <br className="hidden md:block" />
-                スコアで決める。
+                スコアで決める
               </motion.h2>
             </div>
             <motion.div
@@ -1412,9 +1412,9 @@ export default function OwlMatchClient() {
                   className="font-black text-white leading-[1.15]"
                   style={{ fontSize: "clamp(28px, 4vw, 56px)", letterSpacing: "-0.025em" }}
                 >
-                  80体のAIエージェントが、
+                  80体のAIエージェントが
                   <br />
-                  同時に審査する。
+                  同時に審査する
                 </motion.h2>
               </div>
 
@@ -1678,10 +1678,10 @@ export default function OwlMatchClient() {
             className="font-black text-white leading-[1.3] mb-7"
             style={{ fontSize: "clamp(28px, 4vw, 56px)", letterSpacing: "-0.025em" }}
           >
-            まず、認定候補者の
+            まず認定候補者の
             <span style={{ color: "#67E8F9" }}>動画</span>
             を<br className="hidden md:block" />
-            ご覧ください。
+            ご覧ください
           </motion.h2>
 
           <motion.p

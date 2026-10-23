@@ -141,7 +141,7 @@ export default function AiMatching() {
           <span className="h-px flex-1 bg-slate-200/80" />
         </div>
         <h2 id="match-heading" className="text-[38px] md:text-[58px] font-medium tracking-[-0.03em] text-slate-900 leading-[1.08]">
-          最適なマッチングを、AI で。
+          最適なマッチングをAI で
         </h2>
         <p className="mt-5 max-w-2xl text-slate-500 text-[15px] leading-[1.75] tracking-[0.01em]">
           OwlMatch 認定スクリーニングが、日中の人材プールを走査し、求人要件に最も近い人材を提示する。

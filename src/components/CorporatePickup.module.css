@@ -1,0 +1,2 @@
+.pickup{padding-block:28px 30px;border-bottom:1px solid #e4e8eb;display:flex;align-items:center;gap:48px}.pickup h2{font-size:11px;letter-spacing:.14em;font-weight:700;margin:0;color:#536675;flex-shrink:0}.comingSoon{font-size:16px;letter-spacing:.04em;color:#8a969e;margin:0;line-height:2}
+@media(max-width:700px){.pickup{padding-block:24px;gap:30px}.comingSoon{font-size:14px}}

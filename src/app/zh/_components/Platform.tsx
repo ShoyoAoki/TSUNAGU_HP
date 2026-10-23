@@ -29,7 +29,7 @@ export default function Platform() {
               </span>
             </div>
             <h2 className="text-2xl md:text-5xl font-semibold tracking-tight text-gray-900 leading-tight mb-6">
-              OwlMatch_<br />比简历更懂这个人。
+              OwlMatch_<br />比简历更懂这个人
             </h2>
             <p className="text-gray-600 leading-relaxed text-lg">
               通过自我介绍视频×AI筛选，在见面之前即可确认海外人才的「人品・日语能力・实力」，这是一个跨境招聘平台。

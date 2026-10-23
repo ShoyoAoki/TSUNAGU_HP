@@ -1,0 +1,128 @@
+.philosophy{min-height:510px;padding-top:70px;padding-bottom:50px}
+.services{padding-top:34px;padding-bottom:80px}
+.services h2{margin-bottom:20px!important}
+.services .bridge{text-align:center;font-size:18px;font-weight:700;line-height:1.8;margin:0 0 44px;color:#425969}
+.process{background:#eef5f9;padding:64px 0 68px}
+.process h2{font-size:clamp(28px,3vw,40px);line-height:1.4;margin-top:10px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;list-style:none;margin:36px 0 0;padding:0}
+.steps li{position:relative;border-top:1px solid #a8bbc8;padding:24px 32px 0 0}
+.steps li:not(:first-child){padding-left:28px}
+.steps li::before{content:"";position:absolute;left:0;top:-4px;width:7px;height:7px;background:#175bc7;border-radius:50%}
+.steps li:not(:first-child)::before{left:28px}
+.steps li>span{font:700 14px/1.2 sans-serif;color:#175bc7;letter-spacing:.1em}
+.steps h3{font-size:21px;font-weight:800;line-height:1.5;margin:15px 0 12px}
+.steps p{font-size:13px;line-height:1.9;color:#536675;margin:0}
+.contact{background:#142d40;color:#fff;padding:72px 0}
+.contactInner{display:flex;align-items:center;justify-content:space-between;gap:40px}
+.contact h2{font-size:clamp(36px,4vw,56px);font-weight:800;line-height:1.3;margin:18px 0}
+.contact p{font-size:14px;line-height:1.9;color:#d0dce5}
+.contact p:first-child{color:#8fd9ee}
+.contactButton{display:flex;align-items:center;justify-content:space-between;gap:40px;background:#fff;color:#142d40;font-size:15px;font-weight:700;padding:24px 28px;min-width:300px}
+.contactButton svg{width:24px}.contactButton:hover{background:#dff6fb}.contactButton:focus-visible{outline:3px solid #8fd9ee;outline-offset:6px}
+@media(max-width:700px){.philosophy{min-height:490px}.services{padding-top:26px;padding-bottom:56px}.services .bridge{font-size:15px;margin-bottom:28px}.process{padding:48px 0}.steps{grid-template-columns:1fr;margin-top:28px}.steps li,.steps li:not(:first-child){border-top:0;border-left:1px solid #a8bbc8;padding:0 0 28px 24px;margin-left:4px}.steps li:last-child{padding-bottom:0}.steps li::before,.steps li:not(:first-child)::before{left:-4px;top:4px}.steps h3{font-size:20px;margin:10px 0}.contact{padding:48px 0}.contactInner{flex-direction:column;align-items:stretch;gap:28px}.contactButton{min-width:0;font-size:14px;padding:20px 24px}}
+/* One continuous brand landscape from philosophy into service. */
+.story{position:relative;isolation:isolate;overflow:hidden;background:#fff}
+.ribbon{position:absolute;z-index:-1;inset:0 0 auto;width:100%;height:900px;pointer-events:none}
+.story .philosophy{width:calc(100% - 96px);max-width:1200px;margin-inline:auto;min-height:570px;padding-top:76px;padding-bottom:112px}
+.story .philosophy h2{font-size:clamp(36px,4.2vw,64px)}
+.story .philosophy p{max-width:530px;color:#425969}
+.story .services{position:relative;background:#087caf;padding:48px 0 88px;margin-top:80px;color:#fff}
+.serviceCurve{position:absolute;bottom:calc(100% - 1px);left:0;width:100%;height:160px;color:#087caf;pointer-events:none}
+.services .title,.services h2{position:relative;color:#fff}
+.services .bridge{position:relative;color:#e4f6fa}
+.roundArrow{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;flex:0 0 40px;border-radius:50%;background:#087caf;color:#fff}
+.roundArrow svg{width:20px;height:20px}
+.contactButton .roundArrow{background:#087caf;color:#fff}
+.services a:hover .roundArrow,.contactButton:hover .roundArrow{background:#142d40}
+.process{background:#f2f7f9;padding-top:72px}
+@media(min-width:701px) and (max-width:1100px){.story .philosophy{width:calc(100% - 96px)}.story .philosophy h2{font-size:clamp(34px,4.1vw,46px)}.story .philosophy p{max-width:440px}}
+@media(max-width:700px){.ribbon{height:850px;width:180%;left:-40%}.story .philosophy{width:calc(100% - 44px);min-height:520px;padding-top:56px!important;padding-bottom:240px!important}.story .philosophy h2{font-size:clamp(23px,6.2vw,44px)}.story .philosophy p{max-width:100%}.story .services{margin-top:60px;padding-top:30px;padding-bottom:56px}.serviceCurve{height:100px}.roundArrow{width:36px;height:36px;flex-basis:36px}.process{padding-top:48px}}
+.story .philosophy{isolation:auto}
+/* Service leads into a single open journey, rather than stacked bands. */
+.journey{position:relative;isolation:isolate;overflow:hidden;background:#f4fafc;padding-top:160px;padding-bottom:70px}
+.serviceExit{position:absolute;top:-1px;left:0;width:100%;height:160px;pointer-events:none}
+.journeyLine{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.journey .process{background:none;padding:45px 0 70px}
+.processInner{display:grid;grid-template-columns:1fr 1.15fr;gap:90px;align-items:start}
+.journey .processHeading h2{font-size:clamp(32px,3.4vw,50px);font-weight:800;line-height:1.5;margin-top:20px}
+.journey .steps{display:flex;flex-direction:column;margin:0;padding:0}
+.journey .steps li,.journey .steps li:not(:first-child){display:grid;grid-template-columns:40px 1fr;gap:24px;border:0;border-left:1px solid #9ec8d7;margin-left:8px;padding:0 0 42px 32px}
+.journey .steps li:last-child{padding-bottom:0}
+.journey .steps li::before,.journey .steps li:not(:first-child)::before{left:-5px;top:4px;width:9px;height:9px;background:#087caf}
+.journey .steps li>span{font-size:16px;line-height:1.6}
+.journey .steps h3{font-size:24px;line-height:1.5;margin:0 0 14px}
+.journey .steps p{font-size:14px;line-height:1.9;max-width:440px}
+.journey .contact{background:none;color:#182c3c;padding:65px 0 0}
+.journey .contactInner{display:grid;grid-template-columns:1.4fr 1fr;gap:40px 70px;align-items:center}
+.journey .contact h2{font-size:clamp(44px,5.3vw,78px);line-height:1.3;letter-spacing:-.035em;margin:20px 0 26px}
+.journey .contact p{color:#536675}
+.journey .contact p:first-child{color:#087caf}
+.journey .contactButton{background:none;min-width:0;padding:24px 0;border-bottom:1px solid #96b9c8;font-size:22px;gap:24px}
+.journey .contactButton .roundArrow{width:82px;height:82px;flex-basis:82px;background:#087caf}
+.journey .contactButton .roundArrow svg{width:34px;height:34px}
+.journey .contactButton:hover{background:none;color:#087caf}
+.candidate{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:30px;margin-top:55px;padding-top:26px;border-top:1px solid #c7dde5}
+.journey .candidate p{font-size:13px;color:#536675;font-weight:700}
+.candidate p span{display:block;font-size:12px;font-weight:400;margin-top:8px}
+.candidate a{display:flex;align-items:center;gap:22px;font-size:14px;font-weight:700;white-space:nowrap}.candidate svg{width:23px}
+@media(max-width:900px){.processInner{gap:44px;grid-template-columns:.9fr 1.1fr}.journey .steps li,.journey .steps li:not(:first-child){grid-template-columns:25px 1fr;gap:15px;padding-left:22px}.journey .steps h3{font-size:21px}.journey .contactInner{gap:35px}.journey .contactButton{font-size:18px}.journey .contactButton .roundArrow{width:64px;height:64px;flex-basis:64px}}
+@media(max-width:700px){.journey{padding-top:100px;padding-bottom:40px}.serviceExit{height:100px}.journeyLine{width:210%;left:-60%;opacity:.7}.journey .process{padding:28px 0 35px}.processInner{grid-template-columns:1fr;gap:34px}.journey .processHeading h2{font-size:34px;margin-top:14px}.journey .steps li,.journey .steps li:not(:first-child){padding-bottom:32px}.journey .steps li:last-child{padding-bottom:0}.journey .contact{padding-top:36px}.journey .contactInner{grid-template-columns:1fr;gap:16px}.journey .contact h2{font-size:46px;margin:15px 0 20px}.journey .contactButton{font-size:20px;padding:12px 0 24px}.candidate{margin-top:24px;align-items:flex-start;flex-direction:column;gap:18px}.candidate p span{line-height:1.8}.journey .candidate p{font-size:12px}}
+.journey .steps li>span{white-space:nowrap}
+
+/* Carry the closing landscape into the footer; the ribbon exits sideways. */
+:global(body):has(.journey) :global(.site-footer){background:#f4fafc;border-top:0}
+/* Product → company → contact, within the same closing landscape. */
+.product{display:grid;grid-template-columns:.9fr 1.2fr;gap:70px;align-items:center;padding-top:45px;padding-bottom:100px}
+.productCopy h2{margin:24px 0 28px}.productCopy h2 img{width:260px;height:auto;max-width:100%}
+.productCopy h3{font-size:clamp(26px,2.5vw,36px);line-height:1.5;font-weight:800;margin:0 0 23px}
+.productCopy>p:not(:first-child){font-size:14px;line-height:2;color:#536675}
+.product .productNote{font-size:11px!important;margin-top:18px!important}
+.sectionLink{display:inline-flex;align-items:center;gap:36px;font-weight:700;font-size:15px;margin-top:28px;color:#182c3c}
+.productScreen{margin:0;position:relative}.productScreen>img{display:block;width:100%;height:auto;background:white;border:1px solid #c5dce5;box-shadow:0 20px 40px #18394a12;border-radius:8px}
+.productScreen figcaption{font-size:11px;color:#536675;text-align:right;margin-top:12px}
+.about{display:grid;grid-template-columns:1fr 1.1fr;gap:90px;align-items:center;padding-top:35px;padding-bottom:85px}
+.about h2{font-size:clamp(34px,3.5vw,52px);font-weight:800;line-height:1.45;letter-spacing:-.03em;margin-top:20px}
+.aboutCopy>p{font-size:16px;line-height:2.1;color:#425969}
+.aboutLinks{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:32px}
+.aboutLinks a{display:flex;align-items:center;justify-content:space-between;gap:14px;border-bottom:1px solid #adcbd8;padding-bottom:18px;font-size:16px;font-weight:700;color:#182c3c}
+.aboutLinks a:hover .roundArrow,.sectionLink:hover .roundArrow{background:#142d40}
+@media(max-width:1000px){.product{gap:35px}.about{gap:50px}.productCopy h2 img{width:220px}.aboutLinks{gap:20px}}
+@media(max-width:700px){.product{grid-template-columns:1fr;padding-top:28px;padding-bottom:55px;gap:30px}.productCopy h2{margin:20px 0 24px}.productCopy h2 img{width:230px}.productCopy h3{font-size:28px}.productCopy>p:not(:first-child){font-size:13px}.about{grid-template-columns:1fr;padding-top:24px;padding-bottom:30px;gap:24px}.about h2{font-size:34px;margin-top:15px}.aboutCopy>p{font-size:14px}.aboutLinks{gap:24px;margin-top:26px}.aboutLinks a{font-size:14px;gap:10px}.productScreen figcaption{font-size:10px}}
+.productViewport{aspect-ratio:1280/650;overflow:hidden;background:#fff;border:1px solid #c5dce5;box-shadow:0 20px 40px #18394a12;border-radius:8px}.productViewport img{display:block;width:100%;height:auto}
+
+/* Slim aluminium notebook: straight deck, tapered front edge. */
+.laptop{position:relative;padding:0 4.5% 10px;filter:drop-shadow(0 12px 12px #18394a16)}
+.laptopDisplay{position:relative;background:#111820;border:1px solid #879098;border-radius:10px 10px 2px 2px;padding:7px 7px 10px;box-shadow:inset 0 0 0 1px #343c43}
+.laptopDisplay::before{content:"";position:absolute;z-index:2;top:7px;left:45%;width:10%;height:10px;border-radius:0 0 4px 4px;background:#111820}
+.laptopDisplay .productViewport{aspect-ratio:1.6;border:0;border-radius:4px;box-shadow:none}
+.laptopDisplay .productViewport img{width:100%;height:auto;clip-path:inset(0 0 10% 0)}
+.laptopBase{position:absolute;bottom:0;left:0;width:100%;height:11px;background:linear-gradient(to bottom,#e1e5e8 0%,#c3cbd1 30%,#a5afb7 31%,#bac2c8 75%,#818e98 100%);clip-path:polygon(0 0,100% 0,100% 48%,98.5% 85%,96% 100%,4% 100%,1.5% 85%,0 48%);border-radius:1px}
+.laptopBase::before{content:"";position:absolute;top:0;left:43%;width:14%;height:3px;background:#8f9ba5;border-radius:0 0 3px 3px}
+.productScreen figcaption{text-align:center;margin-top:18px}
+@media(max-width:700px){.laptop{padding-bottom:8px}.laptopDisplay{border-radius:8px 8px 2px 2px;padding:7px 7px 10px}.laptopBase{height:9px}}
+@media(min-width:701px){.product{grid-template-columns:.72fr 1.38fr;gap:36px}.productScreen{width:104%;max-width:none}.productCopy h3{font-size:clamp(24px,2.2vw,34px)}}
+
+.product .productTitle,.about .productTitle{grid-column:1/-1;text-align:center;font-size:clamp(36px,5vw,64px);font-weight:800;line-height:1.2;letter-spacing:.05em;color:#182c3c;margin:0 0 24px}
+.about .productTitle{color:#194dbb}
+
+/* The path opens into a full-width foreground at the closing invitation. */
+.journey .contact{padding:90px 0 30px}
+.journey .contactInner{display:flex;flex-direction:column;align-items:center;gap:30px;text-align:center}
+.journey .contact h2{font-size:clamp(30px,5.3vw,78px);white-space:nowrap;margin:22px 0 28px}
+.journey .contactButton{width:340px;max-width:100%;text-align:left}
+:global(body):has(.journey) :global(.site-footer){background:#dceff4}
+@media(max-width:700px){.journeyLine{width:100%;left:0;opacity:1}.journey .contact{padding:55px 0 10px}.journey .contact h2{font-size:clamp(23px,6vw,42px)}.journey .contactInner{gap:22px}.journey .contact p{font-size:12px}.journey .contactButton{width:280px}}
+/* Carry the road beyond both viewport edges rather than enclosing it inside. */
+.journey .journeyLine{width:160%;left:-30%;max-width:none}
+
+/* Hikers follow the quiet margins of the path, never the reading columns. */
+.hiker{position:absolute;display:block;pointer-events:none;user-select:none;z-index:1;width:120px;height:120px}
+.hiker img{display:block;width:100%;height:100%;object-fit:contain;transform:scale(.8);transform-origin:center bottom}
+.product,.about,.journey .contact{position:relative}
+.hikerMission{left:8%;bottom:0;width:100px;height:100px}
+.hikerService{right:-1%;bottom:0;width:115px;height:115px;transform:scaleX(-1)}
+.hikerProduct{left:-6%;bottom:-5px;width:135px;height:135px;transform:scaleX(-1)}
+.hikerAbout{right:-6%;bottom:-75px;width:150px;height:150px;transform:scaleX(-1)}
+.hikerContact{left:15%;bottom:-20px;width:175px;height:175px}
+@media(max-width:1100px) and (min-width:701px){.hikerProduct{left:-2%;bottom:-15px;width:110px;height:110px}.hikerAbout{right:-2%;bottom:-65px;width:120px;height:120px}.hikerContact{left:8%;width:150px;height:150px}}
+@media(max-width:700px){.hikerMission,.hikerService{display:none}.product{padding-bottom:105px}.hikerProduct{left:3%;bottom:0;width:90px;height:90px}.hikerAbout{right:0;bottom:-60px;width:95px;height:95px}.hikerContact{left:4%;bottom:-100px;width:120px;height:120px}.journey{padding-bottom:140px}}

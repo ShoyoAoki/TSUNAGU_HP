@@ -139,7 +139,7 @@ export default function AiMatching() {
           <span className="h-px flex-1 bg-slate-200/80" />
         </div>
         <h2 id="match-heading" className="text-[38px] md:text-[58px] font-medium tracking-[-0.03em] text-slate-900 leading-[1.08]">
-          以AI，实现最佳匹配。
+          以AI实现最佳匹配
         </h2>
         <p className="mt-5 max-w-2xl text-slate-500 text-[15px] leading-[1.75] tracking-[0.01em]">
           OwlMatch 认证筛选系统扫描中日人才库，为您呈现最契合职位要求的人才。

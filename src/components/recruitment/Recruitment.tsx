@@ -43,7 +43,7 @@ export function Concerns({ employer = false }: { employer?: boolean }) {
 }
 export const specialties = [
   { slug: "bilingual", kicker: "日本語と中国語を活かす採用", title: "バイリンガル人材・新卒バイリンガル人材", description: "海外営業・営業事務・カスタマーサポートなど。実務経験者と新卒の両面から、語学力を活かせる人材の採用を支援します。", tags: ["中途採用", "新卒採用", "日本語・中国語"], icon: "language" },
-  { slug: "internship", kicker: "学生の力を、事業の現場へ", title: "インターン採用", description: "中国語を活かす業務を中心に、学生インターンの採用を支援します。担当業務・勤務条件を整理し、候補者をお探しします。", tags: ["学生インターン", "業務内容の整理", "勤務条件の確認"], icon: "graduate" },
+  { slug: "internship", kicker: "学生の力を事業の現場へ", title: "インターン採用", description: "中国語を活かす業務を中心に、学生インターンの採用を支援します。担当業務・勤務条件を整理し、候補者をお探しします。", tags: ["学生インターン", "業務内容の整理", "勤務条件の確認"], icon: "graduate" },
 ];
 export function TechnicalScope({ compact = false }: { compact?: boolean }) {
   const fields = [

@@ -15,26 +15,26 @@ type Video = {
 const P = (n: number) => `/images/video-feed/vf_${String(n).padStart(2, "0")}.jpg`;
 
 const VIDEOS: Video[] = [
-  { id: 1, title: "对话CEO青木翔阳：OwlMatch的未来。", poster: P(8), videoSrc: "/videos/owlmatch-feed/vf01_interview.mp4", likes: "3.7万", dur: "0:04", aspect: "3/4" },
-  { id: 2, title: "办公室探访｜TSUNAGU 东京。", poster: P(1), videoSrc: "/videos/owlmatch-feed/vf02_office_v1.mp4", likes: "8,540", dur: "0:04", aspect: "4/5" },
-  { id: 3, title: "30秒读懂 OwlMatch。", poster: P(3), videoSrc: "/videos/owlmatch-feed/vf03_product.mp4", likes: "10万+", dur: "0:04", aspect: "9/16" },
-  { id: 4, title: "远程对接，触达中国AI人才。", poster: P(13), videoSrc: "/videos/owlmatch-feed/vf04_airemote.mp4", likes: "2.4万", dur: "0:04", aspect: "4/5" },
-  { id: 5, title: "语言人才匹配的幕后故事。", poster: P(4), videoSrc: "/videos/owlmatch-feed/vf05_lang.mp4", likes: "1.2万", dur: "0:04", aspect: "3/4" },
-  { id: 6, title: "为什么，现在需要跨境招聘。", poster: P(11), videoSrc: "/videos/owlmatch-feed/vf06_why.mp4", likes: "6,210", dur: "0:04", aspect: "4/5" },
-  { id: 7, title: "面谈是这样进行的｜OwlMatch 体验。", poster: P(9), videoSrc: "/videos/owlmatch-feed/vf07_interviewflow.mp4", likes: "9,830", dur: "0:04", aspect: "9/16" },
-  { id: 8, title: "短期项目人才，一种全新选择。", poster: P(6), videoSrc: "/videos/owlmatch-feed/vf08_spot.mp4", likes: "4,402", dur: "0:04", aspect: "3/4" },
-  { id: 9, title: "成员讲述，TSUNAGU的企业文化。", poster: P(5), videoSrc: "/videos/owlmatch-feed/vf09_culture.mp4", likes: "1.8万", dur: "0:04", aspect: "4/5" },
-  { id: 10, title: "用数字了解 OwlMatch。", poster: P(15), videoSrc: "/videos/owlmatch-feed/vf10_numbers.mp4", likes: "2,103", dur: "0:04", aspect: "3/4" },
-  { id: 11, title: "连接中日的，一天。", poster: P(2), videoSrc: "/videos/owlmatch-feed/vf11_day.mp4", likes: "5.1万", dur: "0:04", aspect: "9/16" },
-  { id: 12, title: "招聘负责人的真实声音。", poster: P(12), videoSrc: "/videos/owlmatch-feed/vf12_recruiter.mp4", likes: "7,640", dur: "0:04", aspect: "4/5" },
-  { id: 13, title: "工程师的远程就业体验。", poster: P(14), videoSrc: "/videos/owlmatch-feed/vf13_engineer.mp4", likes: "1.1万", dur: "0:04", aspect: "3/4" },
-  { id: 14, title: "认证筛选的运作机制。", poster: P(16), videoSrc: "/videos/owlmatch-feed/vf14_screening.mp4", likes: "3,275", dur: "0:04", aspect: "4/5" },
-  { id: 15, title: "第一次使用 OwlMatch。", poster: P(7), videoSrc: "/videos/owlmatch-feed/vf15_start.mp4", likes: "10万+", dur: "0:04", aspect: "9/16" },
-  { id: 16, title: "活跃在一线的双语人才。", poster: P(10), videoSrc: "/videos/owlmatch-feed/vf16_bilingual.mp4", likes: "8,910", dur: "0:04", aspect: "3/4" },
-  { id: 17, title: "OwlMatch被选择的理由。", poster: P(3), videoSrc: "/videos/owlmatch-feed/vf17_chosen.mp4", likes: "2.9万", dur: "0:04", aspect: "4/5" },
-  { id: 18, title: "团队协作，挑战跨境招聘。", poster: P(1), videoSrc: "/videos/owlmatch-feed/vf18_team.mp4", likes: "6,058", dur: "0:04", aspect: "3/4" },
-  { id: 19, title: "AI，找到最合适的匹配。", poster: P(13), videoSrc: "/videos/owlmatch-feed/vf19_aimatch.mp4", likes: "4.3万", dur: "0:04", aspect: "9/16" },
-  { id: 20, title: "从面谈，到录用通知。", poster: P(9), videoSrc: "/videos/owlmatch-feed/vf20_offer.mp4", likes: "5,720", dur: "0:04", aspect: "4/5" },
+  { id: 1, title: "对话CEO青木翔阳：OwlMatch的未来", poster: P(8), videoSrc: "/videos/owlmatch-feed/vf01_interview.mp4", likes: "3.7万", dur: "0:04", aspect: "3/4" },
+  { id: 2, title: "办公室探访｜TSUNAGU 东京", poster: P(1), videoSrc: "/videos/owlmatch-feed/vf02_office_v1.mp4", likes: "8,540", dur: "0:04", aspect: "4/5" },
+  { id: 3, title: "30秒读懂 OwlMatch", poster: P(3), videoSrc: "/videos/owlmatch-feed/vf03_product.mp4", likes: "10万+", dur: "0:04", aspect: "9/16" },
+  { id: 4, title: "远程对接触达中国AI人才", poster: P(13), videoSrc: "/videos/owlmatch-feed/vf04_airemote.mp4", likes: "2.4万", dur: "0:04", aspect: "4/5" },
+  { id: 5, title: "语言人才匹配的幕后故事", poster: P(4), videoSrc: "/videos/owlmatch-feed/vf05_lang.mp4", likes: "1.2万", dur: "0:04", aspect: "3/4" },
+  { id: 6, title: "为什么现在需要跨境招聘", poster: P(11), videoSrc: "/videos/owlmatch-feed/vf06_why.mp4", likes: "6,210", dur: "0:04", aspect: "4/5" },
+  { id: 7, title: "面谈是这样进行的｜OwlMatch 体验", poster: P(9), videoSrc: "/videos/owlmatch-feed/vf07_interviewflow.mp4", likes: "9,830", dur: "0:04", aspect: "9/16" },
+  { id: 8, title: "短期项目人才一种全新选择", poster: P(6), videoSrc: "/videos/owlmatch-feed/vf08_spot.mp4", likes: "4,402", dur: "0:04", aspect: "3/4" },
+  { id: 9, title: "成员讲述TSUNAGU的企业文化", poster: P(5), videoSrc: "/videos/owlmatch-feed/vf09_culture.mp4", likes: "1.8万", dur: "0:04", aspect: "4/5" },
+  { id: 10, title: "用数字了解 OwlMatch", poster: P(15), videoSrc: "/videos/owlmatch-feed/vf10_numbers.mp4", likes: "2,103", dur: "0:04", aspect: "3/4" },
+  { id: 11, title: "连接中日的一天", poster: P(2), videoSrc: "/videos/owlmatch-feed/vf11_day.mp4", likes: "5.1万", dur: "0:04", aspect: "9/16" },
+  { id: 12, title: "招聘负责人的真实声音", poster: P(12), videoSrc: "/videos/owlmatch-feed/vf12_recruiter.mp4", likes: "7,640", dur: "0:04", aspect: "4/5" },
+  { id: 13, title: "工程师的远程就业体验", poster: P(14), videoSrc: "/videos/owlmatch-feed/vf13_engineer.mp4", likes: "1.1万", dur: "0:04", aspect: "3/4" },
+  { id: 14, title: "认证筛选的运作机制", poster: P(16), videoSrc: "/videos/owlmatch-feed/vf14_screening.mp4", likes: "3,275", dur: "0:04", aspect: "4/5" },
+  { id: 15, title: "第一次使用 OwlMatch", poster: P(7), videoSrc: "/videos/owlmatch-feed/vf15_start.mp4", likes: "10万+", dur: "0:04", aspect: "9/16" },
+  { id: 16, title: "活跃在一线的双语人才", poster: P(10), videoSrc: "/videos/owlmatch-feed/vf16_bilingual.mp4", likes: "8,910", dur: "0:04", aspect: "3/4" },
+  { id: 17, title: "OwlMatch被选择的理由", poster: P(3), videoSrc: "/videos/owlmatch-feed/vf17_chosen.mp4", likes: "2.9万", dur: "0:04", aspect: "4/5" },
+  { id: 18, title: "团队协作挑战跨境招聘", poster: P(1), videoSrc: "/videos/owlmatch-feed/vf18_team.mp4", likes: "6,058", dur: "0:04", aspect: "3/4" },
+  { id: 19, title: "AI找到最合适的匹配", poster: P(13), videoSrc: "/videos/owlmatch-feed/vf19_aimatch.mp4", likes: "4.3万", dur: "0:04", aspect: "9/16" },
+  { id: 20, title: "从面谈到录用通知", poster: P(9), videoSrc: "/videos/owlmatch-feed/vf20_offer.mp4", likes: "5,720", dur: "0:04", aspect: "4/5" },
 ];
 
 // 5列に振り分け（縦マソンリー・md以上）
@@ -122,7 +122,7 @@ export default function VideoFeed() {
           <span className="h-px flex-1 bg-slate-200/80" />
         </div>
         <h2 id="feed-heading" className="text-[38px] md:text-[58px] font-medium tracking-[-0.03em] text-slate-900 leading-[1.08]">
-          用视频，看懂跨境招聘。
+          用视频看懂跨境招聘
         </h2>
         <p className="mt-5 max-w-2xl text-slate-500 text-[15px] leading-[1.75] tracking-[0.01em]">
           OwlMatch 是以视频连接中国人才与日本企业的跨境人力资源平台。

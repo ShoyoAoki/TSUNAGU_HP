@@ -70,7 +70,7 @@ export default function AccessibleTalent() {
           <span className="h-px flex-1 bg-slate-200/80" />
         </div>
         <h2 id="talent-heading" className="text-[38px] md:text-[58px] font-medium tracking-[-0.03em] text-slate-900 leading-[1.08]">
-          どんな人材に、<br className="hidden md:block" />アクセスできるか。
+          どんな人材に<br className="hidden md:block" />アクセスできるか
         </h2>
         <p className="mt-5 max-w-2xl text-slate-400 text-[15px] leading-[1.75] tracking-[0.01em]">
           OwlMatch は、日中をまたぐ3つの人材プールへの入口です——言語、ロボット・AI・IT、スポット。
