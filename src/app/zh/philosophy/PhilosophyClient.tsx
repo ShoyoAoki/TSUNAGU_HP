@@ -217,7 +217,7 @@ export default function PhilosophyClient() {
               <ul className="border-t border-gray-100">
                 <li className="grid grid-cols-[4.5rem_1fr] gap-3 py-4 border-b border-gray-100">
                   <span className="font-mono text-xs tracking-[0.2em] text-gray-400 pt-1">2019</span>
-                  <span className="text-sm md:text-base text-gray-700 font-light leading-relaxed">在鹿儿岛出生长大，当地高中毕业后进入北京外国语大学</span>
+                  <span className="text-sm md:text-base text-gray-700 font-light leading-relaxed">在鹿儿岛出生长大，高中毕业后进入北京外国语大学</span>
                 </li>
                 <li className="grid grid-cols-[4.5rem_1fr] gap-3 py-4 border-b border-gray-100">
                   <span className="font-mono text-xs tracking-[0.2em] text-gray-400 pt-1">2020</span>
