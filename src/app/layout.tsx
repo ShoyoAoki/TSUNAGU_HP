@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans_JP, Noto_Serif_JP, Noto_Sans_SC, Noto_Serif_SC } from "next/font/google";
+import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
 import "./integration.css";
 import Header from "@/components/Header";
@@ -22,20 +22,6 @@ const notoSerifJP = Noto_Serif_JP({
   weight: ["400", "700"],
 });
 
-// 簡体字中国語（/zh 配下）専用フォント。日本語ルートでは表示されないため preload しない
-const notoSansSC = Noto_Sans_SC({
-  subsets: ["latin"],
-  variable: "--font-noto-sans-sc",
-  weight: ["400", "500", "700"],
-  preload: false,
-});
-
-const notoSerifSC = Noto_Serif_SC({
-  subsets: ["latin"],
-  variable: "--font-noto-serif-sc",
-  weight: ["400", "700"],
-  preload: false,
-});
 
 export const viewport: Viewport = {
   themeColor: "#175bc7",
@@ -171,7 +157,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${notoSansJP.variable} ${notoSerifJP.variable} ${notoSansSC.variable} ${notoSerifSC.variable} font-sans antialiased bg-white text-gray-900`}>
+      <body className={`${notoSansJP.variable} ${notoSerifJP.variable} font-sans antialiased bg-white text-gray-900`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
