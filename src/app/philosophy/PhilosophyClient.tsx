@@ -220,7 +220,7 @@ export default function PhilosophyClient() {
                   <span className="text-sm md:text-base text-gray-700 font-light leading-relaxed">鹿児島で生まれ育ち、高校を卒業後、北京外国語大学に入学</span>
                 </li>
                 <li className="grid grid-cols-[4.5rem_1fr] gap-3 py-4 border-b border-gray-100">
-                  <span className="font-mono text-xs tracking-[0.2em] text-gray-400 pt-1">2020</span>
+                  <span className="font-mono text-xs tracking-[0.2em] text-gray-400 pt-1">2021</span>
                   <span className="text-sm md:text-base text-gray-700 font-light leading-relaxed">北京大学へ編入</span>
                 </li>
                 <li className="grid grid-cols-[4.5rem_1fr] gap-3 py-4 border-b border-gray-100">
