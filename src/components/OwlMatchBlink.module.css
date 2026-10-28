@@ -6,3 +6,5 @@
 .mark{position:absolute;z-index:1;width:55vw;max-width:none;right:min(0px,calc((1200px - 100vw)/2));top:50%;transform:translateY(-50%);mix-blend-mode:multiply;pointer-events:none}
 .mark video,.mark img{width:100%;height:auto;display:block}
 @media(max-width:700px){.philosophy{min-height:540px;align-items:flex-start;padding-top:64px!important;padding-bottom:230px!important}.philosophy h2{font-size:clamp(23px,6.4vw,44px)}.philosophy p{max-width:90%;font-size:13px}.mark{width:80vw;right:-12px;top:auto;bottom:10px;transform:none}}
+
+@media(max-width:700px){.mark{width:min(80vw,340px)}}

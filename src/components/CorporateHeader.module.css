@@ -12,3 +12,17 @@
 /* Language switch (JA / 中文) */
 .lang{display:inline-flex;align-items:center;gap:2px;padding:2px;border:1px solid #e5e7eb;border-radius:999px;font:500 11px/1 monospace;letter-spacing:.06em;white-space:nowrap}.lang a,.lang span{display:inline-flex;align-items:center;justify-content:center;min-width:40px;height:26px;padding:0 10px;border-radius:999px;color:#9ca3af;transition:color .2s,background-color .2s}.lang a:hover{color:#000}.lang [aria-current]{background:#111;color:#fff}.menuLang{margin-top:48px}.menuLang .lang{font-size:13px}.menuLang .lang a,.menuLang .lang span{height:34px;min-width:56px}
 @media(max-width:900px){.right>.lang{display:none}}
+
+/* Compact navigation must remain readable and reachable on short touch screens. */
+@media(max-width:900px){
+  .toggle{min-width:44px;min-height:44px;display:grid;place-items:center;flex:none}
+  .contact{min-height:44px}
+  .menu{height:100dvh;overflow-y:auto;overscroll-behavior:contain;padding:104px 28px max(28px,env(safe-area-inset-bottom))}
+  .menu nav{gap:0}
+  .menu nav a{flex-direction:column;align-items:flex-start;gap:8px;padding:20px 0;border-bottom:1px solid #e5e7eb}
+  .menu nav a span{font-size:clamp(27px,7.5vw,36px);line-height:1.2;overflow-wrap:anywhere}
+  .menu nav a small{font-size:13px;line-height:1.5}
+  .menuLang{margin-top:28px}
+  .menuLang .lang a,.menuLang .lang span{min-height:44px}
+}
+@media(max-width:500px){.right{gap:4px}.contact{padding-inline:10px}.brand{width:130px}.brand img{width:160px}}

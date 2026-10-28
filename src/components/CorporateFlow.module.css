@@ -126,3 +126,8 @@
 .hikerContact{left:15%;bottom:-20px;width:175px;height:175px}
 @media(max-width:1100px) and (min-width:701px){.hikerProduct{left:-2%;bottom:-15px;width:110px;height:110px}.hikerAbout{right:-2%;bottom:-65px;width:120px;height:120px}.hikerContact{left:8%;width:150px;height:150px}}
 @media(max-width:700px){.hikerMission,.hikerService{display:none}.product{padding-bottom:105px}.hikerProduct{left:3%;bottom:0;width:90px;height:90px}.hikerAbout{right:0;bottom:-60px;width:95px;height:95px}.hikerContact{left:4%;bottom:-100px;width:120px;height:120px}.journey{padding-bottom:140px}}
+
+@media(max-width:700px){
+  .story .philosophy h2 span,.journey .contact h2{white-space:normal;overflow-wrap:anywhere}
+}
+@media(max-width:400px){.aboutLinks{grid-template-columns:1fr;gap:18px}.aboutLinks a{min-height:48px}}
