@@ -52,5 +52,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   }
 
+  for (const path of ['/news', '/news/space-ai', '/news/china-professionals', '/news/ai-researchers', '/news/stanford-kitchen-robot', '/news/shanghai-drone-delivery', '/news/amazon-unitree-parkour']) {
+    entries.push({ url: `${baseUrl}${path}`, changeFrequency: 'monthly', priority: 0.6 })
+  }
+
   return entries
 }
