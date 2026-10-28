@@ -33,3 +33,26 @@
 .slide{height:80svh;min-height:560px;max-height:640px}
 .copy{padding-top:120px;padding-bottom:55px}
 @media(max-width:700px){.slide{height:620px;min-height:620px;max-height:none}.copy{padding-top:115px;padding-bottom:42px}.copy h1,.copy h2{margin-bottom:16px}.cta{margin-top:20px}}
+
+/* Let enlarged mobile copy determine the slide height instead of clipping it. */
+@media(max-width:700px){
+  .slide{height:auto;min-height:650px}
+  .copy{height:auto;min-height:650px;padding-top:88px;padding-bottom:100px}
+  .copy h1 span,.phrase{white-space:normal;overflow-wrap:anywhere}
+  .description{max-width:100%}
+  .cta{max-width:100%}
+  .dots button{width:44px;height:44px}
+}
+
+/* Match the element to the actual 1280 × 704 frame so all four edges fade. */
+@media(max-width:700px){
+  .sandglassSlide .copy{padding-bottom:235px}
+  .sandglass{
+    width:min(110%,440px);max-width:none;height:auto;aspect-ratio:20/11;
+    left:50%;right:auto;top:auto;bottom:34px;transform:translateX(-50%);
+    object-fit:fill;opacity:1;
+    -webkit-mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent),linear-gradient(to right,transparent,#000 14%,#000 86%,transparent);
+    mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent),linear-gradient(to right,transparent,#000 14%,#000 86%,transparent);
+    -webkit-mask-composite:source-in;mask-composite:intersect;
+  }
+}
