@@ -10,12 +10,14 @@ import CorporatePickup from "@/components/CorporatePickup";
 import CorporateHero from "@/components/CorporateHero";
 import ServiceJsonLd from "@/components/recruitment/ServiceJsonLd";
 
+const homeTitle = "中国人材採用・人材紹介｜株式会社TSUNAGU";
+const homeDescription = "中国人材採用・人材紹介の株式会社TSUNAGU。フィジカルAI、IT・AI、日中バイリンガル（JLPT N1以上）の人材紹介と、入社後の定着支援を行います。";
 export const metadata: Metadata = {
-  title: "株式会社TSUNAGU｜クロスボーダーHR・人材紹介",
-  description: "株式会社TSUNAGUは、クロスボーダーHRプラットフォームOwlMatchの開発・運営、人材紹介・定着支援を行っています。",
-  twitter: { title: "株式会社TSUNAGU｜クロスボーダーHR・人材紹介", description: "OwlMatchの開発・運営、人材紹介・定着支援を行う株式会社TSUNAGU。" },
+  title: { absolute: homeTitle },
+  description: homeDescription,
+  twitter: { title: homeTitle, description: homeDescription },
   alternates: { canonical: "/", languages: { ja: "/", "zh-Hans": "/zh", "x-default": "/" } },
-  openGraph: { title: "株式会社TSUNAGU｜クロスボーダーHR・人材紹介", description: "テクノロジーで世界中の『意志』をつなぐ。OwlMatchの開発・運営、人材紹介・定着支援を行う株式会社TSUNAGU。", url: "/" },
+  openGraph: { title: homeTitle, description: homeDescription, url: "/" },
 };
 function Hiker({variant,position}:{variant:string;position:string}) {
   return <span className={`${flowStyles.hiker} ${position}`} aria-hidden="true"><Image src={`/images/hikers/${variant}.png`} alt="" width={1280} height={1280} sizes="180px" /></span>;
