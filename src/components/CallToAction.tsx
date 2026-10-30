@@ -38,12 +38,12 @@ export default function CallToAction() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <h2 className="text-4xl md:text-7xl font-bold tracking-tight mb-10 leading-[1.2] text-gray-900">
-            まずはリモートで<br />
-            試してみませんか？
+            まずは採用の<br />
+            ご相談から
           </h2>
 
           <p className="text-lg md:text-xl text-gray-600 mb-16 max-w-2xl mx-auto leading-relaxed">
-            採用コストゼロ、リスクゼロでスタート。<br />
+            初回の採用相談は無料です。<br />
             中国のIT人材からバイリンガル人材まで、最適な候補者をご提案します。
           </p>
 

@@ -8,7 +8,7 @@ const features = [
     tag: "Three Divisions",
     title: "3事業部体制",
     jpTitle: "IT人材 × バイリンガル人材 × スポット案件",
-    desc: "ITエンジニアのリモートトライアル採用（OwlMatch Remote）、JLPT N1以上のバイリンガル人材の紹介（OwlMatch Language）、現地スポット案件（OwlMatch Spot）。3つの専門ラインが、企業のニーズに最適な人材と実務をご提案します。",
+    desc: "ITエンジニアの紹介（OwlMatch Remote）、JLPT N1以上のバイリンガル人材の紹介（OwlMatch Language）、現地スポット案件（OwlMatch Spot）。3つの専門ラインが、企業のニーズに最適な人材と実務をご提案します。",
     col: "md:col-span-2",
     theme: "text-gray-900 border-gray-200"
   },
@@ -21,10 +21,10 @@ const features = [
     theme: "text-white bg-black border-black"
   },
   {
-    tag: "Zero Risk",
-    title: "まず試す",
-    jpTitle: "採用前に実力を確認できるモデル",
-    desc: "IT人材はリモートトライアルで3〜6ヶ月の実績を確認。言語系人材は成功報酬型でリスクゼロ。どちらの事業も「納得してから採用」を実現します。",
+    tag: "Screening",
+    title: "見極め",
+    jpTitle: "経験と専門性を確認してご紹介",
+    desc: "IT人材は開発経験と担当範囲を、言語系人材は業務で必要な対応力を確認したうえでご紹介します。",
     col: "md:col-span-1",
     theme: "text-gray-900 border-gray-200"
   },
@@ -40,7 +40,7 @@ const features = [
     tag: "Network",
     title: "直結",
     jpTitle: "中国全土からの人材アクセス",
-    desc: "トップ大学のアルムナイネットワーク、WeChat・REDコミュニティ、現地子会社を通じて、ITエンジニアからビジネス系バイリンガル人材まで、幅広い候補者プールに即座にアクセスできます。",
+    desc: "WeChat・REDコミュニティ、現地子会社を通じて、ITエンジニアからビジネス系バイリンガル人材まで、幅広い候補者プールに即座にアクセスできます。",
     col: "md:col-span-2",
     theme: "text-gray-900 border-gray-200"
   },
