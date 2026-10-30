@@ -18,14 +18,20 @@ export function getGuideArticle(slug: string) {
   return guideArticles.find((article) => article.slug === slug);
 }
 
-/** /guide 一覧ページの見出しとリード。【原稿待ち】lead は原稿で置き換える */
+/** /guide 一覧ページの文面。原稿：03_事業企画/リサーチ/マーケ・HP/中国人材採用_SEO原稿/guide一覧リード_2026-10.md */
 export const guideIndex = {
   metaTitle: "中国人材採用ガイド｜株式会社TSUNAGU",
-  description: "【原稿待ち】中国人材採用ガイドの説明文が入ります。",
-  eyebrow: "採用ガイド",
+  description: "中国出身の人材の採用を検討する企業向けのガイドです。メリットと注意点、在留資格の基礎、採用方法の比較、費用の内訳、新卒採用の進め方を、公的統計と公表情報をもとに解説します。",
+  eyebrow: "GUIDE",
   title: "中国人材採用ガイド",
-  lead: "【原稿待ち】一覧ページのリード文が入ります。",
-  status: "draft" as "draft" | "ready",
+  lead: "中国出身の人材の採用を検討する企業のための解説記事です。在留資格、採用方法、費用、新卒採用まで、採用前に確認したいことを公的統計と公表情報をもとに整理しました。",
+  /** リード下のリンク行（行内記法可） */
+  leadLink: "[中国人材採用](/service/china-talent)のサービス内容を見る",
+  cta: {
+    heading: "中国人材採用のご相談",
+    copy: "記事を読んで気になったことから、ご相談いただけます。初回の採用相談は無料です。",
+  },
+  status: "ready" as "draft" | "ready",
 };
 
 /** 記事の執筆者表示（画面と JSON-LD で共用） */

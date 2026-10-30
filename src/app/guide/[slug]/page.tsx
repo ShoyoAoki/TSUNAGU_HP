@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import g from "../guide.module.css";
 import { GuideBreadcrumb, GuideCta, formatDate } from "../GuideParts";
-import GuideBody from "@/components/guide/GuideBody";
+import GuideBody, { Inline } from "@/components/guide/GuideBody";
 import JsonLd, { breadcrumbJsonLd } from "@/components/JsonLd";
 import { GUIDE_AUTHOR, getGuideArticle, guideArticles } from "@/content/guide";
 import { parseGuideMarkdown } from "@/content/guide/markdown";
@@ -75,13 +75,12 @@ export default async function GuideArticlePage({ params }: Props) {
         <p className={g.eyebrow}>採用ガイド</p>
         <h1>{article.title}</h1>
         {article.status === "draft" && <p className={g.draftBadge}>原稿待ち（仮の本文を表示しています）</p>}
-        <div className={g.lead}>{article.lead.split(/\n{2,}/).map((para, i) => <p key={i}>{para}</p>)}</div>
+        <div className={g.lead}>{article.lead.split(/\n{2,}/).map((para, i) => <p key={i}><Inline text={para} /></p>)}</div>
         <dl className={g.meta}>
           <div><dt>公開日</dt><dd><time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time></dd></div>
           <div><dt>更新日</dt><dd><time dateTime={article.updatedAt}>{formatDate(article.updatedAt)}</time></dd></div>
           <div><dt>執筆</dt><dd>{GUIDE_AUTHOR.name}（{GUIDE_AUTHOR.credential}）</dd></div>
         </dl>
-        <p className={g.serviceLink}>当社の支援内容は「<Link href="/service/china-talent">中国人材採用</Link>」のページでご案内しています。</p>
       </header>
 
       <div className={g.layout}>

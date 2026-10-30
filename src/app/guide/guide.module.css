@@ -77,7 +77,8 @@
 /* figure */
 .figure { margin-top: 2em; }
 .figureArt { border: 1px solid var(--guide-line); padding: 28px; color: var(--guide-ink); }
-.figureArt svg { display: block; width: 100%; height: auto; }
+.figureArt svg { display: block; width: 100%; height: auto; margin: 0 auto; }
+.figNarrow { display: none; }
 .figurePending .figureArt { border-style: dashed; min-height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--guide-muted); font-size: 13px; background: repeating-linear-gradient(135deg, #fff 0 14px, #f7fafb 14px 28px); }
 .figurePending code { font-size: 11px; }
 .figure figcaption { font-size: 12px; line-height: 1.8; color: var(--guide-muted); margin-top: 10px; }
@@ -134,6 +135,8 @@
   .body h2 { margin-top: 56px; font-size: 22px; }
   .body h3 { font-size: 17px; margin-top: 36px; }
   .figureArt { padding: 16px; }
+  .figWide { display: none; }
+  .figNarrow { display: block; }
   .serviceLink { padding: 18px; font-size: 14px; }
   .cta { margin-top: 64px; padding: 44px 0; }
   .list a { grid-template-columns: 1fr; }
