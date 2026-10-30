@@ -10,7 +10,7 @@ import CorporatePickup from "@/components/CorporatePickup";
 import CorporateHero from "@/components/CorporateHero";
 import ServiceJsonLd from "@/components/recruitment/ServiceJsonLd";
 
-const homeTitle = "中国人材採用・人材紹介｜株式会社TSUNAGU";
+const homeTitle = "株式会社TSUNAGU｜中国人材の紹介・定着支援";
 const homeDescription = "中国人材採用・人材紹介の株式会社TSUNAGU。フィジカルAI、IT・AI、日中バイリンガル（JLPT N1以上）の人材紹介と、入社後の定着支援を行います。";
 export const metadata: Metadata = {
   title: { absolute: homeTitle },
