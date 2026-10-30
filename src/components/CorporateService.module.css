@@ -6,3 +6,14 @@
 @media(max-width:700px){
   .hero>svg{inset:auto auto 42px -45%;width:200%;height:auto;aspect-ratio:1440/680}
 }
+
+/* 日本語ページのみ：関連リンク（中国人材採用・採用ガイド） */
+.jaLinks{position:relative;display:flex;flex-wrap:wrap;gap:8px 32px;margin-top:36px}
+.jaLinks a{display:inline-flex;align-items:center;min-height:44px;font-size:15px;font-weight:700;color:#076b95;text-decoration:underline!important;text-underline-offset:4px}
+.jaLinks a:hover{color:#182c3c}
+.indexLinks{position:relative;display:flex;flex-wrap:wrap;gap:12px 44px;margin-top:36px}
+.indexLinks a{display:inline-flex;align-items:center;gap:16px;min-height:44px;color:#fff;font-size:15px;font-weight:700}
+.indexLinks a:hover{text-decoration:underline!important;text-underline-offset:5px}
+.indexLinks .arrow{background:#fff;color:#087caf}
+.page .indexLinks a:hover .arrow{background:#142d40;color:#fff}
+.page .indexLinks a:focus-visible{outline-color:#fff}
