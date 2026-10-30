@@ -29,7 +29,7 @@ type Talent = {
 
 const TALENTS: Talent[] = [
   { label: "LANGUAGE", name: "言語人材", img: "/images/talent/language.jpg", Glyph: MessagesSquare, accent: "#e8930c",
-    lead: "JLPT N1以上の、日中バイリンガル。", tags: ["JLPT N1以上", "商社・メーカー・サービス業", "初期費用ゼロ・成功報酬"], service: "OwlMatch Language" },
+    lead: "JLPT N1以上の、日中バイリンガル。", tags: ["JLPT N1以上", "商社・メーカー・サービス業", "初回の採用相談は無料"], service: "OwlMatch Language" },
   { label: "ROBOTICS / AI / IT", name: "ロボット・AI・IT人材", img: "/images/talent/tech.jpg", gear: true, spin: true, accent: "#06b6d4",
     lead: "中国の、ロボット・AI・IT人材。", tags: ["OwlMatch 認定スクリーニング", "ロボティクス・AI・IT", "リモートで試して採用"], service: "OwlMatch Remote" },
   { label: "CROSS-BORDER", name: "スポット人材", img: "/images/talent/spot.jpg", Glyph: MapPin, accent: "#6366f1",

@@ -31,8 +31,8 @@ const features = [
   {
     tag: "Trilingual",
     title: "日中英",
-    jpTitle: "完全三言語対応プラットフォーム",
-    desc: "日本語・簡体字中国語・英語をワンタップで切り替え。CJK表記揺れを吸収する検索エンジンにより、言語の壁を完全に取り払ったマッチングを実現します。",
+    jpTitle: "三言語対応のプラットフォーム",
+    desc: "日本語・中国語・英語で使えるマッチング。",
     col: "md:col-span-2",
     theme: "text-gray-900 border-gray-200"
   },

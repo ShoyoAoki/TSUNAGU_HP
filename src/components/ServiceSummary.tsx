@@ -23,7 +23,7 @@ const features = [
     id: "03",
     label: "OwlMatch Spot",
     title: "スポット案件事業部",
-    desc: "中国・アジア現地でのアテンド、視察、商材リサーチ、AI・データ系の単発タスクまで、日単位で稼働する現地人材を提供。スポット稼働の実績が本線採用（言語系・OwlMatch Remote）への昇格ファネルになります。",
+    desc: "中国・アジア現地での商材リサーチ、AI・データ系の単発タスクなど、日単位で稼働する現地人材を提供します。",
     color: "bg-teal-500",
     shadow: "shadow-[4px_4px_0px_0px_#14b8a6]",
   },

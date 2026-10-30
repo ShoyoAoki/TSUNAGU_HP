@@ -70,7 +70,7 @@ export function EmployerCta() {
   return <section className="om-section om-end-cta"><div className="om-wrap om-end-inner"><div><Eyebrow>OwlMatch 法人向け無料相談</Eyebrow><h2>中国人材の<br />採用相談</h2><p>仕事内容や必要なスキルが決まる前から、ご相談いただけます。</p><p className="om-end-links"><Link href="/service/china-talent">中国人材採用</Link><Link href="/guide">採用ガイド</Link></p></div><div className="om-application"><span className="om-application-badge">初回相談無料・アカウント登録不要</span><h3>無料相談のお申し込み</h3><p>フォームに会社名・連絡先と、ご相談内容をご記入ください。担当者から相談日時の調整についてご連絡します。</p><Action white>無料相談の申込フォームへ</Action></div></div></section>;
 }
 export function CandidateCta() {
-  return <section className="om-section om-candidate-cta"><div className="om-wrap"><div className="om-heading om-centered"><Eyebrow>中国人の方専用・無料オンライン面談</Eyebrow><h2>日本での就職・転職<br />無料オンライン面談</h2><p>現在の状況に合う入口から、お申し込みください。</p></div><div className="om-application-grid"><article><span>これから、初めての就職へ</span><h3>新卒・既卒の方</h3><p>学生の方・就業経験のない方はこちら。</p><Action white href="https://owlmatch.ai/signup?track=newgrad">新卒・既卒の方の無料面談</Action></article><article><span>経験を、次の仕事へ</span><h3>転職をお考えの方</h3><p>就業経験のある方はこちら。</p><Action white href="https://owlmatch.ai/career">転職の方の無料面談</Action></article></div><p className="om-application-note">OwlMatchへの登録後、メールアドレスを確認し、担当者と面談日時を調整します。<br />日本語・中国語対応 ／ オンライン面談</p></div></section>;
+  return <section className="om-section om-candidate-cta"><div className="om-wrap"><div className="om-heading om-centered"><Eyebrow>中国語で相談できる・無料オンライン面談</Eyebrow><h2>日本での就職・転職<br />無料オンライン面談</h2><p>現在の状況に合う入口から、お申し込みください。</p></div><div className="om-application-grid"><article><span>これから、初めての就職へ</span><h3>新卒・既卒の方</h3><p>学生の方・就業経験のない方はこちら。</p><Action white href="https://owlmatch.ai/signup?track=newgrad">新卒・既卒の方の無料面談</Action></article><article><span>経験を、次の仕事へ</span><h3>転職をお考えの方</h3><p>就業経験のある方はこちら。</p><Action white href="https://owlmatch.ai/career">転職の方の無料面談</Action></article></div><p className="om-application-note">OwlMatchへの登録後、メールアドレスを確認し、担当者と面談日時を調整します。<br />日本語・中国語対応 ／ オンライン面談</p></div></section>;
 }
 export const employerFaq = [
   ["採用条件が決まっていなくても相談できますか？", "はい。仕事内容や採用でお困りのことを伺い、必要な経験・スキル・語学力を一緒に整理します。"],
@@ -79,7 +79,7 @@ export const employerFaq = [
   ["アカウント登録は必要ですか？", "無料相談のお申し込みに、アカウント登録は必要ありません。お問い合わせフォームからご連絡ください。"],
 ];
 export const candidateFaq = [
-  ["どのような人が対象ですか？", "日本での就職・転職を希望する中国人の方を対象としたサービスです。新卒・既卒の方も、就業経験のある方もご相談いただけます。"],
+  ["どのような人が対象ですか？", "日本での就職・転職を希望する方を対象としたサービスです。新卒・既卒の方も、就業経験のある方もご相談いただけます。"],
   ["職歴がなくても相談できますか？", "はい。学生時代に学んだことや取り組んだことから、一緒に強みを整理します。"],
   ["まだ転職するか決めていなくても大丈夫ですか？", "はい。ご希望や現在の状況を伺い、今後の仕事選びや活動の進め方を整理します。"],
   ["日本語に自信がなくても相談できますか？", "日本語・中国語でご相談いただけます。求人ごとに求められる言語力は異なるため、面談で確認します。"],
