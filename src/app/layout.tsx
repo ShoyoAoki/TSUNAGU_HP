@@ -86,6 +86,10 @@ export const metadata: Metadata = {
     creator: "@tsunagu_inc",
     images: [`${SITE_URL}/opengraph-image`],
   },
+  // Search Console の HTMLタグ確認用。環境変数があるときだけ <meta name="google-site-verification"> を出力する
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
+    : {}),
   robots: {
     index: true,
     follow: true,
