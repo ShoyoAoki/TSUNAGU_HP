@@ -37,7 +37,7 @@ export default function ChinaTalentPage() {
     ])} />
 
     <ServiceHero label={c.hero.eyebrow} title={lines(c.hero.titleLines)} lead={c.hero.lead} image="/images/corporate-hero/team.png" />
-    {c.status === "draft" && <p className={p.draft}>原稿待ち（仮の文面を表示しています）</p>}
+    {c.status === "draft" && <div className={s.wrap}><p className={p.draft}>原稿待ち（仮の文面を表示しています）</p></div>}
 
     <section className={`${s.wrap} ${s.section}`} aria-labelledby="fields-title">
       <SectionHeading en={c.fields.en} copy={c.fields.intro}><span id="fields-title">{lines(c.fields.titleLines)}</span></SectionHeading>

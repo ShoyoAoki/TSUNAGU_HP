@@ -13,7 +13,8 @@
   padding-bottom: 24px;
 }
 .page *, .page *::before, .page *::after { box-sizing: border-box; }
-.page h1, .page h2, .page h3, .page p, .page ul, .page ol, .page dl, .page dd, .page figure { margin: 0; }
+/* リセットは :where() で詳細度0にし、下のクラス指定の余白を優先させる */
+:where(.page) :where(h1, h2, h3, p, ul, ol, dl, dd, figure) { margin: 0; }
 .page a:focus-visible, .page [tabindex]:focus-visible { outline: 3px solid #da7b00; outline-offset: 4px; }
 .wrap { width: calc(100% - 96px); max-width: 1120px; margin: 0 auto; }
 .column { max-width: 720px; }
@@ -24,7 +25,7 @@
 .breadcrumb a:hover { color: var(--guide-accent-text); text-decoration: underline; }
 
 /* header */
-.header { padding: 48px 0 40px; border-bottom: 1px solid var(--guide-line); }
+.header { padding: 48px 0 8px; }
 .eyebrow { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--guide-accent-text); }
 .header h1 { font-size: clamp(30px, 3.6vw, 46px); font-weight: 800; line-height: 1.45; letter-spacing: -.02em; margin-top: 18px; text-wrap: pretty; word-break: keep-all; overflow-wrap: anywhere; }
 .lead { margin-top: 26px; }
@@ -57,7 +58,8 @@
 .body > h2:first-child { margin-top: 0; }
 .body h3 { font-size: 19px; font-weight: 800; line-height: 1.6; margin-top: 44px; padding-left: 14px; border-left: 3px solid var(--guide-accent); }
 .body h2 + *, .body h3 + * { margin-top: 18px; }
-.body ul, .body ol { padding-left: 1.4em; }
+.body ul { list-style: disc; padding-left: 1.4em; }
+.body ol { list-style: decimal; padding-left: 1.6em; }
 .body li + li { margin-top: .5em; }
 .body li::marker { color: var(--guide-accent-text); font-weight: 700; }
 .body strong { font-weight: 800; background: linear-gradient(transparent 62%, #d8eef6 62%); }
@@ -101,6 +103,7 @@
 
 /* related / list */
 .related { padding: 64px 0 40px; }
+.related > .serviceLink { margin-top: 40px; }
 .sectionTitle { font-size: 22px; font-weight: 800; line-height: 1.5; }
 .list { list-style: none; padding: 0; margin-top: 22px; border-top: 1px solid var(--guide-ink); }
 .list li { border-bottom: 1px solid var(--guide-line); }
@@ -116,7 +119,7 @@
 
 @media (max-width: 1000px) {
   .wrap { width: calc(100% - 64px); }
-  .layout { grid-template-columns: 1fr; gap: 0; }
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .toc { position: static; order: -1; margin-bottom: 44px; }
   .ctaInner { grid-template-columns: 1fr; gap: 30px; }
   .relatedGrid { grid-template-columns: 1fr; gap: 0; }
