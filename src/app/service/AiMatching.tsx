@@ -45,7 +45,7 @@ const MATCHED = POOL.filter((p) => p.score).map((p) => p.id); // 3,10,14,19
 
 const REQ = {
   role: "AI エンジニア（LLM）",
-  must: ["Python / LLM", "日本語 N2 以上", "リモート→来日可"],
+  must: ["Python / LLM", "JLPT N1以上", "リモート→来日可"],
 };
 
 export default function AiMatching() {

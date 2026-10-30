@@ -655,9 +655,9 @@ const services = [
   {
     tag: "Language",
     sub: "日中バイリンガル人材",
-    title: "N2以上のバイリンガル人材を成功報酬で紹介する",
-    desc: "日本語能力試験N2以上・中国語ネイティブのバイリンガル人材を、商社・メーカー・サービス業へ紹介。初期費用ゼロの成功報酬型で、採用リスクを最小化します。",
-    points: ["N2以上のバイリンガル", "初期費用ゼロ・成功報酬型", "全国の主要都市圏に対応"],
+    title: "JLPT N1以上のバイリンガル人材を成功報酬で紹介する",
+    desc: "日本語能力試験（JLPT）N1以上・中国語ネイティブのバイリンガル人材を、商社・メーカー・サービス業へ紹介。初期費用ゼロの成功報酬型で、採用リスクを最小化します。",
+    points: ["JLPT N1以上のバイリンガル", "初期費用ゼロ・成功報酬型", "全国の主要都市圏に対応"],
     barColor: "group-hover:bg-cyan-400",
     badge: { label: "LANGUAGE", bg: INK, text: "#FFFFFF" },
     mockContent: (
@@ -666,7 +666,7 @@ const services = [
           className="w-12 h-12 shrink-0 flex items-center justify-center border-2 border-cyan-600 font-mono text-[11px] font-black text-cyan-700"
           style={{ borderRadius: "2px" }}
         >
-          N2+
+          N1+
         </div>
         <div className="flex-1">
           <div className="text-[9px] text-gray-500 font-bold mb-1.5">日本語評価</div>
@@ -723,7 +723,7 @@ const faqs = [
   },
   {
     q: "候補者の日本語力は、どのように確認できますか？",
-    a: "全候補者が日本語による自己紹介動画を登録しており、話し方・流暢さ・表現力を事前に確認できます。加えて、80以上のAIエージェントが日本語力評価を自動実行し、N2以上の水準を客観的に検証した上で認定しています。",
+    a: "全候補者が日本語による自己紹介動画を登録しており、話し方・流暢さ・表現力を事前に確認できます。加えて、80以上のAIエージェントが日本語力評価を自動実行し、JLPT N1以上の水準を客観的に検証した上で認定しています。",
   },
   {
     q: "入社後のフォローアップはどこまで対応していますか？",
@@ -988,7 +988,7 @@ export default function OwlMatchClient() {
 
                 {/* 小バッジ弾幕4個 */}
                 <div className="flex flex-wrap gap-2">
-                  {["認定率 15〜20%", "80+ AI Agents", "N2以上確認済み", "初期費用ゼロ"].map((label) => (
+                  {["認定率 15〜20%", "80+ AI Agents", "JLPT N1以上確認済み", "初期費用ゼロ"].map((label) => (
                     <span
                       key={label}
                       className="font-mono text-[10px] font-bold px-3 py-1.5"
