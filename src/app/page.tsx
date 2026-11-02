@@ -46,7 +46,6 @@ export default function Home() {
           <div className={serviceStyles.visual}><Image src={service.image === "robotics" ? "/images/corporate-hero/physical-ai-robot-only.png" : `/images/corporate-hero/${service.image}.png`} alt="" width={1200} height={800} sizes="(max-width:700px) 90vw, 30vw" /></div>
           <div className={serviceStyles.body}><span className={serviceStyles.number}>0{i+1}</span><h3>{service.title}</h3><p>{service.copy}</p><span className={serviceStyles.more}>詳しく見る <span className={flowStyles.roundArrow}><Arrow /></span></span></div>
         </Link>)}</div>
-        <p className={flowStyles.serviceLinks}><Link href="/service">中国人材採用の支援内容<span className={flowStyles.roundArrow}><Arrow /></span></Link><Link href="/guide">採用ガイド<span className={flowStyles.roundArrow}><Arrow /></span></Link></p>
       </div>
       <Hiker variant="male-orange" position={flowStyles.hikerService} />
     </section>
