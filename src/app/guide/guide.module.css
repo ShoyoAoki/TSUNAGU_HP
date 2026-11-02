@@ -42,8 +42,8 @@
 .serviceLink a:hover, .body a:hover { color: var(--guide-ink); }
 
 /* layout */
-.layout { display: grid; grid-template-columns: minmax(0, 720px) minmax(0, 1fr); gap: 64px; padding-top: 48px; }
-.toc { align-self: start; position: sticky; top: calc(var(--site-header, 72px) + 24px); border-top: 2px solid var(--guide-ink); padding-top: 16px; }
+.layout { display: grid; grid-template-columns: minmax(200px, 260px) minmax(0, 720px); gap: 64px; padding-top: 48px; }
+.toc { order: -1; align-self: start; position: sticky; top: calc(var(--site-header, 72px) + 24px); border-top: 2px solid var(--guide-ink); padding-top: 16px; }
 .toc p { font-size: 12px; font-weight: 800; letter-spacing: .1em; }
 .toc ol { list-style: none; padding: 0; margin-top: 12px; counter-reset: toc; }
 .toc li { counter-increment: toc; display: grid; grid-template-columns: 26px 1fr; gap: 6px; padding: 9px 0; border-bottom: 1px solid var(--guide-line); font-size: 13px; line-height: 1.7; }
