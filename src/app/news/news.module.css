@@ -7,3 +7,20 @@
 @media(max-width:700px){.page{padding:120px 24px 72px;min-height:65svh}.empty{margin-top:44px;padding:56px 12px}}
 
 .page .listing{max-width:1100px;margin:64px auto 0;padding:0}.listing :global(.articles){margin-bottom:0}
+
+.page .listing{max-width:1240px}
+.page .listing :global(.articles){grid-template-columns:repeat(4,1fr);gap:48px 28px}
+.page .listing :global(.article-card .thumb){margin-bottom:16px}
+.page .listing :global(.article-card .meta){font-size:11px;gap:10px;flex-wrap:wrap}
+.page .listing :global(.article-card h2){font-size:17px;line-height:1.6;margin:10px 0}
+.page .listing :global(.article-card p){font-size:13px;line-height:1.8}
+@media(max-width:1023px){.page .listing :global(.articles){grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.page .listing :global(.articles){grid-template-columns:1fr}}
+
+.heading .imageNote{font-size:11px;line-height:1.7;letter-spacing:.02em;color:#667682;margin:14px auto 0;max-width:36em}
+
+/* 既存AI研究者サムネイルのvw指定をカード幅に追従させる */
+.listing :global(a[href="/news/ai-researchers"] .editorial > div > div:nth-child(1)){font-size:3.8cqw!important}
+.listing :global(a[href="/news/ai-researchers"] .editorial > div > div:nth-child(2)){font-size:5.5cqw!important}
+.listing :global(a[href="/news/ai-researchers"] .editorial > div > div:nth-child(3)){font-size:21cqw!important}
+.listing :global(a[href="/news/ai-researchers"] .editorial > div > div:nth-child(4)){font-size:2.3cqw!important}
