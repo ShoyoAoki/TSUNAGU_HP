@@ -153,3 +153,56 @@
 .article :global(h2),.article :global(h3){font-weight:700}
 
 @media(max-width:600px){.article :global(.article-head h1){font-size:26px;letter-spacing:-.045em}}
+
+/* Figures scoped to the China/Japan internship article. */
+.article :global(.intern-figure){margin:44px 0;padding:26px 24px;background:#f1f7f8;border:1px solid #d4e1e8;border-radius:2px}
+.article :global(.intern-figure h3){margin:0;font-size:21px;line-height:1.6;color:#173a4b}
+.article :global(.intern-figure .intern-figure-sub){margin:6px 0 24px;font-size:13px;line-height:1.7;color:#536b7d}
+.article :global(.intern-figure figcaption){margin-top:20px;padding-top:15px;border-top:1px solid #cbdce3;font-size:11px;line-height:1.9;color:#536b7d}
+.article :global(.intern-comparison){padding:0;background:#fff}
+.article :global(.intern-comparison table){width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px;line-height:1.85}
+.article :global(.intern-comparison caption){padding:23px 20px;text-align:left;font-size:21px;font-weight:700;background:#f1f7f8;color:#173a4b}
+.article :global(.intern-comparison caption span){display:block;margin-top:6px;font-size:12px;font-weight:400;color:#536b7d}
+.article :global(.intern-comparison th),.article :global(.intern-comparison td){padding:16px 14px;text-align:left;vertical-align:top;border-bottom:1px solid #d4e1e8;overflow-wrap:anywhere}
+.article :global(.intern-comparison thead th){background:#173a4b;color:#fff;font-weight:700}
+.article :global(.intern-comparison thead th:first-child){width:21%}
+.article :global(.intern-comparison tbody th){background:#f1f7f8;font-weight:700}
+.article :global(.intern-comparison td+td){border-left:1px solid #d4e1e8}
+.article :global(.intern-comparison figcaption){margin:0;padding:16px 20px;border:0}
+.article :global(.intern-chart){margin:24px 0 0}
+.article :global(.intern-chart-row){display:grid;grid-template-columns:100px minmax(0,1fr) 70px;gap:14px;align-items:center;margin-top:22px}
+.article :global(.intern-chart-label){font-size:14px;font-weight:700;line-height:1.5}
+.article :global(.intern-chart-label small){display:block;font-size:10px;font-weight:400;color:#536b7d}
+.article :global(.intern-chart-track){height:32px;border-left:1px solid #8da6b3;background:repeating-linear-gradient(to right,transparent 0,transparent calc(50% - 1px),#c7d7de calc(50% - 1px),#c7d7de 50%)}
+.article :global(.intern-chart-fill){height:100%;background:#146a85}
+.article :global(.intern-chart-fill-other){background:#8da6b3}
+.article :global(.intern-chart-row strong){font:700 25px/1.2 Arial,sans-serif;background:none;white-space:nowrap;text-align:right}
+.article :global(.intern-chart-row strong span){font-size:15px}
+.article :global(.intern-chart-axis){display:flex;justify-content:space-between;margin:8px 84px 0 114px;font:11px Arial,sans-serif;color:#536b7d}
+.article :global(.intern-timeline){display:grid;grid-template-columns:repeat(4,minmax(0,1fr));list-style:none;margin:26px 0 0;padding:0}
+.article :global(.intern-timeline li){position:relative;border-top:2px solid #9bbac7;padding:18px 14px 0 0;font-size:12px;line-height:1.8}
+.article :global(.intern-timeline li:before){content:"";position:absolute;width:10px;height:10px;top:-6px;left:0;border-radius:50%;background:#146a85}
+.article :global(.intern-timeline-date){display:block;margin-bottom:8px;font-size:15px;font-weight:700;color:#146a85}
+.article :global(.intern-timeline strong){display:block;margin-bottom:8px;font-size:14px;line-height:1.7;background:none}
+.article :global(.intern-timeline li>span:last-child){color:#536b7d}
+@media(max-width:600px){
+.article :global(.intern-figure){padding:22px 16px;margin:34px 0}
+.article :global(.intern-figure h3){font-size:19px}
+.article :global(.intern-comparison){padding:0}
+.article :global(.intern-comparison caption){padding:20px 14px;font-size:19px}
+.article :global(.intern-comparison table){font-size:12px;line-height:1.8}
+.article :global(.intern-comparison th),.article :global(.intern-comparison td){padding:12px 8px}
+.article :global(.intern-comparison thead th:first-child){width:22%}
+.article :global(.intern-comparison figcaption){padding:14px}
+.article :global(.intern-chart-row){grid-template-columns:79px minmax(0,1fr) 54px;gap:8px}
+.article :global(.intern-chart-label){font-size:12px}
+.article :global(.intern-chart-row strong){font-size:21px}
+.article :global(.intern-chart-row strong span){font-size:12px}
+.article :global(.intern-chart-axis){margin-left:87px;margin-right:62px}
+.article :global(.intern-timeline){grid-template-columns:1fr;margin-top:22px}
+.article :global(.intern-timeline li){border-top:0;border-left:2px solid #9bbac7;padding:0 0 24px 22px}
+.article :global(.intern-timeline li:last-child){padding-bottom:0;border-left-color:transparent}
+.article :global(.intern-timeline li:before){left:-6px;top:6px}
+.article :global(.intern-timeline-date){margin:0 0 4px}
+.article :global(.intern-timeline strong){margin-bottom:4px;font-size:15px}
+}

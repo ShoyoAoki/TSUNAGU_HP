@@ -1,9 +1,13 @@
 import styles from "./CorporatePickup.module.css";
 import articleStyles from "../app/news/article.module.css";
 import * as news from "../app/news/listing";
+import { physicalAiCards } from "../app/news/physical-ai";
 import { zh } from "@/lib/i18n/zh";
 
-const { listing } = news;
+const internshipCard = physicalAiCards.match(/<a class="article-card" href="\/news\/china-japan-internship">[\s\S]*?<\/a>/)?.[0];
+const listing = internshipCard
+  ? news.listing.replace(/<a class="article-card" href="\/news\/china-professionals">[\s\S]*?<\/a>/, internshipCard)
+  : news.listing;
 
 /**
  * zh: news articles exist only in Japanese. Each card keeps its Japanese title, is marked lang="ja",
