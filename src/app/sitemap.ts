@@ -58,7 +58,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // 日本語のみのページ（zh版なし・hreflangなし）
   const japaneseOnlyPages: { path: string; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']; priority: number }[] = [
-    { path: '/service/china-talent', changeFrequency: 'monthly', priority: 0.9 },
     { path: '/guide', changeFrequency: 'weekly', priority: 0.7 },
     { path: '/guide/china-talent-merit-caution', changeFrequency: 'monthly', priority: 0.7 },
     { path: '/guide/china-talent-visa', changeFrequency: 'monthly', priority: 0.7 },

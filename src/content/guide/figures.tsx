@@ -354,9 +354,6 @@ function NewGradTimeline() {
 }
 
 export const guideFigures: Partial<Record<string, () => ReactNode>> = {
-  // 専用ページ /service/china-talent
-  "china-talent-fields": () => <Branch root="仕事内容" rootNote="必要な専門性を整理" leaves={["フィジカルAI・ロボティクス", "IT・AI", "日中バイリンガル"]} />,
-  "china-talent-flow": () => <Steps circle steps={["相談", "条件確認", "紹介", "選考", "入社・\n定着"]} notes={{ 4: "入社後も相談可" }} />,
   // 記事1 メリットと注意点
   "merit-caution-1": () => <MeritNumbers />,
   "merit-caution-2": () => <MeritChecklist />,

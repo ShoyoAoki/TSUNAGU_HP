@@ -20,7 +20,7 @@ export function GuideCta({ heading, copy }: { heading: string; copy: string }) {
         <p>{copy}</p>
       </div>
       <div className={g.ctaActions}>
-        <Link className={g.button} href="/service/china-talent"><span>中国人材採用について詳しく見る</span><span aria-hidden="true">→</span></Link>
+        <Link className={g.button} href="/service"><span>中国人材採用について詳しく見る</span><span aria-hidden="true">→</span></Link>
         <Link className={`${g.button} ${g.buttonPrimary}`} href="/contact">採用について相談する<span aria-hidden="true">↗</span></Link>
       </div>
     </div>
