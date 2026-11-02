@@ -9,7 +9,11 @@ import OwlMatchBlink from "@/components/OwlMatchBlink";
 import CorporatePickup from "@/components/CorporatePickup";
 import CorporateHero from "@/components/CorporateHero";
 import ServiceJsonLd from "@/components/recruitment/ServiceJsonLd";
+import { serviceIndex } from "@/content/service-index";
+import faqStyles from "@/app/service/service-index.module.css";
 
+const homeFaqQuestions = ["中国人材の採用について、何から相談すればよいですか？", "どの分野の人材を紹介してもらえますか？", "相談は無料ですか？", "在留資格についても相談できますか？", "採用条件が決まっていなくても相談できますか？"];
+const homeFaq = homeFaqQuestions.map(q => serviceIndex.faq.items.find(item => item.q === q)!);
 const homeTitle = "株式会社TSUNAGU｜中国人材の紹介・定着支援";
 const homeDescription = "中国人材採用・人材紹介の株式会社TSUNAGU。フィジカルAI、IT・AI、日中バイリンガル（JLPT N1以上）の人材紹介と、入社後の定着支援を行います。";
 export const metadata: Metadata = {
@@ -57,6 +61,7 @@ export default function Home() {
         <Hiker variant="female-green" position={flowStyles.hikerProduct} />
       </section>
       <section className={`om-wrap ${flowStyles.about}`} aria-labelledby="about-section-title"><h2 id="about-section-title" className={flowStyles.productTitle}>ABOUT US</h2><div><h2 id="about-title">意志をつなぎ<br/>可能性を広げる</h2></div><div className={flowStyles.aboutCopy}><p>株式会社TSUNAGUは、OwlMatchの開発・運営と、人材紹介・定着支援を行っています。技術と言語の専門性を活かし、人と企業をつなぎます。</p><div className={flowStyles.aboutLinks}><Link href="/company">会社概要<span className={flowStyles.roundArrow}><Arrow /></span></Link><Link href="/philosophy"><span><span style={{display:"inline-block"}}>経営理念・</span><span style={{display:"inline-block"}}>代表紹介</span></span><span className={flowStyles.roundArrow}><Arrow /></span></Link></div></div><Hiker variant="male" position={flowStyles.hikerAbout} /></section>
+      <section className={`om-wrap ${faqStyles.homeFaq}`} aria-labelledby="home-faq-title"><div><Eyebrow>FAQ</Eyebrow><h2 id="home-faq-title">採用に関する<br/>よくあるご質問</h2><Link className={faqStyles.textLink} href="/service#faq">すべての質問を見る →</Link></div><div className={faqStyles.faq}>{homeFaq.map(item=><details key={item.q}><summary>{item.q}<span aria-hidden="true">＋</span></summary><p>{item.a}</p></details>)}</div></section>
       <section className={flowStyles.contact}><div className={`om-wrap ${flowStyles.contactInner}`}><div><Eyebrow>CONTACT</Eyebrow><h2>次の出会いをここから</h2><p>必要な人材や採用時期が固まる前から、ご相談いただけます。</p></div><Link className={flowStyles.contactButton} href="/contact"><span>採用のご相談</span><span className={flowStyles.roundArrow}><Arrow /></span></Link>
 
       </div><Hiker variant="female-green" position={flowStyles.hikerContact} /></section>
