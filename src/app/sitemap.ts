@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { physicalAiPublishedDates } from './news/physical-ai'
 import { SITE_URL } from '@/lib/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -54,6 +55,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const path of ['/news', '/news/space-ai', '/news/china-professionals', '/news/ai-researchers', '/news/stanford-kitchen-robot', '/news/shanghai-drone-delivery', '/news/amazon-unitree-parkour']) {
     entries.push({ url: `${baseUrl}${path}`, changeFrequency: 'monthly', priority: 0.6 })
+  }
+
+  for (const slug of Object.keys(physicalAiPublishedDates)) {
+    entries.push({ url: `${baseUrl}/news/${slug}`, lastModified: new Date('2026-11-02T00:00:00+09:00'), changeFrequency: 'monthly', priority: 0.6 })
   }
 
   // 日本語のみのページ（zh版なし・hreflangなし）
