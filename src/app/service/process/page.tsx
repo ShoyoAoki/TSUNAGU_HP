@@ -5,7 +5,7 @@ export default function ProcessPage() {
   return <main id="main" className="om-page"><div className="om-wrap"><Breadcrumb current="採用の進め方" /></div><section className="om-wrap om-detail-hero om-process-hero"><div><Eyebrow>採用の進め方</Eyebrow><h1><span data-motion="hero-line">ご相談から</span><span data-motion="hero-line"><em>採用の一歩を具体的に</em></span></h1><p className="om-hero-lead">必要な人材、費用、選考の流れ。<br />気になっていることから、ご相談いただけます。</p><Action>採用について相談する</Action></div></section>
     <section className="om-section om-pale"><div className="om-wrap"><div className="om-heading"><Eyebrow>ご相談から入社まで</Eyebrow><h2>採用に向けて<br />条件と進め方を整理します</h2></div><ol className="om-process-list">{[
       ["採用相談のお申し込み", "フォームに会社名・連絡先と、ご相談内容をご記入ください。担当者から連絡し、相談日時と実施方法を調整します。"],
-      ["仕事内容・採用条件の確認", "仕事内容、必要なスキル・日本語力、勤務地、採用時期の希望を伺います。サービスの料金や契約条件もご説明します。"],
+      ["仕事内容・採用条件の確認", "仕事内容、必要なスキル・経験、勤務地、採用時期の希望を伺います。サービスの料金や契約条件もご説明します。"],
       ["候補者の確認・ご紹介", "ご希望条件をもとに候補者の状況を確認します。ご紹介できる場合は、候補者の経験や希望をご案内します。"],
       ["選考・条件の確認", "貴社の選考を進めるため、面接日程などを調整します。専門スキルを含む採用判断は、貴社の選考で確認いただきます。"],
       ["入社に向けた調整・ご相談", "労働条件の確認や入社日の調整をお手伝いします。在留資格・申請手続きについては、ご相談を承ります。"],

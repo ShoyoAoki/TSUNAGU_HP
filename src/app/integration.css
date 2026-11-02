@@ -502,3 +502,7 @@
   .om-physical-lp .om-plp-fields h3{font-size:17px;letter-spacing:-.04em;margin-bottom:7px}
   .om-physical-lp .om-plp-fields p{font-size:14px;line-height:1.8}
 }
+
+/* 法人向けCTA下の関連リンク（中国人材採用・採用ガイド） */
+.om-end-links{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:18px}
+.om-end-inner>div>p.om-end-links a{display:inline-flex;align-items:center;min-height:44px;font-size:14px;font-weight:700;color:var(--om-blue);text-decoration:underline;text-underline-offset:4px}

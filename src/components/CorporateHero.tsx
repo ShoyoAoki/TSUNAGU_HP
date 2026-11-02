@@ -5,12 +5,12 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./CorporateHero.module.css";
 import { zh } from "@/lib/i18n/zh";
 const slides = [
-  { title: "バイリンガル人材・技術人材の採用支援", label: "人と企業をつなぐ", copy: "事業の成長に必要な人材を、国境を越えて。採用から入社後の定着まで、企業の課題に向き合います。", image: "team", alt: "明るいオフィスで協働するビジネスパーソンのイメージ", href: "/service" },
+  { title: "中国人材採用・人材紹介・定着支援", label: "人と企業をつなぐ", copy: "事業の成長に必要な人材を、国境を越えて。採用から入社後の定着まで、企業の課題に向き合います。", image: "team", alt: "明るいオフィスで協働するビジネスパーソンのイメージ", href: "/service" },
   { title: "フィジカルAI人材", label: "技術を実社会へ", copy: "フィジカルAI分野の新卒人材のみをご紹介。大学・大学院での研究や制作で培った専門性を、企業の開発現場につなぎます。", image: "physical-ai-robot-only", alt: "研究開発環境に立つヒューマノイドロボット", href: "/service/physical-ai" },
-  { title: "日中バイリンガル人材", label: "言葉の先の協働へ", copy: "日本語と中国語、二つの言語と文化をつなぐ人材。JLPT N1取得者を対象に、企業に合う人材をご紹介します。", image: "bilingual", alt: "オフィスで資料を確認する二人のイメージ", href: "/service/bilingual" },
+  { title: "日中バイリンガル人材", label: "言葉の先の協働へ", copy: "日本語と中国語、二つの言語と文化をつなぐ人材。JLPT N1以上の人材を対象に、企業に合う人材をご紹介します。", image: "bilingual", alt: "オフィスで資料を確認する二人のイメージ", href: "/service/bilingual" },
   { title: "インターン採用支援", label: "次の世代とともに", copy: "学生の意欲と、企業の現場をつなぐ。受入目的や業務内容に合わせて、インターン採用を支援します。", image: "campus", alt: "大学キャンパスで話し合う学生のイメージ", href: "/service/internship" },
 ];
-const ja = { section: "TSUNAGUの採用支援", carousel: "カルーセル", slide: "スライド", cta: "事業紹介を見る", video: "砂時計を模した無限のアニメーション", position: (n: number, title: string) => `${n}枚目：${title}`, h1: ["バイリンガル人材・", "技術人材の採用支援"], parts: [["フィジカルAI","人材"],["日中バイリンガル","人材"],["インターン","採用支援"]] };
+const ja = { section: "TSUNAGUの採用支援", carousel: "カルーセル", slide: "スライド", cta: "事業紹介を見る", video: "砂時計を模した無限のアニメーション", position: (n: number, title: string) => `${n}枚目：${title}`, h1: ["中国人材採用", "人材紹介・定着支援"], parts: [["フィジカルAI","人材"],["日中バイリンガル","人材"],["インターン","採用支援"]] };
 export default function CorporateHero({ locale = "ja" }: { locale?: "ja" | "zh" }) {
   const t = locale === "zh" ? zh.hero : ja;
   const items = locale === "zh" ? slides.map((slide, i) => ({ ...slide, ...zh.hero.slides[i] })) : slides;

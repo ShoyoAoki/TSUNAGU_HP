@@ -49,8 +49,8 @@ export const metadata: Metadata = {
     default: "TSUNAGU・OwlMatch | 中国人材の採用・就職支援",
     template: "%s | TSUNAGU"
   },
-  description: "株式会社TSUNAGUが運営するOwlMatch。中国人の方の日本での就職・転職と、企業の中国人材採用を支援します。フィジカルAI・ロボティクス、日中バイリンガル、IT・AI、新卒人材の採用をご相談いただけます。",
-  keywords: ["TSUNAGU", "OwlMatch", "中国人採用", "IT人材不足", "クロスボーダーHR", "エンジニア採用", "日中人材", "外国人IT人材", "中国エンジニア", "バイリンガル人材", "言語系人材", "日中バイリンガル", "フィジカルAI人材", "ロボティクス人材"],
+  description: "株式会社TSUNAGUが運営するOwlMatch。中国語を話す方の日本での就職・転職と、企業の中国人材採用を支援します。フィジカルAI・ロボティクス、日中バイリンガル、IT・AI、新卒人材の採用をご相談いただけます。",
+  keywords: ["TSUNAGU", "OwlMatch", "中国人材採用", "IT人材不足", "クロスボーダーHR", "エンジニア採用", "日中人材", "外国人IT人材", "フィジカルAI人材", "バイリンガル人材", "言語系人材", "日中バイリンガル", "ロボティクス人材"],
   authors: [{ name: "TSUNAGU Inc." }],
   creator: "TSUNAGU Inc.",
   publisher: "TSUNAGU Inc.",
@@ -86,6 +86,10 @@ export const metadata: Metadata = {
     creator: "@tsunagu_inc",
     images: [`${SITE_URL}/opengraph-image`],
   },
+  // Search Console の HTMLタグ確認用。環境変数があるときだけ <meta name="google-site-verification"> を出力する
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
+    : {}),
   robots: {
     index: true,
     follow: true,

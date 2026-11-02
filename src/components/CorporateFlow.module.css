@@ -131,3 +131,5 @@
   .story .philosophy h2 span,.journey .contact h2{white-space:normal;overflow-wrap:anywhere}
 }
 @media(max-width:400px){.aboutLinks{grid-template-columns:1fr;gap:18px}.aboutLinks a{min-height:48px}}
+
+/* SERVICE 下の補助リンク（中国人材採用・採用ガイド） */

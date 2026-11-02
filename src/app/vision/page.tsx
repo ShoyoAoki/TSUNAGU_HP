@@ -1,7 +1,7 @@
 import VisionClient from "./VisionClient";
 
 export const metadata = {
-  title: "Vision",
+  title: { absolute: "VISION｜株式会社TSUNAGU" },
   description: "労働機会の国境をなくす。株式会社TSUNAGUのビジョン。",
   alternates: {
     canonical: "/vision",

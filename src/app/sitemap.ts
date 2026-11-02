@@ -56,5 +56,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({ url: `${baseUrl}${path}`, changeFrequency: 'monthly', priority: 0.6 })
   }
 
+  // 日本語のみのページ（zh版なし・hreflangなし）
+  const japaneseOnlyPages: { path: string; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']; priority: number }[] = [
+    { path: '/guide', changeFrequency: 'weekly', priority: 0.7 },
+    { path: '/guide/china-talent-merit-caution', changeFrequency: 'monthly', priority: 0.7 },
+    { path: '/guide/china-talent-visa', changeFrequency: 'monthly', priority: 0.7 },
+    { path: '/guide/china-talent-methods', changeFrequency: 'monthly', priority: 0.7 },
+    { path: '/guide/china-talent-cost', changeFrequency: 'monthly', priority: 0.7 },
+    { path: '/guide/china-talent-new-graduates', changeFrequency: 'monthly', priority: 0.7 },
+  ]
+  for (const page of japaneseOnlyPages) {
+    entries.push({ url: `${baseUrl}${page.path}`, lastModified: new Date('2026-10-30'), changeFrequency: page.changeFrequency, priority: page.priority })
+  }
+
   return entries
 }
