@@ -26,3 +26,12 @@
   .menuLang .lang a,.menuLang .lang span{min-height:44px}
 }
 @media(max-width:500px){.right{gap:4px}.contact{padding-inline:10px}.brand{width:130px}.brand img{width:160px}}
+
+/* Keep submenu links in the initial HTML without exposing closed controls to focus. */
+.mega[hidden]{display:none}
+@media(max-width:900px){
+  .menuChildren{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px;padding:4px 0 12px}
+  .menu nav .menuChildren a{min-height:56px;padding:12px 0;gap:4px;justify-content:center}
+  .menuChildren strong{font-size:13px;line-height:1.5;font-weight:600}
+  .menu nav .menuChildren small{font-size:11px}
+}
