@@ -39,35 +39,51 @@
 
 @media (max-width: 700px) {
   .hero {
+    --hero-top: clamp(24px, 6.5vw, 36px);
+    --hero-fade: clamp(72px, 23vw, 124px);
     margin-top: 0;
     border-bottom: 1px solid #e2eaf0;
   }
 
-  /* The tallest slide determines the shared height; the photo and action sit below the copy on every slide. */
+  /* All slides stretch to the tallest copy while the background fills each slide. */
   .slide {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
+    isolation: isolate;
     height: auto;
-    min-height: 0;
+    min-height: clamp(29rem, calc(76svh - var(--site-header, 75px)), 35rem);
     max-height: none;
   }
 
   .copy {
+    position: static;
     display: grid;
-    grid-template-rows: 1fr auto auto;
-    gap: 16px;
+    grid-template-rows: auto minmax(var(--hero-fade), 1fr) auto;
     width: min(calc(100% - 44px), 560px);
     min-width: 0;
     min-height: 0;
     height: auto;
     margin-inline: auto;
-    padding: clamp(22px, 6vw, 34px) 0 52px;
+    padding: var(--hero-top) 0 52px;
     justify-content: stretch;
     align-items: start;
   }
 
   .text {
     min-width: 0;
+  }
+
+  /* Keep the veil behind the full text even when the visitor enlarges it. */
+  .text::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset-block: calc(-1 * var(--hero-top)) calc(-1 * var(--hero-fade));
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, rgb(250 252 253 / .97), rgb(250 252 253 / .84) calc(100% - var(--hero-fade)), transparent);
+    pointer-events: none;
   }
 
   .copy .eyebrow {
@@ -99,36 +115,33 @@
   .copy .description {
     max-width: 38em;
     margin: 0;
-    color: #405768;
+    color: #253c4d;
     font-size: .875rem;
     line-height: 1.75;
     overflow-wrap: anywhere;
   }
 
   .photo {
-    position: relative;
-    inset: auto;
-    height: clamp(148px, 46vw, 248px);
+    inset: 0;
     overflow: hidden;
-    isolation: isolate;
-    border-radius: 6px;
     background: #f0f5f9;
+    pointer-events: none;
   }
 
   .photo::after {
-    display: none;
+    background: linear-gradient(0deg, #f7fafc 0, rgb(247 250 252 / .89) 31px, rgb(247 250 252 / .52) 58px, transparent 108px);
   }
 
   .slide[data-image="physical-ai-robot-only"] .image {
-    object-position: center top;
+    object-position: 51% center;
   }
 
   .slide[data-image="bilingual"] .image {
-    object-position: center 28%;
+    object-position: 77% center;
   }
 
   .slide[data-image="campus"] .image {
-    object-position: center 32%;
+    object-position: 66% center;
   }
 
   .sandglassSlide .copy {
@@ -136,19 +149,21 @@
   }
 
   .sandglassSlide .photo {
-    background: #f7f8fa;
+    background: #fff;
   }
 
   .sandglass {
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    inset: auto auto 102px 50%;
+    width: min(135%, 680px);
+    height: auto;
+    aspect-ratio: 20 / 11;
+    transform: translateX(-50%);
     object-fit: contain;
-    mix-blend-mode: multiply;
-    mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+    mask-image: linear-gradient(180deg, transparent, #000 12%, #000 85%, transparent);
   }
 
   .cta {
+    grid-row: 3;
     width: 100%;
     max-width: none;
     min-width: 0;

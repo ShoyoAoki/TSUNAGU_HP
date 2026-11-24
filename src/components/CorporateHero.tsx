@@ -71,7 +71,7 @@ export default function CorporateHero({ locale = "ja" }: { locale?: "ja" | "zh" 
               <div className={styles.photo}>
                 {i === 0
                   ? <video ref={video} src="/videos/sandglass.mp4" poster="/images/corporate-hero/sandglass-poster.webp" muted loop playsInline preload="metadata" className={styles.sandglass} aria-label={t.video} />
-                  : <Image src={`/images/corporate-hero/${slide.image}.png`} alt={slide.alt} fill sizes="(max-width: 600px) calc(100vw - 44px), (max-width: 700px) 560px, 100vw" className={styles.image} />}
+                  : <Image src={`/images/corporate-hero/${slide.image}.png`} alt={slide.alt} fill sizes="100vw" className={styles.image} />}
               </div>
               <Link href={slide.href} tabIndex={i === active ? 0 : -1} className={styles.cta}>{t.cta} <span aria-hidden="true">↗</span></Link>
             </div>
