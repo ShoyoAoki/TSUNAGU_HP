@@ -173,8 +173,8 @@
     padding: 9px 21px;
     border: 1px solid rgb(24 44 60 / .2);
     border-radius: 999px;
-    background: #fff;
-    color: #182c3c;
+    background: #182c3c;
+    color: #fff;
     box-shadow: 0 2px 8px rgb(24 44 60 / .1);
     font-size: .875rem;
     line-height: 1.5;
@@ -182,7 +182,7 @@
   }
 
   .cta:hover {
-    background: #eef2f5;
+    background: #263e51;
   }
 
   .cta span {
