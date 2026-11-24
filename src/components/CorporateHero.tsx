@@ -16,32 +16,76 @@ export default function CorporateHero({ locale = "ja" }: { locale?: "ja" | "zh" 
   const items = locale === "zh" ? slides.map((slide, i) => ({ ...slide, ...zh.hero.slides[i] })) : slides;
   const [active, setActive] = useState(0);
   const [focused, setFocused] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const [mobile, setMobile] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [reduced, setReduced] = useState(true);
   const video = useRef<HTMLVideoElement>(null);
   const touch = useRef<{x:number;y:number}|null>(null);
   useEffect(() => {
-    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const update = () => setReduced(media.matches);
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const width = window.matchMedia("(max-width: 700px)");
+    const updateMotion = () => setReduced(motion.matches);
+    const updateWidth = () => setMobile(width.matches);
     const visibility = () => setHidden(document.hidden);
-    update(); visibility(); media.addEventListener('change', update); document.addEventListener('visibilitychange', visibility);
-    return () => {media.removeEventListener('change', update);document.removeEventListener('visibilitychange', visibility);};
+    updateMotion();
+    updateWidth();
+    visibility();
+    motion.addEventListener("change", updateMotion);
+    width.addEventListener("change", updateWidth);
+    document.addEventListener("visibilitychange", visibility);
+    return () => {
+      motion.removeEventListener("change", updateMotion);
+      width.removeEventListener("change", updateWidth);
+      document.removeEventListener("visibilitychange", visibility);
+    };
   }, []);
-  const running = !focused && !hidden && !reduced;
-  useEffect(() => {if (!running) return; const timer = setInterval(() => setActive(i => (i + 1) % items.length), 3000); return () => clearInterval(timer);}, [running, active]);
-  useEffect(() => { const el=video.current;if(!el)return;if(active===0&&!hidden&&!reduced){void el.play().catch(()=>{});}else{el.pause();}},[active,hidden,reduced]);
+  const manuallyPaused = mobile && paused;
+  const running = !focused && !manuallyPaused && !hidden && !reduced;
+  useEffect(() => {
+    if (!running) return;
+    const timer = window.setTimeout(() => setActive(i => (i + 1) % items.length), mobile ? 6500 : 3000);
+    return () => window.clearTimeout(timer);
+  }, [running, active, items.length, mobile]);
+  useEffect(() => {
+    const element = video.current;
+    if (!element) return;
+    if (active === 0 && !hidden && !reduced && !manuallyPaused) void element.play().catch(() => {});
+    else element.pause();
+  }, [active, hidden, reduced, manuallyPaused]);
+  const pauseLabel = locale === "zh" ? "暂停轮播" : "自動切り替えを一時停止";
   const move = (n:number) => setActive(i => (i+n+items.length)%items.length);
   return <section className={styles.hero} aria-label={t.section} aria-roledescription={t.carousel} onFocusCapture={e=>{if((e.target as HTMLElement).matches?.(':focus-visible'))setFocused(true);}} onBlurCapture={e=>{if(!e.currentTarget.contains(e.relatedTarget as Node))setFocused(false);}}>
     <div className={styles.viewport} onTouchStart={e=>{touch.current={x:e.touches[0].clientX,y:e.touches[0].clientY};}} onTouchEnd={e=>{if(!touch.current)return;const dx=e.changedTouches[0].clientX-touch.current.x;const dy=e.changedTouches[0].clientY-touch.current.y;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy))move(dx<0?1:-1);touch.current=null;}}>
       <div className={styles.track} style={{transform:`translateX(-${active*100}%)`}}>
-        {items.map((slide,i)=><article key={slide.image} className={`${styles.slide} ${i===0?styles.sandglassSlide:""}`} aria-hidden={i!==active} aria-label={`${i+1} / 4`} aria-roledescription={t.slide}>
-          <div className={styles.copy}><p className={styles.eyebrow}>{slide.label}</p>{i===0?<h1><span>{t.h1[0]}</span><span>{t.h1[1]}</span></h1>:<h2>{t.parts[i-1].map((part,j)=><span key={part}>{j>0&&<wbr/>}<span className={styles.phrase}>{part}</span></span>)}</h2>}<p className={styles.description}>{slide.copy}</p><Link href={slide.href} tabIndex={i===active?0:-1} className={styles.cta}>{t.cta} <span aria-hidden="true">↗</span></Link></div>
-          <div className={styles.photo}>{i===0?<video ref={video} src="/videos/sandglass.mp4" muted loop playsInline preload="auto" className={styles.sandglass} aria-label={t.video} />:<Image src={`/images/corporate-hero/${slide.image}.png`} alt={slide.alt} fill sizes="100vw" priority={i===0} className={styles.image}/>}</div>
-        </article>)}
+        {items.map((slide, i) => (
+          <article key={slide.image} className={`${styles.slide} ${i === 0 ? styles.sandglassSlide : ""}`} data-image={slide.image} lang={locale === "zh" ? "zh-Hans" : "ja"} aria-hidden={i !== active} aria-label={`${i + 1} / ${items.length}`} aria-roledescription={t.slide}>
+            <div className={styles.copy}>
+              <div className={styles.text}>
+                <p className={styles.eyebrow}>{slide.label}</p>
+                {i === 0
+                  ? <h1><span>{t.h1[0]}</span><span>{t.h1[1]}</span></h1>
+                  : <h2>{t.parts[i - 1].map((part, j) => <span key={part}>{j > 0 && <wbr />}<span className={styles.phrase}>{part}</span></span>)}</h2>}
+                <p className={styles.description}>{slide.copy}</p>
+              </div>
+              <div className={styles.photo}>
+                {i === 0
+                  ? <video ref={video} src="/videos/sandglass.mp4" poster="/images/corporate-hero/sandglass-poster.webp" muted loop playsInline preload="metadata" className={styles.sandglass} aria-label={t.video} />
+                  : <Image src={`/images/corporate-hero/${slide.image}.png`} alt={slide.alt} fill sizes="100vw" className={styles.image} />}
+              </div>
+              <Link href={slide.href} tabIndex={i === active ? 0 : -1} className={styles.cta}>{t.cta} <span aria-hidden="true">↗</span></Link>
+            </div>
+          </article>
+        ))}
       </div>
     </div>
     <div className={styles.controls}>
       <div className={styles.dots}>{items.map((s,i)=><button key={s.image} aria-label={t.position(i+1,s.title)} aria-current={active===i?"true":undefined} onClick={()=>setActive(i)}><span /></button>)}</div>
+      {mobile && !reduced && <button type="button" className={styles.pause} aria-label={pauseLabel} aria-pressed={paused} onClick={() => setPaused(value => !value)}>
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+          <path d={paused ? "M5 2.5 13 8l-8 5.5v-11Z" : "M4 3h2.5v10H4zM9.5 3H12v10H9.5z"} />
+        </svg>
+      </button>}
     </div>
     <p className={styles.srOnly} aria-live={running?'off':'polite'}>{t.position(active+1,items[active].title)}</p>
   </section>;
