@@ -16,7 +16,6 @@ export default function CorporateHero({ locale = "ja" }: { locale?: "ja" | "zh" 
   const items = locale === "zh" ? slides.map((slide, i) => ({ ...slide, ...zh.hero.slides[i] })) : slides;
   const [active, setActive] = useState(0);
   const [focused, setFocused] = useState(false);
-  const [paused, setPaused] = useState(false);
   const [mobile, setMobile] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [reduced, setReduced] = useState(true);
@@ -40,8 +39,7 @@ export default function CorporateHero({ locale = "ja" }: { locale?: "ja" | "zh" 
       document.removeEventListener("visibilitychange", visibility);
     };
   }, []);
-  const manuallyPaused = mobile && paused;
-  const running = !focused && !manuallyPaused && !hidden && !reduced;
+  const running = !focused && !hidden && !reduced;
   useEffect(() => {
     if (!running) return;
     const timer = window.setTimeout(() => setActive(i => (i + 1) % items.length), mobile ? 6500 : 3000);
@@ -50,10 +48,9 @@ export default function CorporateHero({ locale = "ja" }: { locale?: "ja" | "zh" 
   useEffect(() => {
     const element = video.current;
     if (!element) return;
-    if (active === 0 && !hidden && !reduced && !manuallyPaused) void element.play().catch(() => {});
+    if (active === 0 && !hidden && !reduced) void element.play().catch(() => {});
     else element.pause();
-  }, [active, hidden, reduced, manuallyPaused]);
-  const pauseLabel = locale === "zh" ? "暂停轮播" : "自動切り替えを一時停止";
+  }, [active, hidden, reduced]);
   const move = (n:number) => setActive(i => (i+n+items.length)%items.length);
   return <section className={styles.hero} aria-label={t.section} aria-roledescription={t.carousel} onFocusCapture={e=>{if((e.target as HTMLElement).matches?.(':focus-visible'))setFocused(true);}} onBlurCapture={e=>{if(!e.currentTarget.contains(e.relatedTarget as Node))setFocused(false);}}>
     <div className={styles.viewport} onTouchStart={e=>{touch.current={x:e.touches[0].clientX,y:e.touches[0].clientY};}} onTouchEnd={e=>{if(!touch.current)return;const dx=e.changedTouches[0].clientX-touch.current.x;const dy=e.changedTouches[0].clientY-touch.current.y;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy))move(dx<0?1:-1);touch.current=null;}}>
@@ -81,11 +78,6 @@ export default function CorporateHero({ locale = "ja" }: { locale?: "ja" | "zh" 
     </div>
     <div className={styles.controls}>
       <div className={styles.dots}>{items.map((s,i)=><button key={s.image} aria-label={t.position(i+1,s.title)} aria-current={active===i?"true":undefined} onClick={()=>setActive(i)}><span /></button>)}</div>
-      {mobile && !reduced && <button type="button" className={styles.pause} aria-label={pauseLabel} aria-pressed={paused} onClick={() => setPaused(value => !value)}>
-        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-          <path d={paused ? "M5 2.5 13 8l-8 5.5v-11Z" : "M4 3h2.5v10H4zM9.5 3H12v10H9.5z"} />
-        </svg>
-      </button>}
     </div>
     <p className={styles.srOnly} aria-live={running?'off':'polite'}>{t.position(active+1,items[active].title)}</p>
   </section>;
